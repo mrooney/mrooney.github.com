@@ -1,0 +1,117 @@
+---
+layout: post
+title: "A teaser: Desktop integration with encrypted directories for Karmic"
+date: 2009-05-14
+comments: false
+---
+
+<div class='post'>
+Recently I've been working on <a href="https://blueprints.launchpad.net/ubuntu/+spec/ecryptfs-desktop-ui">desktop integration with ecryptfs</a>. <a href="http://blog.dustinkirkland.com/">Dustin Kirkland</a> has done some awesome work enabling encrypted Private directories, as well as entirely encrypted Home directories, and I want to bring a UI to that goodness for the Karmic desktop.<br /><br />UbuntuOne displays a banner at the top of its shares, and this inspired me to borrow the code for use with encrypted Private directories. After a bunch of hacking and debugging, I finally got something to show up:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SgvK9e86AJI/AAAAAAAAAKw/BqYg9C1Z_iU/s1600-h/nautilus-encrypted.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 221px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SgvK9e86AJI/AAAAAAAAAKw/BqYg9C1Z_iU/s320/nautilus-encrypted.png" alt="" id="BLOGGER_PHOTO_ID_5335581341179838610" border="0" /></a><br />Pretty exciting! There is much work to be done behind the scenes but this is an encouraging start. After I get this working I plan on making a UI for installing ecryptfs-utils (the necessary package), setting up an encrypted Private directory, and managing/configuring one (or an encrypted Home). This UI would perhaps be available from System -> Administration -> Encrypted Directories, and would allow a user to have a directory of encrypted files available in a few clicks, which is mounted/unmounted transparently at login/logout.<br /><br />What do you think? Are you currently using an encrypted Home or Private directory? Would you be more likely to if there was a UI to set it up? Please share your thoughts and comments :) I'll be at UDS and can schedule a session on this if there is interest, as well.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Perpetual</div>
+<div class='content'>
+Hi, I really need something like this. My family multimedia center, based on ubuntu, contains a lot of movies (horror and such) that my small children better not click on by accident. Still, I want them to be able to access the cartoons section in the Movies directory. Everybody just uses my account, it is always logged in, so decrypt at login does not cut it. Instead I need something that pops up an "enter decrypt password" dialog when someone tries to access the grown-up movies.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Since I got some upstream questions I'll give an update there. The projects this would touch are ecryptfs-utils and potentially seahorse. ecryptfs-utils has stated an interest in this so that means the nautilus extension, python API, and setup/configuration UI are likely to land upstream there.<br /><br />As far as seahorse I haven't heard anything (I think I contacted them but am not sure), but I'll hopefully meet someone involved in that project at UDS and discuss it with them. Perhaps I'll end up putting an "Encrypted Directories" tab in that utility which allows the installation of ecryptfs-utils and from there allows you to launch the ecryptfs UI. I don't think embedding a whole UI devoted entirely to ecryptfs makes that much sense in seahorse.</div>
+</div>
+<div class='comment'>
+<div class='author'>gourgi</div>
+<div class='content'>
+i really like this approach!<br />nautilus intergration looks very cool!<br />As for the menu approach, i strongly believe that you should talk/work in collaboration with upstream (seahorse?) before implementing yet another system-&gt; administration menu item. Encryption and keyrings  is the right way to go IMHO...<br /><br />Looking forward to have this in karmic! <br />Gourgi</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+What about implementing this nice feature upstream?</div>
+</div>
+<div class='comment'>
+<div class='author'>Wirelizard</div>
+<div class='content'>
+I love the fact that the open-sourced UbuntuOne client has already help produce cool improvements like this.<br /><br />All the closed-source UbuntuOne server software has produced in the same timeframe is controversy in the community!<br /><br />Go open source!</div>
+</div>
+<div class='comment'>
+<div class='author'>Nathan Nutter</div>
+<div class='content'>
+A UI is definitely necessary if desktop users are to take advantage of it. On Mac OS X there is FileVault and it is super easy to setup. However, I don't currently use it because of concerns of stability/corruption. Of course, I have no evidence of this it's just something that got baked into my head. I think it's important to address the "safety" of using a new feature and I hope Canonical/Ubuntu will have some information about using encrypted home folders and/or encrypted directories.<br /><br />Things like:<br />* How do I know some "minor" corruption won't end up locking me out of all my data?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for all the encouraging comments everyone!<br /><br />meastp, for 2-factor encryption with a USB stick I&#39;ll point you to Dustin&#39;s post on how to do exactly what you say! http://blog.dustinkirkland.com/2009/03/ubuntu-encrypted-home-with-2-factor.html<br /><br />wiflye81, the theme is shiki-colors (wise) available on gnome-look and potentially will be added to the community themes package in Karmic.<br /><br />Jim, I am not doing any graphical work for other desktop environments but I have created a python API for ecryptfs and a generic controller for my UI which other DEs can leverage to implement their equivalent quite easily. I&#39;ll probably be talking about this at UDS.<br /><br />Philipp, filename encryption is supported since Jaunty and is the default, though you can specify to not encrypt filenames if you like.<br /><br />Andrew, System -&gt; Preferences does make sense in some ways, and ideally it would be a tab in the Encryption and Keyrings entry there, although that application is done in C++ and Glade, neither of which I am familiar with so I am not sure it will end up there. I suggested Administration simply because it is a somewhat advanced feature, and will lead to data loss if you forget your password. Though ideally this risk can be mitigated with the proper prompts to record your encryption passphrase.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andrew</div>
+<div class='content'>
+Would System &gt; Preferences not be better, as it is on a per user basis, rather than a system wide thing.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I will use encryption for sure with a GUI. :) Keep up the good work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Philipp Kern</div>
+<div class='content'>
+Are filenames encrypted nowadays?</div>
+</div>
+<div class='comment'>
+<div class='author'>Philipp Kern</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alan</div>
+<div class='content'>
+An excellent development, but one which I might not end up using.<br /><br />Reason being - I need to share an encrypted local space with Windows machines on the same network (&amp; a MacBook possible soon ...).  I can (and have for some time) do this with TrueCrypt, although with less desktop integration.<br /><br />So my ideal would be integrated AND Truecrypt compatible.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jim</div>
+<div class='content'>
+Hi There,<br /><br />Thanks for doing this work. :) If possible, would any of this desktop integration be available for Kubuntu or Xubuntu? <br /><br />Per this bug ( https://bugs.launchpad.net/ecryptfs/+bug/365796 ), the ecryptfs functionality was a bit less fleshed-out in Ubuntu's non-GNOME distros for Jaunty, so it would be good to include Kubuntu and Xubuntu folks on this. <br /><br />Thanks again!<br /><br />Jim</div>
+</div>
+<div class='comment'>
+<div class='author'>wiflye81</div>
+<div class='content'>
+Great work, love to see it in karmic.<br /><br />Is this the official new theme for karmic (green looks good for koala and eucalyptus ;)) ?</div>
+</div>
+<div class='comment'>
+<div class='author'>Jeff</div>
+<div class='content'>
++1 for the GUI to set up encrypted directories!</div>
+</div>
+<div class='comment'>
+<div class='author'>MadsRH</div>
+<div class='content'>
+Currently I'm not using encrypted directories, but would be more likely to if there was a slick UI to set it up.<br /><br />Fantastic work :-)</div>
+</div>
+<div class='comment'>
+<div class='author'>Jon Dowland</div>
+<div class='content'>
+I think encrypted-home-by-default for installs is a good goal to reach for. This is the first I've heard of ecryptfs though and I wonder if it's the best tech for the job. I currently use libpam-mount and dm-crypt/luks.</div>
+</div>
+<div class='comment'>
+<div class='author'>clivew</div>
+<div class='content'>
+Excellent concept<br />Love to see it in Karmic<br /><br />Best of luck!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I am really looking forward to using this, especially since the new laws came in in the states saying that when you (re)enter the states they can take any paper or electronic storage device from you for "examination" without any kind of warrant or even suspicion of wrongdoing?! I mean, I have nothing illegal to hide (not even ripped music or movies) but I would prefer customs officials weren't looking at my private documents and photos without me knowing. If they need to ask for a password, they need to give an explanation as to why they want it. :)<br /><br />Anyway, I'm very grateful for your work on this, as the only thing holding me back from using an encrypted directory is a) not knowing how without a gui and b) just wanting to know it's stable first.<br /><br />Given a little time, b. will take care of itself, so I'm very happy to see work on a nice gui!<br /><br />Thank you!</div>
+</div>
+<div class='comment'>
+<div class='author'>meastp</div>
+<div class='content'>
+I would love this!<br /><br />I used encrypted fs a couple of cycles ago, but it was a hassle to have to type the password on start up. Since I am using a laptop, I would like to encrypt at least some of my data, in case of theft etc. This solution will make a breeze, it seems! :)<br /><br />Could you perhaps consider a feature for two-phase security (e.g passphrase-thing on a usb-pen ) on login / unlock ?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Great, i would love it. <br />Kind of EncFSVault wich replaces Apple's FileVault with good encryption. <br />Hope to see this soon</div>
+</div>
+</div>

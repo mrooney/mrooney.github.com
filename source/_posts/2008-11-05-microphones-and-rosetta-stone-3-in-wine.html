@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Microphones (and Rosetta Stone 3) in Wine"
+date: 2008-11-05
+comments: false
+---
+
+<div class='post'>
+Recently I had an urge to brush up on my Spanish and thought I would try Rosetta Stone, however there is no Linux version. I thought instead of "messing around" with Wine I'd just install VirtualBox and use an XP Pro instance. Everything worked alright but the memory and CPU overhead was a little too much for my machine (1.7GHz Pentium M, 1GB DDR). It would run out of memory and thrash the HDD like crazy if almost any other program was running in Linux, defeating a large part of the advantage of virtualizing Windows in the first place.<br /><br />So then I read in Wine's AppDB that Rosetta 3 seemed to work alright with recent versions, so I gave it a shot and it indeed installed perfectly with Wine 1.1.7 (using the PPA in Intrepid). The best part is that Rosetta uses a single sqlite3 database to track users' progress, so all I had to do was copy that over from the VM and all my progress and history was there in my Wine install!<br /><br />But then came the problem: I couldn't get my microphone to work! It worked fine in the VirtualBox setup so I knew my hardware was fundamentally compatible. I then tried as many permutations of the follow settings as I could think of:<br /><ul><li>changing Wine to ALSA or OSS drivers</li><li>enabling and disabling all sorts of ALSA and OSS levels and captures in Volume Control</li><li>running Wine via `padsp`</li></ul>Finally I came across an ubuntuforums thread where someone's solution to getting their microphone working with Wine was setting Wine to use OSS and then:<br /><ol><li>killall pulseaudio</li><li>aoss wine program.exe</li></ol>And that worked for me! I was so full of joy. However, I am a little worried about what consequences killing pulse will have on the system for the duration of the session, and I don't really understand what aoss does. Can anyone enlighten me on why pulseaudio is a part of the problem here, and why aoss is necessary? This was a very helpful solution to me and thought it might be useful to others as well, but does anyone know of a better way that might co-exist with pulseaudio?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Ken</div>
+<div class='content'>
+Seems to be a no-go in 64-bit Linux,  AFAIK I&#39;ve tries all the available methods (attaching to sound ports/channels/devices,  etc).</div>
+</div>
+<div class='comment'>
+<div class='author'>climatewarrior</div>
+<div class='content'>
+Has anybody gotten this to work on a 64 linux system?</div>
+</div>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Aaron Strontsman</div>
+<div class='content'>
+Thanks for this tip, I just found out that this works for Skype (Linux version, actually), too. (Otherwise it would always show me a "sound playback error".</div>
+</div>
+<div class='comment'>
+<div class='author'>crimsun</div>
+<div class='content'>
+Killing PulseAudio and running `aoss foo' accomplishes the same wrapping via LD_PRELOAD as does `padsp foo' with one important distinction: the former wraps directly to ALSA's plugin layer, while the latter wraps to PulseAudio's.<BR/><BR/>Intrepid's PulseAudio isn't as smart as Fedora 10's (i.e., the latter has a boatload of fixes to the latest upstream PulseAudio version - and no surprise, given its creator has been a Red Hat employee for a tick), so the seemingly erratic performance of padsp and PulseAudio is largely resolved already.  You'll see those fixes in Jaunty's.</div>
+</div>
+</div>

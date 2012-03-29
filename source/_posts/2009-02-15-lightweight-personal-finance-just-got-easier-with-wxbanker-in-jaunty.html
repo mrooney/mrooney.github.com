@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Lightweight personal finance just got easier with wxBanker in Jaunty!"
+date: 2009-02-15
+comments: false
+---
+
+<div class='post'>
+<a href="https://launchpad.net/wxbanker">wxBanker</a>, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren't familiar with it? Check out the <a href="https://wiki.ubuntu.com/wxBanker">screenshots</a>! It took a few months of getting over the debian packaging learning curve, and about as much work getting and responding to the reviews from MOTUs, but I did it. I plan on doing a quick point release this week and releasing wxBanker 0.4.0.3, which will sport updated <a href="https://translations.edge.launchpad.net/wxbanker/trunk/+pots/wxbanker">translations in 15 languages</a> (thanks translators!) as well as a minor bug fix or three. Once I get that out and into Jaunty, I'll turn my complete focus (I hope) to the 0.5 series. If you'd like to translate wxBanker to your own language or improve a few of the lacking existing translations (Bosnian, Dutch, and Portuguese particularly), I'd love it! Head over to <span><a href="https://launchpad.net/%7Ewxbanker-translators">https://launchpad.net/~wxbanker-translators</a> and join the fun!</span><br /><br />The 0.5 series is a refactor and a bit of a painful one, as I didn't have a great handle on how to efficiently and smoothly refactor. I could probably do a much better job managing it now, but that's how experience works. All in all it is a much cleaner structure and led to more and better tests, which should allow more agile development and protect against future regressions. Some of the main upcoming features I'd like to get in are transaction tagging, recurring transactions, reporting, online syncing (via mint.com), and csv imports. I'd love for at least a few of those to make it into 0.5, and there is good progress on some of them including csv imports thanks to <a href="https://code.launchpad.net/%7Ekolmis/wxbanker/csvimport">an impressive branch from Karel</a>. On the other hand 0.5 has already been ongoing for about 3 months and I might cut a release into a PPA and get feedback while I add new features, sorting out any 0.5 issues and leading to a robust 0.6 release.<br /><br />Overall I have learned a TON from this project, in no small part thanks to Launchpad. wxBanker started out as a terminal application which stored everything in a pickled linked tuple that I used for myself and added features as I needed them. Eventually I added a GUI (in wxPython) and registered the project on Launchpad, to get free hosted version control as well as more formal bug tracking (instead of a text file :). The combination of Launchpad and [wx]Python being cross-platform made it accessible to everyone, and took it from a project used only by myself to a project available in 15 languages with code contributions from multiple people.<br /><br />So in conclusion, thanks everyone, enjoy wxBanker 0.4.0.3 in Jaunty, and look forward to future versions in my PPA. If you're not on Jaunty yet, you can <a href="https://launchpad.net/%7Emrooney/+archive/ppa">install 0.4 from my PPA</a>, which I'll be updating to 0.4.0.3 as soon as I release it. I'd love for any of your contributions, suggestions, questions, or criticisms to end up <a href="https://launchpad.net/wxbanker">on Launchpad</a>. I'd love to make it as usable and intuitive as possible, so anything that is unclear or confusing would be awesome to hear.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I completely agree - having used a bunch of personal management tools I would love to have the power of wxBanker for my personal finances if only for the easy upload. You can get information about <a href="http://www.interchangefx.co.uk" rel="dofollow" rel="nofollow">Money exchange</a> at here:interchangefx.co.uk</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David: Glad to hear it! I just updated the PPA so you can grab 0.4.0.4 in Intrepid or Jaunty. If you are patching any bugs, 0.4 is a good place, and I will port them forward. Otherwise for new features, 0.5 is a good place for the work.<BR/><BR/>There is no need to wait though; that code should be released soon and I'd love more testers so feel free to do a "bzr branch lp:wxbanker/0.5" and run from there, filing any bugs on launchpad and adding any cool features!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Good to hear you've been working on it. Been keeping an eye on it over the past months, and hadn't noticed any new releases. I've been putting off sorting out my personal finances for way too long, so tonight's the night :-) Will send some patches your way if I come up with any improvements, but maybe I should wait for 0.5 if it's undergoing a major change in codebase?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+It is definitely in my plans to get wxBanker into Debian as well, and Ubuntu prefers it as well. I am not sure of the process involved but I will probably take a look at it after I release 0.4.0.3. I am glad it interests you!<BR/><BR/>It is a fairly simple package, you could probably download the deb and use it fine in Debian, or just download the source and "python setup.py install" yourself :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Can you add that to Debian too? Please don't leave Debian users out in the cold yet again Ubuntu!</div>
+</div>
+</div>

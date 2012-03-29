@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Finding new albums by your favorite bands"
+date: 2009-02-20
+comments: false
+---
+
+<div class='post'>
+The other week I felt a little disconnected from recent music. I was sure that some of my favorite artists had released new albums that I wasn't aware of, but I wasn't sure how to be notified of it. I use <a href="http://last.fm/user/midtown">last.fm</a> when listening to music most of the time, and have been for about 5 years, so I already have a long and dynamic list of my favorite artists, many of which I haven't been keeping up to date with. There are also many places that offer feeds of recent albums, including a private torrent site, Waffles. As a curious programmer I decided to bridge the gap here and write a little proof of concept script that would grab my top last.fm artists and query Waffles to see what was new.<br /><br />About an hour and 100 lines of python later, I had a working proof-of-concept. Right now it only supports Last.fm as a favorites source, and Waffles as a release source, but expanding it by following the same interface should be fairly straightforward. It is up for anyone to branch at <a href="https://launchpad.net/nutunes">https://launchpad.net/nutunes</a>. For any programmer it should be pretty easy to make a favorite source which reads from a text file and use other services like allmusic.com, amazon, or perhaps even iTunes to get a list of recent releases for a given artist. Feel free to branch and create a merge proposal for integrating with other services. As the code is less than 100 lines, I hope it more or less documents itself. To use it just run nutunes.py and it will prompt for your last.fm username, and Waffles credentials.<br /><br />What other ways are people currently staying on top of music of all the bands you are interested in? Heck, maybe Last.fm already has this option, but I sure didn't notice it, and learning and experimenting is fun!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>thisfred</div>
+<div class='content'>
+Cool idea! What I do to stay current, is have an mp3spider[1] crawl a few hundred mp3blogs. This results in a huge bag of mp3 of varying levels of interest to me. The way I wade through them is with a plugin I've made[2] that plays similar[3] songs together (i.e. if I hit a patch of stuff I don't like, I can hit delete until something better comes along.) <BR/><BR/>[1] http://code.google.com/p/barbipes/<BR/>[2] http://code.google.com/p/autoqueue/ designed to be cross player, currently works with mpd, rhythmbox, and my favorite, quod libet<BR/>[3] similarity is looked up by track and artist on last.fm, and by acoustic properties. It's easy to add new sources of similarity.</div>
+</div>
+<div class='comment'>
+<div class='author'>Ritze</div>
+<div class='content'>
+Nice Idea!<BR/><BR/>For Information: There is already a service, which look to MusicBrainz for new albums and singles: www.muspy.com</div>
+</div>
+</div>

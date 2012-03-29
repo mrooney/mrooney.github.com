@@ -1,0 +1,42 @@
+---
+layout: post
+title: "I18N: Making your Launchpad projects translatable (and a call for translations!)"
+date: 2008-10-27
+comments: false
+---
+
+<div class='post'>
+Launchpad provides a wonderful translation service called Rosetta that allows multi-lingual users to translate your application to other languages. If you are a translator and want to help translate my project (only 75 strings with a fair bunch of them being quite short), skip to https://translations.launchpad.net/wxbanker to help me out! I will include you permanently in the credits and you will have helped me greatly!<br /><br />Now, for developers or anyone else interested, I'm going to explain the basic process to go from an English-only application in Launchpad to something that can be easily translated by anyone. This will <span style="font-weight: bold;">internationalize</span> your project, and in a later post I'll explain how to <span style="font-weight: bold;">localize</span> it; that is, once you have translations, how to integrate these into your project so users in other locales see the translated strings instead of English. My project is wxBanker (wxbanker.org), so I'll be using that for reference.<br /><br /><ol><li>First, you'll want to make all your user-visible strings translatable in your code. I used gettext (http://en.wikipedia.org/wiki/Gettext), and it is quite easy in Python. Basically, you wrap all strings you want to be translated in a gettext call, which is typically assigned to the underscore character to be easy to type and read. So "Hello, world!" will become _("Hello, world!"). When your application is run, this call will then translate that string into the appropriate languange (once you have everything set up, which will be Part 2 of this post).<br /><br />Sometimes you may want to restructure or break up larger strings into smaller ones. If you have two strings "Sentence A. Sentence B." and "Sentence A. Sentence C", you may want to gettext those as _("Sentence A.")+_("Sentence B.") and _("Sentence A.")+_("Sentence C."), so that Sentence A only needs to be translated once. However, make sure to give enough context for translators. Basically, apply principles of resuable software design to your strings.<br /><br /></li><li>If you try to run your application now, it probably won't work as the underscore function won't be defined. You'll need to set the locale to the user's default and install gettext. In Python this is:<br /><br />import locale<br />locale.setlocale(locale.LC_ALL, '') # use the environment default '' for ALL purposes<br />import gettext<br />gettext.install("wxbanker") # specify the translation namespace<br /><br />Now you should be able to run your application and everything should work normally in English; we haven't broken anything! To simplify this set up, however, I like to put those above four lines in a separate file such as localization.py, and import that in any file which wraps strings using gettext, so I don't have to duplicate those each time.<br /><br /></li><li>Now you need to generate a translation template. This is fairly straightforward; simply run xgettext at the command line on all the files you used gettext in. For example: "xgettext file1.py file2.py file3.py". This will generate a file called messages.po, which is your template. Rename this to messages.pot (the scheme Launchpad prefers) and we can proceed!<br /><br /></li><li>Now we'll set up Launchpad. Edit your projects details (in my case: https://launchpad.net/wxbanker/+edit) and check the box that says "Translations for this project are done in Launchpad", scroll to the bottom, and click "Change".<br /><br /></li><li>Click the Translations tab of your project in Launchpad and upload the .pot file you generated in step #3. If this is your first time doing so, it will need to be reviewed by a human, and will take perhaps a day to get approved, at which point you will receive an email letting you know it has been and you are good to go.<br /><br /></li><li>Your project can now be translated! Visit your Translations page again (such as https://translations.launchpad.net/wxbanker) to see the status. You won't see anything exciting if there aren't any translations yet and you aren't configured for more than English (click Select Languages in the lower right to change this), but otherwise you will see an option to translate the project for each language other than English that you know, and the status of the translation.</li></ol>If you have been meaning to internationalize your project, give it a shot now! Also, please let me know if I have missed or botched any steps. We'll go through putting the (hopefully) resulting translations into your project in my next post!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+How should I handle glade files?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks so much diegoj, your translation is really great! The goal of the next release of wxBanker (0.4) is localization, both strings and currencies. So users in other locales should see strings (assuming I receive translations for them) and currencies in the expected way.<BR/><BR/>In case the locale currency isn't desired there will be a way to select the desired currency from a pre-populated list of popular ones, which will then affect all accounts. I probably won't implement per-account currencies until a future version, although I can figure out a clean and intuitive way to implement managing this in the UI I may.</div>
+</div>
+<div class='comment'>
+<div class='author'>diegoj</div>
+<div class='content'>
+I have translated wxBanker to Spanish. I hope translation is enough Spanihs-neutral.<BR/><BR/>One question, has wxBanker any way to change transactions currency? As I'm from Spain I don't use US$, I use €. The same occurs to other europeans, and the british people.<BR/><BR/>See you!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Meh, is Rosetta still stupid about not sending translations upstream *FIRST*?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks a lot! I had -no- idea how to make translation templates, and only vaguely had an idea about the rest. I'm planning on making an app I'm working on translatable with LP. However, it's written in C. :) Are there any extra steps I need to take? Obviously the code in step 2 will be changed, but I don't know to what. Thanks.</div>
+</div>
+</div>

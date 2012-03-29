@@ -1,0 +1,102 @@
+---
+layout: post
+title: "Playing Spelunky in Ubuntu with Wine and Compiz"
+date: 2009-02-14
+comments: false
+---
+
+<div class='post'>
+<a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a> is an awesomely addictive indie game, which I highly recommend checking out. It is sort of like Mario meets Nethack. As a side-scrolling, cave-adventuring character, you must venture deeper into the cave, defeating enemies, saving damsels, and collecting money and other fun items. A unique aspect that it takes from roguelike games is that there is really no concept of saving; each "play" typically lasts only a few minutes (much less at first), but you can get shortcuts to different zones to skip ahead once you get better. Also like Nethack, it is a surprisingly rich, detailed, and polished game for all its simplicity.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s1600-h/spelunky_screen.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 240px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s320/spelunky_screen.png" alt="" id="BLOGGER_PHOTO_ID_5302911436052988962" border="0" /></a><br /><br />The unfortunate thing about Spelunky is that only runs in Windows. My initial attempts at running it in Wine proved unsuccessful, but after a while (and playing it on a friend's machine which gave me enough to interest to keep trying), I figured out just the right combination of tricks to make it quite playable in Ubuntu. Here's what you need to do:<br /><br /><ul><li>download <a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a>, make sure you are using compiz, and install <a href="apt://wine">wine</a> and <a href="apt://compizconfig-settings-manager">compizconfig-settings-manager</a>.</li><li>set wine to run in an emulated desktop window. To do this, run "winecfg", go to the Graphics tab, and check "Emulate a virtual desktop". The size isn't really important; I use 800x600.</li><li>extract Spelunky and create a file (if it doesn't exist) called "settings.cfg" and put these contents in it:</li></ul><blockquote><br />1<br />1<br />0<br />0<br />1<br />15<br />15</blockquote><br /><br />This is the default settings, tweaked to the only setting that allows it to run in Wine. You can't configure it normally since it only works in this way, so I had to have my friend change settings on his Windows box and watch what numbers changed. Thankfully for you I have done the hard work.<br /><br /><ul><li>Run Spelunky! Double-clicking it should probably work, but if you want it to play nicely with other applications using audio at the same time, force it to use pulseaudio by running "padsp wine spelunky_0_99_5.exe". It should show a configuration window, but you can't really interact with it. Just click in it and hit enter.</li><li>Now you can play Spelunky, but it is at a 1x zoom level, the only one that plays nicely with Wine. This isn't very usable! Run "ccsm" (System -> Preferences -> CompizConfig Settings Manager") and enable "Enhanced Zoom Desktop" from the second group, "Accessibility". Now you can zoom in by holding your Super key (Windows/Apple/Ubuntu key) and scrolling your mouse wheel in or out. Using this technique you can make Spelunky effectively full screen and if you sit it right in the corner, you will forget you are doing anything strange within a few minutes.</li></ul><br />Okay, that's it! Some initial setup is involved but once you've gotten it to work the first time, all you need to do in the future is run Spelunky and zoom in. As for help playing Spelunky, navigate over to the tutorial area once in the game, and you'll learn everything you need to know! Let me know if it works for you and how much you love Spelunky (it's worth it, I promise!) and don't forget to check out more fun indie games on <a href="http://db.tigsource.com/">tigdb</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This now works for me with Ubuntu Karmic and my ATI video card using latest proprietary driver. Setting the zoom level to a bigger one worked as well, but for some reason the window is bigger than the picture.<br /><br />I did not try the compiz trick as the size is already rather good and I don&#39;t want to mess it up.</div>
+</div>
+<div class='comment'>
+<div class='author'>John W</div>
+<div class='content'>
+Thank you!!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Relet, make sure to be using a newer version of wine from the PPA I mentioned in comment #7.<br /><br />As far as slowness, I only tend to experience slowness if running another Wine app at the same time, but it is otherwise quite smooth, so unfortunately I have no other advice besides minimizing other tasks using the CPU.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I used this guide and I was able to play the game, but it goes really slow and it takes forever to do anything. is there any way to fix this?</div>
+</div>
+<div class='comment'>
+<div class='author'>relet</div>
+<div class='content'>
+I get either of the following errors using spelunky 1.0 and wine 1.0.1:<br /><br />When using the new settings file:<br />X Error of failed request:  GLXBadDrawable<br />  Major opcode of failed request:  128 (GLX)<br />  Minor opcode of failed request:  11 (X_GLXSwapBuffers)<br />  Serial number of failed request:  3528<br />  Current serial number in output stream:  3530<br /><br />When using the old settings file (a window opens, stays black, and repeats the message on console):<br /><br />fixme:d3d:IWineD3DSwapChainImpl_Present Unhandled present options 0x32fcbc/0x32fccc<br /><br />I&#39;ll try a newer version of wine next.</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+I can&#39;t get the game running by following this guide, I get the following error instead.<br /><br />err:dmloader:IDirectMusicLoaderImpl_<br />IDirectMusicLoader_SetObject : could<br />not attach stream to file</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thank you so much for posting this...now I don&#39;t have to borrow my wife&#39;s laptop to play Spelunky!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh never mind upgraded to wine 1.1.20 and it works fine now. thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh whoops i forgot to say what it does :P<br />well the window opens and i get to the configurations screen (which btw you can interact with you just have to click about 100-150 pixels below the actual button). i hit ok and it just closes.</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+Doesn't work for me. i tried what you said. I have Ubuntu 9.04 on a P4 with nvidia 8400 GS<br />i wonder why...<br />oh, and i have wine 1.01</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi bryn,<BR/><BR/>I have been using Wine from the PPA: http://launchpad.net/~ubuntu-wine/+archive/ppa<BR/><BR/>Currently this is 1.1.17 which is an improvement over 1.0.1 in Ubuntu by default.</div>
+</div>
+<div class='comment'>
+<div class='author'>curious.jp</div>
+<div class='content'>
+Michael,<BR/> Which build of Wine are you using? I only get music and severe graphical distortion (as well as graphics inverted on the y axis to boot).<BR/><BR/>Cheers,<BR/> Bryn</div>
+</div>
+<div class='comment'>
+<div class='author'>M-U</div>
+<div class='content'>
+To make the size issue better, set the size to fit your monitor, then in appearance change the Desktop to black<BR/><BR/>Also disable &#39;Allow Window Manager to decorate windows&#39; but let it be controlled<BR/><BR/>Now in compiz enable the &#39;Legacy fullscreen support&#39; and run it<BR/><BR/>Widescreen users keep reading...<BR/>Make the wine virtual desktop have a 4:3(w:h) ratio, do the same steps above, then make a black image(call it ~/black.png), in the decoration plugin, change &#39;all&#39; to &#39;(all) &amp; !(title=Default - Wine desktop)&#39; in the shadows option, in the window rules plugin add a rule for &#39;title=Default - Wine desktop&#39; and keep the y 0, but put (&#39;width of monitor&#39;-&#39;width of virtual desktop&#39;)/2 as the x value<BR/><BR/>now when running the app use the following script<BR/><BR/>#!/bin/bash<BR/>IMG=`gconftool-2 -g /desktop/gnome/background/picture_filename`<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename --type string $HOME/black.png<BR/>CMD TO START APP<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename --type string `echo $IMG | sed &#39;s| |\ |g&#39;`</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hehehe it's like Fred for ZX Sinclair in the mid-80s!<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred/screenshots</div>
+</div>
+<div class='comment'>
+<div class='author'>Murrquan</div>
+<div class='content'>
+Just another reminder to contribute this fix to <A HREF="http://appdb.winehq.org" REL="nofollow">http://appdb.winehq.org</A> ^.^<BR/><BR/>And thanks for the link! Now I'm browsing through all their Linux games.</div>
+</div>
+<div class='comment'>
+<div class='author'>Juanjo</div>
+<div class='content'>
+You should try Cave Story:<BR/>http://www.miraigamer.net/cavestory/<BR/><BR/>It's the best platform game so far.<BR/><BR/>It's not FLOSS, but there's a Linux port that actually works.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Please contribute this information to the WineHQ AppDB!</div>
+</div>
+</div>

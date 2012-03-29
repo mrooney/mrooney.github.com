@@ -1,0 +1,72 @@
+---
+layout: post
+title: "wxBanker 0.5 RC available for testing and translating!"
+date: 2009-04-06
+comments: false
+---
+
+<div class='post'>
+Recently I've been hard at work on the next version of wxBanker, a lightweight personal finance application, and would like to get out the 0.5 release candidate for testing and <a href="https://translations.launchpad.net/wxbanker">translations</a>. To check it out, add my <a href="https://launchpad.net/%7Emrooney/+archive/wxbanker-testing">wxbanker-testing PPA</a>. It also runs on Windows and OSX (albeit less tested), so feel free to grab the <a href="https://launchpad.net/wxbanker/0.5/0.5">source tarball</a> (it's python, so no compilation necessary) and then check out the included README. The only hard dependency is wxpython, although installing numpy and the simplejson library for python allow for graphing and csv importing respectively.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s1600-h/Screenshot-2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 108px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s320/Screenshot-2.png" alt="" id="BLOGGER_PHOTO_ID_5321838548248449858" border="0" /></a><br />wxBanker 0.5 has been a long time in the making, as it represents a large refactor of the underlying code to make everything much faster, more stable, and easier to extend and implement new functionality. This is especially noticeable in the start up time.<br /><br />There is also a new transaction grid which allows for sorting, a CSV import option in Tools (so you can import transactions from your banks initially)<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s1600-h/csvimport.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 315px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s320/csvimport.png" alt="" id="BLOGGER_PHOTO_ID_5321834616567751714" border="0" /></a><br />...and enhanced right-click actions for transactions which now work on multiple selected transactions:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s1600-h/rightclick.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 130px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s320/rightclick.png" alt="" id="BLOGGER_PHOTO_ID_5321835704043570194" border="0" /></a><br />See the included changelog for a full list of new things. Launchpad is also fairly well integrated into wxBanker, so to file a bug or do almost anything else, just use the help menu. The Spanish and French translations are complete but I could really use help everywhere else: <a href="https://translations.launchpad.net/wxbanker">https://translations.launchpad.net/wxbanker</a> !<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s1600-h/helpmenu.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 218px; height: 161px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s320/helpmenu.png" alt="" id="BLOGGER_PHOTO_ID_5321836391963596770" border="0" /></a><br />Check out <a href="https://wiki.ubuntu.com/wxBanker">https://wiki.ubuntu.com/wxBanker</a> for more screenshots, or the wxBanker homepage at<a href="https://launchpad.net/wxbanker"> https://launchpad.net/wxbanker</a> for more information including the users team/mailing list, and the translations team. If you are interested in the less exciting stable version, 0.4.1.0 can be found in the Ubuntu repos as of Jaunty, available in about 18 languages.<br /><br />Enjoy, and let me know of any issues or comments you have, and thanks in advance for translations :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I figured out the problem with the import errors. In the file wxbanker.py, before the import of wx, wx.aui, just add the line: import wxversion; wxversion.ensureMinimal(&quot;2.8&quot;)<br /><br />This way even if wxPython 2.6 is the default on your system, as long as you have 2.8 or better it will use that install for wxBanker.<br /><br />A fix for this has been applied and it should work fine out of the box in the upcoming 0.6 release.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Paul &amp; Cilla, hello !<br /><br />I had the same pb on my Ubuntu Jaunty after installing PyKaraoke because it installed wxpyton 2.6 and I have already 2.8.9.1 so when you have many versions in python, it take the older so it&#39;s why after unistalling wxpython 2.6 (and so PyKaraoke) it&#39;s works fine. So try to find in Synaptic if you have many versions of Wxpython and try out to unistall all of them except 2.8&gt; , but only if not important software you use are depending to them. And normally it have to works instantanly.<br /><br />But i&#39;m not a python expert and if there is a solution or a workaround to have many versions of wxpython (and python himself too) working together without conflict, i&#39;m interrested.<br /><br />So good luck and bye !!<br /><br />PS : to developpers, I&#39;m  forced to say you that multiplatform and easy developpement is not only through WxWidget+Python : Try out QtCreator !! Ok, it&#39;s C++, but it&#39;s so easy, flexible and powerfull, and portable too ! And the software produced is quite more speedy. And you have also an intergrated UI designer which is marvellous. I said that because I discovered it 2 month ago and I have already developed so many project with it so quickly that I can&#39;t stop to talk about it to other developpers because to be really franch, I don&#39;t love python  at all :( ....  It think it is buggy, slow and not very flexible. And for this reason, i&#39;ve started to transcode many Python programs ins C++ to speed-up them (DJL, Alacarte, Elisa, Gnome-packagekit ......). So on these ideas I leave you at your tasks. But very good program ! Thanx.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Paul and Cilla, thanks for trying it out! That is usually the error that you get if your version of wxPython is too old; wxBanker requires at least 2.8.8.0. Do you know what version you have? You can find out by running python from a command line and then typing "import wx; wx.version()". Also, what OS is this? I would try getting the latest version from www.wxpython.org .</div>
+</div>
+<div class='comment'>
+<div class='author'>Paul &amp; Cilla&#39;s Place</div>
+<div class='content'>
+I ran your apt-get install script and tried to run banker. I got this error:<BR/>./wxbanker.py<BR/>Traceback (most recent call last):<BR/>  File &quot;./wxbanker.py&quot;, line 24, in (it says module, but that isn&#39;t allowed in your blog) &lt;    module   &gt;<BR/>    import wx, wx.aui<BR/>ImportError: No module named aui</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+One feature I think is rather important is export to CSV. I was bored this evening, so to amuse myself I whipped up a little module to do just that. I pushed <A HREF="https://code.edge.launchpad.net/~crashsystems/wxbanker/csvexport" REL="nofollow">my branch</A> to launchpad, so feel free to use it if you think it will be useful. I don't have any experience with wxWidgets yet (I've mostly worked with GTK), so I did not write any GUI stuff for this feature. If you don't beat me to it, I may get around to doing that one of these days.<BR/><BR/>Keep up the great work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Cláudio Novais</div>
+<div class='content'>
+Hi Michael,<BR/><BR/>I'm translating to Portuguese and it's almost completed!<BR/><BR/>You are doing a great work, keep going!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+@crashsystems: I think the scope of the application is appropriate for personal and small business finance, at least for the bookkeeping aspects. If there is anything that you find it is missing, I will be happy to implement it as I would like to support small business use as well. Nice print reporting of accounts should be coming in about a month which I imagine is useful. Try it and let me know what it needs!</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+This program looks very interesting. Do you think it would be suitable for a small business that has no need for payroll related features?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+@1: In the first screenshot I am using Dust, now included in Ubuntu as of Jaunty. The other two are Shiki-Colors (Wise).<BR/><BR/>@2: Phil, I am familiar with the term wanker, though didn't know banker was synonymous. I don't really see it is a problem but I will consider any names someone throws out; do you have a suggestion?<BR/><BR/>@3: Thanks for the feedback, that's what I am going for!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Dutch translation finished :-)<BR/><BR/>Great program btw, much more clear than gnucash or similar<BR/><BR/>keep up the good work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Phil</div>
+<div class='content'>
+Is the name significant and fixed? Banker is sometimes used in the UK (esp SE England) as a euphamism for wanker (it derives from the old London tradition of rhyming slang) Adding wx in front just makes it worse!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+looks great. What gnome theme are you using, btw?</div>
+</div>
+</div>

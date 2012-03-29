@@ -1,0 +1,57 @@
+---
+layout: post
+title: "Are feeds the pre-cursor to webhooks?"
+date: 2009-02-17
+comments: false
+---
+
+<div class='post'>
+Recently I've been reading <a href="http://timothyfitz.wordpress.com/2009/02/09/what-webhooks-are-and-why-you-should-care/">Timothy</a> and <a href="http://blog.webhooks.org/">Jeff</a> talk about webhooks. Webhooks are essentially an amazingly simple way to be notified about arbitrary events on the web. In this model, any event producer allows you to supply a URL, which it will post to on each future action with the relevant details, whatever they may be. Then the other day when I was using Google Reader, something struck me: it felt a lot like webhooks, but turned on its head.<br /><br />Anything that offers a feed such as RSS or Atom can be plugged into Google Reader; things like blogs and their comments, twitter searches, commits, downloads, bugs, and build results. As I started plugging more and more diverse things into Reader, I realized that it was basically like the "pull" equivalent of webhook's "push" nature. Instead of telling all these event producers where to contact me, I'm telling Reader where to learn about all the recent events.<br /><br />I may be thinking too shallowly, but in the webhooks world Reader would be the service offering the interface. Then, instead of all these different things offering feeds, you could just plug Reader's hook into them and be notified instantly. Currently, for example, when I ask a question on a blog post, I'll throw the comments feed for that post into Reader so I don't have to keep checking back on the site; Reader will bring the potential answers to me. With webhooks though, I would reverse this and provide the service with the URL of my event consumer.<br /><br />It seems like, as technology and the internet often does, feeds are evolving into what users need them to be. Services are seeing that people want to follow and be kept up to date without having to check back on hundreds of different sites. That's way too much time and information, especially when it all looks different. However, by plugging the feeds of all those things into an aggregator, we gain a central notification place for all these events, and it becomes much more managable.<br /><br />So will webhooks replace the current paradigm that I'm using here, or complement it? They seem to each have their pros and cons. Feeds allow a history, and you won't miss an update because your aggregator was down; it will catch it on the next poll. However webhooks are instant and can be more efficient as you don't have the need for polling at all, but if the producer loses your hook, you're out of the loop.<br /><br />So an overflow of interesting events occurring on the web necessitated a standard way to view them, and we got feeds. Are webhooks the next step of this evolution, or something else entirely?<br /><br />UPDATE: <a href="http://blogger.malept.com/2009/02/on-webhooks-or-push-revolution.html">Mark Lee responds</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>neilg</div>
+<div class='content'>
+Hi Michael<br /><br />I've launched a very simple web service that is similar to some of the tools mentioned in the comments above.  It polls pull-only services, and pushes updates via XML POST to a web endpoint of your choice.<br /><br />At the moment it has adapters for general RSS and for Twitter.<br /><br />http://myqron.com</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: I'd recommend reading my next post http://mrooney.blogspot.com/2009/02/webhooks-and-feeds-as-complementary.html which actually details the advantages to the end user. Push vs pull seems like a subtle difference at first glance, but if you really think about the new uses it allows for, it is quite powerful and opens up a new world to "joe-computer-user".</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+So, it's push, instead of pull?<BR/><BR/>Again, how does this help average-joe-computer-user?<BR/><BR/>How do feeds even help average-joe-computer-user?<BR/><BR/>How can I help push feed/webhooks(syndication) adoption?</div>
+</div>
+<div class='comment'>
+<div class='author'>Erigami</div>
+<div class='content'>
+How is this different from <A HREF="http://www.rssping.com/" REL="nofollow">ping</A>, which is supported by most opensource blogging platforms (eg, wordpress)? Google blog search and technorati already support ping consumption, btw. <BR/><BR/>And if you're talking about an RSS reader being able to add themselves as ping receivers, how will you handle NAT'd IP addresses? More importantly, how will you handle a DoS where an attacker gives a vast number of webhook consumer URLs to a blog?</div>
+</div>
+<div class='comment'>
+<div class='author'>Adam Smith</div>
+<div class='content'>
+Michael,<BR/><BR/>While frustrations with feeds certainly get you thinking down the webhooks line of thought (and they did come before) I wouldn't go as far to say one is a precursor of the other.  Imagine that we had invented webhooks first -- when we started wanting to get reliable delivery of sequential data we might have gone and invented feeds After as a reaction to problems with the endpoint for the hook not always being alive.<BR/><BR/>Feeds and webhooks can benefit a lot from each other if you hook them up right.  Hooks get instantaneous updates and feeds get you an ordered, persistent backlog of events.  If you goal is to consume ALL events in a stream, feeds have all of the Content you want already (you just have to do a lot of work to get it in a timely manner).  Moving to hook-only delivery of events leads you to making difficult or arbitrary decisions on matters like "what does it mean when I don't get 200 OK? what does it mean if I can't even establish a connection?".  If you keep feeds around (and let people request paged feeds that show all events since a given time) you can use hooks to deliver only the feed url and a new last updated time.  This way, even if your client (the hook consumer) is flaky, it can still eat 100.0% of the events in their full detail (which is what you want for a Reader-like app) with minimal polling.  Let hooks be the light-weight hint and don't reinvent things like the Atom Publishing Protocol over hook and get stuck with the requirement of an always-available client.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: the advantage of hooks is that you don't need a middle-man service, which you always do with polling.<BR/><BR/>For example, let's say you want to build your product on an svn commit. All you do is throw a "wget http://buildserver/?build=now" in your post-commit hook. That's it! If your svn server on the other hand publishes a feed (that's more work already) you have to have something to constantly poll that and then trigger the build. Not to mention it will be either delayed or very expensive to poll constantly.<BR/><BR/>Basically, it means you don't have to implement feed-polling/parsing in your event consumer. If it can already have actions triggered via http, you don't have to change it all (especially useful if you don't have direct access to it) and you get it for free.</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+What exactly is the "upgrade" or "upside" of webhooks vs. feeds?<BR/><BR/><BR/>honestly, I understand that imap and push are better than pop and pull<BR/><BR/>but webhooks/feeds just seem too similar to the end-user for me to really understand why I would want to prefer one over the other</div>
+</div>
+<div class='comment'>
+<div class='author'>andrewsomething</div>
+<div class='content'>
+You might be interested in Specto.<BR/><BR/>http://specto.sourceforge.net/<BR/><BR/>"Specto is a desktop application that will watch configurable events (such as website updates, emails, file and folder changes, system processes, etc) and then trigger notifications.<BR/><BR/>For example, Specto can watch a website for updates (or a syndication feed, or an image, etc), and notify you when there is activity (otherwise, Specto will just stay out of the way). This changes the way you work, because you can be informed of events instead of having to look out for them. "</div>
+</div>
+<div class='comment'>
+<div class='author'>John L. Clark</div>
+<div class='content'>
+Michael,<BR/><BR/>The "webhooks" concept that you mention sounds a lot like the work that people are doing with PubSub and XMPP.  Roy Fielding has an interesting article about when it might be architecturally appropriate to use this approach, titled "<A HREF="http://roy.gbiv.com/untangled/2008/paper-tigers-and-hidden-dragons" REL="nofollow">Paper tigers and hidden dragons</A>".  You may find it interesting.</div>
+</div>
+</div>

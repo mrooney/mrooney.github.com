@@ -1,0 +1,32 @@
+---
+layout: post
+title: "Eye tracking and UI framework / window manager integration"
+date: 2009-02-20
+comments: false
+---
+
+<div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZ72AHp-7bI/AAAAAAAAADc/8kb_y3pD_Ac/s1600-h/Screenshot-1.png"><img style="margin: 0pt 0pt 10px 10px; float: right; cursor: pointer; width: 224px; height: 164px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZ72AHp-7bI/AAAAAAAAADc/8kb_y3pD_Ac/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5304947893004594610" border="0" /></a>Eye tracking is the technique of watching the user's eyes with a camera and figuring out where on the screen he or she is looking. While some computer users with disabilities use this technology as their primary input device, it hasn't become very popular. However I think that with webcams being integrated into the majority of new laptops, and multi-core processors with some cycles to spare for image processing becoming ubiquitous, eye tracking deserves to become more popular.<br /><br />I don't believe the technology is accurate enough (yet) to replace your mouse, but it could still improve usability in a few ways. Imagine having the equivalent of onMouseIn and onMouseOut events on widgets when writing a user interface, but for where the user is looking instead. Applications could leverage onLookIn and onLookOut events at the widget level and open a whole new realm of functionality and usability. Videos and games could pause themselves when you look away, or bring up certain on-screen displays when you look at certain corners of the screen. If an application sees you are studying a certain element for a period of time, it may ask if you need help.<br /><br />It would also be interesting to see eye tracking leveraged on the window manager level. Most people use focus follows click to focus windows, and some enjoy focus follows mouse, but imagine focus follows (eye) focus! Using multiple monitors would become much easier if your keyboard input was automatically directed to the application, or even specific field, which you were looking at. Eye gestures, like mouse gestures, could be potentially useful as well, such as glancing off-screen to move to the virtual desktop in that direction.<br /><br />Apple and Linux both seem to be in a good position to implement something like this. Apple has control of both the hardware and the software including the OS, and has been integrating cameras in laptops for a while. As a result they are in a great position to pioneer this field and really have something unique to bring to the table in terms of a completely new user experience. However in the open-source world, Linux is also in a decent spot to do this as the UI frameworks and window managers are all patchable and most webcams are supported out of the box.<br /><br />Eye tracking has the potential to enable us to use computers in ways that were previously impossible. What are your thoughts on eye tracking? Does it have a future in the computing world and where can it take us? And how long will it be before we will take this technology for granted? :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+Yeah, I had the exact same experience. At work I have a dual monitor setup, and running a virtual machine in one of them all the time. Because of this, sometimes you will have windows looking focused on both screens.<BR/><BR/>Focus follows eyes would be nice there, even if it was just window focus (as opposed to the specific control inside a window)</div>
+</div>
+<div class='comment'>
+<div class='author'>egometry</div>
+<div class='content'>
+I remember trying to figure out a good way to do this back in 2002 when I was dealing with my first dualmon setup and I kept having that whole "I look at a different monitor and I start typing into the window I'm looking at but it doesn't have focus" problem.<BR/><BR/>At the time all I could think about was doing it via IR emitters on the arms of my glasses and a receptor grid to figure out which monitor was being looked at.  <BR/><BR/>...But then I learned all of the defensive responses to using multimon and the desire disappeared.  I really haven't thought of this in a while, but I remember getting excited by the prospect of a mouse-free GUI world :(</div>
+</div>
+<div class='comment'>
+<div class='author'>mario.vukelic@dantian.org</div>
+<div class='content'>
+On first glance the focus-follows-eyes sounds intriguing, but I'm afraid I might not always look at what I am typing. I might look at a physical sheet off the computer screen, or I might watch/read one window and type my thoughts in the other.<BR/><BR/>I am not 100% sure that I really do all of this, but it would be worth investigating before spending time on any implementation. <BR/><BR/>I think you need at least something like this: http://www.techsmith.com/morae.asp<BR/><BR/>I use Camtasia at the office (same company) and don't know if Morae already does all you need, but you will need smething that can track eye focus on a widget level and correlate it to screen actions, otherwise you will go mad trying to align eyes in the face cam to the screen capture.</div>
+</div>
+<div class='comment'>
+<div class='author'>jimcooncat</div>
+<div class='content'>
+I think this would be good for anonymous webcam. Follow eyes, cheekbones, nose, chin, and replace with scalable graphics. Send along with poser-type information for skin tone, headwear, hair color. <BR/><BR/>It would be fast, give an appearance of web camming, and give the cammer good options on how they present themselves.</div>
+</div>
+</div>

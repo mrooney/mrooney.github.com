@@ -1,0 +1,102 @@
+---
+layout: post
+title: "wxBanker 0.3 released!"
+date: 2008-10-05
+comments: false
+---
+
+<div class='post'>
+I am proud today to release <a href="https://launchpad.net/wxbanker/trunk/0.3">version 0.3</a> of wxBanker, a free, simple, lightweight personal financial management application for Linux, Windows, and OSX! It is written in Python and wxPython.<br /><br />It is basically like the concept of the checkbook register brought into the 21st century, allowing you to keep track of balances and transactions across multiple types of accounts. It allows you to know the balances of your accounts without relying on your bank or credit card online interface, which is often slow to update and can't take things like uncashed checks into account. Not to mention that entering each transaction into wxBanker makes spending money with debit/credit cards more tangible and can help keep your spending in check. You can also keep track of "virtual accounts" like loans to/from friends, accounts receivable/payable, and allocate funds for specific purchases like a new computer.<br /><br />You can also search your transactions to see how much you have spent in specific areas, and see a graph of your balance over time. Check out the screenshots below:<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SOk6VwNGH1I/AAAAAAAAAAk/wfHFaqlEd5Y/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SOk6VwNGH1I/AAAAAAAAAAk/wfHFaqlEd5Y/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5253794585695887186" border="0" /></a><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOk6whRhG8I/AAAAAAAAAAs/WPKej_ofIvs/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOk6whRhG8I/AAAAAAAAAAs/WPKej_ofIvs/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5253795045544369090" border="0" /></a><br /><br />If you find GnuCash too complex for your purposes and decide to take control of your finances with wxBanker, let me know what you think! In Ubuntu you should only need to install python-wxgtk2.8 and python-numpy. Project page: <a href="https://launchpad.net/wxbanker">https://launchpad.net/wxbanker</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+I toyed around a bit with translating to Slovenian - had some problems with a couple of them. I can't seem to reproduce the error about searching to see it in action - gonna try later again.<BR/><BR/>Also ubuntu still lacks easy locale switching and i got mine set to en.US so still got $ default.<BR/>Will try switching locales and see how € sign looks :D<BR/><BR/>Anyways, keep up the good work.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I got a mention or two of translation offers (thanks preem!), and wxBanker is now translatable in Launchpad (see my latest post on how to do this), so if you know a language other than English and want to translate it, you can do so here: https://translations.launchpad.net/wxbanker. Thanks to anyone who can help out!<BR/><BR/>I also hope to include a lot of feature requests here into future versions, including recurring transactions and per-account currencies.</div>
+</div>
+<div class='comment'>
+<div class='author'>Maxo</div>
+<div class='content'>
+I would be glad to.  I don't know when I will find time to install your app and give it a spin, but when I do I'll post some ideas of common reports I think myself and others would find useful.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi maxo! wxBanker uses a sqlite3 database and a pretty simple structure so rolling a custom report should be pretty simple. I am working on changing the current transaction grid to an ObjectListView, which among many other features, will provide nice report printing (http://objectlistview.sourceforge.net/python/listCtrlPrinter.html), so once I get that integrated, at least basic reporting should be easy to do.<BR/><BR/>If you are willing to take a minute or two and register a blueprint at https://blueprints.launchpad.net/wxbanker mentioning the basic requirements and features of integrated reporting, it would really help me quite a bit get an idea of the use cases so I can implement it!</div>
+</div>
+<div class='comment'>
+<div class='author'>Maxo</div>
+<div class='content'>
+What kind of reporting engine are you planning on implementing?  I would be very interested in being able to generate custom reports.  I found GNUCash's system to be too much of a learning curve.  If the data is stored in a database like MySQL or SQLite then querying data from other apps would be really simple.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+The latest version in trunk (howto: https://answers.launchpad.net/wxbanker/+faq/215) should automatically use the currency which is the default for your locale. The next step is allowing you to choose, and the NEXT step is allowing different settings per account.<BR/><BR/>Aiden, I don't have a mailing list set up (perhaps I should), but I added a FAQ entry for creating and submitting patches here: https://answers.launchpad.net/wxbanker/+faq/214<BR/><BR/>I look forward to checking it out!</div>
+</div>
+<div class='comment'>
+<div class='author'>Aidan Skinner</div>
+<div class='content'>
+Is there a mailing list? How would you like patches?</div>
+</div>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+Thanks for info, Michael. bzr is very cool too, i also use it for some of my own projects.<BR/><BR/>i can translate to Slovenian when you have language files ready.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+And if you want to stay up to date, you can always use bzr. Just use "bzr checkout lp:wxbanker" initially, then you can do "bzr up" in the directory to get updates! I could perhaps integrate this into wxBanker.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I am working on currency selection now, and with the help of Python's locale module, will use the default one for your locale by default, instead of USD by default.<BR/><BR/>For 0.4 I am going to focus on localization so translations (I'll need some help here!) and currency selection are going to be the main goals.<BR/><BR/>Thanks for the suggestions!</div>
+</div>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+very nice indeed.<BR/><BR/>+1 on currency selector and svn link for easy updating.</div>
+</div>
+<div class='comment'>
+<div class='author'>laga</div>
+<div class='content'>
+It'd be most helpful if one could specify a currency other than $.<BR/><BR/>Regards,<BR/><BR/>laga</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+There isn't currently an Ubuntu package, but since it is Python, the source code is the application (no compilation necessary). Just download the release, extract it, and run wxbanker.py with python, something like "python wxBanker-0.3/wxbanker.py", and you should be set, and greeted with an introductory dialog! Don't forget to install python-wxgtk2.8 and python-numpy (optional, for the summary graph) in your favorite way.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+is there any ubuntu repositories i can install or i have to use the source code</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for the suggestion Jack, it is indeed a good one and something I would use myself. The biggest issue that comes to mind is when wxBanker is run, how to figure out which recurring transactions to make. I've spec'd it out at https://blueprints.launchpad.net/wxbanker/+spec/recurring-transactions and would love your (or anyone elses) input and suggestions!</div>
+</div>
+<div class='comment'>
+<div class='author'>Jack</div>
+<div class='content'>
+Looking good.<BR/><BR/>Does this allow for 'scheduled' payments. You know those monthly bills (like ISP, mobile phone, home loan, etc) as well as deposits (ie: Pay), etc.<BR/><BR/>We personally find that is one of the features most of the Linux apps are missing.  :(<BR/><BR/>Using this feature makes it easier for budgeting, and you can then see your incoming/outgoings for the months.  Also makes it much easier when budgeting or wishing to forward project your balances.<BR/><BR/>All in all, it's looking great, and these features would see a bunch of people jump on board. :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Sup! Currently it doesn't support importing from other software, but I'll add a blueprint for it. Sorry, and thanks for the suggestion.<BR/><BR/>If you aren't concerned so much with the past data (or haven't been using GnuCash that long), you can just add accounts to wxBanker at their balance say, last week, and add all the recent transactions up to the present.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sup</div>
+<div class='content'>
+It just might be what I am looking for, I am using GNUcash rightnow, but it is too complex for me. Does you application do imports from GNUcash?</div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+---
+layout: post
+title: "Ensuring that you test what your users use"
+date: 2009-02-23
+comments: false
+---
+
+<div class='post'>
+Recently I've come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my checkout, but fail miserably for anyone else (because the application is broken). What was happening?<br /><br />1) I had a new file which is required to run, but I forget to 'vcs add' it. Because the file existed in my sandbox, everything was well. But no one else was getting this file, so they couldn't even run the application. This one is somewhat easy to detect because a 'vcs st' should show that file as unknown status. In that way ensuring a clean status before running the tests can help avoid this. However this won't work well in an automated fashion because there are often unversioned files, and you typically want to run the tests before committing anyway.<br /><br />2) A time or two I thought I had completely removed/renamed a dependency but forgot to clean up an import somewhere along the line. Even though the original .py file was gone, a .pyc file by the old name still existed, which allowed the lingering import to work. Again however, for anyone else getting a fresh checkout or release, this file would not be avaible and the app would be unusable.<br /><br />How can you avoid having problems like this? Well, from a myopic viewpoint you could have your test suite delete any .pyc files before running. Then to address the first issue, you could also test that a 'vcs st' has no unknown files, and explicitly ignore any unversioned files you expect. But still, other things could creep up. And while having another machine as your "buildbot" would avoid the first issue, you are still prone to an attack from the second. To really make sure you are testing with the same stuff that you release, you need to be testing releases. In other words, you need to be putting your version through your shipping process, whatever that is, and then testing the final product.<br /><br />So now that I've realized this is what I should be doing, I'm not quite sure what the simplest and easiest way to do it in an automated fashion is. For python, perhaps this could be achieved by getting a fresh export/checkout of the code in a temporary directory, adding that directory to sys.path, and importing and running the tests. I am sure this is a common problem; is there a common solution?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+I had this problem the other day releasing some code at work. <BR/><BR/>The way I do a release is to run my release script, which reads in file lists scattered around the program, copies them to a new place, compiles them and runs all the tests. It then runs a make clean(*) and builds a tar ball. The file lists are used for generating the makefiles, so all the dependencies are explicitly listed.<BR/><BR/>To release, I untar it into another teams subversion repository, add it and commit. <BR/><BR/>It sounded pretty foolproof to me. So, I untarred it, ran "svn add", then tried compiling it, testing it etc and everything worked. I checked "svn stat" to make sure I wasn't going to commit anything by accident, and it all looked fine.<BR/><BR/>The next day, I had an email telling me that I broke the build :-). <BR/><BR/>It turned out that when I was creating the file list used for building the release, I accidentally included a backup file ("somefile.c~") in the list. The tarball included the file (since the release script copies all the files listed), so when I untarred it into the svn repository, the file was put in there. But if you do an svn add, it will skip over such files. So when I committed, the backup file was missing, which then made the makefile barf, because all the files from the file list are dependencies.<BR/><BR/>I can't quite think of a good way to prevent this from happening again. <BR/><BR/>(*) This is one step where things could go wrong - if the clean target doesn't delete everything, then the release will include files that should be generated.</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+by rapid iteration I mean continuous integration</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+We have the first problem on our website as well; forgetting to check in a .php file.<BR/><BR/>We don't have an automated solution, but rapid iteration helps make it a non-issue.  Basically, we haven't trained ourselves to ignore unversioned files, because we're used to never having any.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+We delete .pycs and .pyos as a BuildBot step.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I have had great success setting up an acceptance test suite that actually constructs an installer, installs the software, and starts the application.<BR/><BR/>We then test the application by prodding it from outside its process. (eg with Windows messages)</div>
+</div>
+<div class='comment'>
+<div class='author'>James Westby</div>
+<div class='content'>
+Hey Mike,<BR/><BR/>I've one suggestion that may be appropriate: build a package.<BR/><BR/>If you use "bzr-builddeb" then this could be as simple as running "bzr bd" every so often, installing the resulting deb, and testing the system version.<BR/><BR/>That would check various things, and would catch exactly the case you describe with not running "bzr add"<BR/>on the filename.<BR/><BR/>Thanks,<BR/><BR/>James</div>
+</div>
+<div class='comment'>
+<div class='author'>dsas</div>
+<div class='content'>
+patch queue manager should do all you require I think.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jose M</div>
+<div class='content'>
+I think that in the books "Expert python programming" and "Foundations of Agile python development" cover this topic in depth.</div>
+</div>
+</div>

@@ -1,0 +1,37 @@
+---
+layout: post
+title: "wxBanker 0.7: simple personal finance"
+date: 2010-02-07
+comments: false
+---
+
+<div class='post'>
+Your favorite personal finance application, <a href="https://launchpad.net/wxbanker">wxBanker</a>, has turned 0.7!<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s1600-h/wxBanker-0.7a.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s400/wxBanker-0.7a.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435634666672162130" /></a><br /><br />This release comes about 2 months after the previous release, and focuses on usability and user experience issues that I obtained from watching people use wxBanker as well as from Launchpad bugs (thanks <a href="https://bugs.launchpad.net/wxbanker/+bug/496878">Arty</a>!). Let's take a look at some of the changes, starting with the account control:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s1600-h/wxbanker-6-7-accountctrl.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 129px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s400/wxbanker-6-7-accountctrl.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435614404389456130" /></a><br /><br />On the right we have the new account chooser in 0.7. The main change is using radio buttons for the accounts instead of links. This is a much better, already understood method for choosing accounts, and will also fit in with themes better. The last item is now "All accounts" and is selectable, making it easy to get a view of all your transactions and search in them.<br /><br />The "Hide zero-balance accounts" option has moved to the View menu, and now has a keyboard shortcut. I've also removed the total number of accounts from the header, as well as the colons after the account names, to reduce clutter. Finally, everything has been given a bit more padding and the buttons have been slightly rearranged.<br /><br />Additionally, the previous graphing library has been replaced by cairoplot (thanks <a href="https://blueprints.launchpad.net/wxbanker/+spec/replaceable-plot-renderers">Karel</a>!), which looks much more attractive. Let's check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s1600-h/wxBanker-0.7b.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s400/wxBanker-0.7b.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435627406528133794" /></a><br /><br />The Summary view allows you to see a graph of your balance over time, and you can view a graph of a specific account or all accounts by using the account chooser on the left (previously the graph had its own account chooser, that was silly!).<br /><br />And in case you missed the 0.6 announcement, that version brought recurring transactions, XDG directory support, and more intuitive behavior regarding deleting/editing transfer transactions.<br /><br />For downloads and the full list of features and bug-fixes, check out the <a href="https://launchpad.net/wxbanker/0.7/0.7">release page</a>. You can also add <a href="https://launchpad.net/~wxbanker-users/+archive/ppa">the PPA</a> for easy installation and upgrades.<br /><br />If you'd like to stay in the loop join the <a href="https://launchpad.net/~wxbanker-users">wxBanker Users team</a> (and announcement mailing list) on Launchpad, follow <a href="http://twitter.com/wxbanker">wxBanker on Twitter</a>, or hang out in #wxbanker on irc.freenode.net.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Forest</div>
+<div class='content'>
+I like the message panel idea.  That sounds like a perfect way to do it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Forest: That seems like a good idea. Can you think of a good way to fit this into the flow without some sort of modal pop-up? What would account creation look like; would this be required or just simpler to do?<br /><br />Maybe using a message panel (as used when creating recurring transactions) to say something like &quot;Your account has been created.&quot; with a button &quot;Add initial balance&quot;, that enables a box an amount field next to it, where you can enter it and it will enter the transaction with date today and description &quot;Initial balance&quot;?</div>
+</div>
+<div class='comment'>
+<div class='author'>Forest</div>
+<div class='content'>
+Why don&#39;t you just have it query the user for an initial balance every time they create a new account and then automatically create the transaction representing that initial balance?  This is consistent with the way you&#39;re suggesting users use the program, but also more intuitive.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Anonymous! Once you create the account, just add a transaction representing your initial balance via the controls on the bottom, just like you would in any sort of ledger. Then add transactions from there as they occur!<br /><br />Do you have any suggestions for making this more intuitive? I&#39;d love to hear any of your suggestions!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+haven&#39;t really figured out how, after I create an account, I can set up the current balance of my account...</div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "Installing new languages and running applications in them"
+date: 2009-02-07
+comments: false
+---
+
+<div class='post'>
+Awhile ago I promised to explain how to run applications in a different locale. This is quite useful as a developer, so that you can more robustly test your localization code. It can also be useful to translators who are translating to a locale which is not their default. Maybe you are learning a new language and want some extra practice in specific applications. Or, you may just want to see what your favorite application looks like in Russian or Hindi :)<br /><br />There are basically only two steps to this rather simple process.<br /><br />1. <span style="font-weight: bold;">Install the desired languages</span>. Go to System -> Administration -> Language Support. Scroll down the list, checking the "Support" box on the right for any language you want on your system. Once you are done click Apply and the necessary files will be downloaded for you. A logout and login is recommended by the application after this, and while not necessary, I recommend it as well (I've had a rare instance or so of segfaults when trying to use the locales before restarting the sesssion). If you want to follow along, ensure Russian is one of your choices.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 248px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5300336927231275250" border="0" /></a><br /><br />2. <span style="font-weight: bold;">Run the application under a different locale</span>. You need to figure out the locale code that you want to run. In a terminal, run "locale -a" without the quotes, and you will see a list of all locales available on your system. If I want Russian, the one I am looking for in this list is "ru_RU.utf8". It is usually fairly obvious which one you want. Now, again in a terminal, just add "LC_ALL=ru_RU.utf8" before the application you want to run. If we want a Russian calculator for example, we would execute "LC_ALL=ru_RU.utf8 gcalctool". Ta-da!<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 268px; height: 320px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5300334032395034114" border="0" /></a><br /><br />This is a great way as a developer to make sure your applications are <a href="http://mrooney.blogspot.com/2008/10/i18n-making-your-launchpad-projects.html">correctly detecting locales</a>. I'd love to hear what you think and if there are any other reasons I missed that you may want to do this!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>sebastian-s</div>
+<div class='content'>
+Hi!<BR/>thanks for the post, just two days ago I was messing around with Evolution and locals. I'm currently on en_AU and Evolution displays the time in 12h (am/pm) format in the email list view. Strangely in the email-detail view (or whatever it's called) the time is displayed in 24hrs.<BR/><BR/>I did some reading about this 'bug', which is not a bug for some. [<A HREF="https://bugs.launchpad.net/evolution/+bug/48128" REL="nofollow">launchpad bug 48128</A>]<BR/><BR/>In the end I found out that setting the time local to say en_DK (LC_TIME=en_DK.UTF8) gives me 24hrs in Evolution.<BR/><BR/>Cheers,<BR/><BR/>seb</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks Sébastien, it is the rather popular Dust theme: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme . Don't forget to set your panel background, listed under "Other stuff to try". I also use the Firefox theme.<BR/><BR/>And if you aren't using gnome-colors as your icon set, I'd also recommend that :) https://wiki.ubuntu.com/Artwork/Incoming/Jaunty/gnome-colors and give it a vote if you like it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sébastien Giguère</div>
+<div class='content'>
+Hi! I just remarked that your theme is very nice, can you tell where can i get it? Thanks very much!</div>
+</div>
+<div class='comment'>
+<div class='author'>Livio</div>
+<div class='content'>
+Русский? Such a beautiful language... It seems I'm not alone with my crazyness around this language :D .</div>
+</div>
+</div>

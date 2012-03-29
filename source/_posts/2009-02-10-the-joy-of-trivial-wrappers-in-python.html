@@ -1,0 +1,37 @@
+---
+layout: post
+title: "The Joy of Trivial Wrappers in Python"
+date: 2009-02-10
+comments: false
+---
+
+<div class='post'>
+Python is a great language, but if you have ever tried to do anything web-related beyond a basic page fetch, it gets complicated quickly. What are single actions in your mind become multiple operations in Python.<br /><br />Take for example POSTing some variables to a page. You are going to have to import both urllib and urllib2, and know what is in each of these. Use urllib.urlencode to encode your post variables, then pass them into urllib2.urlopen to get a connection object, then read that. Yikes! Oh, does the site require cookies? That's another import and three lines of code; I hope you like reading up on CookiePolicy's!<br /><br />Attempting to accomplish this task with built-in modules will likely result in something similar to:<br /><br /><blockquote>import urllib, urllib2<br />from cookielib import CookieJar, DefaultCookiePolicy<br /><br />cj = CookieJar( DefaultCookiePolicy(rfc2965=True) )<br />opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))<br />urllib2.install_opener(opener)<br />postVars = urllib.urlencode({"username": x, "password": y})<br />conn = urllib2.urlopen("http://example.com/login.php", postVars)<br />htmlResult = conn.read()</blockquote><br /><br /><br />Compared to Java or C#, this is probably a terse solution. We are using Python however (for a reason), and that block of code sucks; that's not how anyone thinks. It is hard to remember, leads to copy-and-paste code, and isn't particularly readable. It also requires you to work with things you probably don't care about such as cookie policies, openers, and url encoding. You just want to send a page a message!<br /><br />After forgetting between projects and having to re-discover how to implement this functionality a few times over already, I finally decided to write something to remember it for me. Suddenly we can write:<br /><br /><blockquote>import web<br /><br />web.enablecookies()<br />htmlResult = web.post("http://example.com/login.php", {"username": x, "password": y})</blockquote><br /><br /><br />The web module is <a href="http://bazaar.launchpad.net/%7Emrooney/nutunes/trunk/annotate/head%3A/web.py">quite short</a> and not even remotely impressive (you could write what I've exposed here in 5 or 6 lines), but it takes something I found tedious and verbose and turns it into something simple. It adapts the broken-down functionality of these libraries to the more abstract level that I think on. Everyone thinks (and works) differently, and surely for some people it WOULD make sense (and be necessary) to open connections and read from them (if at all) byte by byte.<br /><br />My interest in posting this has less to do with this specific example, and more to do with finding out what other "thought adapters" people have written to make something easier, more readable, or more pleasant. I have a few of these and pull them as I need them for various projects. What about you?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Who knows where to download XRumer 5.0 Palladium? <br />Help, please. All recommend this program to effectively advertise on the Internet, this is the best program!</div>
+</div>
+<div class='comment'>
+<div class='author'>reedobrien</div>
+<div class='content'>
+You should add head, get, put and delete methods. Maybe a few more...</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+Whoa, awesome; I didn't know about that.  o_O  Thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Check out http://wwwsearch.sourceforge.net/mechanize/  It's designed to mimic most of the browser's behavior with minimal coding.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sin</div>
+<div class='content'>
+I've made a Future class for myself that take a function, it's arguments and an optional callback and runs the function in a separate thread. Similar to twisted's DeferToThread.<BR/><BR/>I find it easier to reason about async i/o for some reason.</div>
+</div>
+</div>

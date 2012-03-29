@@ -1,0 +1,9 @@
+---
+layout: post
+title: "Diving into EC2 and Auto Scaling"
+date: 2010-12-21
+comments: false
+---
+
+<div class='post'>
+I'm rather new to EC2 (and as a result its CloudWatch / Auto Scaling features), so I figured I'd post about my current thoughts and see if anyone can tell me if I'm on the right track! I'm writing everything up as I go, so hopefully it will make a solid blog post for others in the future for going from zero to EC2 + Auto Scaling.<br /><br />Based on my initial research, it looks like the stack will be comprised of:<br /><ul><li>64-bit Maverick AMIs on micro instances, from <a href="http://uec-images.ubuntu.com/releases/10.10/release/">http://uec-images.ubuntu.com/releases/10.10/release/</a></li><li>Puppet for bootstrapping new instances and maintaining existing ones (via the series at <a href="http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/">http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/</a>)</li><li>Amazon's CloudWatch + Auto Scaling for spinning up/down instances of puppet roles as necessary</li></ul><div>Any yays or nays on this stack? One particular curiosity I had is if Mathiaz's guides would be simpler in Maverick, since they were written for Lucid and it seems like each release brings improvements for both EC2/UEC and Puppet. I'll also have to figure out how to put some of the roles behind a load balancer, but that's for later.</div><div><br /></div><div>Thanks for any suggestions! Once I've got it all figured out I'll put up a somewhat comprehensive guide, unless one already exists that I've missed.</div></div>

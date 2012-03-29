@@ -1,0 +1,72 @@
+---
+layout: post
+title: "Is Intel the answer to Broadcom wireless problems?"
+date: 2010-04-26
+comments: false
+---
+
+<div class='post'>
+While I love my Dell XPS 1330 as an Ubuntu laptop, I've been growing quite tired of my Broadcom wireless card that came in it (I swore it had Intel wifi when I bought it). It requires downloading drivers to work (this can lead to a bit of a bootstrapping problem), and seems to frequently drop connections or have issues connecting.<br /><br />I'm assuming this is due to Broadcom's poor drivers, particularly 64-bit (I remember kernel panics and lack of WPA2 in the not-too-distant past), and was assuming an Intel card would clear my problems right up.<br /><br />Has anyone had problems with Broadcom and fixed them by switching to Intel? If so, could you offer any suggestions as to if I might want the Intel 4965, 5100, or 5300 card?<br /><br />Thanks, dear Ubuntu Planet and other readers!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for all the feedback! The consensus definitely seems to be that Intel provides a better experience, so I think I&#39;ll grab a 5300.</div>
+</div>
+<div class='comment'>
+<div class='author'>Tom Cameron</div>
+<div class='content'>
+Adding another success story with an Intel A/G/N card. Unfortunately, the Intel drivers do not yet use 802.11n mode.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mackenzie</div>
+<div class='content'>
+4965 is nice as long as you&#39;re not on Intrepid (though that may have been fixed since then too).</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I have a Intel 5300 and it works absolutely superb. Only tested it with 10.04, but everything works out-of-the-box and reception seems very good. AP mode also worked with no extra setup. Packet injection to &quot;test&quot; WEP encryption will work as well with some patches applied.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alex Wauck</div>
+<div class='content'>
+Buying a laptop from a Windows-oriented vendor like Dell is always a crapshoot.  The presence of Broadcom wifi is the reason I will not purchase Dell&#39;s otherwise fine Ubuntu machines.  I made sure that my current HP notebook had all Intel hardware when I bought it, but I think I will go with System76 or Zareason next time, if only for personal peace of mind.  Also, it&#39;s nice to get a computer without funding Microsoft.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I can only confirm your suspicion. My last laptop had broadcom 43something. One year a go I suffered lockups and dropped connections.<br /><br />My current laptop has intel 5100 which is pretty much rocksolid. a plus is that 5100 is capable of wirless-N.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+The Live CD quite happily loads bcmwl-kernel-source off the CD and installs a functional wireless driver.<br /><br />Yet even now, in Ubuntu 10.04, an installed Ubuntu is unable to find and install the same package. Getting a working Broadcom driver seems to require a wired connection, even though a complete package is present on the CD.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Intel wireless generally works well, but unfortunately it always requires a non-free firmware blob that prevents adding features like AP mode. Fortunately they do have Monitor mode.</div>
+</div>
+<div class='comment'>
+<div class='author'>Shivan</div>
+<div class='content'>
+ot my m1330 with intel wireless, no problem.</div>
+</div>
+<div class='comment'>
+<div class='author'>nxadm</div>
+<div class='content'>
+Yes, Broadcom was kind of tricky but it <a href="http://nxadm.wordpress.com/2008/05/21/broadcom-wifi-bcm4312-speedup-on-ubuntu-804-on-a-hp-nc6320-laptop/" rel="nofollow">worked fine</a> at the end.<br /><br />However, when purchasing a laptop myself I made sure that the video and the wifi were Intel. <a href="http://nxadm.wordpress.com/2010/02/09/dell-windows-refund-win/" rel="nofollow">Great choice</a>, as they work out of the box.</div>
+</div>
+<div class='comment'>
+<div class='author'>jorge</div>
+<div class='content'>
+I have one of these with a 4965 and it&#39;s rock solid.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I have had nothing but trouble with Broadcom cards - even when they work it seems to me they have poorer reception than Intel equivalents.<br /><br />I yanked the Broadcom that came with my M1330 out quickly and replaced it with an Intel 3945 ABG card and it&#39;s been flawless.<br /><br />I recently got a Studio 14Z which came with a Broadcom G-only card (which was the only option, is this 2006?) and it would work for a bit and then totally crash the closed-source driver.  The STA driver worked a bit better, but replacing it with a 5100 AGN card was what really did the trick.  Worked great.<br /><br />Sadly I had to return the 14Z because Dell&#39;s stupid site doesn&#39;t tell you that you don&#39;t get WWAN antennas unless you pop the extra $50 for custom case color, but I&#39;ll likely get another one soon.</div>
+</div>
+</div>

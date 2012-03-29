@@ -1,0 +1,67 @@
+---
+layout: post
+title: "Setting up a fingerprint reader with ThinkFinger in Ubuntu 8.10"
+date: 2009-02-13
+comments: false
+---
+
+<div class='post'>
+If your laptop has a fingerprint reader installed in it, there's a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo. Since the <a href="https://bugs.edge.launchpad.net/ubuntu/+source/thinkfinger/+bug/203973">manpage isn't particularly helpful</a>, I'll guide you through setting it up with the <a href="https://wiki.ubuntu.com/ThinkFinger">ThinkFinger</a> library, which is compatible with most popular readers installed in Lenovo/Thinkpads, Dells, and Toshibas.<br /><ol><li>Install the necessary libraries: <span style="font-weight: bold; font-style: italic;">sudo apt-get install thinkfinger-tools libpam-thinkfinger</span></li><li>Integrate thinkfinger with PAM (Pluggable Authentication Modules): <span style="font-weight: bold; font-style: italic;">sudo /usr/lib/pam-thinkfinger/pam-thinkfinger-enable</span></li><li>Now acquire your fingerprint: run <span style="font-weight: bold; font-style: italic;">tf-tool --acquire</span>. If you get an error here (not a failed swipe, you just need to swipe better), running it with sudo might be necessary. If you still get an error that thinkfinger can't interact with your reader, it probably isn't supported, sorry! Otherwise, keep swiping your finger until you get two successful swipes.</li><li>Finally, make sure it worked: run <span style="font-weight: bold; font-style: italic;">tf-tool --verify</span> and swipe your finger. Try this a few times, and if it doesn't have a good success rate, do another acquire (the previous step), perhaps slower and more intentionally.</li></ol><br />Now you can log in by swiping your finger at the password prompt, and more usefully in my opinion, swipe your finger instead of entering the root password at terminal and graphical password prompts. This is one of those little things that, once you get used to it, is hard to ever live without. Check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 78px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5302516250799451362" border="0" /></a><br />By the way, while there may be valid security concerns with fingerprint readers, don't listen to the critics who say you can just breathe on it to get a swipe. <a href="http://images.google.com/images?hl=en&amp;q=fingerprint%20scanner">2D fingerprint scanners</a> may work this way, but<a href="http://images.google.com/images?hl=en&amp;safe=off&amp;q=laptop+fingerprint+reader&amp;btnG=Search+Images"> laptop fingerprint readers</a> take a reading in both space and time. Try using <span style="font-weight: bold; font-style: italic;">tf-tool --verify</span> and finding out for yourself; you can blow and breathe on your fingerprint reader all day without getting it to even recognize a scan, let alone a failed one.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+My Lenovo T61 is Running Ubuntu 10.4 and thanks to your instructions swiping is now working smoothly!  <br /><br />Thanks so much, Jose.</div>
+</div>
+<div class='comment'>
+<div class='author'>Fingerprint readers</div>
+<div class='content'>
+thanks for giving the steps in setting up the fingerprint readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chris</div>
+<div class='content'>
+Clear, concise and it works!  Many thanks.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonmyous: the theme is Dust: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme<BR/><BR/>Ryan: yeah, Dell is doing a pretty slick job of properly supporting Ubuntu. As a result I am on an M1330 right now (though not with Ubuntu pre-installed, this was a refurb).<BR/><BR/>crashsystems, Aigarius: if someone has a copy of my fingerprint, then they basically have a copy of my password. It wouldn't surprise me if that works. So does having a copy of your text password, which I could get much easier than a scan of your fingerprint, just by looking over your shoulder.<BR/><BR/>Dread Knight, that will take care of logging in via fingerprint, but won't help for those times when you have to type in your password once logged in, such as terminal and graphical sudos including updates. This is really the main feature IMO.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I just use the thing from BIOS that prompts me to swipe when i start tablet pc and i can also enter my password.<BR/>Works good in combination with auto-logic in my Kubuntu Jaunty :P</div>
+</div>
+<div class='comment'>
+<div class='author'>Aigarius</div>
+<div class='content'>
+Most of those systems are easily fooled with a black and white printout of your fingerprint. Could you try it and see if it works?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I tried on a HP DV6000 and all I got was "Initializing...USB device not found"<BR/><BR/>When I ran "lsusb" I saw:<BR/>Bus 005 Device 002: ID 08ff:2580 AuthenTec, Inc. AES2501 Fingerprint Sensor<BR/><BR/><BR/>I guess this "thinkFinger" program only works with "Thomson Microelectronics". I hope someone will come up with a unified framework for these kinds of readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mattias</div>
+<div class='content'>
+The fedora people have put some work to get fprint (a dbus based fingerprint reader integration) to work well with Gnome. They have made some about-me integration aso. So it might be worth looking at that also.</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+While I don't know about the whole breathing thing, the <A HREF="http://www.schneier.com/crypto-gram-0205.html#5" REL="nofollow">gelatin finger</A> trick should be sufficient to trick the sensor.<BR/><BR/>Of course, an attacker using such techniques is going to be more than just some random person who walks by your laptop and decided to mess with it. This means that they are after data on your laptop, and not having the fingerprint reader would not be a deterrent to them. Against such attacks, only good crypto can keep you safe, such as encrypted LVM or Jaunty's upcoming encfs encrypted home feature.</div>
+</div>
+<div class='comment'>
+<div class='author'>ryan</div>
+<div class='content'>
+Dell's Ubuntu installations pre-configure this option, at least they did on my M1530.<BR/><BR/>Very slick.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hey that theme looks great, what's the name?</div>
+</div>
+</div>
