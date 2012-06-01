@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Conductor Tech Talk</title>
+	
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="/conductor/core/deck.core.css">
+	<link rel="stylesheet" href="/conductor/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="/conductor/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="/conductor/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="/conductor/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="/conductor/extensions/scale/deck.scale.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="/conductor/themes/style/web-2.0.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="/conductor/themes/transition/vertical-slide.css">
+	
+	<script src="/conductor/modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide">
+	<h1>Jenkins @ Conductor</h1>
+</section>
+
+<section class="slide" id="title">
+	<h2>Goals:</h2>
+	<ul>
+		<li class="slide">
+			<h3>Rebuildability</h3>
+            <p>disks, network hardware <strong>will</strong> fail</p>
+		</li>
+		<li class="slide">
+			<h3>Artifact Availability</h3>
+			<p>a Jenkins restart shouldn't block tools needing artifacts</p>
+		</li>
+		<li class="slide">
+			<h3>Security</h3>
+			<p>authentication and authorization</p>
+		</li>
+	</ul>
+</section>
+
+<section class="slide" id="jenkins-home">
+	<h2>Rebuildability: $JENKINS_HOME</h2>
+    <ul>
+        <li>by default ~/.jenkins/, for example /opt/tomcat7/.jenkins</li>
+        <li>
+            Jenkins handles persistence via XML files in various directories here
+        </li>
+        <li class="slide">
+        examples of paths in $JENKINS_HOME
+        <ul><li>config.xml</li><li>jobs/develop/config.xml</li><li>jobs/develop/builds/1..9999</li><li>plugins/git.jpi</li></ul>
+        </li>
+        <li class="slide">backing up $JENKINS_HOME gets us to 90% rebuildability</li>
+        <li class="slide">for jenkins.conductor.com, we use an EBS volume, snapshotted nightly</li>
+    </ul>
+</section>
+
+<section class="slide" id="puppet">
+	<h2>Rebuildability: Machine Configuration</h2>
+    <ul>
+        <li>installed packages and libraries are important too. Puppet to the rescue!</li>
+        <li>
+            <pre>
+class beanstalk::jenkins () {
+    include beanstalk::base
+
+    $ebs_volume = "vol-6ea37f01"
+    $ebs_mount = "/opt/tomcat7/.jenkins"
+
+    mount_ebs_volume{"$ebs_volume":
+        location =&gt; $ebs_mount,
+    }
+
+    package {["git", "rubygem-json"]:
+        ensure  =&gt; "installed",
+    }
+
+    python::module {"robotframework":}
+
+    # known_hosts and private keys for github access.
+    file {"/opt/tomcat7/.ssh":
+        ensure  =&gt; "link",
+        target  =&gt; "$ebs_mount/conductor/ssh",
+        require =&gt; Mount_ebs_volume["$ebs_volume"],
+    }
+}
+            </pre>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="beanstalk">
+    <h2>Rebuildability: Beanstalk</h2>
+    <p>Amazon's Elastic Beanstalk is a pretty good fit for Jenkins:</p>
+    <ol>
+        <li>give it a .war (Jenkins is a .war!) and an AMI (ours runs Puppet first)</li>
+        <li>Beanstalk serves your application behind a load balancer, taking care of replacing any unhealthy instances</li>
+        <li><ul>
+            <li class="slide">you provide a health check such as "/login should 200 on HTTP:80"</li>
+            <li class="slide">the load balancer provides a consistent CNAME as instances are replaced, no DNS worries</li>
+        </ul></li>
+    </ol>
+    <div class="slide">
+        Cool Beanstalk features that Jenkins doesn't use:
+        <ul>
+            <li>providing a minimum and maximum number of instances</li>
+            <li>rules such as "double instance count while average CPU over 15 minutes is &gt; 80%", "subtract one while request latency &lt; 200ms"</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="s3">
+    <h2>Artifact Availability</h2>
+    <ul>
+        <li class="slide">Jenkins builds searchlight, thrift, and migration wars/jars, as well as versioned Puppet manifests.</li>
+        <li class="slide">Jenkins happily serves artifacts, but we don't want a Jenkins outage to break deployments and Beanstalk bootstrapping</li>
+        <li class="slide">S3 Plugin will save us! Uploads artifacts to Amazon's S3:
+        <ul>
+            <li>99.99% available</li>
+            <li>99.999999999% durability of objects over a given year</li>
+            <li>plus, really fast downloads from EC2 instances</li>
+        </ul>
+        <blockquote class="slide">
+            "if you store 10,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000,000 years"
+        </blockquote>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="auth">
+    <h2>Authentication &amp; Authorization</h2>
+    <ul>
+        <li class="slide">use project-based matrix security
+            <ul><li>Jenkins can hook into LDAP / AD if you have it</li></ul>
+        </li>
+        <li class="slide">remove "Read" from anonymous to require a login to do anything</li>
+        <li class="slide">create role-based users for programmatic use
+            <ul><li>"dev01" user that can only build certain jobs</li></ul>
+        </li>
+    </ul>
+</section>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="/conductor/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and /conductor/extensions -->
+<script src="/conductor/core/deck.core.js"></script>
+<script src="/conductor/extensions/hash/deck.hash.js"></script>
+<script src="/conductor/extensions/menu/deck.menu.js"></script>
+<script src="/conductor/extensions/goto/deck.goto.js"></script>
+<script src="/conductor/extensions/status/deck.status.js"></script>
+<script src="/conductor/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+</script>
+
+</body>
+</html>
