@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Microphones (and Rosetta Stone 3) in Wine - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Recently I had an urge to brush up on my Spanish and thought I would try Rosetta Stone, however there is no Linux version. I thought instead of &# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Microphones (and Rosetta Stone 3) in Wine</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Recently I had an urge to brush up on my Spanish and thought I would try Rosetta Stone, however there is no Linux version. I thought instead of &#8220;messing around&#8221; with Wine I&#8217;d just install VirtualBox and use an XP Pro instance. Everything worked alright but the memory and CPU overhead was a little too much for my machine (1.7GHz Pentium M, 1GB DDR). It would run out of memory and thrash the HDD like crazy if almost any other program was running in Linux, defeating a large part of the advantage of virtualizing Windows in the first place.<br /><br />So then I read in Wine&#8217;s AppDB that Rosetta 3 seemed to work alright with recent versions, so I gave it a shot and it indeed installed perfectly with Wine 1.1.7 (using the PPA in Intrepid). The best part is that Rosetta uses a single sqlite3 database to track users&#8217; progress, so all I had to do was copy that over from the VM and all my progress and history was there in my Wine install!<br /><br />But then came the problem: I couldn&#8217;t get my microphone to work! It worked fine in the VirtualBox setup so I knew my hardware was fundamentally compatible. I then tried as many permutations of the follow settings as I could think of:<br /><ul><li>changing Wine to ALSA or OSS drivers</li><li>enabling and disabling all sorts of ALSA and OSS levels and captures in Volume Control</li><li>running Wine via `padsp`</li></ul>Finally I came across an ubuntuforums thread where someone&#8217;s solution to getting their microphone working with Wine was setting Wine to use OSS and then:<br /><ol><li>killall pulseaudio</li><li>aoss wine program.exe</li></ol>And that worked for me! I was so full of joy. However, I am a little worried about what consequences killing pulse will have on the system for the duration of the session, and I don&#8217;t really understand what aoss does. Can anyone enlighten me on why pulseaudio is a part of the problem here, and why aoss is necessary? This was a very helpful solution to me and thought it might be useful to others as well, but does anyone know of a better way that might co-exist with pulseaudio?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Ken</div>
+<div class='content'>
+Seems to be a no-go in 64-bit Linux,  AFAIK I&#39;ve tries all the available methods (attaching to sound ports/channels/devices,  etc).</div>
+</div>
+<div class='comment'>
+<div class='author'>climatewarrior</div>
+<div class='content'>
+Has anybody gotten this to work on a 64 linux system?</div>
+</div>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Aaron Strontsman</div>
+<div class='content'>
+Thanks for this tip, I just found out that this works for Skype (Linux version, actually), too. (Otherwise it would always show me a &#8220;sound playback error&#8221;.</div>
+</div>
+<div class='comment'>
+<div class='author'>crimsun</div>
+<div class='content'>
+Killing PulseAudio and running `aoss foo&#8217; accomplishes the same wrapping via LD_PRELOAD as does `padsp foo&#8217; with one important distinction: the former wraps directly to ALSA&#8217;s plugin layer, while the latter wraps to PulseAudio&#8217;s.<BR/><BR/>Intrepid&#8217;s PulseAudio isn&#8217;t as smart as Fedora 10&#8217;s (i.e., the latter has a boatload of fixes to the latest upstream PulseAudio version - and no surprise, given its creator has been a Red Hat employee for a tick), so the seemingly erratic performance of padsp and PulseAudio is largely resolved already.  You&#8217;ll see those fixes in Jaunty&#8217;s.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/11/02/l10n-integrating-translations-into-your-project/" title="Previous Post: L10N: Integrating translations into your project">&laquo; L10N: Integrating translations into your project</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/11/11/zen-and-the-art-of-memes/" title="Next Post: Zen and the Art of Memes">Zen and the Art of Memes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

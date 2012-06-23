@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Are feeds the pre-cursor to webhooks? - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Recently I&#8217;ve been reading Timothy and Jeff talk about webhooks. Webhooks are essentially an amazingly simple way to be notified about &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Are Feeds the Pre-cursor to Webhooks?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Recently I&#8217;ve been reading <a href="http://timothyfitz.wordpress.com/2009/02/09/what-webhooks-are-and-why-you-should-care/">Timothy</a> and <a href="http://blog.webhooks.org/">Jeff</a> talk about webhooks. Webhooks are essentially an amazingly simple way to be notified about arbitrary events on the web. In this model, any event producer allows you to supply a URL, which it will post to on each future action with the relevant details, whatever they may be. Then the other day when I was using Google Reader, something struck me: it felt a lot like webhooks, but turned on its head.<br /><br />Anything that offers a feed such as RSS or Atom can be plugged into Google Reader; things like blogs and their comments, twitter searches, commits, downloads, bugs, and build results. As I started plugging more and more diverse things into Reader, I realized that it was basically like the &#8220;pull&#8221; equivalent of webhook&#8217;s &#8220;push&#8221; nature. Instead of telling all these event producers where to contact me, I&#8217;m telling Reader where to learn about all the recent events.<br /><br />I may be thinking too shallowly, but in the webhooks world Reader would be the service offering the interface. Then, instead of all these different things offering feeds, you could just plug Reader&#8217;s hook into them and be notified instantly. Currently, for example, when I ask a question on a blog post, I&#8217;ll throw the comments feed for that post into Reader so I don&#8217;t have to keep checking back on the site; Reader will bring the potential answers to me. With webhooks though, I would reverse this and provide the service with the URL of my event consumer.<br /><br />It seems like, as technology and the internet often does, feeds are evolving into what users need them to be. Services are seeing that people want to follow and be kept up to date without having to check back on hundreds of different sites. That&#8217;s way too much time and information, especially when it all looks different. However, by plugging the feeds of all those things into an aggregator, we gain a central notification place for all these events, and it becomes much more managable.<br /><br />So will webhooks replace the current paradigm that I&#8217;m using here, or complement it? They seem to each have their pros and cons. Feeds allow a history, and you won&#8217;t miss an update because your aggregator was down; it will catch it on the next poll. However webhooks are instant and can be more efficient as you don&#8217;t have the need for polling at all, but if the producer loses your hook, you&#8217;re out of the loop.<br /><br />So an overflow of interesting events occurring on the web necessitated a standard way to view them, and we got feeds. Are webhooks the next step of this evolution, or something else entirely?<br /><br />UPDATE: <a href="http://blogger.malept.com/2009/02/on-webhooks-or-push-revolution.html">Mark Lee responds</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>neilg</div>
+<div class='content'>
+Hi Michael<br /><br />I&#8217;ve launched a very simple web service that is similar to some of the tools mentioned in the comments above.  It polls pull-only services, and pushes updates via XML POST to a web endpoint of your choice.<br /><br />At the moment it has adapters for general RSS and for Twitter.<br /><br />http://myqron.com</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: I&#8217;d recommend reading my next post http://mrooney.blogspot.com/2009/02/webhooks-and-feeds-as-complementary.html which actually details the advantages to the end user. Push vs pull seems like a subtle difference at first glance, but if you really think about the new uses it allows for, it is quite powerful and opens up a new world to &#8220;joe-computer-user&#8221;.</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+So, it&#8217;s push, instead of pull?<BR/><BR/>Again, how does this help average-joe-computer-user?<BR/><BR/>How do feeds even help average-joe-computer-user?<BR/><BR/>How can I help push feed/webhooks(syndication) adoption?</div>
+</div>
+<div class='comment'>
+<div class='author'>Erigami</div>
+<div class='content'>
+How is this different from <A HREF="http://www.rssping.com/" REL="nofollow">ping</A>, which is supported by most opensource blogging platforms (eg, wordpress)? Google blog search and technorati already support ping consumption, btw. <BR/><BR/>And if you&#8217;re talking about an RSS reader being able to add themselves as ping receivers, how will you handle NAT&#8217;d IP addresses? More importantly, how will you handle a DoS where an attacker gives a vast number of webhook consumer URLs to a blog?</div>
+</div>
+<div class='comment'>
+<div class='author'>Adam Smith</div>
+<div class='content'>
+Michael,<BR/><BR/>While frustrations with feeds certainly get you thinking down the webhooks line of thought (and they did come before) I wouldn&#8217;t go as far to say one is a precursor of the other.  Imagine that we had invented webhooks first &#8211; when we started wanting to get reliable delivery of sequential data we might have gone and invented feeds After as a reaction to problems with the endpoint for the hook not always being alive.<BR/><BR/>Feeds and webhooks can benefit a lot from each other if you hook them up right.  Hooks get instantaneous updates and feeds get you an ordered, persistent backlog of events.  If you goal is to consume ALL events in a stream, feeds have all of the Content you want already (you just have to do a lot of work to get it in a timely manner).  Moving to hook-only delivery of events leads you to making difficult or arbitrary decisions on matters like &#8220;what does it mean when I don&#8217;t get 200 OK? what does it mean if I can&#8217;t even establish a connection?&#8221;.  If you keep feeds around (and let people request paged feeds that show all events since a given time) you can use hooks to deliver only the feed url and a new last updated time.  This way, even if your client (the hook consumer) is flaky, it can still eat 100.0% of the events in their full detail (which is what you want for a Reader-like app) with minimal polling.  Let hooks be the light-weight hint and don&#8217;t reinvent things like the Atom Publishing Protocol over hook and get stuck with the requirement of an always-available client.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: the advantage of hooks is that you don&#8217;t need a middle-man service, which you always do with polling.<BR/><BR/>For example, let&#8217;s say you want to build your product on an svn commit. All you do is throw a &#8220;wget http://buildserver/?build=now&#8221; in your post-commit hook. That&#8217;s it! If your svn server on the other hand publishes a feed (that&#8217;s more work already) you have to have something to constantly poll that and then trigger the build. Not to mention it will be either delayed or very expensive to poll constantly.<BR/><BR/>Basically, it means you don&#8217;t have to implement feed-polling/parsing in your event consumer. If it can already have actions triggered via http, you don&#8217;t have to change it all (especially useful if you don&#8217;t have direct access to it) and you get it for free.</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+What exactly is the &#8220;upgrade&#8221; or &#8220;upside&#8221; of webhooks vs. feeds?<BR/><BR/><BR/>honestly, I understand that imap and push are better than pop and pull<BR/><BR/>but webhooks/feeds just seem too similar to the end-user for me to really understand why I would want to prefer one over the other</div>
+</div>
+<div class='comment'>
+<div class='author'>andrewsomething</div>
+<div class='content'>
+You might be interested in Specto.<BR/><BR/>http://specto.sourceforge.net/<BR/><BR/>&#8220;Specto is a desktop application that will watch configurable events (such as website updates, emails, file and folder changes, system processes, etc) and then trigger notifications.<BR/><BR/>For example, Specto can watch a website for updates (or a syndication feed, or an image, etc), and notify you when there is activity (otherwise, Specto will just stay out of the way). This changes the way you work, because you can be informed of events instead of having to look out for them. &#8221;</div>
+</div>
+<div class='comment'>
+<div class='author'>John L. Clark</div>
+<div class='content'>
+Michael,<BR/><BR/>The &#8220;webhooks&#8221; concept that you mention sounds a lot like the work that people are doing with PubSub and XMPP.  Roy Fielding has an interesting article about when it might be architecturally appropriate to use this approach, titled &#8221;<A HREF="http://roy.gbiv.com/untangled/2008/paper-tigers-and-hidden-dragons" REL="nofollow">Paper tigers and hidden dragons</A>&#8221;.  You may find it interesting.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/" title="Previous Post: Cracking On-Screen Keyboards with Visual Keyloggers">&laquo; Cracking On-Screen Keyboards with Visual Keyloggers</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/" title="Next Post: Webhooks and feeds as complementary technologies -OR- How webhooks can enable a collective intelligence">Webhooks and feeds as complementary technologies -OR- How webhooks can enable a collective intelligence &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

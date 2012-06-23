@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>DNS: Root/Apex CNAMES in Practice - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="While there&#8217;s technically a limitation in the DNS specification that
+says domain apexes need to be A records, it is often desirable to be
+able &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">DNS: Root/Apex CNAMES in Practice</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-01T19:56:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>While there&#8217;s technically a limitation in the DNS specification that
+says domain apexes need to be A records, it is often desirable to be
+able to point it at another domain, and I wanted to break the common
+misconception that this can&#8217;t be accomplished.</p>
+
+<p>The simplest case is that you have a &#8220;naked&#8221; domain such as example.com
+that you want to forward to www.example.com. While you can&#8217;t use a CNAME
+for your apex, you can indeed accomplish this forward in practice. I
+don&#8217;t mean to imply that there&#8217;s a magical way to have a CNAME for
+an apex (though with the last AWS method, there kind of is), simply
+that what you want to achieve is doable without pointing your apex
+directly at application web servers.</p>
+
+<h1>The Easy Way</h1>
+
+<p>If all your want is to have example.com go to www.example.com, there&#8217;s
+a free service called <a href="http://wwwizer.com/naked-domain-redirect">wwwizer</a> that does this for you. Simply set your
+apex A record to 174.129.25.170. That&#8217;s it! It&#8217;s really that simple!</p>
+
+<h1>The Slightly Harder Way</h1>
+
+<p>You can do what wwwizer is doing yourself, and handle more cases than an
+apex going to www, so let&#8217;s look at how that works. If you curl a domain
+using <a href="http://wwwizer.com/naked-domain-redirect">wwwizer</a>, you&#8217;ll get an HTTP 301 to www.thatdomain.com. So all that
+wwwizer is doing is using the host variable you send it when you request
+thatdomain.com, and doing a 301 redirect to www.thatdomain.com.</p>
+
+<p>Here&#8217;s an example nginx server directive that accomplishes this in a
+generic fashion:</p>
+
+<pre><code>server {
+    listen 80;
+    server_name _;
+    return 301 http://www.$http_host$request_uri;
+}
+</code></pre>
+
+<p>If you want more than a simple apex to www forward, you just need to
+create a map of the domains to the desired CNAME, and you are good to
+go. You can even still use DNS for this, so you have a single source of
+truth, by using <a href="http://webpulp.tv/episodes/learn-how-tropo-built-a-huge-voice-cloud-while-using-dns-for-a-key-value-store">DNS as a key-value store</a>.</p>
+
+<p>All you need to do is point your apex at an IP (or set of IPs) that have
+a server configured to perform the appropriate 301s. At this point you
+might be complaining that having to maintain a static IP is what you
+were trying to avoid, and that&#8217;s fair. But it is important to note that
+the A record(s) you use for your apex don&#8217;t have to run your
+application, so you can simply throw nginx/apache on a service you
+already keep highly available on a static IP (puppetmaster, internal DNS servers, et
+cetera). This allows you to use a perhaps more stable and less ephemeral
+set of IPs than web server IPs. Plus, multiple domains / applications
+can share this server. And remember, if you just need naked ->
+www redirection, just use wwwizer instead of worrying about this
+yourself.</p>
+
+<h1>The Amazon Way</h1>
+
+<p>If you are using AWS, <a href="http://aws.amazon.com/route53/faqs/#Zone_apex">they support mapping a zone apex to an Elastic
+Load Balancer</a> (ELB) via
+their DNS provider Route 53. So this means even as your load balancer is
+transparently replaced or scaled up and down, you don&#8217;t have to worry
+about the IPs involved.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-01T19:56:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/" title="Previous Post: Diving into EC2 and Auto Scaling">&laquo; Diving into EC2 and Auto Scaling</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mrooney-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/';
+        var disqus_url = 'http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

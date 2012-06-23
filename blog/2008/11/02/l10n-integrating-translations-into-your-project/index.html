@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>L10N: Integrating translations into your project - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="This post is the second half of my series on internationalization and localization; that is, making applications accessible to non-English speakers &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2008/11/02/l10n-integrating-translations-into-your-project">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">L10N: Integrating Translations Into Your Project</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-02T00:00:00-04:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+This post is the second half of my series on internationalization and localization; that is, making applications accessible to non-English speakers. I am going to assume now that you have followed the instructions in the <a href="http://mrooney.blogspot.com/2008/10/i18n-making-your-launchpad-projects.html">first post</a> , and have internationalized your source, put the translation template up on Launchpad, and hopefully have a translation or two.<br /><br />Since my last post, many people donated their time to translate my project wxBanker, and I have <a href="https://translations.launchpad.net/wxbanker/trunk/+pots/wxbanker">7 translations in Launchpad</a> now! (If anyone wants to add more, please do so, and I&#8217;ll put you in the credits.) Now I&#8217;ll outline the steps for actually integrating these translations into your project.<br /><br /><ol><li><span style="font-weight: bold;">Download the translations.</span> Visit the translations page for your project in Launchpad, and click the &#8220;Download translations&#8221; link on the right. From here ensure &#8220;Everything&#8221; is selected, and <span style="font-weight: bold;">change the Format</span> to &#8220;MO format&#8221;. This format is what the gettext framework we are using utilizes. Now click &#8220;Request Download&#8221;. They won&#8217;t typically be available immediately, but you should receive an e-mail in an hour or so with a link to the file.<br /><br /></li><li>Once you receive the email from Launchpad, download the linked file. You should now have <span style="font-weight: bold;">launchpad-export.tar.gz</span>. Right click on it and &#8220;Extract Here&#8221;. Rename the resulting &#8220;launchpad-export&#8221; folder to something like &#8220;locales&#8221;, and put it in your project directory.<br /><br /></li><li>Now all you have to do is tell gettext where the translations are. Previously we installed gettext via a line like <span style="font-weight: bold;">gettext.install(&#8220;wxbanker&#8221;)</span>, and now all we need to do is pass in the directory as a second argument. So assuming you renamed the launchpad-export directory to &#8220;locales&#8221; and put it in the directory of your source code, you&#8217;ll change it to <span style="font-weight: bold;">gettext.install(&#8220;wxbanker&#8221;, &#8220;locales&#8221;)</span>. This isn&#8217;t the most robust and flexible way to do this, and I would recommend checking out my localization.py link below for a better example, especially if you are going to be doing this for a python application.<br /></li></ol>Now, assuming you followed all the steps in the previous post and this one, your application should be completely localized and run in the native language of the person using it! If you want to see the translation yourself, check out <a href="http://bazaar.launchpad.net/%7Emichael/wxbanker/trunk/annotate/66?start_revid=66&amp;file_id=localization.py-20081021110703-qbxv7it8j7aw3zrn-1">my own version of localization.py</a>, which allows you to pass in the language code corresponding to the subdirectory of the locales directory, such as &#8220;&#8211;lang=es&#8221; for Spanish.<br /><br />In a day or two I will also add a post on how to actually install other locales in Ubuntu and run your application in it, so that you can ensure you are seeing exactly what someone from that locale sees.<br /><br />Congratulations on a localized application! Any questions?</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-02T00:00:00-04:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2008/11/02/l10n-integrating-translations-into-your-project/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2008/11/02/l10n-integrating-translations-into-your-project/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/10/27/i18n-making-your-launchpad-projects-translatable-and-a-call-for-translations/" title="Previous Post: I18N: Making your Launchpad projects translatable (and a call for translations!)">&laquo; I18N: Making your Launchpad projects translatable (and a call for translations!)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine/" title="Next Post: Microphones (and Rosetta Stone 3) in Wine">Microphones (and Rosetta Stone 3) in Wine &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Failing tests: When are they okay? - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="As a developer on a team, when (if ever) is it reasonable to check in something which breaks one or more tests and causes the build to fail? The &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/11/failing-tests-when-are-they-okay">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Failing Tests: When Are They Okay?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<span style="font-family:arial;">As a developer on a team, when (if ever) is it reasonable to check in something which breaks one or more tests and causes the build to fail?</span><br /><div id="magicdomid18" style="font-family: arial;"> <br /></div> <div id="magicdomid89"  style="font-family:arial;">   <span class="author76-14-29-5-1234339298129-13525">The most important aspect of a build seems to be that it <span style="font-weight: bold;">accurately represents the health of your product</span>. In an ideal world, if all the tests pass, I should be comfortable deploying that code. In a perhaps more realistic world, I should either be comfortable deploying to a part of the system (small random %, special testers group, etc), or at least be comfortable sending it off to QA with the expectation that it will pass (and be surprised if it doesn&#8217;t). Conversely if the build fails I shouldn&#8217;t be suspecting that one of the tests must have randomly failed or that someone forget to update a test to reflect application changes; I should be wondering what is wrong with the product.</span><br /></div> <div id="magicdomid20" style="font-family: arial;"> <br /></div> <div id="magicdomid21"  style="font-family:arial;">   <span class="author76-14-29-5-1234339298129-13525">But if you have set release dates, say every two weeks, is a broken build in week 1 a problem? Is it okay for developers to be using TDD and checking in the tests first, or checking in incomplete or broken code so that others can collaborate on it? In some ways it definitely seems reasonable to allow for this. After all, the release date is in the future and it is quite expected that features aren&#8217;t completed yet or that bugs aren&#8217;t fixed yet. You should be encouraged to commit early and often and you don&#8217;t want to have to jump through hoops to collaborate.</span><br /></div> <div id="magicdomid22" style="font-family: arial;"> <br /></div> <span class="author76-14-29-5-1234339298129-13525"  style="font-family:arial;">However there seem to be disadvantages to this type of workflow. First of all, if a build is broken, it can&#8217;t break. What am I talking about? If I check in my expected-to-fail test or my half-finished code and the build is failing, the next time someone unexpectedly breaks something, it isn&#8217;t nearly as obvious. A passing test suite changing to a failing suite, in a good environment, should be blindingly visible. But what about a failing test suite continuing to fail, albeit in more ways? That&#8217;s more subtle. From the second that happens you&#8217;re accumulating debt and the faster you find it, the easier it will be to fix. But if you can&#8217;t check in broken code, how do you <b>easily</b></span><span style="font-family:arial;"> collaborate with someone else on it over time?<br /><br />Another problem that can arise is the accumulation of potential debt by replacing functional code with incomplete code. If you aren&#8217;t able to make the timeline or the feature gets dropped for release, you now have a reverse merge on your hands. This could be particularly time consuming if others have been working in the same files that your work touches. On the other hand if you had been implementing it side-by-side and waiting to actually replace it until it worked, it would be no problem to ship the code in that state at any point if need be. Your deployment is <span style="font-weight: bold;">more flexible</span> and <span style="font-weight: bold;">less error prone</span>.</span><span style="font-family:arial;"><br /><br />So how can you balance these tensions in an agile environment? I&#8217;d love any feedback that anyone has to provide. What are the reasons for prioritizing a passing build that I missed, and what other drawbacks exist?</span></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>bobthevirus</div>
+<div class='content'>
+I&#8217;d suggest that this is one of the great advantages of dvcs. The cheap branching means that you can have your non-passing tests for undeveloped features in  separate branches, merging each branch when, and only when, it goes green.</div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+I started writing an answer, and then it became long and transformed into a blog post: <A HREF="http://mg.pov.lt/blog/keep-the-buildbot-green" REL="nofollow">keep the buildbot green!</A>.<BR/><BR/>Also, Blogger ate my first attempt to post a comment here, and I felt somewhat better about deciding to do a post rather than answer here.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I agree with Hitchens.<BR/><BR/>If your build is red, your first priority should be doing whatever it takes to make the build green.<BR/><BR/>If the bug you have found is serious, then that probably means that your team&#8217;s highest priority should be fixing the bug.<BR/><BR/>If it is not so serious, then you should back out the test until you have reason to believe it will pass.<BR/><BR/>Either way, you do not want to allow unrelated commits while the build is red.  Red means that your application has burst beyond your control, and building further functionality atop a system that is already out of control is simply not a sustainable way to develop.</div>
+</div>
+<div class='comment'>
+<div class='author'>oliver</div>
+<div class='content'>
+I think it&#8217;s important to always have a &#8220;stable&#8221; development version in VCS which is known to build and pass all tests and which most likely works correctly. This makes it easier to quickly make a release, or to give somebody a &#8220;preview release&#8221; which contains the latest features.<BR/><BR/>For this, the possibly-broken code must be separated from the stable version. Possible ways:<BR/>- develop on a branch until all tests pass, then merge it into HEAD<BR/>- set a &#8220;stable&#8221; tag in VCS which is moved up whenever a new feature is deemed stable<BR/>- add Make system switches to disable the possibly-buggy features; that way, you can have a &#8220;stable&#8221; build config which always works (also useful as autobuild/autotest target), and a &#8220;bleeding-edge&#8221; build config which is probably broken for quite a while.<BR/><BR/>IMO the latter two ways have the big advantage of making it easy for all developers to test some new unstable feature without having to manually merge its branch first.</div>
+</div>
+<div class='comment'>
+<div class='author'>Hitchens</div>
+<div class='content'>
+Hey Rooney!  Since you asked for feedback, here&#8217;s my take:  it should never be ok for a build to be red.  If you check in code and it goes red, you should back it out immediately. If people are willing to collaborate on finding out why it was red, well, the code&#8217;s still in source control, right?  They can get it by reverting your revert.<BR/><BR/>If a test goes red but there&#8217;s nothing wrong with your production, then that&#8217;s an opportunity for you to learn how to write tests better!  It&#8217;s obviously testing something you don&#8217;t care about, so you go in and rewrite it so that it only asserts on the things that matter.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/11/failing-tests-when-are-they-okay/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/11/failing-tests-when-are-they-okay/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/10/the-joy-of-trivial-wrappers-in-python/" title="Previous Post: The Joy of Trivial Wrappers in Python">&laquo; The Joy of Trivial Wrappers in Python</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/12/typing-on-the-toilet/" title="Next Post: Typing on the Toilet">Typing on the Toilet &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

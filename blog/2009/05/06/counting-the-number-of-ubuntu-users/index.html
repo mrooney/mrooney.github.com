@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Counting the number of Ubuntu users - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="There have been a few articles recently trying to estimate the number of Linux users, which is apparently a challenging problem. However I have to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/05/06/counting-the-number-of-ubuntu-users">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Counting the Number of Ubuntu Users</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-06T00:00:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+There have been a few <a href="http://blogs.computerworld.com/how_many_desktop_linux_users">articles</a> recently trying to estimate the number of Linux users, which is apparently a challenging problem. However I have to wonder why it can&#8217;t be figured out at least at the distro level by simply storing hashes of IP addresses that hit Canonical&#8217;s update site, and looking at the number of unique ones each week/month.<br /><br />There are going to be people using mirrors, but this is a small percent to lose to at least get something in the right magnitude, and the most popular mirrors could probably do a similar thing and contribute their numbers anyway. The only other main drawback would be multiple Ubuntu machines under the same IP, which again seems like it would only result in a slight inaccuracy. You&#8217;d also lose a small percent to users infrequently using their computers such that they aren&#8217;t updated on a monthly basis, but yearly results would pull back in any of these people using their computers frequently enough to warrant counting.<br /><br />Alternatively, as others have suggested as well, if Google would just release their numbers for browsers hitting google.com, we&#8217;d probably have a solid idea as well.<br /><br />Are there already accurate numbers for Ubuntu and if not, am I missing something with my proposal?<br /><br />UPDATE: Jef pointed out that Fedora is already doing this at http://fedoraproject.org/wiki/Statistics#Yum_Data, which is pretty awesome! That shows about 14 million unique repository connections, so making a VERY rough, not remotely scientific estimate, we could use distrowatch to estimate that Ubuntu has 1.68 times the number of users as Fedora, and get something around the order of 24 million users that have connected.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>silver</div>
+<div class='content'>
+What about universities, schools and companies using ubuntu all under the same ip-address?. This could have a pretty big influence on the numbers!</div>
+</div>
+<div class='comment'>
+<div class='author'>Tommi</div>
+<div class='content'>
+I would either count at all the Distrowatch site. Even the sites admin says that should not be used anyway to calculate the amounts of users.<br /><br />And I would like to see too that MAC address is hashed to upgrades, but Fedora is already using the smolt what generates unique ID of the system specs and sends it to Fedora. Sadly (good thing) it is not default so not all enable it. But by those figures says that Fedora has more installs than Ubuntu. Sorry about that, you ain&#8217;t special, only gaining the media attention ;-)<br /><br />I dont think that market share figures means anything for us. (OK, mayby some like to extend their virtual penis). <br /><br />We all - what ever distribution we use - are using same OS. It does not matter what is your opinion about system, packagemanager, brand or even freedom. All we use Linux OS to power all the other software. Without Linux, we would not be here. So kudos to Linus Torvalds to code the OS in first place and kudos for Richard Stallman to start GNU project what gave us GPL and so on free software and we got the Linux OS licended under it (GPLv2).<br /><br />I see more other distributions than Ubuntu in Finland, (the homeland of the Linux OS). Same thing around on the European or Asia where I have traveled.<br />Ubuntu has smaller share on technical oriented users (science labs, computer stores, universities etc) but that does not matter at all. We are all using same OS, the Linux (kernel)!</div>
+</div>
+<div class='comment'>
+<div class='author'>scottritchie</div>
+<div class='content'>
+If you want a rough estimate for the proportion of Ubuntu vs Fedora users, a better back-of-the-envelope would be the Desktop Linux Survey: http://www.desktoplinux.com/cgi-bin/survey/survey.cgi?view=archive&amp;id=0813200712407<br /><br />Now, it&#39;s 2 years out of date, but back then Fedora had 6% and Ubuntu 30%; if that&#39;s still the case today this would put Ubuntu at 5 times Fedora rather than 1.68 times Fedora.<br /><br />Another metric might be Google Trends: http://www.google.com/trends?q=fedora%2C+ubuntu  &#8211; suggests that the Ubuntu:Fedora ratio of searches has been increasing; so either the ratio of usage has been changing or Ubuntu users are becoming even more likely to search for Ubuntu for some reason.<br /><br />Now, Google Trends and Desktop Linux surveys can be inaccurate for a variety of reasons.  I&#39;ll note, however, that the google trends data is consistent with the desktop Linux survey data; both imply roughly 5x - and both are doubtlessly better proxies for usage share than distro watch.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Micheal:<br />At no point did I say that all &#8220;fun&#8221; things can&#8217;t be &#8220;meaningful.&#8221;<br /><br />What I said was very specific. The distrowatch metric is not meaningful. The google trends metric is not meaningful. I making absolutely no claim about the meaningfulness of any other &#8220;fun&#8221; activity. I will say that making global maps of client connections to MirrorManager using GeoIP is both &#8220;fun for me&#8221; and &#8220;meaningiful&#8221; as it gives Fedora an easy to understand snapshot of how globally used Fedora is. <br /><br />You&#8217;ve extrapolated what i said and attempted to apply beyond the bounds of the original context. Is that &#8220;fun&#8221; for you as well..making gross generalization about what other people say? That&#8217;s neither friendly nor healthy. You want to keep this friendly..you want to keep this constructive? Then take more care and rein in your tendency to generalize.<br /><br />I find it really amazing that you can so easily discount accurate ShipIt numbers as a useful rough metric and yet&#8230; you reached for distrowatch as a scaling metric.  Stop putting the cart before the horse. Make accuracy the primary importance.. then worry about interpretation. Don&#8217;t waste your time trying to interpret the meaning of numbers that aren&#8217;t even accurate measure.<br /><br />If LoCos have hundreds of cds collecting dust every release&#8230;that&#8217;s also something you could get accurate stats on&#8230;you just have to survey LoCos and ask them.  if they are requesting CDs and not giving them out..that is a drain on Canonical resources. It benefits everyone by making sure that&#8217;s not happening too much.<br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous, hashing the MAC addresses instead is a pretty good idea! I just suggested IPs because that is something the mirrors already have access to so it wouldn&#8217;t involve any extra data sending or controversy. It is a great idea though, it would fix the cases of multiple users behind one IP, and also one user one multiple IPs.<br /><br />soren, it sounds like you are right, sorry :) The more I look into this, the more I see that mirrors are more common than I thought. Thanks for enlightening me and sharing your knowledge! Though, I still think it would be feasible if enough mirrors participated. Combined with hashed MAC addresses, it has a decent accuracy potential.<br /><br />Jef, ShipIt is certainly countable but I am not convinced how useful it would be. Surely some people order CDs and never use them, and someone in a shop might order one and install it a hundred times. And each LoCo could have hundreds on hand that never get used. Also, I&#8217;m not sure I could agree that something which is fun can have no meaning; fun IS meaning!<br /><br />Lots of knowledgeable people have shared great stuff here, so that&#8217;s awesome! Let&#8217;s just try to keep it friendly and healthy :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Are you suggesting that Shipit is uncountable?  It most certainly is countable. If anything its the most accurate statistic you have available to you. <br /><br />Canonical could tell us tomorrow exactly the number of ShipIt disks they have paid for AND the number of disks purchased directly for the Canonical shop. Have they ever done that? Have they ever put any hard numbers out with regard to how active ShipIt is? I haven&#8217;t found them. If they haven&#8217;t that&#8217;s a pretty remarkable lack of transparency. <br /><br />How about you press your leadership to publish the no-guesswork numbers associated with the amount of media sent via ShipIt for Intrepid on a monthly basis since the release of Intrepid.  What is it maybe 1% of the total number of Ubuntu users Canonical employees have publicly claimed exist? <br /><br />You want to haggle over a statistic that below the noise floor of any overall estimate fine..go right ahead&#8230;noise seems to be pretty important for Ubuntu supporters&#8230;much more than accuracy.</div>
+</div>
+<div class='comment'>
+<div class='author'>soren</div>
+<div class='content'>
+Michael, I know what &#8220;order of magnitude&#8221; means, and I&#8217;d be <I>deeply</I> surprised if people using archive.ubunut.com as their mirror wasn&#8217;t the minority. We have an extensive mirror network, and we configure Ubuntu systems be default to use country specific mirrors. Hence, metrics based on web requests to the primary archive mirror at archive.ubuntu.com would be completely useless to even come close to the order of magnitude of users. The only thing you can use it for is to get a rough idea about trends, but even then, it&#8217;s a stretch.<br /><br />Jef, you&#8217;re missing the fact that Ubuntu is freely available from ShipIt, no matter where in the world you are, and no matter what sort of network connectivity you have (as long as you can actually get to ShipIt, of course). Hence, users who can only get Linux by these means will never be counted by a service such as MirrorManager. Since a similar service to ShipIt does not (to my knowledge) exist for any other Linux distro, number from MirrorManager-like services will be biased in favour of non-Ubuntu distros. Let&#8217;s face it: There&#8217;s no way to get hard numbers for number of Linux installs.<br /><br />I&#8217;m sure there&#8217;s also organisations that for whatever reason do not want to publish their use of Linux at all, even to an (alleged) anonymous service like MirrorManager. I don&#8217;t say &#8220;alleged&#8221; because I don&#8217;t believe it to be anonymous, but because there&#8217;s no way for me to know whether that&#8217;s the case or not, and for some organisations, that&#8217;s simply not good enough.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Couldn&#8217;t apt send the MAC-address (or some hash of it) to some kind of MirrorManager-like service? You would then get unique machines and I don&#8217;t think people would feel it would violate their privacy (I don&#8217;t feel my MAC-address is something private)&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+I&#8217;m offended.. because those are exactly the sort of numbers which the laypress picks up on. By doing the calculation and publishing a calculation you know has no merit..you are not helping make the case for solid methodology for counting that can be reused by all distros..so we can get good solid numbers out to the press. Because god knows the press don&#8217;t care about accuracy.<br /><br />Do you want solid numbers or not for total linux usage? If you do, then don&#8217;t publish goofball numbers yourself. <br /><br />distrowatch and google trends&#8230;while &#8220;fun&#8221; to look at..have no meaning..have no value..in any well understood sense. You might as well just generate random numbers between 1 and 10 million for all distros and call them a rough estimate with a +/- 9 million errorbar on all the numbers.<br /><br />MirrorManager and the statistics it generates is a methodological approach that everyone can use..we could get solid consistent numbers across pretty much all linux distributions if they adopted the MirrorManager approach to handing out mirror information to clients dynamically.  There&#8217;s real value for everyone in this tech. Users, network admins, and distributors.  We don&#8217;t have to rely on CEO&#8217;s making up deployment numbers in press interviews. <br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Jef, I completely agree! That&#8217;s why I said it was &#8220;a VERY rough, not remotely scientific estimate&#8221;. It was just meant as a fun number. I am not at all serious about it; I thought it would be obvious from my disclaimer. Obviously the ratio obtained on distrowatch is flawed in numerous ways. I&#8217;m sorry if I have offended you by multiplying some numbers together :) If you really don&#8217;t think my disclaimer was sufficient, feel free to let me know why it isn&#8217;t VERY rough or not remotely scientific, and I can adjust it.<br /><br />pfrields, thanks for leaving a comment! It is good to hear that you guys are somewhat serious about metrics like this, and are certainly quite ahead of Ubuntu (as far as I can tell) in terms of collecting the data and being open about it. Like Jef said, it is certainly an aspect that is missing from Canonical/Ubuntu which is unfortunate considering their other marketing efforts.<br /><br />Anyway I definitely appreciate some Fedora folks chiming in here and didn&#8217;t mean to offend anyone with my wild extrapolations.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Your distrowatch metric is absolute crap.  I refuse to let that stand without comment. <br /><br />Xandros is ranked pretty low.. and yet it has a significant number of pre-installs via being the linux Asus uses on its EEE netbooks&#8230;for like what is it now 2 whole years. In fact from netbook sales estimates Xandros is crushing Ubuntu netbook pre-installs.<br /><br />In no way whatsoever can you reasonably argue that the distrowatch metric correctly places Xandros compared to the 30 or so other distros in front of it. No way. <br /><br />The distrowatch scaling metric does not stand up to scrutiny.<br /><br />To understand how to use the distrowatch metric you have to understand why people are going to distrowatch. You also have to understand that distrowatch&#8217;s own ranking system has a nonlinear affect on the ranking. Higher ranked distros are going to get more interests from new distrowatch visitors..because they are highly ranked.  It&#8217;s a feedback loop in the methodology. And it makes for an absolutely crap metric of anything at all.    <br /><br />If you are serious about this you need to find a metric that actually measures what you are interested in. <br /><br />What you need to do is demand Shuttleworth or any other Canonical employee who has so far been quoting userbase numbers in the press for the last 3 years..that they actually describe how they get those numbers.<br /><br />http://www.theregister.co.uk/2008/10/27/shuttleworth_ubuntu_commitment/<br />&#8220;Precise Ubuntu installed base numbers are impossible to obtain, but Shuttleworth said the most recent estimate is about 8 million users for the Linux variant. Ubuntu does not have any call-home features to help Canonical count installations. That&#8217;s because Shuttleworth does not want to violate users&#8217; privacy or put up any barriers to adoption for the software. &#8220;We actually have no idea,&#8221; Shuttleworth admitted.&#8221;<br /><br />Numbers have contexts&#8230; methodology has meaning. You can&#8217;t just make up numbers and scaling factors just because they seem to fit the argument you are making. You have to test them for sanity. The distrowatch scaling factor is not a sane metric.</div>
+</div>
+<div class='comment'>
+<div class='author'>pfrields</div>
+<div class='content'>
+I do look at total uniqueness once in a while.  As with all the measurement scenarios, there are some flaws &#8211; the office I used to work in had many users on different versions, but they would be counted as one IP address since they were behind a firewall.  And if the object is to capture number of *machine* installations, then you&#8217;re also missing users who have more than one version on separate machines at home (as I do).<br /><br />Nevertheless, the count I just found from the already collected IP lists was over 12.5 million totally unique IP addresses, out of around 14 million current IP addresses found through simple summing.  Obviously this count doesn&#8217;t include Fedora derivatives such as CentOS, Scientific Linux, Red Hat Enterprise Linux, and so on.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous, I am familiar with popcon but that is a purely opt-in system so as such is only useful for relative comparisons between packages, not for getting a good count.<br /><br />PriceChild, using the security repo seems like a good idea, although it appears that for me I am hitting my mirror for security too. Some users/admins probably disable everything but that anyway.<br /><br />Jef, that is awesome, thanks for the resource! Do you know if the total across versions is unique across them? That is, if I have Fedora 9 installed and then upgrade to Fedora 10, do I get counted twice? That seems like a common place where people are going to get double counted over the course of a year.<br /><br />pochu, hopefully getting the main and US repository picks up a large percentage, and making it easy for the other mirrors to participate would make it fairly accurate.</div>
+</div>
+<div class='comment'>
+<div class='author'>pochu</div>
+<div class='content'>
+IIRC the installer sets apt to use mirrors by default, so people using the canonical repo are likely the minority</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+What you mean you don&#8217;t trust Canonical&#8217;s statement has been using every year since 2006 that Ubuntu has 8 million users?  I don&#8217;t trust it either.<br /><br />Fedora already has a way to estimate users via IP.  We have the dynamic MirrorManager service..and it has logs&#8230;<br /><br />http://fedoraproject.org/wiki/Statistics#Yum_Data<br /><br />People have put a lot of thought in to what is actually achievable and what is not with regard to Fedora metrics:<br />http://fedoraproject.org/wiki/Infrastructure/Metrics<br /><br />There&#8217;s absolutely no reason Canonical couldn&#8217;t take the MirrorManager codebase and adapt it for Ubuntu&#8217;s needs. Unlike Canonical, which spends a lot of time building closed web services codebases they are reluctant to share. All of Fedora infrastructure is done in the open..including the MirrorManager service.  <br /><br /><br />MirrorManager is important enough to talk more about. Every Fedora client by default contacts the MirrorManager service asking for which mirrors to use. The MirrorManager service even lets admins on large private networks redirect fedora clients in their network block to a local private mirror..without client reconfiguration. We still count those clients because they contact MirrorManager instead of having to be manually reconfigured to point to the local mirror.  Our MirrorManager service is a benefit to both the user and the local network admin who is trying to conserve bandwidth&#8230;.and its enabled by default.<br /><br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>PriceChild</div>
+<div class='content'>
+perhaps those hitting the security repo (central, not mirrored and used by default unless sa chooses not to) could be used&#8230; infact I&#8217;m pretty sure they&#8217;ve looked at that before.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+You know that http://popcon.ubuntu.com/ exists?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+soren, it doesn&#8217;t quite sound like you understand orders of magnitude if I understand your comment correctly. Unless people using the default mirror are in the MINORITY (I highly, highly doubt this is the case), it would easily be on the same order. And second, as I mentioned in the post, the most popular mirrors would likely contribute their counts to Canonical as well, making it irrelevant.<br /><br />Stefano, I agree, but again this number would be better than throwing around download numbers and random guesses. And conversely to your point, as Drew mentions, there are going to be users on netbooks/laptops updating from many different IPs which will partially offset that issue.</div>
+</div>
+<div class='comment'>
+<div class='author'>Stefano</div>
+<div class='content'>
+Yes,<br />  counting unique IPs is the first whing that can be done, but clearly this is not accurate due to NAT.<br /><br />Behind a single IP you might have N users, and you don&#8217;t know how many they are.</div>
+</div>
+<div class='comment'>
+<div class='author'>soren</div>
+<div class='content'>
+I think you&#8217;re greatly underestimating the percentage of users using mirrors. I don&#8217;t think we&#8217;d be anywhere near the order of magnitude of users that way.</div>
+</div>
+<div class='comment'>
+<div class='author'>Drew Stephens</div>
+<div class='content'>
+This sounds like good idea to me - each distribution&#8217;s package repositories (well, except for Red Hat/Fedora with it&#8217;s decidedly lack-luster and ill-used repos) has a good handle on the number of actively used machines.  There will be some that won&#8217;t get counted, because they update from someone&#8217;s local mirror, and a few that will get counted multiple times when the check form different IPs, but it should be a close-enough number.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-06T00:00:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/05/06/counting-the-number-of-ubuntu-users/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/05/06/counting-the-number-of-ubuntu-users/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/04/20/extending-java-s-semaphore-to-allow-dynamic-resizing/" title="Previous Post: Extending Java’s Semaphore to Allow Dynamic Resizing">&laquo; Extending Java’s Semaphore to Allow Dynamic Resizing</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/05/14/a-teaser-desktop-integration-with-encrypted-directories-for-karmic/" title="Next Post: A teaser: Desktop integration with encrypted directories for Karmic">A teaser: Desktop integration with encrypted directories for Karmic &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

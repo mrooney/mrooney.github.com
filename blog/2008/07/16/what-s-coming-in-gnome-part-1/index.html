@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>What's Coming in Gnome: Part 1 - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Many people criticize Gnome for being behind the times and slow to change. Being the default desktop environment of Ubuntu, Gnome&#8217;s usability &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2008/07/16/what-s-coming-in-gnome-part-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">What's Coming in Gnome: Part 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-16T00:00:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Many people criticize Gnome for being behind the times and slow to change. Being the default desktop environment of Ubuntu, Gnome&#8217;s usability is quite important, so this criticism should not be taken lightly. However in this post and the next I would like to demonstrate that Gnome is moving forward in terms of usability in multiple important (and in some cases exciting!) ways. My disclaimer here is that some of these concepts and mockups are taken from bug reports and developer mailing lists, and may not necessarily be the end result of the development. As such, not all of these features may make it into Gnome 2.24 (Intrepid); I will try to note when to expect each feature.<br /><br /><ol><li>Have you ever tried to unmount a device such as a USB thumbdrive, only to receive a message that it can&#8217;t be unmounted because it is in use? Certainly you have; however, it is often the case that you have no idea which application[s] are blocking the unmount! This has been a long-standing bug upstream in Gnome, and multiple developers, not to mention a Google Summer of Code 2008 project, are aiming to greatly improve this. The idea is to have a dialog which explains that the device cannot be unmounted, and list the &#8220;offending&#8221; applications. Let&#8217;s take a look:<br /><br /><br /><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SH5LCpTK2BI/AAAAAAAAAAM/vvwCEDwbOAs/s1600-h/dialogold.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SH5LCpTK2BI/AAAAAAAAAAM/vvwCEDwbOAs/s320/dialogold.png" alt="" id="BLOGGER_PHOTO_ID_5223695126614431762" border="0" /></a>The old dialog. Not particularly helpful.<br /><br /></div><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SH5L01CA0xI/AAAAAAAAAAU/YfVB4HgPWPg/s1600-h/dialognew.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SH5L01CA0xI/AAAAAAAAAAU/YfVB4HgPWPg/s320/dialognew.png" alt="" id="BLOGGER_PHOTO_ID_5223695988757156626" border="0" /></a>One mockup of a proposed dialog. Note that the Unmount option will be enabled once all the applications are closed.<br /><br /><br /><div style="text-align: left;">This should make using devices like USB drives much more friendly to beginning users, especially users coming from Windows where this explicit unmounting isn&#8217;t typically necessary. The option to have a button to kill unresponsive applications is also being discussed, which I think could be very useful. I would suggest looking for this in Intrepid+1 if not Intrepid. For more information look at <a href="http://bugzilla.gnome.org/show_bug.cgi?id=528559">http://bugzilla.gnome.org/show_bug.cgi?id=528559</a> and it&#8217;s <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-mount/+bug/81239">downstream Ubuntu bug</a>.<br /><br /><br /></div></div></li><li>Currently users of metacity are unable to have individual backgrounds for each workspace that they may have (although this can be accomplished, albeit in a not particularly standards-friendly way, with Compiz). This will be an exciting and welcome addition, as the <a href="http://bugzilla.gnome.org/show_bug.cgi?id=48004">upstream bug</a> is over 7 years old! This will also improve usability for users of multiple desktops by providing more obvious visual cues as to which desktop the user is currently in. There have already been numerous mentions of this online, so I won&#8217;t dwell on this feature. I would look for this, if it gets completed (the GSoC student&#8217;s blog is not particularly active, which may or may not be an indication of progress) in Intrepid+1, and possibly Intrepid.</li></ol>In Part 2 I will cover a bunch of (potentially) upcoming features in Nautilus, which is Gnome&#8217;s default file manager. I wanted to keep this section short so that I could group all of the Nautilus-related features together. These will include a much-needed enhancement of the Replace dialog when over-writing files, as well as the implementation of a tabbed Nautilus, and a new multiview (&#8220;columns&#8221;) layout, and a few more random improvements. See you then, and please leave comments if you have any feedback!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-16T00:00:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2008/07/16/what-s-coming-in-gnome-part-1/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2008/07/16/what-s-coming-in-gnome-part-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/07/10/-we-don-t-have-much-time-he-said-so-i-ll-just-talk-about-me/" title="Previous Post: "We don't have much time," he said, "so I'll just talk about me."">&laquo; "We don't have much time," he said, "so I'll just talk about me."</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/07/29/blogging-about-ubuntu-issues/" title="Next Post: Blogging about Ubuntu Issues">Blogging about Ubuntu Issues &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

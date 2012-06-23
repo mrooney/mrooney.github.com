@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ensuring that you test what your users use - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/23/ensuring-that-you-test-what-your-users-use">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ensuring That You Test What Your Users Use</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my checkout, but fail miserably for anyone else (because the application is broken). What was happening?<br /><br />1) I had a new file which is required to run, but I forget to &#8216;vcs add&#8217; it. Because the file existed in my sandbox, everything was well. But no one else was getting this file, so they couldn&#8217;t even run the application. This one is somewhat easy to detect because a &#8216;vcs st&#8217; should show that file as unknown status. In that way ensuring a clean status before running the tests can help avoid this. However this won&#8217;t work well in an automated fashion because there are often unversioned files, and you typically want to run the tests before committing anyway.<br /><br />2) A time or two I thought I had completely removed/renamed a dependency but forgot to clean up an import somewhere along the line. Even though the original .py file was gone, a .pyc file by the old name still existed, which allowed the lingering import to work. Again however, for anyone else getting a fresh checkout or release, this file would not be avaible and the app would be unusable.<br /><br />How can you avoid having problems like this? Well, from a myopic viewpoint you could have your test suite delete any .pyc files before running. Then to address the first issue, you could also test that a &#8216;vcs st&#8217; has no unknown files, and explicitly ignore any unversioned files you expect. But still, other things could creep up. And while having another machine as your &#8220;buildbot&#8221; would avoid the first issue, you are still prone to an attack from the second. To really make sure you are testing with the same stuff that you release, you need to be testing releases. In other words, you need to be putting your version through your shipping process, whatever that is, and then testing the final product.<br /><br />So now that I&#8217;ve realized this is what I should be doing, I&#8217;m not quite sure what the simplest and easiest way to do it in an automated fashion is. For python, perhaps this could be achieved by getting a fresh export/checkout of the code in a temporary directory, adding that directory to sys.path, and importing and running the tests. I am sure this is a common problem; is there a common solution?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+I had this problem the other day releasing some code at work. <BR/><BR/>The way I do a release is to run my release script, which reads in file lists scattered around the program, copies them to a new place, compiles them and runs all the tests. It then runs a make clean(*) and builds a tar ball. The file lists are used for generating the makefiles, so all the dependencies are explicitly listed.<BR/><BR/>To release, I untar it into another teams subversion repository, add it and commit. <BR/><BR/>It sounded pretty foolproof to me. So, I untarred it, ran &#8220;svn add&#8221;, then tried compiling it, testing it etc and everything worked. I checked &#8220;svn stat&#8221; to make sure I wasn&#8217;t going to commit anything by accident, and it all looked fine.<BR/><BR/>The next day, I had an email telling me that I broke the build :-). <BR/><BR/>It turned out that when I was creating the file list used for building the release, I accidentally included a backup file (&#8220;somefile.c~&#8221;) in the list. The tarball included the file (since the release script copies all the files listed), so when I untarred it into the svn repository, the file was put in there. But if you do an svn add, it will skip over such files. So when I committed, the backup file was missing, which then made the makefile barf, because all the files from the file list are dependencies.<BR/><BR/>I can&#8217;t quite think of a good way to prevent this from happening again. <BR/><BR/>(*) This is one step where things could go wrong - if the clean target doesn&#8217;t delete everything, then the release will include files that should be generated.</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+by rapid iteration I mean continuous integration</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+We have the first problem on our website as well; forgetting to check in a .php file.<BR/><BR/>We don&#8217;t have an automated solution, but rapid iteration helps make it a non-issue.  Basically, we haven&#8217;t trained ourselves to ignore unversioned files, because we&#8217;re used to never having any.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+We delete .pycs and .pyos as a BuildBot step.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I have had great success setting up an acceptance test suite that actually constructs an installer, installs the software, and starts the application.<BR/><BR/>We then test the application by prodding it from outside its process. (eg with Windows messages)</div>
+</div>
+<div class='comment'>
+<div class='author'>James Westby</div>
+<div class='content'>
+Hey Mike,<BR/><BR/>I&#8217;ve one suggestion that may be appropriate: build a package.<BR/><BR/>If you use &#8220;bzr-builddeb&#8221; then this could be as simple as running &#8220;bzr bd&#8221; every so often, installing the resulting deb, and testing the system version.<BR/><BR/>That would check various things, and would catch exactly the case you describe with not running &#8220;bzr add&#8221;<BR/>on the filename.<BR/><BR/>Thanks,<BR/><BR/>James</div>
+</div>
+<div class='comment'>
+<div class='author'>dsas</div>
+<div class='content'>
+patch queue manager should do all you require I think.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jose M</div>
+<div class='content'>
+I think that in the books &#8220;Expert python programming&#8221; and &#8220;Foundations of Agile python development&#8221; cover this topic in depth.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/21/delicious-cheap-and-easy-whole-wheat-wraps/" title="Previous Post: Delicious, cheap, and easy whole wheat wraps!">&laquo; Delicious, cheap, and easy whole wheat wraps!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/" title="Next Post: Using the "finally" block in Python to write robust applications">Using the "finally" block in Python to write robust applications &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

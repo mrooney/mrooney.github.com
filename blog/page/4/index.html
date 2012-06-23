@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Python is a great language, but if you have ever tried to do anything web-related beyond a basic page fetch, it gets complicated quickly. What are &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/page/4">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/10/the-joy-of-trivial-wrappers-in-python/">The Joy of Trivial Wrappers in Python</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-10T00:00:00-05:00" pubdate data-updated="true">Feb 10<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Python is a great language, but if you have ever tried to do anything web-related beyond a basic page fetch, it gets complicated quickly. What are single actions in your mind become multiple operations in Python.<br /><br />Take for example POSTing some variables to a page. You are going to have to import both urllib and urllib2, and know what is in each of these. Use urllib.urlencode to encode your post variables, then pass them into urllib2.urlopen to get a connection object, then read that. Yikes! Oh, does the site require cookies? That&#8217;s another import and three lines of code; I hope you like reading up on CookiePolicy&#8217;s!<br /><br />Attempting to accomplish this task with built-in modules will likely result in something similar to:<br /><br /><blockquote>import urllib, urllib2<br />from cookielib import CookieJar, DefaultCookiePolicy<br /><br />cj = CookieJar( DefaultCookiePolicy(rfc2965=True) )<br />opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))<br />urllib2.install_opener(opener)<br />postVars = urllib.urlencode({&#8220;username&#8221;: x, &#8220;password&#8221;: y})<br />conn = urllib2.urlopen(&#8220;http://example.com/login.php&#8221;, postVars)<br />htmlResult = conn.read()</blockquote><br /><br /><br />Compared to Java or C#, this is probably a terse solution. We are using Python however (for a reason), and that block of code sucks; that&#8217;s not how anyone thinks. It is hard to remember, leads to copy-and-paste code, and isn&#8217;t particularly readable. It also requires you to work with things you probably don&#8217;t care about such as cookie policies, openers, and url encoding. You just want to send a page a message!<br /><br />After forgetting between projects and having to re-discover how to implement this functionality a few times over already, I finally decided to write something to remember it for me. Suddenly we can write:<br /><br /><blockquote>import web<br /><br />web.enablecookies()<br />htmlResult = web.post(&#8220;http://example.com/login.php&#8221;, {&#8220;username&#8221;: x, &#8220;password&#8221;: y})</blockquote><br /><br /><br />The web module is <a href="http://bazaar.launchpad.net/%7Emrooney/nutunes/trunk/annotate/head%3A/web.py">quite short</a> and not even remotely impressive (you could write what I&#8217;ve exposed here in 5 or 6 lines), but it takes something I found tedious and verbose and turns it into something simple. It adapts the broken-down functionality of these libraries to the more abstract level that I think on. Everyone thinks (and works) differently, and surely for some people it WOULD make sense (and be necessary) to open connections and read from them (if at all) byte by byte.<br /><br />My interest in posting this has less to do with this specific example, and more to do with finding out what other &#8220;thought adapters&#8221; people have written to make something easier, more readable, or more pleasant. I have a few of these and pull them as I need them for various projects. What about you?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Who knows where to download XRumer 5.0 Palladium? <br />Help, please. All recommend this program to effectively advertise on the Internet, this is the best program!</div>
+</div>
+<div class='comment'>
+<div class='author'>reedobrien</div>
+<div class='content'>
+You should add head, get, put and delete methods. Maybe a few more&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+Whoa, awesome; I didn&#8217;t know about that.  o_O  Thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Check out http://wwwsearch.sourceforge.net/mechanize/  It&#8217;s designed to mimic most of the browser&#8217;s behavior with minimal coding.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sin</div>
+<div class='content'>
+I&#8217;ve made a Future class for myself that take a function, it&#8217;s arguments and an optional callback and runs the function in a separate thread. Similar to twisted&#8217;s DeferToThread.<BR/><BR/>I find it easier to reason about async i/o for some reason.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/08/awn-dock-and-extras-0-3-2-released-o/">AWN Dock (and Extras) 0.3.2 Released! \o/</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-08T00:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Avant Window Navigator has released version 0.3.2 today. This includes the release of the core dock, &#8220;awn&#8221;, and all the applets and plugins, &#8220;awn-extras&#8221;. There was a combination of about 130 bug fixes and feature requests closed in this release, including a few entirely new applets! One of my favorite new applets, moderately pointless I admit, is the Animal Farm applet which displays a cute animal who gives you a fortune on a click, thereupon changing to a different random animal. Below is a shot of 10 of them running :)<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SY-ulOHV7MI/AAAAAAAAAB8/4Fm1t1QEJeo/s1600-h/screenshotjq2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 28px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SY-ulOHV7MI/AAAAAAAAAB8/4Fm1t1QEJeo/s320/screenshotjq2.png" alt="" id="BLOGGER_PHOTO_ID_5300647240905649346" border="0" /></a><br />Other fun applets include a new customizable notification tray applet which supports transparency (with GTK 2.15+ in Jaunty), a flexible web comics applet, a new themeable clock, a simple to-do list, as well as plugins for Remember The Milk and Tomboy. Don&#8217;t forget that great applets like Pandora, weather, calendar, and shinyswitcher (a desktop switcher) already exist and have been improved as well.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY-xDqZm8UI/AAAAAAAAACM/OaErNPHW9Zk/s1600-h/screenshot1pn1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 29px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY-xDqZm8UI/AAAAAAAAACM/OaErNPHW9Zk/s320/screenshot1pn1.png" alt="" id="BLOGGER_PHOTO_ID_5300649962917785922" border="0" /></a><br />Awn-manager has also gotten a lot of love since the last release; managing themes and launchers should provide a much better user experience. Tons of bugs have been squashed in awn-manager and most changes will be reflected immediately&#8230;no need to restart AWN!<br /><br />For more detailed information please check out <a href="http://blogger.malept.com/2009/02/awnawn-extras-032-released.html">Mark Lee&#8217;s blog post</a>, one of the main developers. To get it, check out the <a href="https://edge.launchpad.net/%7Eawn-core/+archive/ppa">PPA</a>, and don&#8217;t forget to <a href="http://digg.com/linux_unix/Linux_dock_Avant_Window_Navigator_0_3_2_released">Digg it</a>! I&#8217;ll leave you with some more screenshots, all of which, including the ones above, are licensed under the WTFPL.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY-y3sB0CKI/AAAAAAAAACU/JS5O_Areops/s1600-h/schermafdruk4rn5.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 44px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY-y3sB0CKI/AAAAAAAAACU/JS5O_Areops/s320/schermafdruk4rn5.png" alt="" id="BLOGGER_PHOTO_ID_5300651956219676834" border="0" /></a><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SY-zDu_pjmI/AAAAAAAAACc/HIMYCjQa49s/s1600-h/awnssjauntyvh2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 62px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SY-zDu_pjmI/AAAAAAAAACc/HIMYCjQa49s/s320/awnssjauntyvh2.png" alt="" id="BLOGGER_PHOTO_ID_5300652163174338146" border="0" /></a></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>vfdvgf</div>
+<div class='content'>
+If you are <a href="http://www.eq2platsale.com" rel="nofollow">eq2 plat</a> looking buy <a href="http://www.thffxigil.com" rel="nofollow">ffxi gil</a> as well as <a href="http://www.ffxigilvip.com" rel="nofollow">FFXI Gil</a> WOW Power <a href="http://www.ffxigilvip.com" rel="nofollow">final fantasy gil</a> Leveling <a href="http://www.powerleveling-lotro.com" rel="nofollow">lotro gold</a> and World Of <a href="http://www.eveisk-sale.com" rel="nofollow">eve isk</a> When you <a href="http://www.aoc4u.com" rel="nofollow">aoc gold</a> need <a href="http://www.lineage2-2.com" rel="nofollow">lineage 2 adena</a> someone <a href="http://www.ffxigilvip.com/Buy-FFXI-Gil.htm" rel="nofollow">FFXI Gil</a> to <a href="http://www.bestmesos.com" rel="nofollow">Maple Story mesos</a> listen，<a href="http://www.wowfyy.com/Super-Power-Leveling.html" rel="nofollow">world of warcraft gold</a> I&#39;ll be <a href="http://www.dilshop.com" rel="nofollow">2moon dil</a> there.<a href="http://www.powerleveling-lotro.com" rel="nofollow">lord of the rings gold</a> When <a href="http://www.levelingshop.com/Wow_Power_Leveling.html" rel="nofollow">world of warcraft power leveling</a> you <a href="http://www.igamewow.com/powerleveling.asp" rel="nofollow">world of warcraft power leveling</a> need <a href="http://www.Gwarsgold.com" rel="nofollow">Guild Wars Gold</a> a hug,<a href="http://www.ffxigilvip.com/Buy-FFXI-Gil.htm" rel="nofollow">final fantasy gil</a> I&#39;ll be <a href="http://www.aoc4u.com" rel="nofollow">age of conan gold</a> there.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I am currently using awn 0.3.2 on jaunty.<br />How to change awn 0.3.2 to awn curve ?<br />Thx for help, and sorry my english not so good. I&#39;m from Asia</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Shashank. You can just use the instructions on the wiki: http://wiki.awn-project.org/Installation:Ubuntu#PPA . You will have to uninstall your avant-window-navigator and awn-extras=applets packages currently installed, and then install avant-window-navigator-trunk and awn-extras-applets-trunk, after following the guide. If you have any troubles please stop by #awn on IRC (freenode)!</div>
+</div>
+<div class='comment'>
+<div class='author'>Shashank</div>
+<div class='content'>
+hey! great article!!<BR/>i have a question though..<BR/>i am currently using 0.2.6 on Intrepid<BR/>and would like to know a way to install the 0.3.2 version. can u help me with a detailed process (through Terminal)??<BR/>tjhnx in advance!!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Yes, AWN works quite well on a variety of desktop environments including KDE and XFCE, plays well with most popular compositors as well.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+Very tempting to use this on my KDE4.2 desktop&#8230;</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/07/installing-new-languages-and-running-applications-in-them/">Installing New Languages and Running Applications in Them</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Awhile ago I promised to explain how to run applications in a different locale. This is quite useful as a developer, so that you can more robustly test your localization code. It can also be useful to translators who are translating to a locale which is not their default. Maybe you are learning a new language and want some extra practice in specific applications. Or, you may just want to see what your favorite application looks like in Russian or Hindi :)<br /><br />There are basically only two steps to this rather simple process.<br /><br />1. <span style="font-weight: bold;">Install the desired languages</span>. Go to System -> Administration -> Language Support. Scroll down the list, checking the &#8220;Support&#8221; box on the right for any language you want on your system. Once you are done click Apply and the necessary files will be downloaded for you. A logout and login is recommended by the application after this, and while not necessary, I recommend it as well (I&#8217;ve had a rare instance or so of segfaults when trying to use the locales before restarting the sesssion). If you want to follow along, ensure Russian is one of your choices.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 248px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5300336927231275250" border="0" /></a><br /><br />2. <span style="font-weight: bold;">Run the application under a different locale</span>. You need to figure out the locale code that you want to run. In a terminal, run &#8220;locale -a&#8221; without the quotes, and you will see a list of all locales available on your system. If I want Russian, the one I am looking for in this list is &#8220;ru_RU.utf8&#8221;. It is usually fairly obvious which one you want. Now, again in a terminal, just add &#8220;LC_ALL=ru_RU.utf8&#8221; before the application you want to run. If we want a Russian calculator for example, we would execute &#8220;LC_ALL=ru_RU.utf8 gcalctool&#8221;. Ta-da!<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 268px; height: 320px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5300334032395034114" border="0" /></a><br /><br />This is a great way as a developer to make sure your applications are <a href="http://mrooney.blogspot.com/2008/10/i18n-making-your-launchpad-projects.html">correctly detecting locales</a>. I&#8217;d love to hear what you think and if there are any other reasons I missed that you may want to do this!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>sebastian-s</div>
+<div class='content'>
+Hi!<BR/>thanks for the post, just two days ago I was messing around with Evolution and locals. I&#8217;m currently on en_AU and Evolution displays the time in 12h (am/pm) format in the email list view. Strangely in the email-detail view (or whatever it&#8217;s called) the time is displayed in 24hrs.<BR/><BR/>I did some reading about this &#8216;bug&#8217;, which is not a bug for some. [<A HREF="https://bugs.launchpad.net/evolution/+bug/48128" REL="nofollow">launchpad bug 48128</A>]<BR/><BR/>In the end I found out that setting the time local to say en_DK (LC_TIME=en_DK.UTF8) gives me 24hrs in Evolution.<BR/><BR/>Cheers,<BR/><BR/>seb</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks Sébastien, it is the rather popular Dust theme: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme . Don&#8217;t forget to set your panel background, listed under &#8220;Other stuff to try&#8221;. I also use the Firefox theme.<BR/><BR/>And if you aren&#8217;t using gnome-colors as your icon set, I&#8217;d also recommend that :) https://wiki.ubuntu.com/Artwork/Incoming/Jaunty/gnome-colors and give it a vote if you like it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sébastien Giguère</div>
+<div class='content'>
+Hi! I just remarked that your theme is very nice, can you tell where can i get it? Thanks very much!</div>
+</div>
+<div class='comment'>
+<div class='author'>Livio</div>
+<div class='content'>
+Русский? Such a beautiful language&#8230; It seems I&#8217;m not alone with my crazyness around this language :D .</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/06/how-windows-vista-digg-and-ubuntu-landed-me-a-sweet-job/">How Windows Vista, Digg, and Ubuntu Landed Me a Sweet Job</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-06T00:00:00-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+A lot of people criticized Windows Vista when it first came out, and I was one of them. Another large group of people also don&#8217;t believe there&#8217;s money in open-source. However for me, the existence (and negatives) of Vista and the awesomeness of Ubuntu landed me a sweet job. How?<br /><br />Around the time that Vista came out, I was using a laptop with a 1.7GHz Pentiun M processor and 1GB of RAM. I got Vista (Business edition) for free through school so I threw it on. I quickly grew to love the new start menu and many of the improved usability features it had. Unfortunately it ran like CRAP. It was so slow and unusable due to my machine specs that it was unbearable. I couldn&#8217;t validate purchasing a new laptop at that time since Windows XP ran perfectly fine and really an OS SHOULD be able to run fine on those specs. But I also didn&#8217;t want to go back to XP and lose the features that I liked from Vista.<br /><br />Around that same time I was also browsing Digg and noticed a release announcement for this thing called Ubuntu, Feisty Fawn to be precise. Everyone seemed to be raving about it and I thought since it was free, I might as well give it a try and see if IT can run decently on my machine and allow me to do everything I wanted. As it turns out, it ran quite well and either supported everything I wanted out of the box, or was flexible enough to allow me to do it myself! Even better, it shipped and supported the applications I used on Windows but previously had to install and keep up-to-date myself, like Firefox, Thunderbird, and Pidgin.<br /><br />Over time I started getting more into contributing to Ubuntu, first by finding bug reports matching problems I had and adding more information, then more general bug triaging help via BugSquad. Eventually I joined the BugControl team and also started contributing to projects like Avant Window Navigator (AWN). At one point the bug bot that announces new bugs in #ubuntu-bugs-announce went down so I wrote a new one (EeeBotu) which lives on to this day happily (I presume) announcing bugs. When I heard that community members could be sponsored to the next UDS (Ubuntu Developers Summit) in California, I excitedly applied and even more excitedly was accepted to attend courtesy of Canonical.<br /><br />Around THIS period of time I had been applying to various jobs, one such job at a fun startup in California, Genius.com. They had recruited at my college, the Rochester Institute of Technology in Rochester, NY, and had picked some candidates including byself to be flown out for second interviews. Then the downturn in the economy came however, and they decided not to fly anyone out and re-evaluate new hires at a later time.<br /><br />This was understandable, but I thought that maybe since I was going to be out in California for UDS anyway, they might want to take me up on a free interview. As it turns out they did. I was offered a job, accepted it, and after about a month I can say that it is a pretty sweet job!<br /><br />So because Vista sucked (at least initially), I gave Ubuntu a try which I heard about on Digg, got involved and was sponsored to attend UDS in California, where I was able to interview at the company I currently work at.<br /><br />So just remember, there&#8217;s a positive side to every negative (thanks Microsoft!), and there IS money in open-source, at least indirectly (a huge thanks to Canonical!). Has Digg found a new business model?<br /><br />In other news, I&#8217;ve joined a pact with 9 other friends to write a blog post a day for a month starting today, so if all goes well you will be hearing many (hopefully) interesting or fun things from me!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Murrquan</div>
+<div class='content'>
+Have fun with your new job! That was a really inspiring story. And thanks for your work with the bugtracking, and with AWN! I use AWN every day now, it&#8217;s great ^.^</div>
+</div>
+<div class='comment'>
+<div class='author'>Joel</div>
+<div class='content'>
+Excellent!! Linux is great. I am using PCLinuxOS, a slightly more &#8216;Windows-XP-ish&#8217; distro, until I can get used to Linux as a whole.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hope you continue to enjoy your new job. It&#8217;s amazing how a chain events leads to an outcome.</div>
+</div>
+<div class='comment'>
+<div class='author'>pan</div>
+<div class='content'>
+congrat on your new (sweet) job.Nice&#8230;<BR/><BR/>I never thought this combination of Vista+digg+ubuntu will work this way.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/29/gnome-do-0-8-released-awesomeness-ensues/">Gnome Do 0.8 Released; Awesomeness Ensues!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-29T00:00:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Gnome Do 0.8 has just been released! If you don&#8217;t know anything about Do, I HIGHLY recommend that you check it out. It is a magical launcher inspired by Quicksilver that is super powerful, plugin-rich, intuitive, and rather polished.<br /><br />The 0.8 release added a bunch of bling in the form of smooth animations and more attractive interfaces. One of the most interesting aspects about the release, however, is the addition of a Dock interface called Docky:<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIvpnbUBsI/AAAAAAAAABc/097gI4Dl_sU/s1600-h/docky1.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 70px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIvpnbUBsI/AAAAAAAAABc/097gI4Dl_sU/s320/docky1.jpg" alt="" id="BLOGGER_PHOTO_ID_5296848503745808066" border="0" /></a><br /><br />At first glance it appears to be just yet another Linux dock and a random feature for Do to add. However the dock is actually automatically and dynamically populated based on your most launched applications in Do. You can also add and remove launchers by dragging them to and from the dock. This would be cool enough, but it doesn&#8217;t stop there because Docky is a first-class Do interface where you can perform all your actions!<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIv_VxJOVI/AAAAAAAAABk/ud_D6YWY4t8/s1600-h/docky2.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 70px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIv_VxJOVI/AAAAAAAAABk/ud_D6YWY4t8/s320/docky2.jpg" alt="" id="BLOGGER_PHOTO_ID_5296848876962658642" border="0" /></a><br /><br />Oh yeah, and it features a silky smooth parabolic zoom. Instead of repeating what the developers have already said better themselves, let me link you to their blog posts. If you want to get Do, check out the first link which is the official release announcement (or skip right to the <a href="https://launchpad.net/%7Edo-core/+archive/ppa">PPA</a> :). For more in-depth information, I highly recommend jassmith&#8217;s post who was the main Docky developer. Happing Do-ing, and don&#8217;t forget to <a href="http://digg.com/linux_unix/Announcing_GNOME_Do_0_8_Rock_out_with_your_dock_out">Digg</a> it!<br /><br />Release announcement: <a href="http://do.davebsd.com/release.shtml">http://do.davebsd.com/release.shtml</a><br />jassmith: <a href="http://jassmith.wordpress.com/2009/01/29/gnomedo080release/">http://jassmith.wordpress.com/2009/01/29/gnomedo080release/</a><br />pengdeng: <a href="http://b.pengdeng.com/2009/01/do-08-rock-out-with-your-dock-out.html">http://b.pengdeng.com/2009/01/do-08-rock-out-with-your-dock-out.html</a></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Janne, Docky doesn&#8217;t have to take up any screen real estate, and I prefer that it doesn&#8217;t. Just right-click on the Do icon in the left of Docky and enable &#8220;Allow Window Overlap&#8221;. This will make Docky behave like most docks and give you that bottom area back.</div>
+</div>
+<div class='comment'>
+<div class='author'>Tomasz &#8216;Zen&#8217; Napierała</div>
+<div class='content'>
+Im using gnome-do since it&#8217;s beggining, but now I cant use themes without using compiz :( I cant use compiz, so do&#8217;s usability is kinda limited for me, especially while default theme is to big and doesn&#8217;t fot to my desktop.</div>
+</div>
+<div class='comment'>
+<div class='author'>Janne Morén</div>
+<div class='content'>
+Thanks; didn&#8217;t know you could resize it.<BR/><BR/>Still not an option though, as I only have room for one panel; with a 1024x768 size screen, two panels already eat too much into my screen estate. So until/if Docky becomes a full replacement I&#8217;ll do without. Gnome DO works perfectly fine without it after all.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Janne! You can grab the divider between your launchers and trash to size Docky vertically, and to resize it horizontally you can grab either end.<BR/><BR/>When using Docky, I would recommend removing the bottom panel, as it becomes rather unnecessary and is what most docks anticipate. If there are any panel applets you miss, just add them to the top panel!</div>
+</div>
+<div class='comment'>
+<div class='author'>Janne Morén</div>
+<div class='content'>
+Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the Docky interface is a dud for me. It obscures my normal panel, and it is way, way, _waaayyy_ too big, with no way to make is smaller or move it away from the bottom. Did I mention just how humongous that Docky thing is?<BR/><BR/>Also, the Evolution contacts search plugin doesn&#8217;t seem to work; a shame as that could come in really useful.<BR/><BR/>Other than that, though, it really seems to be a pretty useful app, and I intend to keep using it for now.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/19/new-laptop-on-the-way-dell-xps-m1330/">New Laptop on the Way: Dell XPS M1330!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-19T00:00:00-05:00" pubdate data-updated="true">Dec 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+NOTE: If you are looking for a good deal on a refurbished Dell XPS M1330 (and maybe 1530), read on!<br /><br />My current and only machine is a 4.5 year old 15.4&#8221; laptop. It&#8217;s held up surprisingly well, but a Pentium M just isn&#8217;t cutting it anymore and I really want a smaller and lighter form factor. I had been eying 13&#8221; Dells for quite awhile (the XPS and Inspiron models), and was looking at paying around $1200 for a new XPS M1330. After discovering Dell Outlet (refurbished, returned, et al) and finding some decent machines for about half the price I was originally looking at, I decided to turn my focus there.<br /><br />I wasn&#8217;t finding anything amazing in the Outlet at first, since so many people are snapping up all the deals very quickly due to Christmas and such. However I discovered a little trick! The Product Red XPS systems are listed separetely from the others with no obvious link. But once you get to a listing of machines for a particular model, you can manually look at Product Reds by changing the model drop-down from say, &#8220;XPS 1330&#8221; to &#8220;XPS 1330 PRODUCT RED&#8221;. Assuming you don&#8217;t mind red (it was actually my preferred color), now you&#8217;ll have a list of machines that a lot of people aren&#8217;t seeing. Sort by price and you can find a few for $759, and a bunch of &#8220;Scratch and Dents&#8221; (lots of good experiences with these online, it seems) for $799. I chose a refurbished one for $759 with a 2.1GHz Core 2 Duo processor (8100), 4 gigs of RAM, Nvidia 8400 128MB graphics card, 6-cell battery, Wireless N and Bluetooth, and integrated 2MP webcam for $759 with free shipping. I was about to bite at this price although I was slightly hesitant as the tax brought it to just over $800, and was really hoping for a coupon to make it sweeter. As I was heavily debating it and rather close to buying it, someone on SlickDeals pointed me to http://www.e-junkie.com/coupon where you can get free one-time use coupons, including 15% off Dell Outlet XPS!<br /><br />I was quickly let down when the coupon didn&#8217;t work online though, as it isn&#8217;t valid with any other promotions, and the free shipping promotion is always there with no way to remove it. However as the coupon expired Dec 24th and the shipping Jan 5th, that meant it actually wasn&#8217;t possible to use it, and figured a call to Dell could rectify this. Sure enough, I was able to get both promotions by ordering over the phone, and got the machine for $645 pre-tax!<br /><br />So in summary:<br /><ol><li>Go to dell.com/outlet, select XPS laptops, then change the model to the PRODUCT RED version from the drop-down.<br /></li><li>Add one to your cart to secure it for 15 minutes. Repeat as necessary throughout every 15 minutes.<br /></li><li>Visit http://www.e-junkie.com/coupon and grab a 15% off Dell Outlet XPS coupon.</li><li>Call Dell Outlet (1-866-492-6721), explain that you have a coupon but can&#8217;t use it because of the shipping promotion, and they should do the order over the phone for you (if you are nice enough :)<br /></li></ol>I am very happy with the purchase, and it comes with a 1-year in home parts and labor warranty. When I was considering new XPS systems for over $1,000, I was going to get a 3 or 4 year warranty for $200-300, but at this price (half of what I was originally considering) I can afford a new laptop in 1-2 years anyway if it breaks down, and have a nicer system for those extra years!<br /><br />I&#8217;ll probably post this to SlickDeals eventually but I thought I&#8217;d give the Ubuntu community a head start. Let me know what you think of this deal in the comments, positive or negative, and if you had any luck doing the same.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Roshan George</div>
+<div class='content'>
+Just re-read that and it makes it sound like the laptop isn&#8217;t nice. I love using it, it&#8217;s light enough and everything works great with Ubuntu 8.04 64-bit.</div>
+</div>
+<div class='comment'>
+<div class='author'>Roshan George</div>
+<div class='content'>
+Another person with a failed XPS M1330. The 8400M GS apparently has a known heating problem. Dell extended the warranty on the motherboard one year for this.<BR/><BR/>I&#8217;ve already had mine fail once. Consider extending the warranty.</div>
+</div>
+<div class='comment'>
+<div class='author'>Me</div>
+<div class='content'>
+My M1330 died after about 8 months.  I turned it off in the morning, and that afternoon it wouldn&#8217;t power on; totally dead.  Also, the AC adapter&#8217;s light went out when I plugged it into the laptop.  Turns out the &#8220;power rail&#8221; failed, according to a forum thread.  Thankfully I have a 3-year on-site service plan&#8211;I probably wouldn&#8217;t have paid for that, but it came with the special after-Christmas inventory tax-reduction sale.  Now I&#8217;m very glad I have it.<BR/><BR/>After about 45 minutes on the phone to Indonesia (sigh), a service call was scheduled.  It failed on a Thursday, and the guy came on&#8230;Monday or Tuesday to fix it.  He couldn&#8217;t come until the part was shipped to him.  He came to my university campus and repaired it while I was in classes.  AFAIK the motherboard and the black plastic part between the hinges, including the touch-sensitive buttons was replaced.  He also replaced the adapter, but annoyingly, the cables on this one are still&#8230;wavy from the way they were bent and coiled up, compared to the original which had smooth and straight cables.<BR/><BR/>It&#8217;s been fine since then, but I was very disappointed that it totally died so suddenly and so quickly; I haven&#8217;t even had it a year yet.  It happened at a rather bad time, too, as I had a project due the next day.<BR/><BR/>If you can afford to wait, you might catch a good deal around January-early February, and you might consider that extended warranty.  :/</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Cool find! Thanks a lot!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/08/uds-monday-run-down/">UDS Monday Run-down!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Canonical graciously sponsored me as a community member to attend the <a href="https://wiki.ubuntu.com/UDSJaunty">Ubuntu Developer&#8217;s Summit</a>, and as the first day is over, I figured I should give a brief overview of the sesssions I attended.<br /><br />Mark Shuttleworth opened the day, giving an overview of the general goals of Ubuntu followed by the specific goals for Jaunty. On the desktop the main goals seem to be a new notification system which looks very slick, and improved boot time. I was impressed with how down-to-earth he was, as well as being accessible throughout the day and popping into almost every session.<br /><br />Next I went to the desktop experience session, which was mostly a presentation and feedback session for the new notification system targeted for Jaunty. Afterwards was a session about Launchpad, where Launchpad developers asked for input from users. As it turns out, almost every complaint and feature request made is apparently solved in 3.0. It sounds like it is going to be a very progressive release which will include an overhauled AJAX interface which is apparently much faster and easier to use, requiring less clicks and page loads. Additionally, signed PPAs should land in about two weeks, with the ability to have multiple PPAs per user coming eventually as well. Pretty exciting stuff for PPA users on both sides!<br /><br />After lunch at the Googleplex I attended a session on improving <a href="https://wiki.ubuntu.com/5-A-Day">5-a-day</a>, and we talked about how the program can be tweaked to encourage more consistent contributions to bug triaging. Afterwards there was a two-hour session on improving boot speed. Canonical is measuring boot time from the point where the GRUB count-down is done until the user is at a fully functional desktop with no disk I/O, and it sounds like the goal for Jaunty is to cut this time in half!<br /><br />What did anyone else at UDS think of the sessions? If you aren&#8217;t at UDS, what are your thoughts or questions?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+A few things that get mentioned on every review is artwork, hardware detection and boot time. I hope Jaunty can improve all three.<BR/><BR/>Have fun at UDS !</div>
+</div>
+<div class='comment'>
+<div class='author'>JK</div>
+<div class='content'>
+OMG!!!amazing goals set for jaunty. if ubuntu jaunty is able to cut the boot time in half, it ought to be revolutionary.<BR/><BR/>its also about time we get to see the GUI makeover thats been cooking for a while.. hope its not just limited to the new notification system alone.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/18/wxbanker-0-4-released/">wxBanker 0.4 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-18T00:00:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for multiple accounts; think of GnuCash but easier and more lightweight. It is written in Python/wxPython and runs on Linux, OSX, and Windows. Check out my <a href="http://mrooney.blogspot.com/2008/10/wxbanker-03-released.html">previous post on wxBanker</a> for a slightly more in depth functionality overview and screen shots.<br /><br />The main focus of this new version was localization. It now ships with translations for 8 languages (4 of them basically complete, thanks translators!), and also supports displaying the amounts in currencies other than USD including EUR and GBP. It also sports a few of the typical bug fixes / usability improvements you would expect in a new release.<br /><br />Another feature new to 0.4 is a setup.py, which allows Linux users to install it easily by running &#8220;sudo python setup.py install&#8221; in the folder, and wxBanker will install itself including a shortcut in Applications -> Office in Gnome, and store your data in ~/.wxbanker. If you are upgrading from a previous release, I recommend moving your bank.db file to ~/.wxbanker/bank.db for the easiest transition, which will also future-proof you from needing to shuffle it around in the future!<br /><br />I also thought I&#8217;d highlight the launchpad integration I added awhile ago in 0.3, since I saw a recent planet post regarding Inkscape doing something similar. In the Help menu I&#8217;ve added convenient links to view and ask questions, and report bugs:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s1600-h/wxbanker-help.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 244px; height: 162px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s320/wxbanker-help.png" alt="" id="BLOGGER_PHOTO_ID_5270064180934520130" border="0" /></a><br />If you have been looking to start taking control of your finances, give wxBanker a try: <a href="https://launchpad.net/wxbanker/trunk/0.4">https://launchpad.net/wxbanker/trunk/0.4</a> (or &#8216;bzr co lp:wxbanker -r 86&#8217; for the seasoned). If you find problems or have ideas, please let me know via launchpad bugs/blueprints, blog comments, or email; if you know another language, help translate by following the Translations link on Launchpad! And remember, when you use wxBanker to count your pennies, the dollars will follow!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi again David! I tried to design wxBanker in such a way that a double-entry system is possible but not necessary. You can use it as such by creating all the appropriate accounts, and then each transaction would be a transfer between the appropriate accounts. However the total wouldn&#8217;t quite work out in an ideal way I don&#8217;t think, so some work might need to be done there. Currently I use a hybrid sort of accounting system where I have Accounts Receivable and Payable and make transfers to and from them as appropriate, with other basic purchases being single entry.<BR/><BR/>If you have any ideas for better integrating double entry, reports or invoices, please let me know! Feel free to throw up a basic spec at https://blueprints.launchpad.net/wxbanker<BR/><BR/>As far as patches go, just visit https://bugs.launchpad.net/wxbanker/+filebug and make a bug for the specific issue, attaching your patch to it. Then I&#8217;ll see it and review it and such. I look forward to seeing what you have!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Well, I finally got around to taking a better look at wxBanker. It&#8217;s missing a few things that I would need:<BR/>1. Double entry<BR/>2. Invoicing<BR/>3. Billing<BR/><BR/>Will definitely get my Mrs. on to it though for our home finances.<BR/><BR/>What&#8217;s the best way of submitting patches?</div>
+</div>
+<div class='comment'>
+<div class='author'>Cristina</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David, the scope of wxBanker is personal and small business finance, so it may work for you, although it doesn&#8217;t currently have any built in reporting (however the store is a sqlite3 db with the structure documented in model_sqlite.py so custom stuff should be fairly straightforward if you are into that). I&#8217;d love to implement reporting features, but don&#8217;t know exactly what that entails. If you or anyone else wants to outline the basic details in a blueprint at https://blueprints.launchpad.net/wxbanker, I&#8217;ll be happy to implement it!<BR/><BR/>Mean-Machine, let me know what you think and thanks for the translation!</div>
+</div>
+<div class='comment'>
+<div class='author'>Mean-Machine</div>
+<div class='content'>
+I&#8217;m giving it a go. Never got to like GNUCash. Also translating into polish.</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrible. But I&#8217;m using it more for business though, so I&#8217;m not sure wxBanker would be ideal for me&#8230;</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/11/zen-and-the-art-of-memes/">Zen and the Art of Memes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-11T00:00:00-05:00" pubdate data-updated="true">Nov 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I wouldn&#8217;t normally have participated in the nearest book meme going around on Planet Ubuntu, except that sentence 5 of page 56 of the nearest book happened to be divine! From Alan Watts&#8217; &#8220;The Way of Zen&#8221;:<br /><blockquote><br />Suffering alone exists, none who suffer;<br />The deed there is, but no doer thereof;<br />Nirvana is, but no one seeking it;<br />The Path there is, but none who travel it.</blockquote><br />It happened to stumble perfectly on the closing quote of that particular paragraph! If you want to participate:<br /><ol><li>Grab the nearest book.</li><li>Open it to page 56.</li><li>Find the fifth sentence.</li><li>Post the text of the sentence in your journal along with these instructions.</li><li>Don’t dig for your favorite book, the cool book, or the intellectual one: pick the CLOSEST.</li></ol></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>reggaegyrl</div>
+<div class='content'>
+hey! the same thing happened to me just now, after reading the same &#8220;find the book nearest to you&#8221; message on facebook. i picked up &#8220;the Way of Zen&#8221; by Alan Watts.  at first i read the fifth line&#8230; &#8220;ghosts as realities. &#8230; ideals, our..&#8221; But i realised that i was to read the fith sentence.  That summary of Buddha&#8217;s doctrine is really interesting to stumble upon by chance like that :) and out of about 300 books, that was the closest.. Kool</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+But The Very Hungry Caterpillar doesn&#8217;t have that many pages&#8230;</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine/">Microphones (and Rosetta Stone 3) in Wine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I had an urge to brush up on my Spanish and thought I would try Rosetta Stone, however there is no Linux version. I thought instead of &#8220;messing around&#8221; with Wine I&#8217;d just install VirtualBox and use an XP Pro instance. Everything worked alright but the memory and CPU overhead was a little too much for my machine (1.7GHz Pentium M, 1GB DDR). It would run out of memory and thrash the HDD like crazy if almost any other program was running in Linux, defeating a large part of the advantage of virtualizing Windows in the first place.<br /><br />So then I read in Wine&#8217;s AppDB that Rosetta 3 seemed to work alright with recent versions, so I gave it a shot and it indeed installed perfectly with Wine 1.1.7 (using the PPA in Intrepid). The best part is that Rosetta uses a single sqlite3 database to track users&#8217; progress, so all I had to do was copy that over from the VM and all my progress and history was there in my Wine install!<br /><br />But then came the problem: I couldn&#8217;t get my microphone to work! It worked fine in the VirtualBox setup so I knew my hardware was fundamentally compatible. I then tried as many permutations of the follow settings as I could think of:<br /><ul><li>changing Wine to ALSA or OSS drivers</li><li>enabling and disabling all sorts of ALSA and OSS levels and captures in Volume Control</li><li>running Wine via `padsp`</li></ul>Finally I came across an ubuntuforums thread where someone&#8217;s solution to getting their microphone working with Wine was setting Wine to use OSS and then:<br /><ol><li>killall pulseaudio</li><li>aoss wine program.exe</li></ol>And that worked for me! I was so full of joy. However, I am a little worried about what consequences killing pulse will have on the system for the duration of the session, and I don&#8217;t really understand what aoss does. Can anyone enlighten me on why pulseaudio is a part of the problem here, and why aoss is necessary? This was a very helpful solution to me and thought it might be useful to others as well, but does anyone know of a better way that might co-exist with pulseaudio?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Ken</div>
+<div class='content'>
+Seems to be a no-go in 64-bit Linux,  AFAIK I&#39;ve tries all the available methods (attaching to sound ports/channels/devices,  etc).</div>
+</div>
+<div class='comment'>
+<div class='author'>climatewarrior</div>
+<div class='content'>
+Has anybody gotten this to work on a 64 linux system?</div>
+</div>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Aaron Strontsman</div>
+<div class='content'>
+Thanks for this tip, I just found out that this works for Skype (Linux version, actually), too. (Otherwise it would always show me a &#8220;sound playback error&#8221;.</div>
+</div>
+<div class='comment'>
+<div class='author'>crimsun</div>
+<div class='content'>
+Killing PulseAudio and running `aoss foo&#8217; accomplishes the same wrapping via LD_PRELOAD as does `padsp foo&#8217; with one important distinction: the former wraps directly to ALSA&#8217;s plugin layer, while the latter wraps to PulseAudio&#8217;s.<BR/><BR/>Intrepid&#8217;s PulseAudio isn&#8217;t as smart as Fedora 10&#8217;s (i.e., the latter has a boatload of fixes to the latest upstream PulseAudio version - and no surprise, given its creator has been a Red Hat employee for a tick), so the seemingly erratic performance of padsp and PulseAudio is largely resolved already.  You&#8217;ll see those fixes in Jaunty&#8217;s.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/5/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mrooney-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

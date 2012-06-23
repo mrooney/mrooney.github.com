@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Recently I&#8217;ve been working on desktop integration with ecryptfs. Dustin Kirkland has done some awesome work enabling encrypted Private &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/14/a-teaser-desktop-integration-with-encrypted-directories-for-karmic/">A Teaser: Desktop Integration With Encrypted Directories for Karmic</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-14T00:00:00-04:00" pubdate data-updated="true">May 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I&#8217;ve been working on <a href="https://blueprints.launchpad.net/ubuntu/+spec/ecryptfs-desktop-ui">desktop integration with ecryptfs</a>. <a href="http://blog.dustinkirkland.com/">Dustin Kirkland</a> has done some awesome work enabling encrypted Private directories, as well as entirely encrypted Home directories, and I want to bring a UI to that goodness for the Karmic desktop.<br /><br />UbuntuOne displays a banner at the top of its shares, and this inspired me to borrow the code for use with encrypted Private directories. After a bunch of hacking and debugging, I finally got something to show up:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SgvK9e86AJI/AAAAAAAAAKw/BqYg9C1Z_iU/s1600-h/nautilus-encrypted.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 221px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SgvK9e86AJI/AAAAAAAAAKw/BqYg9C1Z_iU/s320/nautilus-encrypted.png" alt="" id="BLOGGER_PHOTO_ID_5335581341179838610" border="0" /></a><br />Pretty exciting! There is much work to be done behind the scenes but this is an encouraging start. After I get this working I plan on making a UI for installing ecryptfs-utils (the necessary package), setting up an encrypted Private directory, and managing/configuring one (or an encrypted Home). This UI would perhaps be available from System -> Administration -> Encrypted Directories, and would allow a user to have a directory of encrypted files available in a few clicks, which is mounted/unmounted transparently at login/logout.<br /><br />What do you think? Are you currently using an encrypted Home or Private directory? Would you be more likely to if there was a UI to set it up? Please share your thoughts and comments :) I&#8217;ll be at UDS and can schedule a session on this if there is interest, as well.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Perpetual</div>
+<div class='content'>
+Hi, I really need something like this. My family multimedia center, based on ubuntu, contains a lot of movies (horror and such) that my small children better not click on by accident. Still, I want them to be able to access the cartoons section in the Movies directory. Everybody just uses my account, it is always logged in, so decrypt at login does not cut it. Instead I need something that pops up an &#8220;enter decrypt password&#8221; dialog when someone tries to access the grown-up movies.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Since I got some upstream questions I&#8217;ll give an update there. The projects this would touch are ecryptfs-utils and potentially seahorse. ecryptfs-utils has stated an interest in this so that means the nautilus extension, python API, and setup/configuration UI are likely to land upstream there.<br /><br />As far as seahorse I haven&#8217;t heard anything (I think I contacted them but am not sure), but I&#8217;ll hopefully meet someone involved in that project at UDS and discuss it with them. Perhaps I&#8217;ll end up putting an &#8220;Encrypted Directories&#8221; tab in that utility which allows the installation of ecryptfs-utils and from there allows you to launch the ecryptfs UI. I don&#8217;t think embedding a whole UI devoted entirely to ecryptfs makes that much sense in seahorse.</div>
+</div>
+<div class='comment'>
+<div class='author'>gourgi</div>
+<div class='content'>
+i really like this approach!<br />nautilus intergration looks very cool!<br />As for the menu approach, i strongly believe that you should talk/work in collaboration with upstream (seahorse?) before implementing yet another system-&gt; administration menu item. Encryption and keyrings  is the right way to go IMHO&#8230;<br /><br />Looking forward to have this in karmic! <br />Gourgi</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+What about implementing this nice feature upstream?</div>
+</div>
+<div class='comment'>
+<div class='author'>Wirelizard</div>
+<div class='content'>
+I love the fact that the open-sourced UbuntuOne client has already help produce cool improvements like this.<br /><br />All the closed-source UbuntuOne server software has produced in the same timeframe is controversy in the community!<br /><br />Go open source!</div>
+</div>
+<div class='comment'>
+<div class='author'>Nathan Nutter</div>
+<div class='content'>
+A UI is definitely necessary if desktop users are to take advantage of it. On Mac OS X there is FileVault and it is super easy to setup. However, I don&#8217;t currently use it because of concerns of stability/corruption. Of course, I have no evidence of this it&#8217;s just something that got baked into my head. I think it&#8217;s important to address the &#8220;safety&#8221; of using a new feature and I hope Canonical/Ubuntu will have some information about using encrypted home folders and/or encrypted directories.<br /><br />Things like:<br />* How do I know some &#8220;minor&#8221; corruption won&#8217;t end up locking me out of all my data?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for all the encouraging comments everyone!<br /><br />meastp, for 2-factor encryption with a USB stick I&#39;ll point you to Dustin&#39;s post on how to do exactly what you say! http://blog.dustinkirkland.com/2009/03/ubuntu-encrypted-home-with-2-factor.html<br /><br />wiflye81, the theme is shiki-colors (wise) available on gnome-look and potentially will be added to the community themes package in Karmic.<br /><br />Jim, I am not doing any graphical work for other desktop environments but I have created a python API for ecryptfs and a generic controller for my UI which other DEs can leverage to implement their equivalent quite easily. I&#39;ll probably be talking about this at UDS.<br /><br />Philipp, filename encryption is supported since Jaunty and is the default, though you can specify to not encrypt filenames if you like.<br /><br />Andrew, System -&gt; Preferences does make sense in some ways, and ideally it would be a tab in the Encryption and Keyrings entry there, although that application is done in C++ and Glade, neither of which I am familiar with so I am not sure it will end up there. I suggested Administration simply because it is a somewhat advanced feature, and will lead to data loss if you forget your password. Though ideally this risk can be mitigated with the proper prompts to record your encryption passphrase.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andrew</div>
+<div class='content'>
+Would System &gt; Preferences not be better, as it is on a per user basis, rather than a system wide thing.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I will use encryption for sure with a GUI. :) Keep up the good work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Philipp Kern</div>
+<div class='content'>
+Are filenames encrypted nowadays?</div>
+</div>
+<div class='comment'>
+<div class='author'>Philipp Kern</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alan</div>
+<div class='content'>
+An excellent development, but one which I might not end up using.<br /><br />Reason being - I need to share an encrypted local space with Windows machines on the same network (&amp; a MacBook possible soon &#8230;).  I can (and have for some time) do this with TrueCrypt, although with less desktop integration.<br /><br />So my ideal would be integrated AND Truecrypt compatible.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jim</div>
+<div class='content'>
+Hi There,<br /><br />Thanks for doing this work. :) If possible, would any of this desktop integration be available for Kubuntu or Xubuntu? <br /><br />Per this bug ( https://bugs.launchpad.net/ecryptfs/+bug/365796 ), the ecryptfs functionality was a bit less fleshed-out in Ubuntu&#8217;s non-GNOME distros for Jaunty, so it would be good to include Kubuntu and Xubuntu folks on this. <br /><br />Thanks again!<br /><br />Jim</div>
+</div>
+<div class='comment'>
+<div class='author'>wiflye81</div>
+<div class='content'>
+Great work, love to see it in karmic.<br /><br />Is this the official new theme for karmic (green looks good for koala and eucalyptus ;)) ?</div>
+</div>
+<div class='comment'>
+<div class='author'>Jeff</div>
+<div class='content'>
++1 for the GUI to set up encrypted directories!</div>
+</div>
+<div class='comment'>
+<div class='author'>MadsRH</div>
+<div class='content'>
+Currently I&#8217;m not using encrypted directories, but would be more likely to if there was a slick UI to set it up.<br /><br />Fantastic work :-)</div>
+</div>
+<div class='comment'>
+<div class='author'>Jon Dowland</div>
+<div class='content'>
+I think encrypted-home-by-default for installs is a good goal to reach for. This is the first I&#8217;ve heard of ecryptfs though and I wonder if it&#8217;s the best tech for the job. I currently use libpam-mount and dm-crypt/luks.</div>
+</div>
+<div class='comment'>
+<div class='author'>clivew</div>
+<div class='content'>
+Excellent concept<br />Love to see it in Karmic<br /><br />Best of luck!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I am really looking forward to using this, especially since the new laws came in in the states saying that when you (re)enter the states they can take any paper or electronic storage device from you for &#8220;examination&#8221; without any kind of warrant or even suspicion of wrongdoing?! I mean, I have nothing illegal to hide (not even ripped music or movies) but I would prefer customs officials weren&#8217;t looking at my private documents and photos without me knowing. If they need to ask for a password, they need to give an explanation as to why they want it. :)<br /><br />Anyway, I&#8217;m very grateful for your work on this, as the only thing holding me back from using an encrypted directory is a) not knowing how without a gui and b) just wanting to know it&#8217;s stable first.<br /><br />Given a little time, b. will take care of itself, so I&#8217;m very happy to see work on a nice gui!<br /><br />Thank you!</div>
+</div>
+<div class='comment'>
+<div class='author'>meastp</div>
+<div class='content'>
+I would love this!<br /><br />I used encrypted fs a couple of cycles ago, but it was a hassle to have to type the password on start up. Since I am using a laptop, I would like to encrypt at least some of my data, in case of theft etc. This solution will make a breeze, it seems! :)<br /><br />Could you perhaps consider a feature for two-phase security (e.g passphrase-thing on a usb-pen ) on login / unlock ?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Great, i would love it. <br />Kind of EncFSVault wich replaces Apple&#8217;s FileVault with good encryption. <br />Hope to see this soon</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/06/counting-the-number-of-ubuntu-users/">Counting the Number of Ubuntu Users</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-06T00:00:00-04:00" pubdate data-updated="true">May 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+There have been a few <a href="http://blogs.computerworld.com/how_many_desktop_linux_users">articles</a> recently trying to estimate the number of Linux users, which is apparently a challenging problem. However I have to wonder why it can&#8217;t be figured out at least at the distro level by simply storing hashes of IP addresses that hit Canonical&#8217;s update site, and looking at the number of unique ones each week/month.<br /><br />There are going to be people using mirrors, but this is a small percent to lose to at least get something in the right magnitude, and the most popular mirrors could probably do a similar thing and contribute their numbers anyway. The only other main drawback would be multiple Ubuntu machines under the same IP, which again seems like it would only result in a slight inaccuracy. You&#8217;d also lose a small percent to users infrequently using their computers such that they aren&#8217;t updated on a monthly basis, but yearly results would pull back in any of these people using their computers frequently enough to warrant counting.<br /><br />Alternatively, as others have suggested as well, if Google would just release their numbers for browsers hitting google.com, we&#8217;d probably have a solid idea as well.<br /><br />Are there already accurate numbers for Ubuntu and if not, am I missing something with my proposal?<br /><br />UPDATE: Jef pointed out that Fedora is already doing this at http://fedoraproject.org/wiki/Statistics#Yum_Data, which is pretty awesome! That shows about 14 million unique repository connections, so making a VERY rough, not remotely scientific estimate, we could use distrowatch to estimate that Ubuntu has 1.68 times the number of users as Fedora, and get something around the order of 24 million users that have connected.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>silver</div>
+<div class='content'>
+What about universities, schools and companies using ubuntu all under the same ip-address?. This could have a pretty big influence on the numbers!</div>
+</div>
+<div class='comment'>
+<div class='author'>Tommi</div>
+<div class='content'>
+I would either count at all the Distrowatch site. Even the sites admin says that should not be used anyway to calculate the amounts of users.<br /><br />And I would like to see too that MAC address is hashed to upgrades, but Fedora is already using the smolt what generates unique ID of the system specs and sends it to Fedora. Sadly (good thing) it is not default so not all enable it. But by those figures says that Fedora has more installs than Ubuntu. Sorry about that, you ain&#8217;t special, only gaining the media attention ;-)<br /><br />I dont think that market share figures means anything for us. (OK, mayby some like to extend their virtual penis). <br /><br />We all - what ever distribution we use - are using same OS. It does not matter what is your opinion about system, packagemanager, brand or even freedom. All we use Linux OS to power all the other software. Without Linux, we would not be here. So kudos to Linus Torvalds to code the OS in first place and kudos for Richard Stallman to start GNU project what gave us GPL and so on free software and we got the Linux OS licended under it (GPLv2).<br /><br />I see more other distributions than Ubuntu in Finland, (the homeland of the Linux OS). Same thing around on the European or Asia where I have traveled.<br />Ubuntu has smaller share on technical oriented users (science labs, computer stores, universities etc) but that does not matter at all. We are all using same OS, the Linux (kernel)!</div>
+</div>
+<div class='comment'>
+<div class='author'>scottritchie</div>
+<div class='content'>
+If you want a rough estimate for the proportion of Ubuntu vs Fedora users, a better back-of-the-envelope would be the Desktop Linux Survey: http://www.desktoplinux.com/cgi-bin/survey/survey.cgi?view=archive&amp;id=0813200712407<br /><br />Now, it&#39;s 2 years out of date, but back then Fedora had 6% and Ubuntu 30%; if that&#39;s still the case today this would put Ubuntu at 5 times Fedora rather than 1.68 times Fedora.<br /><br />Another metric might be Google Trends: http://www.google.com/trends?q=fedora%2C+ubuntu  &#8211; suggests that the Ubuntu:Fedora ratio of searches has been increasing; so either the ratio of usage has been changing or Ubuntu users are becoming even more likely to search for Ubuntu for some reason.<br /><br />Now, Google Trends and Desktop Linux surveys can be inaccurate for a variety of reasons.  I&#39;ll note, however, that the google trends data is consistent with the desktop Linux survey data; both imply roughly 5x - and both are doubtlessly better proxies for usage share than distro watch.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Micheal:<br />At no point did I say that all &#8220;fun&#8221; things can&#8217;t be &#8220;meaningful.&#8221;<br /><br />What I said was very specific. The distrowatch metric is not meaningful. The google trends metric is not meaningful. I making absolutely no claim about the meaningfulness of any other &#8220;fun&#8221; activity. I will say that making global maps of client connections to MirrorManager using GeoIP is both &#8220;fun for me&#8221; and &#8220;meaningiful&#8221; as it gives Fedora an easy to understand snapshot of how globally used Fedora is. <br /><br />You&#8217;ve extrapolated what i said and attempted to apply beyond the bounds of the original context. Is that &#8220;fun&#8221; for you as well..making gross generalization about what other people say? That&#8217;s neither friendly nor healthy. You want to keep this friendly..you want to keep this constructive? Then take more care and rein in your tendency to generalize.<br /><br />I find it really amazing that you can so easily discount accurate ShipIt numbers as a useful rough metric and yet&#8230; you reached for distrowatch as a scaling metric.  Stop putting the cart before the horse. Make accuracy the primary importance.. then worry about interpretation. Don&#8217;t waste your time trying to interpret the meaning of numbers that aren&#8217;t even accurate measure.<br /><br />If LoCos have hundreds of cds collecting dust every release&#8230;that&#8217;s also something you could get accurate stats on&#8230;you just have to survey LoCos and ask them.  if they are requesting CDs and not giving them out..that is a drain on Canonical resources. It benefits everyone by making sure that&#8217;s not happening too much.<br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous, hashing the MAC addresses instead is a pretty good idea! I just suggested IPs because that is something the mirrors already have access to so it wouldn&#8217;t involve any extra data sending or controversy. It is a great idea though, it would fix the cases of multiple users behind one IP, and also one user one multiple IPs.<br /><br />soren, it sounds like you are right, sorry :) The more I look into this, the more I see that mirrors are more common than I thought. Thanks for enlightening me and sharing your knowledge! Though, I still think it would be feasible if enough mirrors participated. Combined with hashed MAC addresses, it has a decent accuracy potential.<br /><br />Jef, ShipIt is certainly countable but I am not convinced how useful it would be. Surely some people order CDs and never use them, and someone in a shop might order one and install it a hundred times. And each LoCo could have hundreds on hand that never get used. Also, I&#8217;m not sure I could agree that something which is fun can have no meaning; fun IS meaning!<br /><br />Lots of knowledgeable people have shared great stuff here, so that&#8217;s awesome! Let&#8217;s just try to keep it friendly and healthy :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Are you suggesting that Shipit is uncountable?  It most certainly is countable. If anything its the most accurate statistic you have available to you. <br /><br />Canonical could tell us tomorrow exactly the number of ShipIt disks they have paid for AND the number of disks purchased directly for the Canonical shop. Have they ever done that? Have they ever put any hard numbers out with regard to how active ShipIt is? I haven&#8217;t found them. If they haven&#8217;t that&#8217;s a pretty remarkable lack of transparency. <br /><br />How about you press your leadership to publish the no-guesswork numbers associated with the amount of media sent via ShipIt for Intrepid on a monthly basis since the release of Intrepid.  What is it maybe 1% of the total number of Ubuntu users Canonical employees have publicly claimed exist? <br /><br />You want to haggle over a statistic that below the noise floor of any overall estimate fine..go right ahead&#8230;noise seems to be pretty important for Ubuntu supporters&#8230;much more than accuracy.</div>
+</div>
+<div class='comment'>
+<div class='author'>soren</div>
+<div class='content'>
+Michael, I know what &#8220;order of magnitude&#8221; means, and I&#8217;d be <I>deeply</I> surprised if people using archive.ubunut.com as their mirror wasn&#8217;t the minority. We have an extensive mirror network, and we configure Ubuntu systems be default to use country specific mirrors. Hence, metrics based on web requests to the primary archive mirror at archive.ubuntu.com would be completely useless to even come close to the order of magnitude of users. The only thing you can use it for is to get a rough idea about trends, but even then, it&#8217;s a stretch.<br /><br />Jef, you&#8217;re missing the fact that Ubuntu is freely available from ShipIt, no matter where in the world you are, and no matter what sort of network connectivity you have (as long as you can actually get to ShipIt, of course). Hence, users who can only get Linux by these means will never be counted by a service such as MirrorManager. Since a similar service to ShipIt does not (to my knowledge) exist for any other Linux distro, number from MirrorManager-like services will be biased in favour of non-Ubuntu distros. Let&#8217;s face it: There&#8217;s no way to get hard numbers for number of Linux installs.<br /><br />I&#8217;m sure there&#8217;s also organisations that for whatever reason do not want to publish their use of Linux at all, even to an (alleged) anonymous service like MirrorManager. I don&#8217;t say &#8220;alleged&#8221; because I don&#8217;t believe it to be anonymous, but because there&#8217;s no way for me to know whether that&#8217;s the case or not, and for some organisations, that&#8217;s simply not good enough.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Couldn&#8217;t apt send the MAC-address (or some hash of it) to some kind of MirrorManager-like service? You would then get unique machines and I don&#8217;t think people would feel it would violate their privacy (I don&#8217;t feel my MAC-address is something private)&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+I&#8217;m offended.. because those are exactly the sort of numbers which the laypress picks up on. By doing the calculation and publishing a calculation you know has no merit..you are not helping make the case for solid methodology for counting that can be reused by all distros..so we can get good solid numbers out to the press. Because god knows the press don&#8217;t care about accuracy.<br /><br />Do you want solid numbers or not for total linux usage? If you do, then don&#8217;t publish goofball numbers yourself. <br /><br />distrowatch and google trends&#8230;while &#8220;fun&#8221; to look at..have no meaning..have no value..in any well understood sense. You might as well just generate random numbers between 1 and 10 million for all distros and call them a rough estimate with a +/- 9 million errorbar on all the numbers.<br /><br />MirrorManager and the statistics it generates is a methodological approach that everyone can use..we could get solid consistent numbers across pretty much all linux distributions if they adopted the MirrorManager approach to handing out mirror information to clients dynamically.  There&#8217;s real value for everyone in this tech. Users, network admins, and distributors.  We don&#8217;t have to rely on CEO&#8217;s making up deployment numbers in press interviews. <br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Jef, I completely agree! That&#8217;s why I said it was &#8220;a VERY rough, not remotely scientific estimate&#8221;. It was just meant as a fun number. I am not at all serious about it; I thought it would be obvious from my disclaimer. Obviously the ratio obtained on distrowatch is flawed in numerous ways. I&#8217;m sorry if I have offended you by multiplying some numbers together :) If you really don&#8217;t think my disclaimer was sufficient, feel free to let me know why it isn&#8217;t VERY rough or not remotely scientific, and I can adjust it.<br /><br />pfrields, thanks for leaving a comment! It is good to hear that you guys are somewhat serious about metrics like this, and are certainly quite ahead of Ubuntu (as far as I can tell) in terms of collecting the data and being open about it. Like Jef said, it is certainly an aspect that is missing from Canonical/Ubuntu which is unfortunate considering their other marketing efforts.<br /><br />Anyway I definitely appreciate some Fedora folks chiming in here and didn&#8217;t mean to offend anyone with my wild extrapolations.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Your distrowatch metric is absolute crap.  I refuse to let that stand without comment. <br /><br />Xandros is ranked pretty low.. and yet it has a significant number of pre-installs via being the linux Asus uses on its EEE netbooks&#8230;for like what is it now 2 whole years. In fact from netbook sales estimates Xandros is crushing Ubuntu netbook pre-installs.<br /><br />In no way whatsoever can you reasonably argue that the distrowatch metric correctly places Xandros compared to the 30 or so other distros in front of it. No way. <br /><br />The distrowatch scaling metric does not stand up to scrutiny.<br /><br />To understand how to use the distrowatch metric you have to understand why people are going to distrowatch. You also have to understand that distrowatch&#8217;s own ranking system has a nonlinear affect on the ranking. Higher ranked distros are going to get more interests from new distrowatch visitors..because they are highly ranked.  It&#8217;s a feedback loop in the methodology. And it makes for an absolutely crap metric of anything at all.    <br /><br />If you are serious about this you need to find a metric that actually measures what you are interested in. <br /><br />What you need to do is demand Shuttleworth or any other Canonical employee who has so far been quoting userbase numbers in the press for the last 3 years..that they actually describe how they get those numbers.<br /><br />http://www.theregister.co.uk/2008/10/27/shuttleworth_ubuntu_commitment/<br />&#8220;Precise Ubuntu installed base numbers are impossible to obtain, but Shuttleworth said the most recent estimate is about 8 million users for the Linux variant. Ubuntu does not have any call-home features to help Canonical count installations. That&#8217;s because Shuttleworth does not want to violate users&#8217; privacy or put up any barriers to adoption for the software. &#8220;We actually have no idea,&#8221; Shuttleworth admitted.&#8221;<br /><br />Numbers have contexts&#8230; methodology has meaning. You can&#8217;t just make up numbers and scaling factors just because they seem to fit the argument you are making. You have to test them for sanity. The distrowatch scaling factor is not a sane metric.</div>
+</div>
+<div class='comment'>
+<div class='author'>pfrields</div>
+<div class='content'>
+I do look at total uniqueness once in a while.  As with all the measurement scenarios, there are some flaws &#8211; the office I used to work in had many users on different versions, but they would be counted as one IP address since they were behind a firewall.  And if the object is to capture number of *machine* installations, then you&#8217;re also missing users who have more than one version on separate machines at home (as I do).<br /><br />Nevertheless, the count I just found from the already collected IP lists was over 12.5 million totally unique IP addresses, out of around 14 million current IP addresses found through simple summing.  Obviously this count doesn&#8217;t include Fedora derivatives such as CentOS, Scientific Linux, Red Hat Enterprise Linux, and so on.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous, I am familiar with popcon but that is a purely opt-in system so as such is only useful for relative comparisons between packages, not for getting a good count.<br /><br />PriceChild, using the security repo seems like a good idea, although it appears that for me I am hitting my mirror for security too. Some users/admins probably disable everything but that anyway.<br /><br />Jef, that is awesome, thanks for the resource! Do you know if the total across versions is unique across them? That is, if I have Fedora 9 installed and then upgrade to Fedora 10, do I get counted twice? That seems like a common place where people are going to get double counted over the course of a year.<br /><br />pochu, hopefully getting the main and US repository picks up a large percentage, and making it easy for the other mirrors to participate would make it fairly accurate.</div>
+</div>
+<div class='comment'>
+<div class='author'>pochu</div>
+<div class='content'>
+IIRC the installer sets apt to use mirrors by default, so people using the canonical repo are likely the minority</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+What you mean you don&#8217;t trust Canonical&#8217;s statement has been using every year since 2006 that Ubuntu has 8 million users?  I don&#8217;t trust it either.<br /><br />Fedora already has a way to estimate users via IP.  We have the dynamic MirrorManager service..and it has logs&#8230;<br /><br />http://fedoraproject.org/wiki/Statistics#Yum_Data<br /><br />People have put a lot of thought in to what is actually achievable and what is not with regard to Fedora metrics:<br />http://fedoraproject.org/wiki/Infrastructure/Metrics<br /><br />There&#8217;s absolutely no reason Canonical couldn&#8217;t take the MirrorManager codebase and adapt it for Ubuntu&#8217;s needs. Unlike Canonical, which spends a lot of time building closed web services codebases they are reluctant to share. All of Fedora infrastructure is done in the open..including the MirrorManager service.  <br /><br /><br />MirrorManager is important enough to talk more about. Every Fedora client by default contacts the MirrorManager service asking for which mirrors to use. The MirrorManager service even lets admins on large private networks redirect fedora clients in their network block to a local private mirror..without client reconfiguration. We still count those clients because they contact MirrorManager instead of having to be manually reconfigured to point to the local mirror.  Our MirrorManager service is a benefit to both the user and the local network admin who is trying to conserve bandwidth&#8230;.and its enabled by default.<br /><br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>PriceChild</div>
+<div class='content'>
+perhaps those hitting the security repo (central, not mirrored and used by default unless sa chooses not to) could be used&#8230; infact I&#8217;m pretty sure they&#8217;ve looked at that before.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+You know that http://popcon.ubuntu.com/ exists?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+soren, it doesn&#8217;t quite sound like you understand orders of magnitude if I understand your comment correctly. Unless people using the default mirror are in the MINORITY (I highly, highly doubt this is the case), it would easily be on the same order. And second, as I mentioned in the post, the most popular mirrors would likely contribute their counts to Canonical as well, making it irrelevant.<br /><br />Stefano, I agree, but again this number would be better than throwing around download numbers and random guesses. And conversely to your point, as Drew mentions, there are going to be users on netbooks/laptops updating from many different IPs which will partially offset that issue.</div>
+</div>
+<div class='comment'>
+<div class='author'>Stefano</div>
+<div class='content'>
+Yes,<br />  counting unique IPs is the first whing that can be done, but clearly this is not accurate due to NAT.<br /><br />Behind a single IP you might have N users, and you don&#8217;t know how many they are.</div>
+</div>
+<div class='comment'>
+<div class='author'>soren</div>
+<div class='content'>
+I think you&#8217;re greatly underestimating the percentage of users using mirrors. I don&#8217;t think we&#8217;d be anywhere near the order of magnitude of users that way.</div>
+</div>
+<div class='comment'>
+<div class='author'>Drew Stephens</div>
+<div class='content'>
+This sounds like good idea to me - each distribution&#8217;s package repositories (well, except for Red Hat/Fedora with it&#8217;s decidedly lack-luster and ill-used repos) has a good handle on the number of actively used machines.  There will be some that won&#8217;t get counted, because they update from someone&#8217;s local mirror, and a few that will get counted multiple times when the check form different IPs, but it should be a close-enough number.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/20/extending-java-s-semaphore-to-allow-dynamic-resizing/">Extending Java’s Semaphore to Allow Dynamic Resizing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-20T00:00:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="http://eng.genius.com/blog/2009/04/20/javas-semaphore-resizing/">Marshall wrote an excellent post</a> explaining how to dynamically change the number of permits when using semaphores in Java, which I thought I&#8217;d share for anyone interested. This can be particularly useful if you have a long-running daemon which you don&#8217;t wish to restart for changes such as this. If you are using semaphores in Java, or if you don&#8217;t even use Java but just want to learn more about semaphores, I&#8217;d recommend <a href="http://eng.genius.com/blog/2009/04/20/javas-semaphore-resizing/">giving it a read</a>.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/13/email-deliverability-rfc-2142-everything-you-wanted-to-know-and-never-dared-to-ask/">Email Deliverability & RFC 2142: Everything You Wanted to Know and Never Dared to Ask</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-13T00:00:00-04:00" pubdate data-updated="true">Apr 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Today <a href="http://eng.genius.com/blog/2009/04/13/rfc2142-deliverability/">Franck Martin wrote an interesting post</a> regarding <a href="http://tools.ietf.org/html/rfc2142">RFC 2142</a> (&#8220;Mailbox names for common services, roles and functions&#8221;) and how it relates to email deliverability. If you are running your own email server or own a domain, you may interested in reading it as it sums up what email addresses are expected to be manned at any domain and for what purposes.<br /><br />For example, did you know that &#8220;if an Internet service provider’s domain name is COMPANY.COM, then the ABUSE@COMPANY.COM address must be valid and supported&#8221;? And are you manning your postmaster and hostmaster addresses?</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/08/genius-com-is-eagerly-anticipating-php-5-3/">Genius.com Is Eagerly Anticipating PHP 5.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-08T00:00:00-04:00" pubdate data-updated="true">Apr 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Over at the Genius Engineering blog we just put up<a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/"> a post regarding our anticipation of PHP 5.3</a> and what we are looking forward to in it. We&#8217;d love to get some feedback and thoughts on it, and hear what other people are interested in regarding PHP 5.3 that we may have missed. If you&#8217;ve been following PHP 5.3, or haven&#8217;t and want to catch up, <a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/">check it out</a>!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/06/wxbanker-0-5-rc-available-for-testing-and-translating/">wxBanker 0.5 RC Available for Testing and Translating!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-06T00:00:00-04:00" pubdate data-updated="true">Apr 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I&#8217;ve been hard at work on the next version of wxBanker, a lightweight personal finance application, and would like to get out the 0.5 release candidate for testing and <a href="https://translations.launchpad.net/wxbanker">translations</a>. To check it out, add my <a href="https://launchpad.net/%7Emrooney/+archive/wxbanker-testing">wxbanker-testing PPA</a>. It also runs on Windows and OSX (albeit less tested), so feel free to grab the <a href="https://launchpad.net/wxbanker/0.5/0.5">source tarball</a> (it&#8217;s python, so no compilation necessary) and then check out the included README. The only hard dependency is wxpython, although installing numpy and the simplejson library for python allow for graphing and csv importing respectively.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s1600-h/Screenshot-2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 108px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s320/Screenshot-2.png" alt="" id="BLOGGER_PHOTO_ID_5321838548248449858" border="0" /></a><br />wxBanker 0.5 has been a long time in the making, as it represents a large refactor of the underlying code to make everything much faster, more stable, and easier to extend and implement new functionality. This is especially noticeable in the start up time.<br /><br />There is also a new transaction grid which allows for sorting, a CSV import option in Tools (so you can import transactions from your banks initially)<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s1600-h/csvimport.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 315px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s320/csvimport.png" alt="" id="BLOGGER_PHOTO_ID_5321834616567751714" border="0" /></a><br />&#8230;and enhanced right-click actions for transactions which now work on multiple selected transactions:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s1600-h/rightclick.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 130px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s320/rightclick.png" alt="" id="BLOGGER_PHOTO_ID_5321835704043570194" border="0" /></a><br />See the included changelog for a full list of new things. Launchpad is also fairly well integrated into wxBanker, so to file a bug or do almost anything else, just use the help menu. The Spanish and French translations are complete but I could really use help everywhere else: <a href="https://translations.launchpad.net/wxbanker">https://translations.launchpad.net/wxbanker</a> !<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s1600-h/helpmenu.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 218px; height: 161px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s320/helpmenu.png" alt="" id="BLOGGER_PHOTO_ID_5321836391963596770" border="0" /></a><br />Check out <a href="https://wiki.ubuntu.com/wxBanker">https://wiki.ubuntu.com/wxBanker</a> for more screenshots, or the wxBanker homepage at<a href="https://launchpad.net/wxbanker"> https://launchpad.net/wxbanker</a> for more information including the users team/mailing list, and the translations team. If you are interested in the less exciting stable version, 0.4.1.0 can be found in the Ubuntu repos as of Jaunty, available in about 18 languages.<br /><br />Enjoy, and let me know of any issues or comments you have, and thanks in advance for translations :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I figured out the problem with the import errors. In the file wxbanker.py, before the import of wx, wx.aui, just add the line: import wxversion; wxversion.ensureMinimal(&quot;2.8&quot;)<br /><br />This way even if wxPython 2.6 is the default on your system, as long as you have 2.8 or better it will use that install for wxBanker.<br /><br />A fix for this has been applied and it should work fine out of the box in the upcoming 0.6 release.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Paul &amp; Cilla, hello !<br /><br />I had the same pb on my Ubuntu Jaunty after installing PyKaraoke because it installed wxpyton 2.6 and I have already 2.8.9.1 so when you have many versions in python, it take the older so it&#39;s why after unistalling wxpython 2.6 (and so PyKaraoke) it&#39;s works fine. So try to find in Synaptic if you have many versions of Wxpython and try out to unistall all of them except 2.8&gt; , but only if not important software you use are depending to them. And normally it have to works instantanly.<br /><br />But i&#39;m not a python expert and if there is a solution or a workaround to have many versions of wxpython (and python himself too) working together without conflict, i&#39;m interrested.<br /><br />So good luck and bye !!<br /><br />PS : to developpers, I&#39;m  forced to say you that multiplatform and easy developpement is not only through WxWidget+Python : Try out QtCreator !! Ok, it&#39;s C++, but it&#39;s so easy, flexible and powerfull, and portable too ! And the software produced is quite more speedy. And you have also an intergrated UI designer which is marvellous. I said that because I discovered it 2 month ago and I have already developed so many project with it so quickly that I can&#39;t stop to talk about it to other developpers because to be really franch, I don&#39;t love python  at all :( &#8230;.  It think it is buggy, slow and not very flexible. And for this reason, i&#39;ve started to transcode many Python programs ins C++ to speed-up them (DJL, Alacarte, Elisa, Gnome-packagekit &#8230;&#8230;). So on these ideas I leave you at your tasks. But very good program ! Thanx.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Paul and Cilla, thanks for trying it out! That is usually the error that you get if your version of wxPython is too old; wxBanker requires at least 2.8.8.0. Do you know what version you have? You can find out by running python from a command line and then typing &#8220;import wx; wx.version()&#8221;. Also, what OS is this? I would try getting the latest version from www.wxpython.org .</div>
+</div>
+<div class='comment'>
+<div class='author'>Paul &amp; Cilla&#39;s Place</div>
+<div class='content'>
+I ran your apt-get install script and tried to run banker. I got this error:<BR/>./wxbanker.py<BR/>Traceback (most recent call last):<BR/>  File &quot;./wxbanker.py&quot;, line 24, in (it says module, but that isn&#39;t allowed in your blog) &lt;    module   &gt;<BR/>    import wx, wx.aui<BR/>ImportError: No module named aui</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+One feature I think is rather important is export to CSV. I was bored this evening, so to amuse myself I whipped up a little module to do just that. I pushed <A HREF="https://code.edge.launchpad.net/~crashsystems/wxbanker/csvexport" REL="nofollow">my branch</A> to launchpad, so feel free to use it if you think it will be useful. I don&#8217;t have any experience with wxWidgets yet (I&#8217;ve mostly worked with GTK), so I did not write any GUI stuff for this feature. If you don&#8217;t beat me to it, I may get around to doing that one of these days.<BR/><BR/>Keep up the great work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Cláudio Novais</div>
+<div class='content'>
+Hi Michael,<BR/><BR/>I&#8217;m translating to Portuguese and it&#8217;s almost completed!<BR/><BR/>You are doing a great work, keep going!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+@crashsystems: I think the scope of the application is appropriate for personal and small business finance, at least for the bookkeeping aspects. If there is anything that you find it is missing, I will be happy to implement it as I would like to support small business use as well. Nice print reporting of accounts should be coming in about a month which I imagine is useful. Try it and let me know what it needs!</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+This program looks very interesting. Do you think it would be suitable for a small business that has no need for payroll related features?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+@1: In the first screenshot I am using Dust, now included in Ubuntu as of Jaunty. The other two are Shiki-Colors (Wise).<BR/><BR/>@2: Phil, I am familiar with the term wanker, though didn&#8217;t know banker was synonymous. I don&#8217;t really see it is a problem but I will consider any names someone throws out; do you have a suggestion?<BR/><BR/>@3: Thanks for the feedback, that&#8217;s what I am going for!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Dutch translation finished :-)<BR/><BR/>Great program btw, much more clear than gnucash or similar<BR/><BR/>keep up the good work!</div>
+</div>
+<div class='comment'>
+<div class='author'>Phil</div>
+<div class='content'>
+Is the name significant and fixed? Banker is sometimes used in the UK (esp SE England) as a euphamism for wanker (it derives from the old London tradition of rhyming slang) Adding wx in front just makes it worse!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+looks great. What gnome theme are you using, btw?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/">Using the &#8220;Finally&#8221; Block in Python to Write Robust Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-25T00:00:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers) and get the results. If that doesn&#8217;t concern you, this post is probably still relevant; I&#8217;d just like to cover the groundwork of making code that is stable and repeatable even in the face of [un]expected problems. Luckily for us, python has a wonderful &#8220;finally&#8221; block which can be used to properly clean up or &#8220;finish&#8221; regardless of Bad Things. Let&#8217;s look at an example of a common problem this can solve:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">doStuff()</span><br /><span style="font-family:courier new;">releaseLock()</span></blockquote><br /><br />We need exclusive access to a resource, so we get a lock. We do some stuff, and then release the lock. The problem is that if doStuff raises an exception, the lock never gets released, and your application can be in a broken state. You want to release the lock no matter what. So what you should do is:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">try:</span><br /><span style="font-family:courier new;">    </span><span style="font-family:courier new;"></span><span style="font-family:courier new;">&nbsp;&nbsp;doStuff()</span><br /><span style="font-family:courier new;">finally:</span><br /><span style="font-family:courier new;">&nbsp;&nbsp;releaseLock()</span></blockquote><br /><br />Now save a SIGKILL, the lock is going to be released. This is pretty basic, but it is impressive how robust the finally block is. You can &#8220;return&#8221; in the try block or even &#8220;sys.exit()&#8221; and the code in the finally block will still be executed.<br /><br />I recently used this with XMLRPC to safely tell the remote machine to clean up if the local script ran into problems or even got a SIGTERM from a keyboard interrupt. Here&#8217;s a more elaborate example:<br /><br /><blockquote style="font-family: courier new;">proxy = xmlrpclib.ServerProxy(remoteIP)<br />try:<br />&nbsp;&nbsp;result = proxy.RunTests()<br />&nbsp;&nbsp;if result is None:<br />&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br />&nbsp;&nbsp;else:<br />&nbsp;&nbsp;&nbsp;&nbsp;return result<br />except:<br />&nbsp;&nbsp;sys.exit(2)<br />finally:<br />&nbsp;&nbsp;proxy.CloseFirefox()</blockquote><br /><br />The remote machine (&#8220;proxy&#8221;) is running some tests in firefox. While it does this it sets a lock so no one else can run the same tests. If something goes wrong, this lock needs to be reset and firefox needs to be closed so they can run again later. If it gets a result, return it. If it doesn&#8217;t or something goes wrong, we still clean up but now we can exit with an error code. One of the neatest things about this for me was Ctrl+C&#8217;ing the script on my computer and watching the remote machine cleanly quit firefox and release the lock for another process to use.<br /><br />This is great whenever you need to put something in a temporary state, or change the state after an operation no matter what happens. Think of locks, temporary files, memory usage, or open connections where it is important to close them. Conversely however, make sure you DON&#8217;T use an approach like when it isn&#8217;t appropriate.<br /><blockquote><br /><span style="font-family: courier new;">for client in clientsToPing[:]:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;try:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;ping(client)</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;finally:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;clientsToPing.remove(client</span>)</blockquote><br /><br />This is potentially incorrect behavior, because if you failed to ping your client you may want to keep it on the list to try again next time. However, you also may only want to attempt this once and then the above approach would be correct!<br /><br />In my next post I am going to turn more specifically to remote browser testing and explain how exactly to set up both ends of the connection. After that I&#8217;ll finish by making a post on using twisted + SSL to retrieve posted results over HTTPS.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>imnobukowski</div>
+<div class='content'>
+Unfortunately, there are quite a few exceptions that can happen *between* bytecodes. The most commonly encountered is KeyboardInterrupt but there are others. That means this code:<BR/><BR/>f = open(&#8216;blah.txt&#8217;, &#8216;w&#8217;)<BR/>try:<BR/>  &#8230;<BR/>finally:<BR/>  f.close()<BR/><BR/>doesn&#8217;t always close the file. You could have an exception between open and the start of your try&#8230;finally block! Yay python.</div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+If you like try&#8230;finally, you&#8217;re going to love <A HREF="http://www.python.org/dev/peps/pep-0343/" REL="nofollow">the &#8216;with&#8217; statement</A>.<BR/><BR/>I do.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dennis K.</div>
+<div class='content'>
+Look at python 2.5&#8217;s context managers and the with statement. These are a more elegant way of solving this very problem without littering your code with finally: statements.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/">Ensuring That You Test What Your Users Use</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my checkout, but fail miserably for anyone else (because the application is broken). What was happening?<br /><br />1) I had a new file which is required to run, but I forget to &#8216;vcs add&#8217; it. Because the file existed in my sandbox, everything was well. But no one else was getting this file, so they couldn&#8217;t even run the application. This one is somewhat easy to detect because a &#8216;vcs st&#8217; should show that file as unknown status. In that way ensuring a clean status before running the tests can help avoid this. However this won&#8217;t work well in an automated fashion because there are often unversioned files, and you typically want to run the tests before committing anyway.<br /><br />2) A time or two I thought I had completely removed/renamed a dependency but forgot to clean up an import somewhere along the line. Even though the original .py file was gone, a .pyc file by the old name still existed, which allowed the lingering import to work. Again however, for anyone else getting a fresh checkout or release, this file would not be avaible and the app would be unusable.<br /><br />How can you avoid having problems like this? Well, from a myopic viewpoint you could have your test suite delete any .pyc files before running. Then to address the first issue, you could also test that a &#8216;vcs st&#8217; has no unknown files, and explicitly ignore any unversioned files you expect. But still, other things could creep up. And while having another machine as your &#8220;buildbot&#8221; would avoid the first issue, you are still prone to an attack from the second. To really make sure you are testing with the same stuff that you release, you need to be testing releases. In other words, you need to be putting your version through your shipping process, whatever that is, and then testing the final product.<br /><br />So now that I&#8217;ve realized this is what I should be doing, I&#8217;m not quite sure what the simplest and easiest way to do it in an automated fashion is. For python, perhaps this could be achieved by getting a fresh export/checkout of the code in a temporary directory, adding that directory to sys.path, and importing and running the tests. I am sure this is a common problem; is there a common solution?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+I had this problem the other day releasing some code at work. <BR/><BR/>The way I do a release is to run my release script, which reads in file lists scattered around the program, copies them to a new place, compiles them and runs all the tests. It then runs a make clean(*) and builds a tar ball. The file lists are used for generating the makefiles, so all the dependencies are explicitly listed.<BR/><BR/>To release, I untar it into another teams subversion repository, add it and commit. <BR/><BR/>It sounded pretty foolproof to me. So, I untarred it, ran &#8220;svn add&#8221;, then tried compiling it, testing it etc and everything worked. I checked &#8220;svn stat&#8221; to make sure I wasn&#8217;t going to commit anything by accident, and it all looked fine.<BR/><BR/>The next day, I had an email telling me that I broke the build :-). <BR/><BR/>It turned out that when I was creating the file list used for building the release, I accidentally included a backup file (&#8220;somefile.c~&#8221;) in the list. The tarball included the file (since the release script copies all the files listed), so when I untarred it into the svn repository, the file was put in there. But if you do an svn add, it will skip over such files. So when I committed, the backup file was missing, which then made the makefile barf, because all the files from the file list are dependencies.<BR/><BR/>I can&#8217;t quite think of a good way to prevent this from happening again. <BR/><BR/>(*) This is one step where things could go wrong - if the clean target doesn&#8217;t delete everything, then the release will include files that should be generated.</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+by rapid iteration I mean continuous integration</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+We have the first problem on our website as well; forgetting to check in a .php file.<BR/><BR/>We don&#8217;t have an automated solution, but rapid iteration helps make it a non-issue.  Basically, we haven&#8217;t trained ourselves to ignore unversioned files, because we&#8217;re used to never having any.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+We delete .pycs and .pyos as a BuildBot step.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I have had great success setting up an acceptance test suite that actually constructs an installer, installs the software, and starts the application.<BR/><BR/>We then test the application by prodding it from outside its process. (eg with Windows messages)</div>
+</div>
+<div class='comment'>
+<div class='author'>James Westby</div>
+<div class='content'>
+Hey Mike,<BR/><BR/>I&#8217;ve one suggestion that may be appropriate: build a package.<BR/><BR/>If you use &#8220;bzr-builddeb&#8221; then this could be as simple as running &#8220;bzr bd&#8221; every so often, installing the resulting deb, and testing the system version.<BR/><BR/>That would check various things, and would catch exactly the case you describe with not running &#8220;bzr add&#8221;<BR/>on the filename.<BR/><BR/>Thanks,<BR/><BR/>James</div>
+</div>
+<div class='comment'>
+<div class='author'>dsas</div>
+<div class='content'>
+patch queue manager should do all you require I think.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jose M</div>
+<div class='content'>
+I think that in the books &#8220;Expert python programming&#8221; and &#8220;Foundations of Agile python development&#8221; cover this topic in depth.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/21/delicious-cheap-and-easy-whole-wheat-wraps/">Delicious, Cheap, and Easy Whole Wheat Wraps!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Some of my <a href="http://egometry.com/bloodpact/">bloodpact blogging friends</a> have written recipes, and I thought I would add one of my favorite and simplest recipes to the mix. Wraps are a great food delivering device, be it for eggs or veggies, meat or rice and beans. It also happens to be easy to make your healthy wraps without any special tools, for roughly 10 cents a piece! Best of all, you can use <span style="font-weight: bold;">as few as two ingredients</span> if you so desire.<br /><br /><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SaDiT4wH79I/AAAAAAAAADs/-f9XyUWo7L4/s1600-h/wrappers.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 240px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SaDiT4wH79I/AAAAAAAAADs/-f9XyUWo7L4/s320/wrappers.jpg" alt="" id="BLOGGER_PHOTO_ID_5305489192322068434" border="0" /></a><a href="http://www.theproduct.de/">the product</a> will make you happy.<br /></div><br />Here&#8217;s what you&#8217;ll need.<br /><ul><li>1C whole wheat flour (or white)</li><li>1/4C cold water</li><li>1/4 teaspoon salt (recommended)</li><li>1 tablespoon olive oil (optional)<br /></li><li>1/4 teaspoon baking powder (optional)</li><li>seasonings such as oregano, onion powder, or herbs (optional)</li></ul>Mix all the ingredients together in a bowl, adding extra water 1 tablespoon at a time until it forms a cohesive ball. Knead it for a minute or two and then divide into 2-4 smaller balls, depending on if you want large, medium, or small wraps. If you are patient, put them back in the bowl and cover with a towel for about 10 minutes.<br /><br />Now roll them out. For this I recommend rolling between two non-stick surfaces, such as <a href="http://www.amazon.com/Norpro-Slice-Piece-Flexible-Cutting/dp/B000SSVA9E/ref=pd_bbs_sr_1?ie=UTF8&amp;s=home-garden&amp;qid=1235279004&amp;sr=8-1">flexible cutting mats</a> (a dollar store or grocery store should have 3 packs for $3-5), silicone baking sheets (also can be had for a few bucks), or something similar.  So put a dough ball on a non-stick surface, then optionally put another on top. Now roll it out with a rolling pin if you have one, or a bottle of wine/oil/beer if you don&#8217;t. It is easiest if you flatten it out by hand as much as you can first! It may take a couple tries to get them as flat (and as such wide) as you like, but you will definitely improve. Or you could just get a tortilla press online, though I have yet to give in.<br /><br />Now heat a pan on the stove to medium-high heat. Once it seems up to heat, throw a wrap on the pan (no greasing necessary). After 15-30 seconds you should be able to jiggle the pan and have the wrap freely slide around, and this is useful for ensuring it doesn&#8217;t burn. Give it about 1-2 minutes on that side, until you start to see a bubble or two, then flip it over for another 1-2 minutes. Now sit it on a towel to cool, and repeat for the rest of your future wraps! As they are delicious warm, I like use one right after I make them.<br /><br />I love making these wraps because it is much cheaper than buying them, can be as healthy as I want, and makes eating them much more enjoyable knowing that I hand-crafted each one. Common uses are eggs with veggies in the morning or your typical taco fare. You can also make mini flatbread pizzas, or sandwich some cheese and veggies in between two for an extra tasty treat! Let me know what you think!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+this is absolutely great! (hopefully that is!)</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Yes, it is similar to Chapathi although not with durum flour.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+http://en.wikipedia.org/wiki/Chapathi</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/20/finding-new-albums-by-your-favorite-bands/">Finding New Albums by Your Favorite Bands</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+The other week I felt a little disconnected from recent music. I was sure that some of my favorite artists had released new albums that I wasn&#8217;t aware of, but I wasn&#8217;t sure how to be notified of it. I use <a href="http://last.fm/user/midtown">last.fm</a> when listening to music most of the time, and have been for about 5 years, so I already have a long and dynamic list of my favorite artists, many of which I haven&#8217;t been keeping up to date with. There are also many places that offer feeds of recent albums, including a private torrent site, Waffles. As a curious programmer I decided to bridge the gap here and write a little proof of concept script that would grab my top last.fm artists and query Waffles to see what was new.<br /><br />About an hour and 100 lines of python later, I had a working proof-of-concept. Right now it only supports Last.fm as a favorites source, and Waffles as a release source, but expanding it by following the same interface should be fairly straightforward. It is up for anyone to branch at <a href="https://launchpad.net/nutunes">https://launchpad.net/nutunes</a>. For any programmer it should be pretty easy to make a favorite source which reads from a text file and use other services like allmusic.com, amazon, or perhaps even iTunes to get a list of recent releases for a given artist. Feel free to branch and create a merge proposal for integrating with other services. As the code is less than 100 lines, I hope it more or less documents itself. To use it just run nutunes.py and it will prompt for your last.fm username, and Waffles credentials.<br /><br />What other ways are people currently staying on top of music of all the bands you are interested in? Heck, maybe Last.fm already has this option, but I sure didn&#8217;t notice it, and learning and experimenting is fun!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>thisfred</div>
+<div class='content'>
+Cool idea! What I do to stay current, is have an mp3spider[1] crawl a few hundred mp3blogs. This results in a huge bag of mp3 of varying levels of interest to me. The way I wade through them is with a plugin I&#8217;ve made[2] that plays similar[3] songs together (i.e. if I hit a patch of stuff I don&#8217;t like, I can hit delete until something better comes along.) <BR/><BR/>[1] http://code.google.com/p/barbipes/<BR/>[2] http://code.google.com/p/autoqueue/ designed to be cross player, currently works with mpd, rhythmbox, and my favorite, quod libet<BR/>[3] similarity is looked up by track and artist on last.fm, and by acoustic properties. It&#8217;s easy to add new sources of similarity.</div>
+</div>
+<div class='comment'>
+<div class='author'>Ritze</div>
+<div class='content'>
+Nice Idea!<BR/><BR/>For Information: There is already a service, which look to MusicBrainz for new albums and singles: www.muspy.com</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mrooney-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

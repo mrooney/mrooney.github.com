@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Launchpad is now an automatic, magical translation factory! - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="I&#8217;ve been using Launchpad to host my personal finance application wxBanker for a few years now. The thing I was hearing most often was that it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/07/30/launchpad-is-now-an-automatic-magical-translation-factory">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Launchpad Is Now an Automatic, Magical Translation Factory!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-30T00:00:00-04:00" pubdate data-updated="true">Jul 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I&#8217;ve been using Launchpad to host my personal finance application <a href="https://launchpad.net/wxbanker">wxBanker</a> for a few years now. The thing I was hearing most often was that it wasn&#8217;t localized; people wanted currencies to look the way they should in their country, and the application to be in their language. Let me explain how Launchpad helped me provide translations for my application, and how much of an utterly slothful breeze it has recently become.<br /><br /><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 320px; height: 148px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SnKYTL6ff1I/AAAAAAAAAT0/DHLdJZYT5nM/s320/slothful.png" border="0" alt="Image courtesy of shirt.woot.com" id="BLOGGER_PHOTO_ID_5364517561534742354" /><br />Normally to handle translations, an application has to wrap strings with <a href="http://en.wikipedia.org/wiki/Gettext">gettext</a>, create a template, find translators and give the template to them, collect translation files back, and integrate them into the project. This is painful and is why many applications aren&#8217;t localized, and shut out most of the world as a result. One of the amazing features of Launchpad however, happens to be Rosetta, which brings translators TO your translations via a simple web interface, and then makes those translations available to the developer. With Rosetta, translators don&#8217;t need to understand gettext or translation file formats; they just need to know two languages!<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SnKLUdixHfI/AAAAAAAAATs/z36K46Y4p3M/s1600-h/ss_rosetta.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 201px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SnKLUdixHfI/AAAAAAAAATs/z36K46Y4p3M/s400/ss_rosetta.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5364503289795780082" /></a><br /><br />So that&#8217;s what a translator sees. Notice how Launchpad even shows how other applications translated the same string. So once you generate a template and upload it, you can assign a translation group to your project such as &#8220;Ubuntu Translators&#8221; so that your strings will be translated by volunteers on the Ubuntu project; if your project isn&#8217;t relevant to the Ubuntu project, you can use the more generic Launchpad Translators group. Now all you have to do is wait for some translations, then download them and check it in to your code. Not too bad, right?<br /><br />It isn&#8217;t, but Launchpad has recently made it so much better. They started by adding an option to <a href="https://help.launchpad.net/Translations/ImportingFromBazaarBranches">automatically import translation templates</a> from your project. This means as you are developing, all you have to do is regenerate the template and commit, and new strings will show up for translators in Rosetta and be translated automatically (from the developer&#8217;s perspective). Then today, <a href="http://blog.launchpad.net/general/exporting-translations-to-a-bazaar-branch">they announced the other side of this</a>, which is automatically committing those translations back into your code on a daily basis. This means that all I have to do is commit templates as I change strings, and Launchpad handles everything else. This is a profound tool for developers.<br /><br />What&#8217;s the next step? Well, from a developer&#8217;s perspective the translation template is a tool to give to the translators or in this case Launchpad. In the future Launchpad could eliminate this by generating the template itself from the code (this is what developers are doing themselves, after all), so that truly all you have to do after you set up the initial i18n/l10n framework is commit code as normal, and Launchpad magically commits back translations.<br /><br />All this work Launchpad is doing gives developers more time to develop while still having localized applications at a very minimal cost. This is continuous translation integration, and boy is it cool!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Sneca</div>
+<div class='content'>
+Hi Michael.<br /><br />Rosetta has gone a long way, and it is a much appreciated tool. However, as a professional translator that sometimes collaborates on free software translations, I must say it is *not yet* a perfect tool. It lacks better concordance support with easier searches, for instance.<br /> I would like to point out that for translating, one needs to know a bit more than just two languages. It is necessary to have a whole lotta of things in mind, and use your brainz in a very complex way :) Whether I do not want to discourage any contributors, l18n is serious business; terminology consistency, some linguistic common sense (and even style) should be stressed. In the business world, bad translations leave bad impressions on your clients. In GNUlinux realmz, where there are quite a few different desktop managers, so many programs and sometimes different names for similar things, bad translations may end up confusing people (esp. newcomers) and eventually turning them, at least, nervous. English prevails largely on the GNULinux world, and the more languages AND the better quality of translations, the closer we will get to squash bug nº1.<br /><br />We will keep on working on it. Cheers!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for the comment Jeroen! I mentioned Ubuntu Translators because my package is in Ubuntu and it seemed most relevant to readers of my blog on the Ubuntu planet, but mentioning LP Translators for generic use is good to know as well.<br /><br />The problems with automatic translation are definitely true, and it will be interesting to see if any of them can be mitigated. Perhaps allowing someone to import all translations with known good copyrights for untranslated strings, marking them as &quot;Needs Review&quot;.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jeroen Vermeulen</div>
+<div class='content'>
+Hi, I&#39;m one of the Launchpad Translations developers.  Glad you like the new stuff we built!<br /><br />A very minor point: if you want to invite translations for your project, we now have a Launchpad translation group as well as the Ubuntu translation group.  The Ubuntu group is to focus more on Ubuntu (surprise), whereas the Launchpad group can serve as the &quot;generical&quot; translation group for other projects.<br /><br />And a comment on the &quot;automatically use translations from elsewhere&quot; idea: it&#39;s very tempting, but there are a few obstacles.<br /><br />First, there may be a copyright risk from automatically copying other projects&#39; translations.  And once we automatically start avoiding some translations, there&#39;s a bigger risk of choosing bad translations.<br /><br />Second, not every translation you find will be correct, let alone consistent.  Sometimes people import entire translations to the wrong language!<br /><br />So ideally there should still be a human review step for those suggestions before they definitely go into a project.  And that&#39;s exactly how it works now.  For some programs, the &quot;global suggestions&quot; from other projects let you do a large chunk of the work very quickly, even in languages you only just well enough to see which translations make sense.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Tom, I&#39;m not a Launchpad developer, but I have talk of it before I think.<br /><br />I checked out transifex and it seems pretty interesting. I know LP has done work in the past to make Rosetta easier to use for upstreams and sync the two, and I am sure it will only get easier and better.</div>
+</div>
+<div class='comment'>
+<div class='author'>Tom</div>
+<div class='content'>
+I love the &quot;Automatically use suggestions for otherwise untranslated strings&quot; option, will it come? Launchpad should get a big language model like Google Wave that would certainly help. Maybe Mark should hire some cheap Google engineers ;)<br /><br />It would be cool if Rosetta could work directly with upstream as http://transifex.org/ can. That also would be a cool addition for people who prefer git etc.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks simpsus :) The tagging branch is waiting on some work from the author, as well as some conceptual work I need to do (how can tagging be hidden/out of the way for users who don&#39;t need that, but easy to discover and turn on?) I&#39;d like to get 0.6 by the end of August with recurring transactions and perhaps reporting (https://launchpad.net/wxbanker/+milestone/0.6), and target tagging/categories for 0.7 not much later.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Tom, that could be cool and I wouldn&#39;t mind an &quot;Automatically use suggestions for otherwise untranslated strings&quot; checkbox, but there are going to be a bunch of previously untranslated strings that will still need translation by a person. And for short phrases there can be multiple translations. For example, the word &quot;read&quot; in English can be both a verb and an adjective, and &quot;import&quot; can be a verb and noun. In another language there might be two different words for each use though, and only a person with context (provided by translation comments) can know which one to use. Certainly though, it seems like it could help you grab some low-hanging translation fruit that&#39;s better than nothing.<br /><br />As far as your second question, I&#39;m not sure what you mean by &quot;hosted&quot;. If the project isn&#39;t registered on Launchpad at all, it can&#39;t use Launchpad features obviously. But there is nothing stopping a project hosted anywhere from creating a Launchpad account and using it for Rosetta. If the code is hosted elsewhere (and Launchpad allows you to specify external SCMs and bug trackers, as well as import from them) you could still have a branch in Launchpad solely for Launchpad to import and export from, and handle merges back and forth on your end yourself.</div>
+</div>
+<div class='comment'>
+<div class='author'>simpsus_science</div>
+<div class='content'>
+Hi Michael,<br />nice to see you give wxBanker some publicity. Are there any news when the transactions tagging and advanced categories will be merged? When is the 0.6 release planned? <br /><br />Cheers<br /><br />Simpsus</div>
+</div>
+<div class='comment'>
+<div class='author'>Tom</div>
+<div class='content'>
+Couldn&#39;t it automatically translate without users? Just take the most used strings from other apps?<br /><br />And how about projects that are not hosted on LP?</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-30T00:00:00-04:00" pubdate data-updated="true">Jul 30<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/07/30/launchpad-is-now-an-automatic-magical-translation-factory/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/07/30/launchpad-is-now-an-automatic-magical-translation-factory/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/07/06/simple-timing-of-python-code/" title="Previous Post: Simple timing of Python code">&laquo; Simple timing of Python code</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions/" title="Next Post: wxBanker 0.6 preview available, now with recurring transactions!">wxBanker 0.6 preview available, now with recurring transactions! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

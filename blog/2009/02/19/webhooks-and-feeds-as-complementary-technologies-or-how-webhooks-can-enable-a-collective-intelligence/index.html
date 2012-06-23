@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Webhooks and feeds as complementary technologies -OR- How webhooks can enable a collective intelligence - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Yesterday I wrote about my observation that feeds seemed sort of like the precursor to webhooks, but that each had distinct advantages. Adam left a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Webhooks and Feeds as Complementary Technologies -or- How Webhooks Can Enable a Collective Intelligence</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-19T00:00:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Yesterday I <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to-webhooks.html">wrote</a> about my observation that feeds seemed sort of like the precursor to webhooks, but that each had distinct advantages. <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to-webhooks.html?showComment=1235001360000#c1245389494252546097">Adam left a comment</a> confirming my thoughts on their pros and cons, but then pointed out how they can be used together to get the best of both worlds. I really liked the implications and wanted to expand upon how webhooks could enable the next generation of feed readers, and further, really lead us towards a more collective intelligence.<br /><br />The way things work now is that you have an aggregator, such as Google Reader, which polls all of your feeds every once and a while (although in this specific case surely doing some caching behind the scenes for users with the same feeds). This is suboptimal for two reasons. First, you don&#8217;t get instant updates. Statistically, you will on average receive an update pollFrequency/2 minutes after it is posted. If you want to be able to respond to something in a quicker fashion, this may not cut it. Second is that the polling is causing unnecessary load on the server.<br /><br />Now let&#8217;s try it with just webhooks. You inform all the event producers you are interested in about your aggregator callback, and you get instant updates for all of them, with no wasted polling. However when your aggregator is off, you aren&#8217;t receiving updates! This means you can miss updates, and you have no way to catch up.<br /><br />Combining these two however, we can solve the problems of each technology with the other and pick up none of their downfalls. Use webhooks to tell your event producers about your aggregator as was done previously in the webhooks model. But now, the producer is also supplying a feed. This means that when your aggregator is up it will receive instant updates and doesn&#8217;t need to poll. However when you start it up after having been down, it can use the feed to catch back up; no missed events!<br /><br />I think this new model has the potential to improve aggregators, as well as make them more usable for applications where speed is important. It could also have a much greater impact though. Twitter is a good example of this I think, wherein you could tweet about things you need fast feedback on such as a meal choice at a restaurant, the best way to do something you are working on, or perhaps even more urgent things such as needing a ride. All of these things could and surely are done in the traditional model, but with the push revolution they become more useful as quicker responses are more likely. People will become more likely to produce things requiring (potentially much) faster feedback, and this feeds into itself as people become more likely to respond, knowing that their responses are more relevant because less time has passed. I think it is an evolution that, while initially potentially sounding subtle and unimportant, can help lead is into a more collective intelligence that we couldn&#8217;t imagine living without once we have it.</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-19T00:00:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/" title="Previous Post: Are feeds the pre-cursor to webhooks?">&laquo; Are feeds the pre-cursor to webhooks?</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/20/eye-tracking-and-ui-framework-window-manager-integration/" title="Next Post: Eye tracking and UI framework / window manager integration">Eye tracking and UI framework / window manager integration &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

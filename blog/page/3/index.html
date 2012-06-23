@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Eye tracking is the technique of watching the user&#8217;s eyes with a camera and figuring out where on the screen he or she is looking. While some &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/20/eye-tracking-and-ui-framework-window-manager-integration/">Eye Tracking and UI Framework / Window Manager Integration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZ72AHp-7bI/AAAAAAAAADc/8kb_y3pD_Ac/s1600-h/Screenshot-1.png"><img style="margin: 0pt 0pt 10px 10px; float: right; cursor: pointer; width: 224px; height: 164px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZ72AHp-7bI/AAAAAAAAADc/8kb_y3pD_Ac/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5304947893004594610" border="0" /></a>Eye tracking is the technique of watching the user&#8217;s eyes with a camera and figuring out where on the screen he or she is looking. While some computer users with disabilities use this technology as their primary input device, it hasn&#8217;t become very popular. However I think that with webcams being integrated into the majority of new laptops, and multi-core processors with some cycles to spare for image processing becoming ubiquitous, eye tracking deserves to become more popular.<br /><br />I don&#8217;t believe the technology is accurate enough (yet) to replace your mouse, but it could still improve usability in a few ways. Imagine having the equivalent of onMouseIn and onMouseOut events on widgets when writing a user interface, but for where the user is looking instead. Applications could leverage onLookIn and onLookOut events at the widget level and open a whole new realm of functionality and usability. Videos and games could pause themselves when you look away, or bring up certain on-screen displays when you look at certain corners of the screen. If an application sees you are studying a certain element for a period of time, it may ask if you need help.<br /><br />It would also be interesting to see eye tracking leveraged on the window manager level. Most people use focus follows click to focus windows, and some enjoy focus follows mouse, but imagine focus follows (eye) focus! Using multiple monitors would become much easier if your keyboard input was automatically directed to the application, or even specific field, which you were looking at. Eye gestures, like mouse gestures, could be potentially useful as well, such as glancing off-screen to move to the virtual desktop in that direction.<br /><br />Apple and Linux both seem to be in a good position to implement something like this. Apple has control of both the hardware and the software including the OS, and has been integrating cameras in laptops for a while. As a result they are in a great position to pioneer this field and really have something unique to bring to the table in terms of a completely new user experience. However in the open-source world, Linux is also in a decent spot to do this as the UI frameworks and window managers are all patchable and most webcams are supported out of the box.<br /><br />Eye tracking has the potential to enable us to use computers in ways that were previously impossible. What are your thoughts on eye tracking? Does it have a future in the computing world and where can it take us? And how long will it be before we will take this technology for granted? :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+Yeah, I had the exact same experience. At work I have a dual monitor setup, and running a virtual machine in one of them all the time. Because of this, sometimes you will have windows looking focused on both screens.<BR/><BR/>Focus follows eyes would be nice there, even if it was just window focus (as opposed to the specific control inside a window)</div>
+</div>
+<div class='comment'>
+<div class='author'>egometry</div>
+<div class='content'>
+I remember trying to figure out a good way to do this back in 2002 when I was dealing with my first dualmon setup and I kept having that whole &#8220;I look at a different monitor and I start typing into the window I&#8217;m looking at but it doesn&#8217;t have focus&#8221; problem.<BR/><BR/>At the time all I could think about was doing it via IR emitters on the arms of my glasses and a receptor grid to figure out which monitor was being looked at.  <BR/><BR/>&#8230;But then I learned all of the defensive responses to using multimon and the desire disappeared.  I really haven&#8217;t thought of this in a while, but I remember getting excited by the prospect of a mouse-free GUI world :(</div>
+</div>
+<div class='comment'>
+<div class='author'>mario.vukelic@dantian.org</div>
+<div class='content'>
+On first glance the focus-follows-eyes sounds intriguing, but I&#8217;m afraid I might not always look at what I am typing. I might look at a physical sheet off the computer screen, or I might watch/read one window and type my thoughts in the other.<BR/><BR/>I am not 100% sure that I really do all of this, but it would be worth investigating before spending time on any implementation. <BR/><BR/>I think you need at least something like this: http://www.techsmith.com/morae.asp<BR/><BR/>I use Camtasia at the office (same company) and don&#8217;t know if Morae already does all you need, but you will need smething that can track eye focus on a widget level and correlate it to screen actions, otherwise you will go mad trying to align eyes in the face cam to the screen capture.</div>
+</div>
+<div class='comment'>
+<div class='author'>jimcooncat</div>
+<div class='content'>
+I think this would be good for anonymous webcam. Follow eyes, cheekbones, nose, chin, and replace with scalable graphics. Send along with poser-type information for skin tone, headwear, hair color. <BR/><BR/>It would be fast, give an appearance of web camming, and give the cammer good options on how they present themselves.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/">Webhooks and Feeds as Complementary Technologies -or- How Webhooks Can Enable a Collective Intelligence</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-19T00:00:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Yesterday I <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to-webhooks.html">wrote</a> about my observation that feeds seemed sort of like the precursor to webhooks, but that each had distinct advantages. <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to-webhooks.html?showComment=1235001360000#c1245389494252546097">Adam left a comment</a> confirming my thoughts on their pros and cons, but then pointed out how they can be used together to get the best of both worlds. I really liked the implications and wanted to expand upon how webhooks could enable the next generation of feed readers, and further, really lead us towards a more collective intelligence.<br /><br />The way things work now is that you have an aggregator, such as Google Reader, which polls all of your feeds every once and a while (although in this specific case surely doing some caching behind the scenes for users with the same feeds). This is suboptimal for two reasons. First, you don&#8217;t get instant updates. Statistically, you will on average receive an update pollFrequency/2 minutes after it is posted. If you want to be able to respond to something in a quicker fashion, this may not cut it. Second is that the polling is causing unnecessary load on the server.<br /><br />Now let&#8217;s try it with just webhooks. You inform all the event producers you are interested in about your aggregator callback, and you get instant updates for all of them, with no wasted polling. However when your aggregator is off, you aren&#8217;t receiving updates! This means you can miss updates, and you have no way to catch up.<br /><br />Combining these two however, we can solve the problems of each technology with the other and pick up none of their downfalls. Use webhooks to tell your event producers about your aggregator as was done previously in the webhooks model. But now, the producer is also supplying a feed. This means that when your aggregator is up it will receive instant updates and doesn&#8217;t need to poll. However when you start it up after having been down, it can use the feed to catch back up; no missed events!<br /><br />I think this new model has the potential to improve aggregators, as well as make them more usable for applications where speed is important. It could also have a much greater impact though. Twitter is a good example of this I think, wherein you could tweet about things you need fast feedback on such as a meal choice at a restaurant, the best way to do something you are working on, or perhaps even more urgent things such as needing a ride. All of these things could and surely are done in the traditional model, but with the push revolution they become more useful as quicker responses are more likely. People will become more likely to produce things requiring (potentially much) faster feedback, and this feeds into itself as people become more likely to respond, knowing that their responses are more relevant because less time has passed. I think it is an evolution that, while initially potentially sounding subtle and unimportant, can help lead is into a more collective intelligence that we couldn&#8217;t imagine living without once we have it.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/">Are Feeds the Pre-cursor to Webhooks?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I&#8217;ve been reading <a href="http://timothyfitz.wordpress.com/2009/02/09/what-webhooks-are-and-why-you-should-care/">Timothy</a> and <a href="http://blog.webhooks.org/">Jeff</a> talk about webhooks. Webhooks are essentially an amazingly simple way to be notified about arbitrary events on the web. In this model, any event producer allows you to supply a URL, which it will post to on each future action with the relevant details, whatever they may be. Then the other day when I was using Google Reader, something struck me: it felt a lot like webhooks, but turned on its head.<br /><br />Anything that offers a feed such as RSS or Atom can be plugged into Google Reader; things like blogs and their comments, twitter searches, commits, downloads, bugs, and build results. As I started plugging more and more diverse things into Reader, I realized that it was basically like the &#8220;pull&#8221; equivalent of webhook&#8217;s &#8220;push&#8221; nature. Instead of telling all these event producers where to contact me, I&#8217;m telling Reader where to learn about all the recent events.<br /><br />I may be thinking too shallowly, but in the webhooks world Reader would be the service offering the interface. Then, instead of all these different things offering feeds, you could just plug Reader&#8217;s hook into them and be notified instantly. Currently, for example, when I ask a question on a blog post, I&#8217;ll throw the comments feed for that post into Reader so I don&#8217;t have to keep checking back on the site; Reader will bring the potential answers to me. With webhooks though, I would reverse this and provide the service with the URL of my event consumer.<br /><br />It seems like, as technology and the internet often does, feeds are evolving into what users need them to be. Services are seeing that people want to follow and be kept up to date without having to check back on hundreds of different sites. That&#8217;s way too much time and information, especially when it all looks different. However, by plugging the feeds of all those things into an aggregator, we gain a central notification place for all these events, and it becomes much more managable.<br /><br />So will webhooks replace the current paradigm that I&#8217;m using here, or complement it? They seem to each have their pros and cons. Feeds allow a history, and you won&#8217;t miss an update because your aggregator was down; it will catch it on the next poll. However webhooks are instant and can be more efficient as you don&#8217;t have the need for polling at all, but if the producer loses your hook, you&#8217;re out of the loop.<br /><br />So an overflow of interesting events occurring on the web necessitated a standard way to view them, and we got feeds. Are webhooks the next step of this evolution, or something else entirely?<br /><br />UPDATE: <a href="http://blogger.malept.com/2009/02/on-webhooks-or-push-revolution.html">Mark Lee responds</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>neilg</div>
+<div class='content'>
+Hi Michael<br /><br />I&#8217;ve launched a very simple web service that is similar to some of the tools mentioned in the comments above.  It polls pull-only services, and pushes updates via XML POST to a web endpoint of your choice.<br /><br />At the moment it has adapters for general RSS and for Twitter.<br /><br />http://myqron.com</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: I&#8217;d recommend reading my next post http://mrooney.blogspot.com/2009/02/webhooks-and-feeds-as-complementary.html which actually details the advantages to the end user. Push vs pull seems like a subtle difference at first glance, but if you really think about the new uses it allows for, it is quite powerful and opens up a new world to &#8220;joe-computer-user&#8221;.</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+So, it&#8217;s push, instead of pull?<BR/><BR/>Again, how does this help average-joe-computer-user?<BR/><BR/>How do feeds even help average-joe-computer-user?<BR/><BR/>How can I help push feed/webhooks(syndication) adoption?</div>
+</div>
+<div class='comment'>
+<div class='author'>Erigami</div>
+<div class='content'>
+How is this different from <A HREF="http://www.rssping.com/" REL="nofollow">ping</A>, which is supported by most opensource blogging platforms (eg, wordpress)? Google blog search and technorati already support ping consumption, btw. <BR/><BR/>And if you&#8217;re talking about an RSS reader being able to add themselves as ping receivers, how will you handle NAT&#8217;d IP addresses? More importantly, how will you handle a DoS where an attacker gives a vast number of webhook consumer URLs to a blog?</div>
+</div>
+<div class='comment'>
+<div class='author'>Adam Smith</div>
+<div class='content'>
+Michael,<BR/><BR/>While frustrations with feeds certainly get you thinking down the webhooks line of thought (and they did come before) I wouldn&#8217;t go as far to say one is a precursor of the other.  Imagine that we had invented webhooks first &#8211; when we started wanting to get reliable delivery of sequential data we might have gone and invented feeds After as a reaction to problems with the endpoint for the hook not always being alive.<BR/><BR/>Feeds and webhooks can benefit a lot from each other if you hook them up right.  Hooks get instantaneous updates and feeds get you an ordered, persistent backlog of events.  If you goal is to consume ALL events in a stream, feeds have all of the Content you want already (you just have to do a lot of work to get it in a timely manner).  Moving to hook-only delivery of events leads you to making difficult or arbitrary decisions on matters like &#8220;what does it mean when I don&#8217;t get 200 OK? what does it mean if I can&#8217;t even establish a connection?&#8221;.  If you keep feeds around (and let people request paged feeds that show all events since a given time) you can use hooks to deliver only the feed url and a new last updated time.  This way, even if your client (the hook consumer) is flaky, it can still eat 100.0% of the events in their full detail (which is what you want for a Reader-like app) with minimal polling.  Let hooks be the light-weight hint and don&#8217;t reinvent things like the Atom Publishing Protocol over hook and get stuck with the requirement of an always-available client.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+guptaxpn: the advantage of hooks is that you don&#8217;t need a middle-man service, which you always do with polling.<BR/><BR/>For example, let&#8217;s say you want to build your product on an svn commit. All you do is throw a &#8220;wget http://buildserver/?build=now&#8221; in your post-commit hook. That&#8217;s it! If your svn server on the other hand publishes a feed (that&#8217;s more work already) you have to have something to constantly poll that and then trigger the build. Not to mention it will be either delayed or very expensive to poll constantly.<BR/><BR/>Basically, it means you don&#8217;t have to implement feed-polling/parsing in your event consumer. If it can already have actions triggered via http, you don&#8217;t have to change it all (especially useful if you don&#8217;t have direct access to it) and you get it for free.</div>
+</div>
+<div class='comment'>
+<div class='author'>guptaxpn</div>
+<div class='content'>
+What exactly is the &#8220;upgrade&#8221; or &#8220;upside&#8221; of webhooks vs. feeds?<BR/><BR/><BR/>honestly, I understand that imap and push are better than pop and pull<BR/><BR/>but webhooks/feeds just seem too similar to the end-user for me to really understand why I would want to prefer one over the other</div>
+</div>
+<div class='comment'>
+<div class='author'>andrewsomething</div>
+<div class='content'>
+You might be interested in Specto.<BR/><BR/>http://specto.sourceforge.net/<BR/><BR/>&#8220;Specto is a desktop application that will watch configurable events (such as website updates, emails, file and folder changes, system processes, etc) and then trigger notifications.<BR/><BR/>For example, Specto can watch a website for updates (or a syndication feed, or an image, etc), and notify you when there is activity (otherwise, Specto will just stay out of the way). This changes the way you work, because you can be informed of events instead of having to look out for them. &#8221;</div>
+</div>
+<div class='comment'>
+<div class='author'>John L. Clark</div>
+<div class='content'>
+Michael,<BR/><BR/>The &#8220;webhooks&#8221; concept that you mention sounds a lot like the work that people are doing with PubSub and XMPP.  Roy Fielding has an interesting article about when it might be architecturally appropriate to use this approach, titled &#8221;<A HREF="http://roy.gbiv.com/untangled/2008/paper-tigers-and-hidden-dragons" REL="nofollow">Paper tigers and hidden dragons</A>&#8221;.  You may find it interesting.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/">Cracking On-Screen Keyboards With Visual Keyloggers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+A few financial sites including HSBC and the US Treasury have recently added an extra measure of security to their site. Instead of simply requiring a username and password, an on-screen keyboard was added, requiring you to &#8220;type&#8221; in a second password with your mouse:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2HYbsK9I/AAAAAAAAAC8/Y5VClSVqqfs/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 297px; height: 154px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2HYbsK9I/AAAAAAAAAC8/Y5VClSVqqfs/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5303611011627756498" border="0" /></a><br /><br />The logic behind this is that if a user&#8217;s computer becomes compromised with a keylogger, the attacker could only obtain the username and primary password. The secondary password would remain uncomprised as it doesn&#8217;t involve keypresses. This didn&#8217;t seem too useful to me however, so for my &#8220;Image Understanding&#8221; class I decided to see if it was possible to create a &#8220;visual keylogger&#8221; which could capture this secondary password. It wasn&#8217;t too difficult, and essentially demonstrated that the extra password was more inconvenience than security. Let me outline the basic process.<br /><br />In order to do this, you need to be able to capture the contents of the screen at certain intervals. It seems like a fair assumption that if you (as the attacker of a comprimised system) can capture keyboard input, you can also grab screenshots. The goal is to turn a sequence of these screenshots of someone typing with an on-screen keyboard into a single string output equivalent to the password typed.<br /><br />First we want to record the position of the mouse at each shot. This would normally be a trivial function by asking the OS; however, in my case I was writing this for an Image Understanding class and had to use the sequence of images as my sole input. As such, I used a basic templating approach to locate the mouse by a few of its key features. This was surprisingly robust; however, asking the OS for the mouse position is an easier, even more robust, and more likely attack vector in real life.<br /><br />Now we need to figure out when the user clicked a key. Any keyboard used for a password purpose is going to give some form of feedback when a key is clicked, such as an asterisk in a password field, so the user knows if they have successfully clicked a key. The easiest way then to notice this is to subtract the color values of each screenshot from the previous one, giving you a new image with non-zero pixel values for each changed pixel. Among other things like cursor movement and web animations, the aforementioned asterisk feedback is going to be present in this image.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZo2O3LD-RI/AAAAAAAAADM/iIx9fly3O6w/s1600-h/Screenshot-1a.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 165px; height: 138px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZo2O3LD-RI/AAAAAAAAADM/iIx9fly3O6w/s320/Screenshot-1a.png" alt="" id="BLOGGER_PHOTO_ID_5303611140138596626" border="0" /></a><br /><br />For each new image then, subtract and look for this feedback. If it&#8217;s there, that&#8217;s a key press! Combine this with the position of the mouse and you know where the user clicked. Now it gets slightly tricky. You know where they clicked, but if you grab that section of the screen, you&#8217;ll get something like this:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2K5-O39I/AAAAAAAAADE/Z3P8sHR0-x8/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 301px; height: 259px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2K5-O39I/AAAAAAAAADE/Z3P8sHR0-x8/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5303611072170614738" border="0" /></a><br /><br />because the mouse had to be over the key to click it. This is rather easily worked around, however, by going backwards in your mouse position cache until it is a certain threshold away from the clicked position, and grabbing the key image at that point.<br /><br />After the user enters the complete password, you are going to be left with an array of keyboard images. For any human, this is quite sufficient. For my class however, it was not, and it would not be for any large-scale operation where automation is desired. What we need to do is clean it up by throwing away any pixels under a certain darkness threshold, then cropping the result:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SZo2UM8kjkI/AAAAAAAAADU/j3g9zlXjjDk/s1600-h/Screenshot-2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 300px; height: 277px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SZo2UM8kjkI/AAAAAAAAADU/j3g9zlXjjDk/s320/Screenshot-2.png" alt="" id="BLOGGER_PHOTO_ID_5303611231882743362" border="0" /></a><br /><br />Ta-da! Now we have something that any OCR (optical character recognition) algorithm should be able to chomp through in its sleep cycles. If you are writing for a specific keyboard, you can also just have an array of what each key looks like in binary form and compare to get the answer.<br /><br />And there you have it! With the combination of a few basic computer vision techniques, we can expand a keylogger to understand input from visual keyboards and render this security annoyance useless. A fun note is that the order/position of the keys is irrelevant. The US treasury website uses an on-screen keyboard as well, but shuffles the keys each attempt. As is hopefully obvious from this algorithm, there is no assumption of a keyboard layout; the keys could shuffle every single click and it wouldn&#8217;t matter.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous: I am not quite sure how that relates to on-screen keyboards, could you clarify? I have never used an on-screen keyboard to log in to a linux box.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+And if the visual &#8220;text box&#8221; doesn&#8217;t actually change at all?<BR/><BR/>(Ex., when logging into Linux, the password: cursor never moves, so you can&#8217;t deduce A) when keys are pressed by vision and B) how long the password is).</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+ktzar: thanks for your comments but I am not sure how closely you read the post as both of those issues are addressed :) If the letter disappears when you hover or click, that wouldn&#8217;t matter as it goes back in time to find the letter since your cursor obscures it anyway. Scrambling on each click is also mentioned as something this algorithm wouldn&#8217;t care about!</div>
+</div>
+<div class='comment'>
+<div class='author'>ktzar</div>
+<div class='content'>
+Why if the simbol within the button dissapears just when you click on it? Or the simbols get scrabled after each click? Those are implementations I&#8217;ve seen ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>Xav</div>
+<div class='content'>
+A while ago I wrote about a possible approach that would make such attacks harder:<BR/><BR/><A HREF="http://www.peppertop.com/blog/?p=82" REL="nofollow">http://www.peppertop.com/blog/?p=82</A><BR/><BR/>By having each key carry more than one type of data, capturing a single &#8220;password&#8221; would actually only get you one possible password in a larger family of possibilities. <BR/><BR/>It wouldn&#8217;t stand up to repeated captures, but if this technique was also used for the username and/or primary password fields (by also showing a coloured on-screen keyboard), it would take more effort to crack all the parts required. Not supercomputer effort, but perhaps enough to send the attacker off to softer targets.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks for sharing! Because they can create money &#8216;out of thin air&#8217; it is not a problem i can borrow a little more money of them :-)<BR/>(http://jessescrossroadscafe.blogspot.com/ for more info)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/">Lightweight Personal Finance Just Got Easier With wxBanker in Jaunty!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="https://launchpad.net/wxbanker">wxBanker</a>, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren&#8217;t familiar with it? Check out the <a href="https://wiki.ubuntu.com/wxBanker">screenshots</a>! It took a few months of getting over the debian packaging learning curve, and about as much work getting and responding to the reviews from MOTUs, but I did it. I plan on doing a quick point release this week and releasing wxBanker 0.4.0.3, which will sport updated <a href="https://translations.edge.launchpad.net/wxbanker/trunk/+pots/wxbanker">translations in 15 languages</a> (thanks translators!) as well as a minor bug fix or three. Once I get that out and into Jaunty, I&#8217;ll turn my complete focus (I hope) to the 0.5 series. If you&#8217;d like to translate wxBanker to your own language or improve a few of the lacking existing translations (Bosnian, Dutch, and Portuguese particularly), I&#8217;d love it! Head over to <span><a href="https://launchpad.net/%7Ewxbanker-translators">https://launchpad.net/~wxbanker-translators</a> and join the fun!</span><br /><br />The 0.5 series is a refactor and a bit of a painful one, as I didn&#8217;t have a great handle on how to efficiently and smoothly refactor. I could probably do a much better job managing it now, but that&#8217;s how experience works. All in all it is a much cleaner structure and led to more and better tests, which should allow more agile development and protect against future regressions. Some of the main upcoming features I&#8217;d like to get in are transaction tagging, recurring transactions, reporting, online syncing (via mint.com), and csv imports. I&#8217;d love for at least a few of those to make it into 0.5, and there is good progress on some of them including csv imports thanks to <a href="https://code.launchpad.net/%7Ekolmis/wxbanker/csvimport">an impressive branch from Karel</a>. On the other hand 0.5 has already been ongoing for about 3 months and I might cut a release into a PPA and get feedback while I add new features, sorting out any 0.5 issues and leading to a robust 0.6 release.<br /><br />Overall I have learned a TON from this project, in no small part thanks to Launchpad. wxBanker started out as a terminal application which stored everything in a pickled linked tuple that I used for myself and added features as I needed them. Eventually I added a GUI (in wxPython) and registered the project on Launchpad, to get free hosted version control as well as more formal bug tracking (instead of a text file :). The combination of Launchpad and [wx]Python being cross-platform made it accessible to everyone, and took it from a project used only by myself to a project available in 15 languages with code contributions from multiple people.<br /><br />So in conclusion, thanks everyone, enjoy wxBanker 0.4.0.3 in Jaunty, and look forward to future versions in my PPA. If you&#8217;re not on Jaunty yet, you can <a href="https://launchpad.net/%7Emrooney/+archive/ppa">install 0.4 from my PPA</a>, which I&#8217;ll be updating to 0.4.0.3 as soon as I release it. I&#8217;d love for any of your contributions, suggestions, questions, or criticisms to end up <a href="https://launchpad.net/wxbanker">on Launchpad</a>. I&#8217;d love to make it as usable and intuitive as possible, so anything that is unclear or confusing would be awesome to hear.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I completely agree - having used a bunch of personal management tools I would love to have the power of wxBanker for my personal finances if only for the easy upload. You can get information about <a href="http://www.interchangefx.co.uk" rel="dofollow" rel="nofollow">Money exchange</a> at here:interchangefx.co.uk</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David: Glad to hear it! I just updated the PPA so you can grab 0.4.0.4 in Intrepid or Jaunty. If you are patching any bugs, 0.4 is a good place, and I will port them forward. Otherwise for new features, 0.5 is a good place for the work.<BR/><BR/>There is no need to wait though; that code should be released soon and I&#8217;d love more testers so feel free to do a &#8220;bzr branch lp:wxbanker/0.5&#8221; and run from there, filing any bugs on launchpad and adding any cool features!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Good to hear you&#8217;ve been working on it. Been keeping an eye on it over the past months, and hadn&#8217;t noticed any new releases. I&#8217;ve been putting off sorting out my personal finances for way too long, so tonight&#8217;s the night :-) Will send some patches your way if I come up with any improvements, but maybe I should wait for 0.5 if it&#8217;s undergoing a major change in codebase?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+It is definitely in my plans to get wxBanker into Debian as well, and Ubuntu prefers it as well. I am not sure of the process involved but I will probably take a look at it after I release 0.4.0.3. I am glad it interests you!<BR/><BR/>It is a fairly simple package, you could probably download the deb and use it fine in Debian, or just download the source and &#8220;python setup.py install&#8221; yourself :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Can you add that to Debian too? Please don&#8217;t leave Debian users out in the cold yet again Ubuntu!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/">Playing Spelunky in Ubuntu With Wine and Compiz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a> is an awesomely addictive indie game, which I highly recommend checking out. It is sort of like Mario meets Nethack. As a side-scrolling, cave-adventuring character, you must venture deeper into the cave, defeating enemies, saving damsels, and collecting money and other fun items. A unique aspect that it takes from roguelike games is that there is really no concept of saving; each &#8220;play&#8221; typically lasts only a few minutes (much less at first), but you can get shortcuts to different zones to skip ahead once you get better. Also like Nethack, it is a surprisingly rich, detailed, and polished game for all its simplicity.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s1600-h/spelunky_screen.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 240px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s320/spelunky_screen.png" alt="" id="BLOGGER_PHOTO_ID_5302911436052988962" border="0" /></a><br /><br />The unfortunate thing about Spelunky is that only runs in Windows. My initial attempts at running it in Wine proved unsuccessful, but after a while (and playing it on a friend&#8217;s machine which gave me enough to interest to keep trying), I figured out just the right combination of tricks to make it quite playable in Ubuntu. Here&#8217;s what you need to do:<br /><br /><ul><li>download <a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a>, make sure you are using compiz, and install <a href="apt://wine">wine</a> and <a href="apt://compizconfig-settings-manager">compizconfig-settings-manager</a>.</li><li>set wine to run in an emulated desktop window. To do this, run &#8220;winecfg&#8221;, go to the Graphics tab, and check &#8220;Emulate a virtual desktop&#8221;. The size isn&#8217;t really important; I use 800x600.</li><li>extract Spelunky and create a file (if it doesn&#8217;t exist) called &#8220;settings.cfg&#8221; and put these contents in it:</li></ul><blockquote><br />1<br />1<br />0<br />0<br />1<br />15<br />15</blockquote><br /><br />This is the default settings, tweaked to the only setting that allows it to run in Wine. You can&#8217;t configure it normally since it only works in this way, so I had to have my friend change settings on his Windows box and watch what numbers changed. Thankfully for you I have done the hard work.<br /><br /><ul><li>Run Spelunky! Double-clicking it should probably work, but if you want it to play nicely with other applications using audio at the same time, force it to use pulseaudio by running &#8220;padsp wine spelunky_0_99_5.exe&#8221;. It should show a configuration window, but you can&#8217;t really interact with it. Just click in it and hit enter.</li><li>Now you can play Spelunky, but it is at a 1x zoom level, the only one that plays nicely with Wine. This isn&#8217;t very usable! Run &#8220;ccsm&#8221; (System -> Preferences -> CompizConfig Settings Manager&#8221;) and enable &#8220;Enhanced Zoom Desktop&#8221; from the second group, &#8220;Accessibility&#8221;. Now you can zoom in by holding your Super key (Windows/Apple/Ubuntu key) and scrolling your mouse wheel in or out. Using this technique you can make Spelunky effectively full screen and if you sit it right in the corner, you will forget you are doing anything strange within a few minutes.</li></ul><br />Okay, that&#8217;s it! Some initial setup is involved but once you&#8217;ve gotten it to work the first time, all you need to do in the future is run Spelunky and zoom in. As for help playing Spelunky, navigate over to the tutorial area once in the game, and you&#8217;ll learn everything you need to know! Let me know if it works for you and how much you love Spelunky (it&#8217;s worth it, I promise!) and don&#8217;t forget to check out more fun indie games on <a href="http://db.tigsource.com/">tigdb</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This now works for me with Ubuntu Karmic and my ATI video card using latest proprietary driver. Setting the zoom level to a bigger one worked as well, but for some reason the window is bigger than the picture.<br /><br />I did not try the compiz trick as the size is already rather good and I don&#39;t want to mess it up.</div>
+</div>
+<div class='comment'>
+<div class='author'>John W</div>
+<div class='content'>
+Thank you!!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Relet, make sure to be using a newer version of wine from the PPA I mentioned in comment #7.<br /><br />As far as slowness, I only tend to experience slowness if running another Wine app at the same time, but it is otherwise quite smooth, so unfortunately I have no other advice besides minimizing other tasks using the CPU.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I used this guide and I was able to play the game, but it goes really slow and it takes forever to do anything. is there any way to fix this?</div>
+</div>
+<div class='comment'>
+<div class='author'>relet</div>
+<div class='content'>
+I get either of the following errors using spelunky 1.0 and wine 1.0.1:<br /><br />When using the new settings file:<br />X Error of failed request:  GLXBadDrawable<br />  Major opcode of failed request:  128 (GLX)<br />  Minor opcode of failed request:  11 (X_GLXSwapBuffers)<br />  Serial number of failed request:  3528<br />  Current serial number in output stream:  3530<br /><br />When using the old settings file (a window opens, stays black, and repeats the message on console):<br /><br />fixme:d3d:IWineD3DSwapChainImpl_Present Unhandled present options 0x32fcbc/0x32fccc<br /><br />I&#39;ll try a newer version of wine next.</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+I can&#39;t get the game running by following this guide, I get the following error instead.<br /><br />err:dmloader:IDirectMusicLoaderImpl_<br />IDirectMusicLoader_SetObject : could<br />not attach stream to file</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thank you so much for posting this&#8230;now I don&#39;t have to borrow my wife&#39;s laptop to play Spelunky!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh never mind upgraded to wine 1.1.20 and it works fine now. thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh whoops i forgot to say what it does :P<br />well the window opens and i get to the configurations screen (which btw you can interact with you just have to click about 100-150 pixels below the actual button). i hit ok and it just closes.</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+Doesn&#8217;t work for me. i tried what you said. I have Ubuntu 9.04 on a P4 with nvidia 8400 GS<br />i wonder why&#8230;<br />oh, and i have wine 1.01</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi bryn,<BR/><BR/>I have been using Wine from the PPA: http://launchpad.net/~ubuntu-wine/+archive/ppa<BR/><BR/>Currently this is 1.1.17 which is an improvement over 1.0.1 in Ubuntu by default.</div>
+</div>
+<div class='comment'>
+<div class='author'>curious.jp</div>
+<div class='content'>
+Michael,<BR/> Which build of Wine are you using? I only get music and severe graphical distortion (as well as graphics inverted on the y axis to boot).<BR/><BR/>Cheers,<BR/> Bryn</div>
+</div>
+<div class='comment'>
+<div class='author'>M-U</div>
+<div class='content'>
+To make the size issue better, set the size to fit your monitor, then in appearance change the Desktop to black<BR/><BR/>Also disable &#39;Allow Window Manager to decorate windows&#39; but let it be controlled<BR/><BR/>Now in compiz enable the &#39;Legacy fullscreen support&#39; and run it<BR/><BR/>Widescreen users keep reading&#8230;<BR/>Make the wine virtual desktop have a 4:3(w:h) ratio, do the same steps above, then make a black image(call it ~/black.png), in the decoration plugin, change &#39;all&#39; to &#39;(all) &amp; !(title=Default - Wine desktop)&#39; in the shadows option, in the window rules plugin add a rule for &#39;title=Default - Wine desktop&#39; and keep the y 0, but put (&#39;width of monitor&#39;-&#39;width of virtual desktop&#39;)/2 as the x value<BR/><BR/>now when running the app use the following script<BR/><BR/>#!/bin/bash<BR/>IMG=`gconftool-2 -g /desktop/gnome/background/picture_filename`<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename &#8211;type string $HOME/black.png<BR/>CMD TO START APP<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename &#8211;type string `echo $IMG | sed &#39;s| |\ |g&#39;`</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hehehe it&#8217;s like Fred for ZX Sinclair in the mid-80s!<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred/screenshots</div>
+</div>
+<div class='comment'>
+<div class='author'>Murrquan</div>
+<div class='content'>
+Just another reminder to contribute this fix to <A HREF="http://appdb.winehq.org" REL="nofollow">http://appdb.winehq.org</A> ^.^<BR/><BR/>And thanks for the link! Now I&#8217;m browsing through all their Linux games.</div>
+</div>
+<div class='comment'>
+<div class='author'>Juanjo</div>
+<div class='content'>
+You should try Cave Story:<BR/>http://www.miraigamer.net/cavestory/<BR/><BR/>It&#8217;s the best platform game so far.<BR/><BR/>It&#8217;s not FLOSS, but there&#8217;s a Linux port that actually works.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Please contribute this information to the WineHQ AppDB!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/13/when-it-s-good-to-be-bad/">When It&#8217;s Good to Be Bad</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Jonah <a href="http://www.egometry.com/egometry/i-feel-so-brokencyde/">wrote a post</a> about how awful the band <a href="http://www.youtube.com/watch?v=-TH5ibABP4U">Brokencyde</a> is, and I mostly agree with the points mentioned. However I would also like to propose that if you aren&#8217;t particularly talented, it is more profitable to be epically bad than it is to be just moderately bad or even mediocre. I also think it is more entertaining and useful to society as a whole, thus being the utilitarian venture to embark upon if you aren&#8217;t traditionally talented. So let&#8217;s begin my defense.<br /><br />I suspect the magnitude of profitability can perhaps be simplified as the multiplication of two factors: the number of people exposed to your product and the probability that a random person would purchase your product if exposed to it. In this model, a very ubiquitous band that people love is the biggest winner; lots of people are exposed to the product and a good percentage buy it. Mediocre bands do alright but not nearly as well. The percentage of people willing to purchase is on the same order, perhaps half as much or so, but the exposure is WAY less. The market is saturated with mediocre to decent bands and no one has time to find or listen to them all. As a result, these bands aren&#8217;t nearly as ubiquitous, leading to sales and thus profits which are orders of magnitude less. As you get worse and worse, your market is more and more saturated, you are less and less interesting, and profits continue to drop, in a roughly linear to inversely square fashion. But it doesn&#8217;t approach zero; once you cross a certain threshold of awfulness something magical happens:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZX0Fo7N2kI/AAAAAAAAACk/HxfOZlcXvvg/s1600-h/128787257947503645.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 317px; height: 320px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZX0Fo7N2kI/AAAAAAAAACk/HxfOZlcXvvg/s320/128787257947503645.png" alt="" id="BLOGGER_PHOTO_ID_5302412514020940354" border="0" /></a><br /><br />You become interesting again! The market actually becomes LESS saturated as it becomes challenging to be worse than that threshold. You have become so awful that you are fascinating and captivating, entertaining and hilarious! Sure, the chance that a random person buys your product has now dropped by an order of magnitude or two, but your exposure increased by many more. You aren&#8217;t quite playing with the big dogs, but you can sell leaps and bounds more than the average guy. All for being notably worse than most other bands.<br /><br />So clearly it can make sense selfishly and financially to be a Brokencyde or a Williang Hung, but are you harming society in the process? I don&#8217;t think so. Surely a few people will legitimately be offended and wish such bands didn&#8217;t exist, but I think the majority of us are at least entertained by their existence which makes us laugh or smile, have an interesting discussion with friends, or at least have a great gag gift (another unique sales niche these bands get in on). As a result, individual Brokencyde&#8217;s of the world increase the overall happiness of society more than an individual &#8220;average&#8221; band. Sure they&#8217;re bad, but would we (or they) want it any other way?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>TheGZeus</div>
+<div class='content'>
+Where do we fall?<BR/>http://myspace.com/satanistsinlove<BR/><BR/>Our first album is at least 10 times as bad as anything on there.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/">Setting Up a Fingerprint Reader With ThinkFinger in Ubuntu 8.10</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo. Since the <a href="https://bugs.edge.launchpad.net/ubuntu/+source/thinkfinger/+bug/203973">manpage isn&#8217;t particularly helpful</a>, I&#8217;ll guide you through setting it up with the <a href="https://wiki.ubuntu.com/ThinkFinger">ThinkFinger</a> library, which is compatible with most popular readers installed in Lenovo/Thinkpads, Dells, and Toshibas.<br /><ol><li>Install the necessary libraries: <span style="font-weight: bold; font-style: italic;">sudo apt-get install thinkfinger-tools libpam-thinkfinger</span></li><li>Integrate thinkfinger with PAM (Pluggable Authentication Modules): <span style="font-weight: bold; font-style: italic;">sudo /usr/lib/pam-thinkfinger/pam-thinkfinger-enable</span></li><li>Now acquire your fingerprint: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;acquire</span>. If you get an error here (not a failed swipe, you just need to swipe better), running it with sudo might be necessary. If you still get an error that thinkfinger can&#8217;t interact with your reader, it probably isn&#8217;t supported, sorry! Otherwise, keep swiping your finger until you get two successful swipes.</li><li>Finally, make sure it worked: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and swipe your finger. Try this a few times, and if it doesn&#8217;t have a good success rate, do another acquire (the previous step), perhaps slower and more intentionally.</li></ol><br />Now you can log in by swiping your finger at the password prompt, and more usefully in my opinion, swipe your finger instead of entering the root password at terminal and graphical password prompts. This is one of those little things that, once you get used to it, is hard to ever live without. Check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 78px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5302516250799451362" border="0" /></a><br />By the way, while there may be valid security concerns with fingerprint readers, don&#8217;t listen to the critics who say you can just breathe on it to get a swipe. <a href="http://images.google.com/images?hl=en&amp;q=fingerprint%20scanner">2D fingerprint scanners</a> may work this way, but<a href="http://images.google.com/images?hl=en&amp;safe=off&amp;q=laptop+fingerprint+reader&amp;btnG=Search+Images"> laptop fingerprint readers</a> take a reading in both space and time. Try using <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and finding out for yourself; you can blow and breathe on your fingerprint reader all day without getting it to even recognize a scan, let alone a failed one.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+My Lenovo T61 is Running Ubuntu 10.4 and thanks to your instructions swiping is now working smoothly!  <br /><br />Thanks so much, Jose.</div>
+</div>
+<div class='comment'>
+<div class='author'>Fingerprint readers</div>
+<div class='content'>
+thanks for giving the steps in setting up the fingerprint readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chris</div>
+<div class='content'>
+Clear, concise and it works!  Many thanks.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonmyous: the theme is Dust: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme<BR/><BR/>Ryan: yeah, Dell is doing a pretty slick job of properly supporting Ubuntu. As a result I am on an M1330 right now (though not with Ubuntu pre-installed, this was a refurb).<BR/><BR/>crashsystems, Aigarius: if someone has a copy of my fingerprint, then they basically have a copy of my password. It wouldn&#8217;t surprise me if that works. So does having a copy of your text password, which I could get much easier than a scan of your fingerprint, just by looking over your shoulder.<BR/><BR/>Dread Knight, that will take care of logging in via fingerprint, but won&#8217;t help for those times when you have to type in your password once logged in, such as terminal and graphical sudos including updates. This is really the main feature IMO.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I just use the thing from BIOS that prompts me to swipe when i start tablet pc and i can also enter my password.<BR/>Works good in combination with auto-logic in my Kubuntu Jaunty :P</div>
+</div>
+<div class='comment'>
+<div class='author'>Aigarius</div>
+<div class='content'>
+Most of those systems are easily fooled with a black and white printout of your fingerprint. Could you try it and see if it works?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I tried on a HP DV6000 and all I got was &#8220;Initializing&#8230;USB device not found&#8221;<BR/><BR/>When I ran &#8220;lsusb&#8221; I saw:<BR/>Bus 005 Device 002: ID 08ff:2580 AuthenTec, Inc. AES2501 Fingerprint Sensor<BR/><BR/><BR/>I guess this &#8220;thinkFinger&#8221; program only works with &#8220;Thomson Microelectronics&#8221;. I hope someone will come up with a unified framework for these kinds of readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mattias</div>
+<div class='content'>
+The fedora people have put some work to get fprint (a dbus based fingerprint reader integration) to work well with Gnome. They have made some about-me integration aso. So it might be worth looking at that also.</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+While I don&#8217;t know about the whole breathing thing, the <A HREF="http://www.schneier.com/crypto-gram-0205.html#5" REL="nofollow">gelatin finger</A> trick should be sufficient to trick the sensor.<BR/><BR/>Of course, an attacker using such techniques is going to be more than just some random person who walks by your laptop and decided to mess with it. This means that they are after data on your laptop, and not having the fingerprint reader would not be a deterrent to them. Against such attacks, only good crypto can keep you safe, such as encrypted LVM or Jaunty&#8217;s upcoming encfs encrypted home feature.</div>
+</div>
+<div class='comment'>
+<div class='author'>ryan</div>
+<div class='content'>
+Dell&#8217;s Ubuntu installations pre-configure this option, at least they did on my M1530.<BR/><BR/>Very slick.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hey that theme looks great, what&#8217;s the name?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/12/typing-on-the-toilet/">Typing on the Toilet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-12T00:00:00-05:00" pubdate data-updated="true">Feb 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Yes, I&#8217;m blogging from the toilet, but there&#8217;s no need for your mind to be in the gutter. I just moved in to a new apartment and haven&#8217;t set up internet yet, and as it turns out the bathroom is the only place that gets an unencrypted wireless signal.<br /><br />Overall I accomplished quite a bit today. I worked a 10-hour day at work, came home and made myself a nice dinner, and did a complete move from start to finish, including all packing and cleaning at the first place, and unpacking into the other. This whole moving process took only 2.5 hours as well, so that&#8217;s got to be _some_ kind of world record. Granted, the two places are a few hundred feet apart, but I still feel accomplished.<br /><br />In the Ubuntu world, I just noticed in Jaunty that when you switch backgrounds it does a rather sexy fade transition from the old background to the one. If you haven&#8217;t seen it yet I would definitely recommend checking it out in a VM with Jaunty Alpha 4. Now all we need is more than two wallpapers that ship with Ubuntu! Install <a href="https://bugs.launchpad.net/bugs/311389">gnome-backgrounds by default</a>, anyone? If you don&#8217;t know about those, please install that package and check them out too, and subscribe to the linked bug report to get it more attention!<br /><br />On a sadder note, recent Intrepid updates broke my fingerprint reader <--> PAM integration; did this happen to anyone else? There was one particular update asking me what I wanted to do about pam settings and I click the recommended suggestion, to use the new ones, but now pam doesn&#8217;t understand that I have a fingerprint reader to use to login/[gk]sudo, et cetera. Granted, it is only a one-liner to re-configure this, but it seems quite suboptimal!<br /><br />Okay, good night/morning/afternoon everyone :)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>egometry</div>
+<div class='content'>
+toilet-blogging?<BR/><BR/>That, my friend, is <I>the shit</I>.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Also thanks Marius for the bug report link, I&#8217;ve subscribed and attempted to do some basic triage. You are correct, I do use thinkfinger. So it is thinkfinger&#8217;s fault then (its pam module), and not pam?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks Anonymous, I must admit I had a good to laugh to hear that someone actually had a goal to do one day blog from the toilet :)<BR/><BR/>And you are correct, no heavy stuff. My queen bed and lounge chair are my only furniture, and they are both made by AeroBed :) I just deflated them, put them in a suitcase, wheeled them over, and re-inflated them!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Well I have to admit when I read your header I though &#8216;Yes at least someone did it!&#8217;<BR/>Did what you might ask, I&#8217;ve always thought about a <I> toilet-net</I> . Some years ago it was a TV but nowadays I would like to have web access. <BR/>So for me it is still a <I>someday want to</I> to sit on the toilet and blog instead of reading a book. :-)<BR/><BR/>BTW: congrats to your quick move, I take it you did not have to move much stuff, heavy stuff like furniture.</div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+It will be more convenient if I make the link clickable (stupid Blogger is acting stupid again): <A HREF="https://bugs.launchpad.net/ubuntu/+source/thinkfinger/+bug/273522" REL="nofollow">#273522</A></div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+If you&#8217;re talking about thinkfinger, there&#8217;s an open bug on launchpad: https://bugs.launchpad.net/ubuntu/+source/thinkfinger/+bug/273522</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/11/failing-tests-when-are-they-okay/">Failing Tests: When Are They Okay?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<span style="font-family:arial;">As a developer on a team, when (if ever) is it reasonable to check in something which breaks one or more tests and causes the build to fail?</span><br /><div id="magicdomid18" style="font-family: arial;"> <br /></div> <div id="magicdomid89"  style="font-family:arial;">   <span class="author76-14-29-5-1234339298129-13525">The most important aspect of a build seems to be that it <span style="font-weight: bold;">accurately represents the health of your product</span>. In an ideal world, if all the tests pass, I should be comfortable deploying that code. In a perhaps more realistic world, I should either be comfortable deploying to a part of the system (small random %, special testers group, etc), or at least be comfortable sending it off to QA with the expectation that it will pass (and be surprised if it doesn&#8217;t). Conversely if the build fails I shouldn&#8217;t be suspecting that one of the tests must have randomly failed or that someone forget to update a test to reflect application changes; I should be wondering what is wrong with the product.</span><br /></div> <div id="magicdomid20" style="font-family: arial;"> <br /></div> <div id="magicdomid21"  style="font-family:arial;">   <span class="author76-14-29-5-1234339298129-13525">But if you have set release dates, say every two weeks, is a broken build in week 1 a problem? Is it okay for developers to be using TDD and checking in the tests first, or checking in incomplete or broken code so that others can collaborate on it? In some ways it definitely seems reasonable to allow for this. After all, the release date is in the future and it is quite expected that features aren&#8217;t completed yet or that bugs aren&#8217;t fixed yet. You should be encouraged to commit early and often and you don&#8217;t want to have to jump through hoops to collaborate.</span><br /></div> <div id="magicdomid22" style="font-family: arial;"> <br /></div> <span class="author76-14-29-5-1234339298129-13525"  style="font-family:arial;">However there seem to be disadvantages to this type of workflow. First of all, if a build is broken, it can&#8217;t break. What am I talking about? If I check in my expected-to-fail test or my half-finished code and the build is failing, the next time someone unexpectedly breaks something, it isn&#8217;t nearly as obvious. A passing test suite changing to a failing suite, in a good environment, should be blindingly visible. But what about a failing test suite continuing to fail, albeit in more ways? That&#8217;s more subtle. From the second that happens you&#8217;re accumulating debt and the faster you find it, the easier it will be to fix. But if you can&#8217;t check in broken code, how do you <b>easily</b></span><span style="font-family:arial;"> collaborate with someone else on it over time?<br /><br />Another problem that can arise is the accumulation of potential debt by replacing functional code with incomplete code. If you aren&#8217;t able to make the timeline or the feature gets dropped for release, you now have a reverse merge on your hands. This could be particularly time consuming if others have been working in the same files that your work touches. On the other hand if you had been implementing it side-by-side and waiting to actually replace it until it worked, it would be no problem to ship the code in that state at any point if need be. Your deployment is <span style="font-weight: bold;">more flexible</span> and <span style="font-weight: bold;">less error prone</span>.</span><span style="font-family:arial;"><br /><br />So how can you balance these tensions in an agile environment? I&#8217;d love any feedback that anyone has to provide. What are the reasons for prioritizing a passing build that I missed, and what other drawbacks exist?</span></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>bobthevirus</div>
+<div class='content'>
+I&#8217;d suggest that this is one of the great advantages of dvcs. The cheap branching means that you can have your non-passing tests for undeveloped features in  separate branches, merging each branch when, and only when, it goes green.</div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+I started writing an answer, and then it became long and transformed into a blog post: <A HREF="http://mg.pov.lt/blog/keep-the-buildbot-green" REL="nofollow">keep the buildbot green!</A>.<BR/><BR/>Also, Blogger ate my first attempt to post a comment here, and I felt somewhat better about deciding to do a post rather than answer here.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I agree with Hitchens.<BR/><BR/>If your build is red, your first priority should be doing whatever it takes to make the build green.<BR/><BR/>If the bug you have found is serious, then that probably means that your team&#8217;s highest priority should be fixing the bug.<BR/><BR/>If it is not so serious, then you should back out the test until you have reason to believe it will pass.<BR/><BR/>Either way, you do not want to allow unrelated commits while the build is red.  Red means that your application has burst beyond your control, and building further functionality atop a system that is already out of control is simply not a sustainable way to develop.</div>
+</div>
+<div class='comment'>
+<div class='author'>oliver</div>
+<div class='content'>
+I think it&#8217;s important to always have a &#8220;stable&#8221; development version in VCS which is known to build and pass all tests and which most likely works correctly. This makes it easier to quickly make a release, or to give somebody a &#8220;preview release&#8221; which contains the latest features.<BR/><BR/>For this, the possibly-broken code must be separated from the stable version. Possible ways:<BR/>- develop on a branch until all tests pass, then merge it into HEAD<BR/>- set a &#8220;stable&#8221; tag in VCS which is moved up whenever a new feature is deemed stable<BR/>- add Make system switches to disable the possibly-buggy features; that way, you can have a &#8220;stable&#8221; build config which always works (also useful as autobuild/autotest target), and a &#8220;bleeding-edge&#8221; build config which is probably broken for quite a while.<BR/><BR/>IMO the latter two ways have the big advantage of making it easy for all developers to test some new unstable feature without having to manually merge its branch first.</div>
+</div>
+<div class='comment'>
+<div class='author'>Hitchens</div>
+<div class='content'>
+Hey Rooney!  Since you asked for feedback, here&#8217;s my take:  it should never be ok for a build to be red.  If you check in code and it goes red, you should back it out immediately. If people are willing to collaborate on finding out why it was red, well, the code&#8217;s still in source control, right?  They can get it by reverting your revert.<BR/><BR/>If a test goes red but there&#8217;s nothing wrong with your production, then that&#8217;s an opportunity for you to learn how to write tests better!  It&#8217;s obviously testing something you don&#8217;t care about, so you go in and rewrite it so that it only asserts on the things that matter.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mrooney-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

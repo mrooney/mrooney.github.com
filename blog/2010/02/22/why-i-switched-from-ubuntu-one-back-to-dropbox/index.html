@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Why I Switched from Ubuntu One back to Dropbox - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="As many of you surely know, Dropbox and Ubuntu One are applications to keep files on your desktop in sync across multiple computers, and backed up &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Why I Switched From Ubuntu One Back to Dropbox</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T00:00:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+As many of you surely know, Dropbox and Ubuntu One are applications to keep files on your desktop in sync across multiple computers, and backed up in the cloud. After using Dropbox for a year or so on Ubuntu, the Ubuntu One project came out and I thought I&#8217;d move over to it. I assumed it would be easier to set up, being pre-installed, and could integrate better with the file manager and other applications, being made specifically for Ubuntu.<br /><br />After about 6 months of using Ubuntu One, I found it to be too much of a regression compared to Dropbox and switched back. I thought I&#8217;d detail why here for the usefulness of others and to hopefully provide some constructive criticism to the Ubuntu One team which overall is doing good work. So here&#8217;s why I went back to Dropbox:<br /><br /><b>Better Nautilus integration</b><br />The nautilus (file manager) integration in Dropbox feels very mature and polished. Normally I&#8217;d say this is to be expected since Ubuntu One is much younger, but since the nautilus aspect of Dropbox is open-source, there didn&#8217;t seem to be much of an excuse for the Ubuntu One team to not use it as a starting point or at least as inspiration. Whenever I added files to my Ubuntu One folder, no matter how large or how many, they instantly had the checkbox emblem which implies to me they are in sync, even though they couldn&#8217;t possibly be uploaded that quickly. In Dropbox, the files show an animated progress emblem until they are actually uploaded, and show this again when they are being updated. I wasn&#8217;t able to trust the status of files with Ubuntu One, and that wasn&#8217;t a good feeling.<br /><br />Sharing files in Dropbox is also a lot easier via Nautilus, but that deserves it&#8217;s own point.<br /><br /><b>Easier file sharing</b><br />In my typical use cases of file sharing, I want to go from having a file in mind to someone else seeing that file as quickly as possible, be it in an instant message, chatroom (IRC/Jabber), or email to a friend or two. Dropbox makes this a breeze; drag a file into the &#8220;Public&#8221; folder in your Dropbox directory, and right-click on it and select &#8220;Dropbox > Copy Public Link&#8221;. Now you have a publicly accessible link to your file in your clipboard!<br /><br />I never quite figured out how to do this in Ubuntu One; it seems you have to share files with specific people who also are running Ubuntu One (which really compounds the non-cross-platform issue) via the web interface by typing in an email address. This is a cool idea, but seems way over-engineered as a starting point. This was even brought up at the last UDS in an Ubuntu One session but was brushed off; they sadly seemed more interested in engineering complex sharing UIs than getting feedback to ensure they were solving actual problems.<br /><br /><b>Sane notifications</b><br />I think <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/462747">bug 462747</a> is what ultimately drove me to drop Ubuntu One. It notifies you not once but twice for every file you change; once to tell you it is syncing the file and another to tell you it is done. Regarding the first notification, I probably already know that I changed that file; regarding the second, if I&#8217;m really curious about the status of the synchronization, a quick glance at the applet should tell me what I need to know. This was mildly annoying as is, but it does this for hidden files like vim swap files too. Every time I would open or save a file in vim (and I save early and often), I got two notifications about syncing the hidden swap file!<br /><br />Dropbox was much more sane regarding notifications; whenever I would turn on or sit down at a computer, it would show <b>one</b> notification telling me how many files it synced from other machines or, if there was just one changed file, the name of it. Beautiful!<br /><br /><b>Better web UI</b><br />The web user interface for Dropbox felt a lot easier to use, and I often had problems where the Ubuntu One web view would show deleted files or not show files I knew were there that were added days ago. Sometimes I had to collapse and expand a folder a time or two to get it to show the right contents. This led to a similar problem that I mentioned with the nautilus integration; it wasn&#8217;t a UI I could trust to be accurate as was therefore essentially useless. The Dropbox UI was always accurate, and had some nice extras which could prove to be lifesavers like getting past versions of files.<br /><br />I also experienced some other issues including <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/498444">bug 498444</a> which caused Ubuntu One applet to start up with the exclamation icon, giving the impression of not syncing files. If I wanted to edit or view a file that might have changed remotely, I had to manually tell the applet to try syncing again after startup to make sure the file was latest version (or else I could silently end up with .u1conflict file, but that&#8217;s another issue). Additionally, although the transparency is praiseworthy, <a href="http://twitter.com/UbuntuOne/status/9498991639">all</a> <a href="http://twitter.com/UbuntuOne/status/9331800792">these</a> <a href="http://twitter.com/UbuntuOne/status/9292086471">tweets</a> <a href="http://twitter.com/UbuntuOne/status/9020860066">about</a> <a href="http://twitter.com/UbuntuOne/status/8963442390">recent</a> <a href="http://twitter.com/UbuntuOne/status/7755587471">issues</a> or <a href="http://twitter.com/UbuntuOne/status/8870678995">downtime</a> do not inspire confidence.<br /><br /><b>That being said</b><br />Ubuntu One does have a few things going for it, however. It is installed by default which means it is the easiest cloud sync/backup solution to get started with for an Ubuntu user. And thanks to CouchDB and a package manager, Ubuntu can ship applications that make it trivial to sync their data with Ubuntu One out of the box. If I can tell all the applications I care about to sync with Ubuntu One (bookmarks, notes, podcasts, basic OS settings/appearance) from one configuration UI, that&#8217;s going to be pretty compelling.<br /><br />While I currently can&#8217;t in good conscience recommend Ubuntu One to a friend (and plenty of my friends don&#8217;t even use Ubuntu), I do have high hopes for the project; it is young and if they can work out some of the above issues, many of them being personal show-stoppers, while providing application and OS integration, Ubuntu One (and perhaps Ubuntu itself) could become too compelling to not use for many people. For now however, Dropbox is the solution which stays out of my way, allows me to solve my problems, and just works.<br /><br />If you are using Ubuntu One or Dropbox, certainly chime in on what the critical features are for you and why you chose one over the other!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>iheartubuntu</div>
+<div class='content'>
+Update: There are now Windows beta versions available of UbuntuOne and UbuntuOne now has a graduated price structure. $2.99 per month for everyone 20GB of space needed or $29 a year. Its working very nice on 10.10 Maverick.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dan Jones</div>
+<div class='content'>
+I agree with all your points. I had a similar experience, but I used Ubuntu One even less before I got sick of it.<br /><br />My main problem, though, was lack of cross-platform ability. I don&#39;t only use Ubuntu. I don&#39;t even only use Linux. If Canonical ever ported Ubunutu One to Windows and OS X, I might consider using it again.<br /><br />The proprietary nature of Dropbox does bother me, but then again, I have Flash installed, so how bothered can I really be by it?<br /><br /><br />A note: Dropbox does have other notifications, and they are incredibly useful. If a file changes in your Dropbox on another computer, it shows you a notification when the new file has synced to the one you&#39;re currently using. That&#39;s great for me, because sometimes my home computer might be working on a file in my Dropbox through some cron job, or something, but I&#39;ll be at work (on a Mac), and it&#39;s great to have a little Growl notification saying such-and-such file has changed on Home.</div>
+</div>
+<div class='comment'>
+<div class='author'>Francesco</div>
+<div class='content'>
+I was just checking the web to se if others had the same issues with ububtu one as myself&#8230; and found your post.<br />I probably lost a Lazarus project where the sources were under my ubuntu one folder so that I could easily work from different locations (single user) and have the updated version everywhere.<br />Now I found myself sorting out .conflict files manually to try to rebuild the &quot;latest&quot; version.<br /><br />:/</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Nathan! I haven&#39;t tried SugarSync, obviously since there is no Linux version; I use Dropbox to sync 3 Ubuntu computers at the moment :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Nathan Brauer</div>
+<div class='content'>
+Have you tried SugarSync?  I haven&#39;t tried it yet but they seem pretty convincing (see their comparison chart <a href="https://www.sugarsync.com/sync_comparison.html" rel="nofollow">here</a>) compared to DropBox.  They&#39;re on everything but Linux so far though :(</div>
+</div>
+<div class='comment'>
+<div class='author'>Eduard</div>
+<div class='content'>
+I switched from db to u1 because I expected better integration and rather wanted to give my money to canonical. The reliability has steadily improved (I run the daily builds) but all the issues you point out are correct. I have been very disappointed that the service is so inferior to dropbox.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jorge E. Gómez</div>
+<div class='content'>
+I recently switched to Dropbox as well; my main problem with Ubuntu One were the .conflict files appearing for no valid reason (I was careful to sync before changing between computers, but I always had to double-check and then manually diff the conflict files); that problem is gone since I switched.<br /><br />Lack of symlink support (wishlist #386019) is also a bummer: with Dropbox I don&#39;t have t change the way I work, or where I want my files to be.</div>
+</div>
+<div class='comment'>
+<div class='author'>andypiper</div>
+<div class='content'>
+I have to say that the cross-platform nature of Dropbox is the major win for me. Much as I&#39;d love to be Linux on all devices, fact is I have Windows, Linux and OS X devices (and an iPhone) and Dropbox just works on all of them. I can&#39;t yet see the point of Ubuntu One.</div>
+</div>
+<div class='comment'>
+<div class='author'>aaylnx</div>
+<div class='content'>
+Free account.  I think with the free account there are limitations on how many revisions are stored, but something like 15 or 30 days worth.  I also do my own backup with a Drobo, but for certain docs which I need regularly the web interface comes in real handy.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Are you a paying DropBox customer now or just using the free account?</div>
+</div>
+<div class='comment'>
+<div class='author'>aaylnx</div>
+<div class='content'>
+It&#39;s been a little while since I&#39;ve used Ubuntu One, but the last time I looked at it you could not revert back to an earlier version of a file or folder the way you can from the Dropbox website.  Is this still the case?  This is a big reason why I&#39;ve not switched from Dropbox yet.  If I mess up a file, or if I accidentally delete it from one machine, I would like the ability to bring it back rather than having those changes propagated to the server and all my other machines as (I think) is currently the case with Ubuntu One.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Dropbox client is also cross platform (Windows, Mac, Linux, iPhone, and Android coming soon). Right now this is a huge one for me. I only have two Linux machines synced at this point, but what if I wanted to sync a Windows machine with Ubuntu One I&#39;m out of luck.</div>
+</div>
+<div class='comment'>
+<div class='author'>desgua</div>
+<div class='content'>
+I would like to add that Ubuntu One is much slower at least from my city São Paulo, Brazil.</div>
+</div>
+<div class='comment'>
+<div class='author'>Corey Burger</div>
+<div class='content'>
+So Ubuntu One is a poor Dropbox clone. Shocking. Now imagine if they had decided to open source the server from day one. That would have bought them marketing time to make the product rock, as opposed to the poor Dropbox clone stories that keep running around.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for the update Stuart, that&#39;s great to hear! I&#39;ll definitely be following the progress of Ubuntu One and as I hopefully implied I won&#39;t be surprised if (and in fact I hope that) one day I&#39;ll switch back.</div>
+</div>
+<div class='comment'>
+<div class='author'>Stuart Langridge</div>
+<div class='content'>
+&quot;I never quite figured out how to do this in Ubuntu One&quot; &#8211; that&#39;s because, right at the moment, you can&#39;t give a file a public URL. This is coming in Lucid &#8211; we&#39;ve been working pretty hard on it since UDS, and it&#39;ll be available with the 10.04 release.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Ah, so you haven&#39;t suffered connectivity problems then!<br /><br />I frequently find myself where the applet has &quot;disconnect&quot; as the menu item, but the folder has &quot;connect&quot; (which does nothing).  It seems that hibernates and suspends confuse the heck out of everything and nothing short of a reboot fixes it.<br /><br />I&#39;ve also had the case where it most definitively is not connected yet somehow claims that the files are all up to date - something that is not true.<br /><br />There was also a problem where it would keep wanting reauthorization which was allegedly fixed in an update a few weeks ago.  (Each of my machines was listed several times as a result.)<br /><br />My view is that Ubuntu One is at best beta quality whereas Dropbox left beta long ago.</div>
+</div>
+<div class='comment'>
+<div class='author'>Tom</div>
+<div class='content'>
+So you hate freedom now? ;)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-22T00:00:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/" title="Previous Post: wxBanker 0.7: simple personal finance">&laquo; wxBanker 0.7: simple personal finance</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/" title="Next Post: Is Intel the answer to Broadcom wireless problems?">Is Intel the answer to Broadcom wireless problems? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

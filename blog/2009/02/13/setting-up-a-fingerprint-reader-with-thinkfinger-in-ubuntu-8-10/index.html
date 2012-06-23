@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Setting up a fingerprint reader with ThinkFinger in Ubuntu 8.10 - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Setting Up a Fingerprint Reader With ThinkFinger in Ubuntu 8.10</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo. Since the <a href="https://bugs.edge.launchpad.net/ubuntu/+source/thinkfinger/+bug/203973">manpage isn&#8217;t particularly helpful</a>, I&#8217;ll guide you through setting it up with the <a href="https://wiki.ubuntu.com/ThinkFinger">ThinkFinger</a> library, which is compatible with most popular readers installed in Lenovo/Thinkpads, Dells, and Toshibas.<br /><ol><li>Install the necessary libraries: <span style="font-weight: bold; font-style: italic;">sudo apt-get install thinkfinger-tools libpam-thinkfinger</span></li><li>Integrate thinkfinger with PAM (Pluggable Authentication Modules): <span style="font-weight: bold; font-style: italic;">sudo /usr/lib/pam-thinkfinger/pam-thinkfinger-enable</span></li><li>Now acquire your fingerprint: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;acquire</span>. If you get an error here (not a failed swipe, you just need to swipe better), running it with sudo might be necessary. If you still get an error that thinkfinger can&#8217;t interact with your reader, it probably isn&#8217;t supported, sorry! Otherwise, keep swiping your finger until you get two successful swipes.</li><li>Finally, make sure it worked: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and swipe your finger. Try this a few times, and if it doesn&#8217;t have a good success rate, do another acquire (the previous step), perhaps slower and more intentionally.</li></ol><br />Now you can log in by swiping your finger at the password prompt, and more usefully in my opinion, swipe your finger instead of entering the root password at terminal and graphical password prompts. This is one of those little things that, once you get used to it, is hard to ever live without. Check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 78px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5302516250799451362" border="0" /></a><br />By the way, while there may be valid security concerns with fingerprint readers, don&#8217;t listen to the critics who say you can just breathe on it to get a swipe. <a href="http://images.google.com/images?hl=en&amp;q=fingerprint%20scanner">2D fingerprint scanners</a> may work this way, but<a href="http://images.google.com/images?hl=en&amp;safe=off&amp;q=laptop+fingerprint+reader&amp;btnG=Search+Images"> laptop fingerprint readers</a> take a reading in both space and time. Try using <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and finding out for yourself; you can blow and breathe on your fingerprint reader all day without getting it to even recognize a scan, let alone a failed one.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+My Lenovo T61 is Running Ubuntu 10.4 and thanks to your instructions swiping is now working smoothly!  <br /><br />Thanks so much, Jose.</div>
+</div>
+<div class='comment'>
+<div class='author'>Fingerprint readers</div>
+<div class='content'>
+thanks for giving the steps in setting up the fingerprint readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chris</div>
+<div class='content'>
+Clear, concise and it works!  Many thanks.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonmyous: the theme is Dust: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme<BR/><BR/>Ryan: yeah, Dell is doing a pretty slick job of properly supporting Ubuntu. As a result I am on an M1330 right now (though not with Ubuntu pre-installed, this was a refurb).<BR/><BR/>crashsystems, Aigarius: if someone has a copy of my fingerprint, then they basically have a copy of my password. It wouldn&#8217;t surprise me if that works. So does having a copy of your text password, which I could get much easier than a scan of your fingerprint, just by looking over your shoulder.<BR/><BR/>Dread Knight, that will take care of logging in via fingerprint, but won&#8217;t help for those times when you have to type in your password once logged in, such as terminal and graphical sudos including updates. This is really the main feature IMO.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I just use the thing from BIOS that prompts me to swipe when i start tablet pc and i can also enter my password.<BR/>Works good in combination with auto-logic in my Kubuntu Jaunty :P</div>
+</div>
+<div class='comment'>
+<div class='author'>Aigarius</div>
+<div class='content'>
+Most of those systems are easily fooled with a black and white printout of your fingerprint. Could you try it and see if it works?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I tried on a HP DV6000 and all I got was &#8220;Initializing&#8230;USB device not found&#8221;<BR/><BR/>When I ran &#8220;lsusb&#8221; I saw:<BR/>Bus 005 Device 002: ID 08ff:2580 AuthenTec, Inc. AES2501 Fingerprint Sensor<BR/><BR/><BR/>I guess this &#8220;thinkFinger&#8221; program only works with &#8220;Thomson Microelectronics&#8221;. I hope someone will come up with a unified framework for these kinds of readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mattias</div>
+<div class='content'>
+The fedora people have put some work to get fprint (a dbus based fingerprint reader integration) to work well with Gnome. They have made some about-me integration aso. So it might be worth looking at that also.</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+While I don&#8217;t know about the whole breathing thing, the <A HREF="http://www.schneier.com/crypto-gram-0205.html#5" REL="nofollow">gelatin finger</A> trick should be sufficient to trick the sensor.<BR/><BR/>Of course, an attacker using such techniques is going to be more than just some random person who walks by your laptop and decided to mess with it. This means that they are after data on your laptop, and not having the fingerprint reader would not be a deterrent to them. Against such attacks, only good crypto can keep you safe, such as encrypted LVM or Jaunty&#8217;s upcoming encfs encrypted home feature.</div>
+</div>
+<div class='comment'>
+<div class='author'>ryan</div>
+<div class='content'>
+Dell&#8217;s Ubuntu installations pre-configure this option, at least they did on my M1530.<BR/><BR/>Very slick.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hey that theme looks great, what&#8217;s the name?</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/12/typing-on-the-toilet/" title="Previous Post: Typing on the Toilet">&laquo; Typing on the Toilet</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/13/when-it-s-good-to-be-bad/" title="Next Post: When It's Good to be Bad">When It's Good to be Bad &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

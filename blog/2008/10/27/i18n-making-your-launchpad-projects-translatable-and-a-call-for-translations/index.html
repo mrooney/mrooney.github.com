@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>I18N: Making your Launchpad projects translatable (and a call for translations!) - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Launchpad provides a wonderful translation service called Rosetta that allows multi-lingual users to translate your application to other languages. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2008/10/27/i18n-making-your-launchpad-projects-translatable-and-a-call-for-translations">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">I18N: Making Your Launchpad Projects Translatable (and a Call for Translations!)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Launchpad provides a wonderful translation service called Rosetta that allows multi-lingual users to translate your application to other languages. If you are a translator and want to help translate my project (only 75 strings with a fair bunch of them being quite short), skip to https://translations.launchpad.net/wxbanker to help me out! I will include you permanently in the credits and you will have helped me greatly!<br /><br />Now, for developers or anyone else interested, I&#8217;m going to explain the basic process to go from an English-only application in Launchpad to something that can be easily translated by anyone. This will <span style="font-weight: bold;">internationalize</span> your project, and in a later post I&#8217;ll explain how to <span style="font-weight: bold;">localize</span> it; that is, once you have translations, how to integrate these into your project so users in other locales see the translated strings instead of English. My project is wxBanker (wxbanker.org), so I&#8217;ll be using that for reference.<br /><br /><ol><li>First, you&#8217;ll want to make all your user-visible strings translatable in your code. I used gettext (http://en.wikipedia.org/wiki/Gettext), and it is quite easy in Python. Basically, you wrap all strings you want to be translated in a gettext call, which is typically assigned to the underscore character to be easy to type and read. So &#8220;Hello, world!&#8221; will become _(&#8220;Hello, world!&#8221;). When your application is run, this call will then translate that string into the appropriate languange (once you have everything set up, which will be Part 2 of this post).<br /><br />Sometimes you may want to restructure or break up larger strings into smaller ones. If you have two strings &#8220;Sentence A. Sentence B.&#8221; and &#8220;Sentence A. Sentence C&#8221;, you may want to gettext those as _(&#8220;Sentence A.&#8221;)+_(&#8220;Sentence B.&#8221;) and _(&#8220;Sentence A.&#8221;)+_(&#8220;Sentence C.&#8221;), so that Sentence A only needs to be translated once. However, make sure to give enough context for translators. Basically, apply principles of resuable software design to your strings.<br /><br /></li><li>If you try to run your application now, it probably won&#8217;t work as the underscore function won&#8217;t be defined. You&#8217;ll need to set the locale to the user&#8217;s default and install gettext. In Python this is:<br /><br />import locale<br />locale.setlocale(locale.LC_ALL, &#8221;) # use the environment default &#8221; for ALL purposes<br />import gettext<br />gettext.install(&#8220;wxbanker&#8221;) # specify the translation namespace<br /><br />Now you should be able to run your application and everything should work normally in English; we haven&#8217;t broken anything! To simplify this set up, however, I like to put those above four lines in a separate file such as localization.py, and import that in any file which wraps strings using gettext, so I don&#8217;t have to duplicate those each time.<br /><br /></li><li>Now you need to generate a translation template. This is fairly straightforward; simply run xgettext at the command line on all the files you used gettext in. For example: &#8220;xgettext file1.py file2.py file3.py&#8221;. This will generate a file called messages.po, which is your template. Rename this to messages.pot (the scheme Launchpad prefers) and we can proceed!<br /><br /></li><li>Now we&#8217;ll set up Launchpad. Edit your projects details (in my case: https://launchpad.net/wxbanker/+edit) and check the box that says &#8220;Translations for this project are done in Launchpad&#8221;, scroll to the bottom, and click &#8220;Change&#8221;.<br /><br /></li><li>Click the Translations tab of your project in Launchpad and upload the .pot file you generated in step #3. If this is your first time doing so, it will need to be reviewed by a human, and will take perhaps a day to get approved, at which point you will receive an email letting you know it has been and you are good to go.<br /><br /></li><li>Your project can now be translated! Visit your Translations page again (such as https://translations.launchpad.net/wxbanker) to see the status. You won&#8217;t see anything exciting if there aren&#8217;t any translations yet and you aren&#8217;t configured for more than English (click Select Languages in the lower right to change this), but otherwise you will see an option to translate the project for each language other than English that you know, and the status of the translation.</li></ol>If you have been meaning to internationalize your project, give it a shot now! Also, please let me know if I have missed or botched any steps. We&#8217;ll go through putting the (hopefully) resulting translations into your project in my next post!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+How should I handle glade files?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks so much diegoj, your translation is really great! The goal of the next release of wxBanker (0.4) is localization, both strings and currencies. So users in other locales should see strings (assuming I receive translations for them) and currencies in the expected way.<BR/><BR/>In case the locale currency isn&#8217;t desired there will be a way to select the desired currency from a pre-populated list of popular ones, which will then affect all accounts. I probably won&#8217;t implement per-account currencies until a future version, although I can figure out a clean and intuitive way to implement managing this in the UI I may.</div>
+</div>
+<div class='comment'>
+<div class='author'>diegoj</div>
+<div class='content'>
+I have translated wxBanker to Spanish. I hope translation is enough Spanihs-neutral.<BR/><BR/>One question, has wxBanker any way to change transactions currency? As I&#8217;m from Spain I don&#8217;t use US$, I use €. The same occurs to other europeans, and the british people.<BR/><BR/>See you!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Meh, is Rosetta still stupid about not sending translations upstream *FIRST*?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks a lot! I had -no- idea how to make translation templates, and only vaguely had an idea about the rest. I&#8217;m planning on making an app I&#8217;m working on translatable with LP. However, it&#8217;s written in C. :) Are there any extra steps I need to take? Obviously the code in step 2 will be changed, but I don&#8217;t know to what. Thanks.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2008/10/27/i18n-making-your-launchpad-projects-translatable-and-a-call-for-translations/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2008/10/27/i18n-making-your-launchpad-projects-translatable-and-a-call-for-translations/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/10/05/wxbanker-0-3-released/" title="Previous Post: wxBanker 0.3 released!">&laquo; wxBanker 0.3 released!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/11/02/l10n-integrating-translations-into-your-project/" title="Next Post: L10N: Integrating translations into your project">L10N: Integrating translations into your project &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

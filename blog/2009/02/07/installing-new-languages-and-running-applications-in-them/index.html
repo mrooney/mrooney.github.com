@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Installing new languages and running applications in them - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Awhile ago I promised to explain how to run applications in a different locale. This is quite useful as a developer, so that you can more robustly &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/07/installing-new-languages-and-running-applications-in-them">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Installing New Languages and Running Applications in Them</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Awhile ago I promised to explain how to run applications in a different locale. This is quite useful as a developer, so that you can more robustly test your localization code. It can also be useful to translators who are translating to a locale which is not their default. Maybe you are learning a new language and want some extra practice in specific applications. Or, you may just want to see what your favorite application looks like in Russian or Hindi :)<br /><br />There are basically only two steps to this rather simple process.<br /><br />1. <span style="font-weight: bold;">Install the desired languages</span>. Go to System -> Administration -> Language Support. Scroll down the list, checking the &#8220;Support&#8221; box on the right for any language you want on your system. Once you are done click Apply and the necessary files will be downloaded for you. A logout and login is recommended by the application after this, and while not necessary, I recommend it as well (I&#8217;ve had a rare instance or so of segfaults when trying to use the locales before restarting the sesssion). If you want to follow along, ensure Russian is one of your choices.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 248px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SY6UWlmBcPI/AAAAAAAAAB0/SkXpYvy0RKg/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5300336927231275250" border="0" /></a><br /><br />2. <span style="font-weight: bold;">Run the application under a different locale</span>. You need to figure out the locale code that you want to run. In a terminal, run &#8220;locale -a&#8221; without the quotes, and you will see a list of all locales available on your system. If I want Russian, the one I am looking for in this list is &#8220;ru_RU.utf8&#8221;. It is usually fairly obvious which one you want. Now, again in a terminal, just add &#8220;LC_ALL=ru_RU.utf8&#8221; before the application you want to run. If we want a Russian calculator for example, we would execute &#8220;LC_ALL=ru_RU.utf8 gcalctool&#8221;. Ta-da!<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 268px; height: 320px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SY6RuFfR3gI/AAAAAAAAABs/vupHkYdGaeo/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5300334032395034114" border="0" /></a><br /><br />This is a great way as a developer to make sure your applications are <a href="http://mrooney.blogspot.com/2008/10/i18n-making-your-launchpad-projects.html">correctly detecting locales</a>. I&#8217;d love to hear what you think and if there are any other reasons I missed that you may want to do this!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>sebastian-s</div>
+<div class='content'>
+Hi!<BR/>thanks for the post, just two days ago I was messing around with Evolution and locals. I&#8217;m currently on en_AU and Evolution displays the time in 12h (am/pm) format in the email list view. Strangely in the email-detail view (or whatever it&#8217;s called) the time is displayed in 24hrs.<BR/><BR/>I did some reading about this &#8216;bug&#8217;, which is not a bug for some. [<A HREF="https://bugs.launchpad.net/evolution/+bug/48128" REL="nofollow">launchpad bug 48128</A>]<BR/><BR/>In the end I found out that setting the time local to say en_DK (LC_TIME=en_DK.UTF8) gives me 24hrs in Evolution.<BR/><BR/>Cheers,<BR/><BR/>seb</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks Sébastien, it is the rather popular Dust theme: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme . Don&#8217;t forget to set your panel background, listed under &#8220;Other stuff to try&#8221;. I also use the Firefox theme.<BR/><BR/>And if you aren&#8217;t using gnome-colors as your icon set, I&#8217;d also recommend that :) https://wiki.ubuntu.com/Artwork/Incoming/Jaunty/gnome-colors and give it a vote if you like it.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sébastien Giguère</div>
+<div class='content'>
+Hi! I just remarked that your theme is very nice, can you tell where can i get it? Thanks very much!</div>
+</div>
+<div class='comment'>
+<div class='author'>Livio</div>
+<div class='content'>
+Русский? Such a beautiful language&#8230; It seems I&#8217;m not alone with my crazyness around this language :D .</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/07/installing-new-languages-and-running-applications-in-them/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/07/installing-new-languages-and-running-applications-in-them/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/06/how-windows-vista-digg-and-ubuntu-landed-me-a-sweet-job/" title="Previous Post: How Windows Vista, Digg, and Ubuntu Landed me a Sweet Job">&laquo; How Windows Vista, Digg, and Ubuntu Landed me a Sweet Job</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/08/awn-dock-and-extras-0-3-2-released-o/" title="Next Post: AWN dock (and Extras) 0.3.2 released! \o/">AWN dock (and Extras) 0.3.2 released! \o/ &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

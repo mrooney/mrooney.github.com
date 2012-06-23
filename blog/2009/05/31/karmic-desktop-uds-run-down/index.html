@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Karmic Desktop UDS run-down! - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="I just got back from a wonderful UDS in beautiful Barcelona and thought I would provide a summary of what we can expect in the Karmic Koala 9.10 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/05/31/karmic-desktop-uds-run-down">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Karmic Desktop UDS Run-down!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-31T00:00:00-04:00" pubdate data-updated="true">May 31<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I just got back from a wonderful UDS in beautiful Barcelona and thought I would provide a summary of what we can expect in the Karmic Koala 9.10 desktop. Keep in mind that I don&#8217;t speak for Canonical and what follows is just my understanding of what is on the table for Karmic.<br /><br />Overall it is gearing up to be a pretty radical and exciting release; there are some changes to the default application set as well as some major version upgrades of existing core components. We are trying to be fairly aggressive in terms of new stuff so that if Canonical wants Karmic+1 to be an LTS (Long Term Support) release, we can have fairly stabilized new technologies by then (thanks to 6 months of stabilization in the Karmic cycle)  instead of having to wait until after the LTS (Karmic+2) to introduce them. Since many of these changes would be too radical to first appear in an LTS, if we don&#8217;t upgrade now we may not be able to for a year, and have to maintain old versions for 3-5 years in the LTS.<br /><br />On the messaging front, Ekiga will be dropped from the CD to save 10 megs, and Empathy will likely replace Pidgin due to a responsive upstream, voice/video support, and better GNOME integration. It also now has the ability to import accounts from Pidgin, so this should help out with migration. I checked it out a bit at UDS and was impressed with how useful it is with absolutely zero configuration. It will pull your name from the system and enable avahi (auto-discovery of people nearby, like bonjour) with no set up, which made it quite easy to get in contact with people at the conference. You can also supply your email and Jabber ID to the avahi interface to allow other people to discover that info as well.<br /><br />It also sounds likely that Banshee will replace Rhythmbox as the default media player, and it is the official default of UNR (Ubuntu Netbook Remix) Karmic. This will bring a snazzier interface, better device support including iPods and Androids, and quite importantly an active and responsive upstream. I will admit to not being a huge fan of this transition for Karmic as it seemed too early for me (the lack of a folder watch is quite a regression for me, and it has been promised for the last 3 releases or so, so I&#8217;m not holding my breath), but after checking out 1.5 for a bit I will admit that it is growing on me. The user interface does seem nicer, and the lightweight video library which keeps track of what you haven&#8217;t watched is nice. However, it does seem to use 3-10x more memory than RB which is very troubling (60-300MB compared to RBs fairly consistent 25MB), especially on the netbook scene. I&#8217;ve also had issues with it skipping occasionally, which is very unfortunate. Hopefully the UNR switch will put pressure on better memory management for Banshee.<br /><br /><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SiNywNSLPuI/AAAAAAAAALw/auGXRwC9KH0/s1600-h/banshee-slide-device-overview.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 234px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SiNywNSLPuI/AAAAAAAAALw/auGXRwC9KH0/s320/banshee-slide-device-overview.png" alt="" id="BLOGGER_PHOTO_ID_5342239755516722914" border="0" /></a>Banshee syncing with an Android G1<br /></div><br />Empathy and Banshee will probably replace their predecessors around alpha 2 of Karmic, and will be either left as default or reverted based on reported regressions and bugs. Keep in mind that if you end up not preferring these applications, the other ones still exist and you can continue to use them.<br /><br />There are also going to be a bunch of underlying speed improvements, with the boot speed goal being 10-12 seconds. When Ubuntu talks about boot times, we are referring to the time from when grub starts (when Linux first gets control of the machine) to when the user is at a fully loaded desktop with no I/O. The main test machines being used by Canonical here are Dell Mini 9s, with auto-login enabled to get a consistent log-in time. This is pretty impressive as the boot goal was 25 seconds in Jaunty, which was met, and was aggressive itself as Intrepid booted in about 65 seconds on the Dell Mini 9.<br /><br />grub2 is likely to be default for new installations (upgrades will have grub1 chainloaded to grub2), with ext4 as the default filesystem. The boot process will also be streamlined, with the grub timeout set to 0 and the boot menu hidden. There will instead be two new ways to boot into a different system now. First, there will be a key that can be pressed while booting to bring up an OS chooser, which will halt the current boot and restart into the chosen one. Another goal is to have the restart menu item in GNOME aware of installed OSes and allow the choice there, so you could select for example &#8220;Restart into OSX&#8221;. All in all this means no racing to select the OS for dual-booters, and a faster boot process as well. /tmp is also hopefully going to be made a tmpfs, which means it will reside in RAM and overflow to a swapfile (which in recent Linuxes have on par performance with swap partitions). This means power savings, less disk I/O (especially great for SSDs), and of course blazingly fast performance which should help out a lot especially when, say, loading files from inside an archive The Gnome Display Manager (GDM, which handles the login screen) will also likely be upgraded to GDM2.<br /><br />Finally let me fire off a few more changes. Power management is being improved all around, with one change already landed being that audio cards will be automatically powered down after 10 seconds of no sound. Encrypted Home directories will hopefully be easier to set up now with an option right in the graphical installer, and I&#8217;m working on a UI for managing this and encrypted Private directories in Karmic, more on that later. Firefox 3.5 should be the default version of Firefox. For notifications which want to display actions if the user is interested, there is work on morphing windows:<br /><br /><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SiNyWBN1JGI/AAAAAAAAALo/xTaOTOUafdU/s1600-h/morphing-window.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 121px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SiNyWBN1JGI/AAAAAAAAALo/xTaOTOUafdU/s320/morphing-window.png" alt="" id="BLOGGER_PHOTO_ID_5342239305600672866" border="0" /></a>Source: <a href="https://wiki.ubuntu.com/NotificationDesignGuidelines">https://wiki.ubuntu.com/NotificationDesignGuidelines</a></div><br />Ubuntu is also working on being social from the start (see desktop-karmic-social-from-the-start on gobby.ubuntu.com), perhaps installing Gwibber by default and asking the user if they want to integrate social sites (twitter, facebook) into the desktop when they visit them in Firefox, via an extension. There has also been work in looking for <a href="https://blueprints.launchpad.net/ubuntu/+spec/desktop-karmic-gnomescan">a better scanning application to replace xsane</a> (perhaps GnomeScan), some look into using Gnome Control Center, and a common printing dialog.<br /><br />Okay phew, that&#8217;s what I&#8217;ve got to report! Let me know what you think of these decisions and changes, and if there is anything you were hoping for that didn&#8217;t make it, or really anything else you&#8217;ve got to say!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>News Blog</div>
+<div class='content'>
+Nice Post<br /><a href="http://www.thewinesocietyofindia.com/wine-blogs/steven/" rel="nofollow">Steven Spurrier</a></div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Regarding the last anonymous post, I&#39;m not even sure if you read my post. KMS support IS planned for the next release, and I specifically mentioned it. Delta updates were also discussed at the summit as well.<br /><br />Since Ubuntu and Fedora have different release schedules, they are going to have differences as different technologies and features mature at different times. Both distributions have had certain features before the other and that is surely the way it will continue.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+what a boring release it will be&#8230;<br />app1 changed to app2&#8230;<br />ubuntu is really getting years behind fedora:<br />- no multiseat (MDM) support<br />- no delta updates<br />- no smooth loading (KMS) support<br />and it&#39;s not even planned&#8230; dispite the fact that some of these features were requested for years!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+&quot;Ekiga will be dropped from the CD to save 10 megs&quot;<br /><br />why not save lots of megs by leaving out mono/banshee/tomboy?<br /><br />there&#39;s gnote to replace tomboy, and banshee doesnt appear to be fully functional..</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Banshee? Mono fail!<br /><br />Empathy has no UI for dialing out on voice calls, doesn&#39;t have metacontacts, and its SIP and IRC support are underdeveloped. I&#39;ve been tracking development and testing it for years. It&#39;s still crap for usability, though I understand it&#39;s an abstraction-obsessed programmer&#39;s wet dream.</div>
+</div>
+<div class='comment'>
+<div class='author'>The Mad Hatter</div>
+<div class='content'>
+We don&#39;t use VLC for legal reasons. The same reasons apply to Mono applications. Mono needs to be purged from Ubuntu, along with the applications that use it (FSpot, Tomboy, Banshee). This will also save a considerable amount of disk space.<br /><br />I would also suggest changing out Evolution for Thunderbird. The amount of integration between Evolution and the Gnome Desktop environment reminds me to much of the way Internet Exploder is integrated into Windows, and the problems caused by that.<br /><br />As a final note, I think that we should consider not using any software which isn&#39;t GPL/BSD/MIT/Apache/Mozilla licensed. License proliferation is becoming a serious issue, which can lock code from reuse. The above licenses are (at least in my opinion) the best ones from a point of sharing.tr</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Agreed with the above poster not thrilled with Banshee on two counts: 1) it is not nearly as lean as RB, which is quite a snazzy app in of itself, and 2) it is encumbered by .NET and Mono infested. I think it would be good for the distro&#8217;s to heed R. Stallman&#8217;s advice and stick to GNU applications, and if closed source must be included make sure its from a originator without a history of exploits of such.</div>
+</div>
+<div class='comment'>
+<div class='author'>Blimundus</div>
+<div class='content'>
+Thanks for the run-down! These are very interesting developments to hear about.<br /><br />I am particularly interested in the debate on the scanning application.<br /><br />Etienne&#8217;s work on GnomeScan started off with the right design choices, and with the goal to make scanning as ubiquitous as printing. In other words, as I understand it, GnomeScan is all about integration with other programs, the file chooser etc&#8230; I think it would be great to see this becoming a reality.<br /><br />GnomeScan would benefit from Gnome/Ubuntu giving it some attention though.</div>
+</div>
+<div class='comment'>
+<div class='author'>Bayger</div>
+<div class='content'>
+Michael: I have added a blueprint for the idea suggested by me. It&#8217;s called desktop-karmic-color-themes. I don&#8217;t know what to do next with this. This is my first blueprint. I don&#8217;t even know if this is the usual place to post such ideas.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jeffrey Seguerra</div>
+<div class='content'>
+I read lot of rants about mono&#8230; was mono discussed in Karmic UDS?<br /><br />http://tinyurl.com/pycr9u</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+You had sessions at UDS about gnome 3.0&#8230;but is Canonical talking directly with upstream about integrating Canonical built technologies like libindicate? <br /><br />UDS is a walled garden. Don&#8217;t misintepret talking &#8220;amongst yourselves&#8221; as a substitute for discussion with upstream. <br /><br />Packagekit adoption would be an example. packagekit-gnome is a gnome module now. It&#8217;s moving along a path towards deep integration into the GNOME desktop.  How much work has Canonical invested release after release into refining its distro-specific update manager experience? How much of that manpower expenditure work is directly working against adoption of PackageKit as a common cross-desktop solution? <br /><br />PackageKit adoption has originally brought up for intrepid UDS.  I&#8217;m not holding my breath for Karmic. Especially in light of the AppCenter proposal which is an even more aggressive divergence path than the current gnome-app-install tool.<br />https://wiki.ubuntu.com/AppCenter</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Alexander, I think there was a PackageKit session, I&#8217;d check summit.ubuntu.com and look at the schedules. If there is one it should be linked to a blueprint / wiki page.<br /><br />Jef, what you are pointing out is definitely true. If we diverge too much and upstream stops maintaining what we are patching, we are either left maintaining it ourselves or porting it, either of which is extra manpower as you say and is suboptimal. We are looking long term and there were some sessions at UDS on GNOME 3.0, Shell, Zeitgeist, Control Center and such. The plan is to have as many GNOME 3.0 components as possible easily installable in Karmic, and solicit some early feedback on user experience, regressions, and integration with other Ubuntu aspects.<br /><br />There is definitely some exciting work going on to make it really easy to use the latest upstream versions of packages in future Ubuntus, which should really help upstreams get better feedback from us and make development upstream easier as well. Plus it should eliminate some surprises by pointing out integration issues early.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+Do you know if upstream gdm has incorporated the presence functionality Canonical introduced in Intrepid? Is Canonical going to forward port that or is essentially duplicating functionality in the gdm trunk with a custom implementation? <br /><br />The differentiated guest and presence features that Canonical developed against the 2.20 codebase was one of the reasons holding back from using gnome 2.26 in Jaunty. And it appears to be something Canonical is going to continue to spend manpower on.<br /><br />You have to be careful, the more you differentiate and rely on those differentiated features, the harder it is for you to continue to move forward as upstrem executes its own feature roadmap.  The fact that Canonical is having to spend time refactoring its customized guest session and customized fast-user-session code..code that was created against the older 2.20 gdm codebase..means Canonical has less manpower resources to help finish off the gdm rewrite.  <br /><br />And looking even longer term, how much of the differentiated work that Canonical is doing across the Gnome desktop more generally is going to make it into the vision for Gnome 3.0? Is all the effort that continues to go into making libindicate and notify-osd work across the application space going to be incorporated into what gnome 3.0 is? Will it even fit in with gnome 3.0 concept of a shell interface?  How much is Canonical engaged in upstream roadmapping for new functionality?  You can&#8217;t really argue an &#8220;agree to disagree&#8221; attitude if Canonical isn&#8217;t taking part in the roadmapping discussion and making the case for integration of their technology implementations.  <br /><br />-jef</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+kubuntu has packagekit now, so i imagine there is at least SOME work being put into it</div>
+</div>
+<div class='comment'>
+<div class='author'>Alexander</div>
+<div class='content'>
+Any news on integrating PackageKit as the principal software installation mechanism?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for reminding me of that feathertail. I didn&#8217;t follow that too much but the blueprint is here: https://blueprints.launchpad.net/ubuntu/+spec/desktop-karmic-integrating-with-ubuntu-one . The plan is to make it as easy to use as possible (and potentially integrate into migration-assistant if you already have it) without being invasive such as popping anything up or adding an unconditional step to the installer. The client is not proprietary, it is open-source and in fact I have already used the source to help me in another project so I am quite grateful for it!<br /><br />Jef, that is a great question. I am not an authority on this topic (you might try dbarth and seb128?) but my understanding is we want the bleeding edge of GDM, so definitely 2.26, I assume 2.28. Since that is the case it should be easy to upstream, but whether we are doing the work upstream or downstream I don&#8217;t know. Upstream is the preferred approach so I imagine if upstream wants this feature, we would. Ubuntu gets knocked for doing too much work downstream and while some of this is deserved (there was in fact a general session on this), in some cases upstream is not interested in our direction, and that is the purpose of being a different distro after all. If we weren&#8217;t doing anything different there wouldn&#8217;t be a point to existing!</div>
+</div>
+<div class='comment'>
+<div class='author'>Jef Spaleta</div>
+<div class='content'>
+What version of gdm is Canonical committed to shipping in Karmic?<br /><br />Jaunty is still shipping the gdm 2.20 release while the last upstream release was gdm 2.26.<br />http://ftp.acc.umu.se/pub/GNOME/sources/gdm/<br /><br />Is the restart option for gdm going to be developed against gdm upstream trunk in collaboration with upstream gdm? Or is it going to be a downstream patch built against the old gdm that Ubuntu ships like some of the previous gdm patchset that Canonical developed in the Intrepid development time period?</div>
+</div>
+<div class='comment'>
+<div class='author'>feathertail</div>
+<div class='content'>
+What about the Ubuntu One integration that I have been hearing about? And if it&#8217;s being included, isn&#8217;t that kind of distressing when it&#8217;s proprietary?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous, upstream GNOME isn&#8217;t switching to Banshee as far as I know (but Banshee would eventually like them to) but as andreasn points out below (thanks!), apparently GNOME doesn&#8217;t ship one at all except totem. So this isn&#8217;t a divergence from upstream, just a change on the Ubuntu side. And in fact going to Empathy is in fact a convergence bringing us closer to GNOME! As far as upstreaming the boot stuff, last I heard (last UDS) Debian was not interested due to how wide-reaching the changes are, but maybe they&#8217;ll come around. This also could have changed recently.<br /><br />nailor, you can find the blueprint at https://blueprints.launchpad.net/ubuntu/+spec/desktop-karmic-gnomescan. I&#8217;ll add this to the post.<br /><br />gilir, I agree and that was one of the first things I noticed as well that was disappointing about Banshee; no fade in/out.<br /><br />Alex, I think Mono is more modern and should allow easier extensibility and maintenance as well as make new contributors more likely. Plus tomboy and gnome-do are already using it. As far as PackageKit goes, I&#8217;m not sure, but you can check out summit.ubuntu.com for the full schedule!<br /><br />Mackenzie, thanks for the info and I have heard that, but I doubt that a custom widget takes THAT much more memory; something else is definitely going on. Plus, my library is about 50 gigs and 8,000 songs, so I feel like I am on the upper end of the average desktop user anyway. I don&#8217;t think we should be harming the experience of people with libraries of this size, so someone can have 220GB of music with less problems :) I&#8217;ve also had issues with it skipping on my Core 2 Duo, which RB never does, so that is unfortunate. That said, I do think Banshee is headed in a cool direction and I&#8217;m excited to see where it goes.<br /><br />Bayger, I don&#8217;t know of that being considered but it could be cool; I&#8217;d personally love for a &#8220;look and feel&#8221; choice in the installer which lets you enable a dock instead of a bottom gnome-panel as well.<br /><br />Pro, the idea with boot choice is to make it fairly simple (I think pressing something like shift/alt/ctrl) and make it as discoverable as possible, but with Windows or OSX you just &#8220;have to know&#8221; so we don&#8217;t have much to go by as far as presenting this. Also, the restart option should make it fairly easy.<br /><br />Pēteris, I&#8217;m up in the air about some of the changes as well, but we&#8217;ll see how feedback goes. If upstream is as responsive and interested as claimed, the kinks should be worked out. And indeed, gnomescan does seem to be what is being considered.</div>
+</div>
+<div class='comment'>
+<div class='author'>Pēteris Krišjānis</div>
+<div class='content'>
+Pidgin replacement - good, RB replacement - bad, for scanning - Gnome Scan please. Everything else sound good :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Pro</div>
+<div class='content'>
+The new boot menu which makes grub time set to 0 might cause a headache for new users to ubuntu who are just trying it and would like to have easy access to their win/osx os also.<br />it seems this step needs to be executed really well for it to be good for both experienced and new uwsers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Great news indeed! Thanks for your report.<br />It seems that Karmic will be awesome.<br /><br />(Even if I don&#8217;t feel completely trustworthy Banshee for Mono&#8230;)<br /><br />@Bayger<br />Usually I keep the brown colour but I like your idea.</div>
+</div>
+<div class='comment'>
+<div class='author'>andreasn</div>
+<div class='content'>
+Nice to hear Banshee is moving closer to getting included. The player have a really good and slick UI, and hopefully it means we can convert more people to Ubuntu.<br /><br />Anonymous: GNOME upstream don&#8217;t have a default music player included in the desktop module set [1] (unless you count Totem)<br /><br />1. http://live.gnome.org/TwoPointTwentyfive/Desktop</div>
+</div>
+<div class='comment'>
+<div class='author'>Bayger</div>
+<div class='content'>
+Great news! By the way, have you considered adding desktop theme selection during installation of Ubuntu 9.10? I am sure that a lot of people would be very grateful to have a choice between standard brownish theme and 2 or 3 other colour schemes (green, blue). This would be great option, especially for beginers. And yes, people are a little bored of all those browns everywhere.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mackenzie</div>
+<div class='content'>
+Banshee has a higher memory overhead as a baseline, but it does not require more memory for larger libraries the way Rhythmbox does.  This is due to a Banshee-only widget which only needs to store the visible items in the song/album/artist list plus 10 above and 10 below.  Rhythmbox&#8217;s stock GTK list viewer must hold ALL items, so if you have a very large library, it could easily use hundreds of megs of RAM.<br /><br />If RB consistently uses 25MB for you, you must have a small library.  For people like my friend with 219GB of music, RB uses much, much more.</div>
+</div>
+<div class='comment'>
+<div class='author'>Alex Eftimie</div>
+<div class='content'>
+I don&#8217;t like the idea of Banshee either, mostly because of .NET implications.<br /><br />Anything else sounds great!<br /><br />How about PackageKit integration? Have you discussed that?</div>
+</div>
+<div class='comment'>
+<div class='author'>gilir</div>
+<div class='content'>
+Banshee lacks also the gapless/crossfading playback, which is a NO-GO for me. Sure Banshee have cool features, but it should not hide the problems Banshee have (memory, crash, slow &#8230;).<br />Also RB is not so inactive, the 0.12.2 was released some days ago and there are 2 GSOC on RB.</div>
+</div>
+<div class='comment'>
+<div class='author'>nailor</div>
+<div class='content'>
+Michael, can you provide a pointer to more info about the ongoing investigation of scanning applications?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Is GNOME upstream switching to banshee too?<br /><br />I hope you push those speed improvements back to Debian.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-31T00:00:00-04:00" pubdate data-updated="true">May 31<span>st</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/05/31/karmic-desktop-uds-run-down/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/05/31/karmic-desktop-uds-run-down/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/05/14/a-teaser-desktop-integration-with-encrypted-directories-for-karmic/" title="Previous Post: A teaser: Desktop integration with encrypted directories for Karmic">&laquo; A teaser: Desktop integration with encrypted directories for Karmic</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/07/06/simple-timing-of-python-code/" title="Next Post: Simple timing of Python code">Simple timing of Python code &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

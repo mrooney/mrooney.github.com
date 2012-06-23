@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Lightweight personal finance just got easier with wxBanker in Jaunty! - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="wxBanker, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren&#8217;t familiar with it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Lightweight Personal Finance Just Got Easier With wxBanker in Jaunty!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<a href="https://launchpad.net/wxbanker">wxBanker</a>, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren&#8217;t familiar with it? Check out the <a href="https://wiki.ubuntu.com/wxBanker">screenshots</a>! It took a few months of getting over the debian packaging learning curve, and about as much work getting and responding to the reviews from MOTUs, but I did it. I plan on doing a quick point release this week and releasing wxBanker 0.4.0.3, which will sport updated <a href="https://translations.edge.launchpad.net/wxbanker/trunk/+pots/wxbanker">translations in 15 languages</a> (thanks translators!) as well as a minor bug fix or three. Once I get that out and into Jaunty, I&#8217;ll turn my complete focus (I hope) to the 0.5 series. If you&#8217;d like to translate wxBanker to your own language or improve a few of the lacking existing translations (Bosnian, Dutch, and Portuguese particularly), I&#8217;d love it! Head over to <span><a href="https://launchpad.net/%7Ewxbanker-translators">https://launchpad.net/~wxbanker-translators</a> and join the fun!</span><br /><br />The 0.5 series is a refactor and a bit of a painful one, as I didn&#8217;t have a great handle on how to efficiently and smoothly refactor. I could probably do a much better job managing it now, but that&#8217;s how experience works. All in all it is a much cleaner structure and led to more and better tests, which should allow more agile development and protect against future regressions. Some of the main upcoming features I&#8217;d like to get in are transaction tagging, recurring transactions, reporting, online syncing (via mint.com), and csv imports. I&#8217;d love for at least a few of those to make it into 0.5, and there is good progress on some of them including csv imports thanks to <a href="https://code.launchpad.net/%7Ekolmis/wxbanker/csvimport">an impressive branch from Karel</a>. On the other hand 0.5 has already been ongoing for about 3 months and I might cut a release into a PPA and get feedback while I add new features, sorting out any 0.5 issues and leading to a robust 0.6 release.<br /><br />Overall I have learned a TON from this project, in no small part thanks to Launchpad. wxBanker started out as a terminal application which stored everything in a pickled linked tuple that I used for myself and added features as I needed them. Eventually I added a GUI (in wxPython) and registered the project on Launchpad, to get free hosted version control as well as more formal bug tracking (instead of a text file :). The combination of Launchpad and [wx]Python being cross-platform made it accessible to everyone, and took it from a project used only by myself to a project available in 15 languages with code contributions from multiple people.<br /><br />So in conclusion, thanks everyone, enjoy wxBanker 0.4.0.3 in Jaunty, and look forward to future versions in my PPA. If you&#8217;re not on Jaunty yet, you can <a href="https://launchpad.net/%7Emrooney/+archive/ppa">install 0.4 from my PPA</a>, which I&#8217;ll be updating to 0.4.0.3 as soon as I release it. I&#8217;d love for any of your contributions, suggestions, questions, or criticisms to end up <a href="https://launchpad.net/wxbanker">on Launchpad</a>. I&#8217;d love to make it as usable and intuitive as possible, so anything that is unclear or confusing would be awesome to hear.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I completely agree - having used a bunch of personal management tools I would love to have the power of wxBanker for my personal finances if only for the easy upload. You can get information about <a href="http://www.interchangefx.co.uk" rel="dofollow" rel="nofollow">Money exchange</a> at here:interchangefx.co.uk</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David: Glad to hear it! I just updated the PPA so you can grab 0.4.0.4 in Intrepid or Jaunty. If you are patching any bugs, 0.4 is a good place, and I will port them forward. Otherwise for new features, 0.5 is a good place for the work.<BR/><BR/>There is no need to wait though; that code should be released soon and I&#8217;d love more testers so feel free to do a &#8220;bzr branch lp:wxbanker/0.5&#8221; and run from there, filing any bugs on launchpad and adding any cool features!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Good to hear you&#8217;ve been working on it. Been keeping an eye on it over the past months, and hadn&#8217;t noticed any new releases. I&#8217;ve been putting off sorting out my personal finances for way too long, so tonight&#8217;s the night :-) Will send some patches your way if I come up with any improvements, but maybe I should wait for 0.5 if it&#8217;s undergoing a major change in codebase?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+It is definitely in my plans to get wxBanker into Debian as well, and Ubuntu prefers it as well. I am not sure of the process involved but I will probably take a look at it after I release 0.4.0.3. I am glad it interests you!<BR/><BR/>It is a fairly simple package, you could probably download the deb and use it fine in Debian, or just download the source and &#8220;python setup.py install&#8221; yourself :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Can you add that to Debian too? Please don&#8217;t leave Debian users out in the cold yet again Ubuntu!</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/" title="Previous Post: Playing Spelunky in Ubuntu with Wine and Compiz">&laquo; Playing Spelunky in Ubuntu with Wine and Compiz</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/" title="Next Post: Cracking On-Screen Keyboards with Visual Keyloggers">Cracking On-Screen Keyboards with Visual Keyloggers &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

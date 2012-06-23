@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>wxBanker 0.4 released! - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2008/11/18/wxbanker-0-4-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">wxBanker 0.4 Released!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-18T00:00:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for multiple accounts; think of GnuCash but easier and more lightweight. It is written in Python/wxPython and runs on Linux, OSX, and Windows. Check out my <a href="http://mrooney.blogspot.com/2008/10/wxbanker-03-released.html">previous post on wxBanker</a> for a slightly more in depth functionality overview and screen shots.<br /><br />The main focus of this new version was localization. It now ships with translations for 8 languages (4 of them basically complete, thanks translators!), and also supports displaying the amounts in currencies other than USD including EUR and GBP. It also sports a few of the typical bug fixes / usability improvements you would expect in a new release.<br /><br />Another feature new to 0.4 is a setup.py, which allows Linux users to install it easily by running &#8220;sudo python setup.py install&#8221; in the folder, and wxBanker will install itself including a shortcut in Applications -> Office in Gnome, and store your data in ~/.wxbanker. If you are upgrading from a previous release, I recommend moving your bank.db file to ~/.wxbanker/bank.db for the easiest transition, which will also future-proof you from needing to shuffle it around in the future!<br /><br />I also thought I&#8217;d highlight the launchpad integration I added awhile ago in 0.3, since I saw a recent planet post regarding Inkscape doing something similar. In the Help menu I&#8217;ve added convenient links to view and ask questions, and report bugs:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s1600-h/wxbanker-help.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 244px; height: 162px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s320/wxbanker-help.png" alt="" id="BLOGGER_PHOTO_ID_5270064180934520130" border="0" /></a><br />If you have been looking to start taking control of your finances, give wxBanker a try: <a href="https://launchpad.net/wxbanker/trunk/0.4">https://launchpad.net/wxbanker/trunk/0.4</a> (or &#8216;bzr co lp:wxbanker -r 86&#8217; for the seasoned). If you find problems or have ideas, please let me know via launchpad bugs/blueprints, blog comments, or email; if you know another language, help translate by following the Translations link on Launchpad! And remember, when you use wxBanker to count your pennies, the dollars will follow!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi again David! I tried to design wxBanker in such a way that a double-entry system is possible but not necessary. You can use it as such by creating all the appropriate accounts, and then each transaction would be a transfer between the appropriate accounts. However the total wouldn&#8217;t quite work out in an ideal way I don&#8217;t think, so some work might need to be done there. Currently I use a hybrid sort of accounting system where I have Accounts Receivable and Payable and make transfers to and from them as appropriate, with other basic purchases being single entry.<BR/><BR/>If you have any ideas for better integrating double entry, reports or invoices, please let me know! Feel free to throw up a basic spec at https://blueprints.launchpad.net/wxbanker<BR/><BR/>As far as patches go, just visit https://bugs.launchpad.net/wxbanker/+filebug and make a bug for the specific issue, attaching your patch to it. Then I&#8217;ll see it and review it and such. I look forward to seeing what you have!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Well, I finally got around to taking a better look at wxBanker. It&#8217;s missing a few things that I would need:<BR/>1. Double entry<BR/>2. Invoicing<BR/>3. Billing<BR/><BR/>Will definitely get my Mrs. on to it though for our home finances.<BR/><BR/>What&#8217;s the best way of submitting patches?</div>
+</div>
+<div class='comment'>
+<div class='author'>Cristina</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David, the scope of wxBanker is personal and small business finance, so it may work for you, although it doesn&#8217;t currently have any built in reporting (however the store is a sqlite3 db with the structure documented in model_sqlite.py so custom stuff should be fairly straightforward if you are into that). I&#8217;d love to implement reporting features, but don&#8217;t know exactly what that entails. If you or anyone else wants to outline the basic details in a blueprint at https://blueprints.launchpad.net/wxbanker, I&#8217;ll be happy to implement it!<BR/><BR/>Mean-Machine, let me know what you think and thanks for the translation!</div>
+</div>
+<div class='comment'>
+<div class='author'>Mean-Machine</div>
+<div class='content'>
+I&#8217;m giving it a go. Never got to like GNUCash. Also translating into polish.</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrible. But I&#8217;m using it more for business though, so I&#8217;m not sure wxBanker would be ideal for me&#8230;</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-18T00:00:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2008/11/18/wxbanker-0-4-released/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2008/11/18/wxbanker-0-4-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/11/11/zen-and-the-art-of-memes/" title="Previous Post: Zen and the Art of Memes">&laquo; Zen and the Art of Memes</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/12/08/uds-monday-run-down/" title="Next Post: UDS Monday Run-down!">UDS Monday Run-down! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

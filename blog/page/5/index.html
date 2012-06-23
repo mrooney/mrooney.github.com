@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="This post is the second half of my series on internationalization and localization; that is, making applications accessible to non-English speakers &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/page/5">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/11/02/l10n-integrating-translations-into-your-project/">L10N: Integrating Translations Into Your Project</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-02T00:00:00-04:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This post is the second half of my series on internationalization and localization; that is, making applications accessible to non-English speakers. I am going to assume now that you have followed the instructions in the <a href="http://mrooney.blogspot.com/2008/10/i18n-making-your-launchpad-projects.html">first post</a> , and have internationalized your source, put the translation template up on Launchpad, and hopefully have a translation or two.<br /><br />Since my last post, many people donated their time to translate my project wxBanker, and I have <a href="https://translations.launchpad.net/wxbanker/trunk/+pots/wxbanker">7 translations in Launchpad</a> now! (If anyone wants to add more, please do so, and I&#8217;ll put you in the credits.) Now I&#8217;ll outline the steps for actually integrating these translations into your project.<br /><br /><ol><li><span style="font-weight: bold;">Download the translations.</span> Visit the translations page for your project in Launchpad, and click the &#8220;Download translations&#8221; link on the right. From here ensure &#8220;Everything&#8221; is selected, and <span style="font-weight: bold;">change the Format</span> to &#8220;MO format&#8221;. This format is what the gettext framework we are using utilizes. Now click &#8220;Request Download&#8221;. They won&#8217;t typically be available immediately, but you should receive an e-mail in an hour or so with a link to the file.<br /><br /></li><li>Once you receive the email from Launchpad, download the linked file. You should now have <span style="font-weight: bold;">launchpad-export.tar.gz</span>. Right click on it and &#8220;Extract Here&#8221;. Rename the resulting &#8220;launchpad-export&#8221; folder to something like &#8220;locales&#8221;, and put it in your project directory.<br /><br /></li><li>Now all you have to do is tell gettext where the translations are. Previously we installed gettext via a line like <span style="font-weight: bold;">gettext.install(&#8220;wxbanker&#8221;)</span>, and now all we need to do is pass in the directory as a second argument. So assuming you renamed the launchpad-export directory to &#8220;locales&#8221; and put it in the directory of your source code, you&#8217;ll change it to <span style="font-weight: bold;">gettext.install(&#8220;wxbanker&#8221;, &#8220;locales&#8221;)</span>. This isn&#8217;t the most robust and flexible way to do this, and I would recommend checking out my localization.py link below for a better example, especially if you are going to be doing this for a python application.<br /></li></ol>Now, assuming you followed all the steps in the previous post and this one, your application should be completely localized and run in the native language of the person using it! If you want to see the translation yourself, check out <a href="http://bazaar.launchpad.net/%7Emichael/wxbanker/trunk/annotate/66?start_revid=66&amp;file_id=localization.py-20081021110703-qbxv7it8j7aw3zrn-1">my own version of localization.py</a>, which allows you to pass in the language code corresponding to the subdirectory of the locales directory, such as &#8220;&#8211;lang=es&#8221; for Spanish.<br /><br />In a day or two I will also add a post on how to actually install other locales in Ubuntu and run your application in it, so that you can ensure you are seeing exactly what someone from that locale sees.<br /><br />Congratulations on a localized application! Any questions?</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/10/27/i18n-making-your-launchpad-projects-translatable-and-a-call-for-translations/">I18N: Making Your Launchpad Projects Translatable (and a Call for Translations!)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-27T00:00:00-04:00" pubdate data-updated="true">Oct 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Launchpad provides a wonderful translation service called Rosetta that allows multi-lingual users to translate your application to other languages. If you are a translator and want to help translate my project (only 75 strings with a fair bunch of them being quite short), skip to https://translations.launchpad.net/wxbanker to help me out! I will include you permanently in the credits and you will have helped me greatly!<br /><br />Now, for developers or anyone else interested, I&#8217;m going to explain the basic process to go from an English-only application in Launchpad to something that can be easily translated by anyone. This will <span style="font-weight: bold;">internationalize</span> your project, and in a later post I&#8217;ll explain how to <span style="font-weight: bold;">localize</span> it; that is, once you have translations, how to integrate these into your project so users in other locales see the translated strings instead of English. My project is wxBanker (wxbanker.org), so I&#8217;ll be using that for reference.<br /><br /><ol><li>First, you&#8217;ll want to make all your user-visible strings translatable in your code. I used gettext (http://en.wikipedia.org/wiki/Gettext), and it is quite easy in Python. Basically, you wrap all strings you want to be translated in a gettext call, which is typically assigned to the underscore character to be easy to type and read. So &#8220;Hello, world!&#8221; will become _(&#8220;Hello, world!&#8221;). When your application is run, this call will then translate that string into the appropriate languange (once you have everything set up, which will be Part 2 of this post).<br /><br />Sometimes you may want to restructure or break up larger strings into smaller ones. If you have two strings &#8220;Sentence A. Sentence B.&#8221; and &#8220;Sentence A. Sentence C&#8221;, you may want to gettext those as _(&#8220;Sentence A.&#8221;)+_(&#8220;Sentence B.&#8221;) and _(&#8220;Sentence A.&#8221;)+_(&#8220;Sentence C.&#8221;), so that Sentence A only needs to be translated once. However, make sure to give enough context for translators. Basically, apply principles of resuable software design to your strings.<br /><br /></li><li>If you try to run your application now, it probably won&#8217;t work as the underscore function won&#8217;t be defined. You&#8217;ll need to set the locale to the user&#8217;s default and install gettext. In Python this is:<br /><br />import locale<br />locale.setlocale(locale.LC_ALL, &#8221;) # use the environment default &#8221; for ALL purposes<br />import gettext<br />gettext.install(&#8220;wxbanker&#8221;) # specify the translation namespace<br /><br />Now you should be able to run your application and everything should work normally in English; we haven&#8217;t broken anything! To simplify this set up, however, I like to put those above four lines in a separate file such as localization.py, and import that in any file which wraps strings using gettext, so I don&#8217;t have to duplicate those each time.<br /><br /></li><li>Now you need to generate a translation template. This is fairly straightforward; simply run xgettext at the command line on all the files you used gettext in. For example: &#8220;xgettext file1.py file2.py file3.py&#8221;. This will generate a file called messages.po, which is your template. Rename this to messages.pot (the scheme Launchpad prefers) and we can proceed!<br /><br /></li><li>Now we&#8217;ll set up Launchpad. Edit your projects details (in my case: https://launchpad.net/wxbanker/+edit) and check the box that says &#8220;Translations for this project are done in Launchpad&#8221;, scroll to the bottom, and click &#8220;Change&#8221;.<br /><br /></li><li>Click the Translations tab of your project in Launchpad and upload the .pot file you generated in step #3. If this is your first time doing so, it will need to be reviewed by a human, and will take perhaps a day to get approved, at which point you will receive an email letting you know it has been and you are good to go.<br /><br /></li><li>Your project can now be translated! Visit your Translations page again (such as https://translations.launchpad.net/wxbanker) to see the status. You won&#8217;t see anything exciting if there aren&#8217;t any translations yet and you aren&#8217;t configured for more than English (click Select Languages in the lower right to change this), but otherwise you will see an option to translate the project for each language other than English that you know, and the status of the translation.</li></ol>If you have been meaning to internationalize your project, give it a shot now! Also, please let me know if I have missed or botched any steps. We&#8217;ll go through putting the (hopefully) resulting translations into your project in my next post!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+How should I handle glade files?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks so much diegoj, your translation is really great! The goal of the next release of wxBanker (0.4) is localization, both strings and currencies. So users in other locales should see strings (assuming I receive translations for them) and currencies in the expected way.<BR/><BR/>In case the locale currency isn&#8217;t desired there will be a way to select the desired currency from a pre-populated list of popular ones, which will then affect all accounts. I probably won&#8217;t implement per-account currencies until a future version, although I can figure out a clean and intuitive way to implement managing this in the UI I may.</div>
+</div>
+<div class='comment'>
+<div class='author'>diegoj</div>
+<div class='content'>
+I have translated wxBanker to Spanish. I hope translation is enough Spanihs-neutral.<BR/><BR/>One question, has wxBanker any way to change transactions currency? As I&#8217;m from Spain I don&#8217;t use US$, I use €. The same occurs to other europeans, and the british people.<BR/><BR/>See you!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Meh, is Rosetta still stupid about not sending translations upstream *FIRST*?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks a lot! I had -no- idea how to make translation templates, and only vaguely had an idea about the rest. I&#8217;m planning on making an app I&#8217;m working on translatable with LP. However, it&#8217;s written in C. :) Are there any extra steps I need to take? Obviously the code in step 2 will be changed, but I don&#8217;t know to what. Thanks.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/10/05/wxbanker-0-3-released/">wxBanker 0.3 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-05T00:00:00-04:00" pubdate data-updated="true">Oct 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I am proud today to release <a href="https://launchpad.net/wxbanker/trunk/0.3">version 0.3</a> of wxBanker, a free, simple, lightweight personal financial management application for Linux, Windows, and OSX! It is written in Python and wxPython.<br /><br />It is basically like the concept of the checkbook register brought into the 21st century, allowing you to keep track of balances and transactions across multiple types of accounts. It allows you to know the balances of your accounts without relying on your bank or credit card online interface, which is often slow to update and can&#8217;t take things like uncashed checks into account. Not to mention that entering each transaction into wxBanker makes spending money with debit/credit cards more tangible and can help keep your spending in check. You can also keep track of &#8220;virtual accounts&#8221; like loans to/from friends, accounts receivable/payable, and allocate funds for specific purchases like a new computer.<br /><br />You can also search your transactions to see how much you have spent in specific areas, and see a graph of your balance over time. Check out the screenshots below:<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SOk6VwNGH1I/AAAAAAAAAAk/wfHFaqlEd5Y/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SOk6VwNGH1I/AAAAAAAAAAk/wfHFaqlEd5Y/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5253794585695887186" border="0" /></a><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOk6whRhG8I/AAAAAAAAAAs/WPKej_ofIvs/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOk6whRhG8I/AAAAAAAAAAs/WPKej_ofIvs/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5253795045544369090" border="0" /></a><br /><br />If you find GnuCash too complex for your purposes and decide to take control of your finances with wxBanker, let me know what you think! In Ubuntu you should only need to install python-wxgtk2.8 and python-numpy. Project page: <a href="https://launchpad.net/wxbanker">https://launchpad.net/wxbanker</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+I toyed around a bit with translating to Slovenian - had some problems with a couple of them. I can&#8217;t seem to reproduce the error about searching to see it in action - gonna try later again.<BR/><BR/>Also ubuntu still lacks easy locale switching and i got mine set to en.US so still got $ default.<BR/>Will try switching locales and see how € sign looks :D<BR/><BR/>Anyways, keep up the good work.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I got a mention or two of translation offers (thanks preem!), and wxBanker is now translatable in Launchpad (see my latest post on how to do this), so if you know a language other than English and want to translate it, you can do so here: https://translations.launchpad.net/wxbanker. Thanks to anyone who can help out!<BR/><BR/>I also hope to include a lot of feature requests here into future versions, including recurring transactions and per-account currencies.</div>
+</div>
+<div class='comment'>
+<div class='author'>Maxo</div>
+<div class='content'>
+I would be glad to.  I don&#8217;t know when I will find time to install your app and give it a spin, but when I do I&#8217;ll post some ideas of common reports I think myself and others would find useful.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi maxo! wxBanker uses a sqlite3 database and a pretty simple structure so rolling a custom report should be pretty simple. I am working on changing the current transaction grid to an ObjectListView, which among many other features, will provide nice report printing (http://objectlistview.sourceforge.net/python/listCtrlPrinter.html), so once I get that integrated, at least basic reporting should be easy to do.<BR/><BR/>If you are willing to take a minute or two and register a blueprint at https://blueprints.launchpad.net/wxbanker mentioning the basic requirements and features of integrated reporting, it would really help me quite a bit get an idea of the use cases so I can implement it!</div>
+</div>
+<div class='comment'>
+<div class='author'>Maxo</div>
+<div class='content'>
+What kind of reporting engine are you planning on implementing?  I would be very interested in being able to generate custom reports.  I found GNUCash&#8217;s system to be too much of a learning curve.  If the data is stored in a database like MySQL or SQLite then querying data from other apps would be really simple.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+The latest version in trunk (howto: https://answers.launchpad.net/wxbanker/+faq/215) should automatically use the currency which is the default for your locale. The next step is allowing you to choose, and the NEXT step is allowing different settings per account.<BR/><BR/>Aiden, I don&#8217;t have a mailing list set up (perhaps I should), but I added a FAQ entry for creating and submitting patches here: https://answers.launchpad.net/wxbanker/+faq/214<BR/><BR/>I look forward to checking it out!</div>
+</div>
+<div class='comment'>
+<div class='author'>Aidan Skinner</div>
+<div class='content'>
+Is there a mailing list? How would you like patches?</div>
+</div>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+Thanks for info, Michael. bzr is very cool too, i also use it for some of my own projects.<BR/><BR/>i can translate to Slovenian when you have language files ready.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+And if you want to stay up to date, you can always use bzr. Just use &#8220;bzr checkout lp:wxbanker&#8221; initially, then you can do &#8220;bzr up&#8221; in the directory to get updates! I could perhaps integrate this into wxBanker.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+I am working on currency selection now, and with the help of Python&#8217;s locale module, will use the default one for your locale by default, instead of USD by default.<BR/><BR/>For 0.4 I am going to focus on localization so translations (I&#8217;ll need some help here!) and currency selection are going to be the main goals.<BR/><BR/>Thanks for the suggestions!</div>
+</div>
+<div class='comment'>
+<div class='author'>preem</div>
+<div class='content'>
+very nice indeed.<BR/><BR/>+1 on currency selector and svn link for easy updating.</div>
+</div>
+<div class='comment'>
+<div class='author'>laga</div>
+<div class='content'>
+It&#8217;d be most helpful if one could specify a currency other than $.<BR/><BR/>Regards,<BR/><BR/>laga</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+There isn&#8217;t currently an Ubuntu package, but since it is Python, the source code is the application (no compilation necessary). Just download the release, extract it, and run wxbanker.py with python, something like &#8220;python wxBanker-0.3/wxbanker.py&#8221;, and you should be set, and greeted with an introductory dialog! Don&#8217;t forget to install python-wxgtk2.8 and python-numpy (optional, for the summary graph) in your favorite way.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+is there any ubuntu repositories i can install or i have to use the source code</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Thanks for the suggestion Jack, it is indeed a good one and something I would use myself. The biggest issue that comes to mind is when wxBanker is run, how to figure out which recurring transactions to make. I&#8217;ve spec&#8217;d it out at https://blueprints.launchpad.net/wxbanker/+spec/recurring-transactions and would love your (or anyone elses) input and suggestions!</div>
+</div>
+<div class='comment'>
+<div class='author'>Jack</div>
+<div class='content'>
+Looking good.<BR/><BR/>Does this allow for &#8216;scheduled&#8217; payments. You know those monthly bills (like ISP, mobile phone, home loan, etc) as well as deposits (ie: Pay), etc.<BR/><BR/>We personally find that is one of the features most of the Linux apps are missing.  :(<BR/><BR/>Using this feature makes it easier for budgeting, and you can then see your incoming/outgoings for the months.  Also makes it much easier when budgeting or wishing to forward project your balances.<BR/><BR/>All in all, it&#8217;s looking great, and these features would see a bunch of people jump on board. :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi Sup! Currently it doesn&#8217;t support importing from other software, but I&#8217;ll add a blueprint for it. Sorry, and thanks for the suggestion.<BR/><BR/>If you aren&#8217;t concerned so much with the past data (or haven&#8217;t been using GnuCash that long), you can just add accounts to wxBanker at their balance say, last week, and add all the recent transactions up to the present.</div>
+</div>
+<div class='comment'>
+<div class='author'>Sup</div>
+<div class='content'>
+It just might be what I am looking for, I am using GNUcash rightnow, but it is too complex for me. Does you application do imports from GNUcash?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/30/all-dell-minis-available-with-ubuntu/">All Dell Minis Available With Ubuntu!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-30T00:00:00-04:00" pubdate data-updated="true">Sep 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I just checked out the Dell website (US) and noticed that all the Dell Inspiron Minis can now be configured with Ubuntu, and for $40 cheaper than the same Windows setup! Previously you could take the base Ubuntu system and increase the specs to match the other Windows configurations, but you would miss out on the &#8220;Instant Savings&#8221;, which could save you up to $40. Now you can not only get the Instant Savings, but you save another $40 just for choosing Ubuntu.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOLsGBCiMOI/AAAAAAAAAAc/Q5s88gve-3M/s1600-h/Screenshot-Dell+Inspiron+Mini+9+Details+-+Mozilla+Firefox.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SOLsGBCiMOI/AAAAAAAAAAc/Q5s88gve-3M/s320/Screenshot-Dell+Inspiron+Mini+9+Details+-+Mozilla+Firefox.png" alt="" id="BLOGGER_PHOTO_ID_5252019703569854690" border="0" /></a><br />This is just another demonstration of Dell&#8217;s commitment to open source. If anyone is reading this outside of the US, let us know in the comments if you have similar options. Also, I&#8217;d love to hear from anyone who has one of these Minis, or any other Dell with pre-installed Ubuntu for that matter. What do you think?<br /><br />UPDATE: From what I am reading in the comments, it sounds like the US is the only place (currently) where the Ubuntu Minis are $40 cheaper than an identical Windows XP configuration. Perhaps other places will follow soon.<br /><br />Also, I didn&#8217;t notice before but the second model in the picture is only $10 more than the base one after the Ubuntu discount, which means you can double your 4GB SSD to 8GB for only 10 bucks! It is hard to imagine anyone buying the base model in the US, unless someone simply doesn&#8217;t notice.<br /><br />Finally, if you are going to snatch one, don&#8217;t forget to log in through http://www.dell.com/eppbuy if you are a student or otherwise qualify, to get 2% off. In the aforementioned middle $359 setup, this knocks a few bucks off the total bringing it to <span class="price_text_bold">$351.82</span> for the 8GB setup.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>yokozar</div>
+<div class='content'>
+My girlfriend wanted a new laptop for school, so we were about to buy a new Inspiron mini with Ubuntu.<BR/><BR/>&#8230;except it wouldn&#8217;t ship till late October.<BR/><BR/>She now has an EeePC with Ubuntu-eee installed.  Turned out to be larger in size, more SSD space, and about the same price as the Dell equivalent.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+You can get another 6% off if you are AAA member at http://www.aaa.com/dell</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Ubuntu is not available on the mini in Ireland, only windows XP</div>
+</div>
+<div class='comment'>
+<div class='author'>Alistair McKinlay</div>
+<div class='content'>
+Yeah, I just looked on dell and the UK ones you get it for £30 cheaper with a small SSD and a smaller resolution in the webcam&#8230;hmmmm still good however&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+&#8220;40 dollars rebate, this is hilarious, They sell you vista for 150 dollars minimum, meaning they give you a bargain to install Ubuntu for 110 bucks, wow thank you mister Dell, so generous.&#8221;<BR/><BR/>James, the Minis come with Windows XP, not Vista, and Dell buys the licenses at a steep discount in bulk. I would be really surprised if Dell actually paid even $40 for an XP license, so I think this is quite a reasonable deal.</div>
+</div>
+<div class='comment'>
+<div class='author'>Max</div>
+<div class='content'>
+In Canada, Mini 9 with same specs is 379$ with Ubuntu and 439$ with XP ! Pretty nice.</div>
+</div>
+<div class='comment'>
+<div class='author'>romeo</div>
+<div class='content'>
+Unfortunately Dell don&#8217;t offer Ubuntu installed on any laptops in Switzerland&#8230; no Ubuntu no Dell here.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+In France, Dell sells pre-installed-Ubuntu Mini 9 for 319 EUR. It looks like it&#39;s cheaper than the one with XP (369 EUR) but if you look at it more carefully, you see that the Ubuntu one has 8 GB disk space, while the XP is 16 GB. Hence, we don&#39;t precisely know whether the price difference comes from the disk or the cost of the license.<BR/><BR/>http://www1.euro.dell.com/content/products/productdetails.aspx/laptop-inspiron-9?c=fr&amp;cs=frdhs1&amp;l=fr&amp;s=dhs</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Not available in Finland either. In fact, Dell absolutely sucks in Finland, they never offer any of the worthwhile models around here. Dell has nearly no market share around here, perhaps for that reason&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Ubuntu Dells are still not available in Australia. I will not buy a Windows Dell and then put Ubuntu on it even if both are the same price. What is the point of that when you are still giving money to Microsoft? I don&#8217;t mind if they sell both the Ubuntu&#8217;s and Windows Dells the same price, as long as no money is given to Microsoft.</div>
+</div>
+<div class='comment'>
+<div class='author'>amd-linux</div>
+<div class='content'>
+See the situation Germany yourself - we also have the Ubuntu option for 50 euros less than the Windows version, but also with only a 8 GB SSD ionstead of 16 GB SSD. This is obviously to prevent competitors to find out the real license cost that Dell pays for Windows. MS obviously does not want to make it too obvious that they now have to give away Windows basically away for free in order to compete.<BR/><BR/>http://www1.euro.dell.com/content/products/productdetails.aspx/laptop-inspiron-9?c=de&amp;cs=dedhs1&amp;l=de&amp;s=dhs<BR/><BR/>The best: &quot;Microsoft-Betriebssystem<BR/>Ubuntu 8.04&quot;<BR/><BR/>&#8211;&gt; that shows how MS cewntric they have been - their database only allows other OSes to be version of Windows :-)</div>
+</div>
+<div class='comment'>
+<div class='author'>MarkC</div>
+<div class='content'>
+Oli&#8217;s right about the SSD size in the UK, but it&#8217;s even worse than that: the Windows version has a 1.3MP webcam, but the Ubuntu version is only 0.3MP.</div>
+</div>
+<div class='comment'>
+<div class='author'>Flavio</div>
+<div class='content'>
+Here in Italy, you can only get Ubuntu with the Mini9. It is the very first preinstalled Ubuntu in Italy.</div>
+</div>
+<div class='comment'>
+<div class='author'>Oli</div>
+<div class='content'>
+Here in the UK it&#8217;s still better to buy one with Windows and install Ubuntu yourself. <BR/><BR/>The price difference is £30 (about $55) but you get twice the SSD for that on the Windows one.<BR/><BR/><A HREF="http://img354.imageshack.us/my.php?image=screenshotdellinspironmum1.png" REL="nofollow">Screenshot</A></div>
+</div>
+<div class='comment'>
+<div class='author'>James Dupin</div>
+<div class='content'>
+Dell is not commited to open source, it is only commited to make as much as they can in dollars, euros.. you name it.<BR/>They could be afraid of missing the train as well and prefer to &#8220;open&#8221; a little but their door before it&#8217;s shut for good (system76 and others will grow)<BR/><BR/>Daengbo got it right in his comment above about Korea. Why Dell would give opensource if not needed&#8230;They make more money with windows<BR/><BR/>inspiron mini with OS Ubuntu: may delay your inspiron ship date (sic): so funny<BR/><BR/>40 dollars rebate, this is hilarious, They sell you vista for 150 dollars minimum, meaning they give you a bargain to install Ubuntu for 110 bucks, wow thank you mister Dell, so generous.<BR/><BR/>In France, at least 14 people are going to sue Dell because they don&#8217;t want to reimburse Windows as per the Windows EULA (tying the vendor/distributor to their customers).</div>
+</div>
+<div class='comment'>
+<div class='author'>hads</div>
+<div class='content'>
+Unfortunately Dell don&#8217;t offer Ubuntu installed on any laptops in New Zealand (and Australia and a lot of countries outside the US I believe).<BR/><BR/>I&#8217;d buy Dell if I didn&#8217;t have to buy Windows.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Yay, now it costs less to install Debian!</div>
+</div>
+<div class='comment'>
+<div class='author'>Daengbo</div>
+<div class='content'>
+As far as I can tell, Dell doesn&#8217;t offer any Ubuntu computers in Korea. In Dell&#8217;s defense, I&#8217;m sure they wouldn&#8217;t sell even if offered. I&#8217;ve never seen a more Windows-centric society.<BR/><BR/>Heck, the government MANDATES an ActiveX plug-in for on-line banking.<BR/>The Mini in Korea has only <A HREF="http://www1.ap.dell.com/content/products/productdetails.aspx/laptop-inspiron-9?c=kr&cs=krdhs1&l=ko&s=dhs&~ck=mn" REL="nofollow">one configuration.</A><BR/><BR/>Sorry for the bad URL before.</div>
+</div>
+<div class='comment'>
+<div class='author'>Derek Buranen</div>
+<div class='content'>
+Thanks for the update!  I ranted about this a few weeks back.  http://buranen.info/?p=270<BR/><BR/>Guess it&#8217;s time to order.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/29/blogging-about-ubuntu-issues/">Blogging About Ubuntu Issues</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-29T00:00:00-04:00" pubdate data-updated="true">Jul 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+As Ubuntu gets more popular, I am noticing a lot more blogs about Ubuntu (such as this one), including people posting their gripes about the latest release at the time.<br /><br />One thing that always amused me was how many of these people never filed bug reports about their issues, even if the issues persisted across multiple releases. Another compounding issue (and perhaps the reason these people don&#8217;t report the bugs) is that they assume the bug also affects every other user of Ubuntu. However often it just has to do with some nuance of their machine, if not something they explicitly did which would logically cause the issue. Because of these two issues, many people just happily (for lack of a better word) complain about the issue and continue to be shocked that it isn&#8217;t fixed, even though they never reported the issue because they assume naturally everyone else is already aware of it.<br /><br />Blogging about issues is a great way to get them exposure; however, an even better way which has a greater chance of actually getting the issue solved is to find the existing bug report on Launchpad, or create a new one if it hasn&#8217;t been filed, and blog about the REPORTS. This allows readers to subscribe to and comment in the bug reports, increasing awareness of the issue for developers instead of just commenting on a random blog.<br /><br />Since everything is more fun with examples, let me use <a href="http://www.arsgeek.org/2008/05/31/six-annoyances-in-hardy-heron-ubuntu/">this ArsGeek</a> article as an example of a pretty decent blog post. It covers the poster&#8217;s issues, explains why they are important, and links to some relevant bug reports. Overall, it does a great job of explaining and detailing issues which are already known about in Ubuntu, and bringing information together. However, after researching all of this information, the poster probably could have added some more information to the bug reports, or at the very least subscribed to them. As I mentioned, when people subscribe to bugs it helps the developers get a better idea of how many people the bug is affecting, and who actually cares about it.<br /><br />It also falls a little short by not reporting new bugs for the issues which weren&#8217;t already in Launchpad, such as not being able to add new themes by dragging and dropping URLs. While this is indeed an excellent and very user-friendly way to add themes, would you really expect that developers are adding themes this way? And if not, how would they be aware of the issue? Of course the people experiencing the issues need to make them aware, instead of just getting upset about it.<br /><br />Luckily the wonderful <a href="https://launchpad.net/%7Ekamion">Colin Watson</a> picked up on the post and filed (some of) the bugs: <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-control-center/+bug/252885">252885</a>, <a href="https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/252904">252904</a>, <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-user-docs/+bug/252907">252907</a>, <a href="https://bugs.launchpad.net/ubuntu/+source/ubuntu-wallpapers/+bug/252925">252925</a>.  If <span style="font-style: italic;">you</span> find these issues important, subscribe to the bug reports, and add any new information if you have any. Remember, if you want to get something accomplished in Ubuntu, <a href="https://bugs.launchpad.net/ubuntu">Launchpad</a> is your friend!<br /><br />UPDATE: About 6 hours after Colin filed <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-control-center/+bug/252885">252885</a>, a fix was committed upstream for it. This really demonstrates the power of using Launchpad, and the necessity of formally making developers aware of the issues. The article was posted over 2 months ago, and who knows how long the poster was annoyed by this issue. In the end though, all that was needed was a simple bug report in Launchpad, which was fixed in about 6 hours. Incredible!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/16/what-s-coming-in-gnome-part-1/">What&#8217;s Coming in Gnome: Part 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-16T00:00:00-04:00" pubdate data-updated="true">Jul 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Many people criticize Gnome for being behind the times and slow to change. Being the default desktop environment of Ubuntu, Gnome&#8217;s usability is quite important, so this criticism should not be taken lightly. However in this post and the next I would like to demonstrate that Gnome is moving forward in terms of usability in multiple important (and in some cases exciting!) ways. My disclaimer here is that some of these concepts and mockups are taken from bug reports and developer mailing lists, and may not necessarily be the end result of the development. As such, not all of these features may make it into Gnome 2.24 (Intrepid); I will try to note when to expect each feature.<br /><br /><ol><li>Have you ever tried to unmount a device such as a USB thumbdrive, only to receive a message that it can&#8217;t be unmounted because it is in use? Certainly you have; however, it is often the case that you have no idea which application[s] are blocking the unmount! This has been a long-standing bug upstream in Gnome, and multiple developers, not to mention a Google Summer of Code 2008 project, are aiming to greatly improve this. The idea is to have a dialog which explains that the device cannot be unmounted, and list the &#8220;offending&#8221; applications. Let&#8217;s take a look:<br /><br /><br /><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SH5LCpTK2BI/AAAAAAAAAAM/vvwCEDwbOAs/s1600-h/dialogold.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SH5LCpTK2BI/AAAAAAAAAAM/vvwCEDwbOAs/s320/dialogold.png" alt="" id="BLOGGER_PHOTO_ID_5223695126614431762" border="0" /></a>The old dialog. Not particularly helpful.<br /><br /></div><div style="text-align: center;"><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/SH5L01CA0xI/AAAAAAAAAAU/YfVB4HgPWPg/s1600-h/dialognew.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/SH5L01CA0xI/AAAAAAAAAAU/YfVB4HgPWPg/s320/dialognew.png" alt="" id="BLOGGER_PHOTO_ID_5223695988757156626" border="0" /></a>One mockup of a proposed dialog. Note that the Unmount option will be enabled once all the applications are closed.<br /><br /><br /><div style="text-align: left;">This should make using devices like USB drives much more friendly to beginning users, especially users coming from Windows where this explicit unmounting isn&#8217;t typically necessary. The option to have a button to kill unresponsive applications is also being discussed, which I think could be very useful. I would suggest looking for this in Intrepid+1 if not Intrepid. For more information look at <a href="http://bugzilla.gnome.org/show_bug.cgi?id=528559">http://bugzilla.gnome.org/show_bug.cgi?id=528559</a> and it&#8217;s <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-mount/+bug/81239">downstream Ubuntu bug</a>.<br /><br /><br /></div></div></li><li>Currently users of metacity are unable to have individual backgrounds for each workspace that they may have (although this can be accomplished, albeit in a not particularly standards-friendly way, with Compiz). This will be an exciting and welcome addition, as the <a href="http://bugzilla.gnome.org/show_bug.cgi?id=48004">upstream bug</a> is over 7 years old! This will also improve usability for users of multiple desktops by providing more obvious visual cues as to which desktop the user is currently in. There have already been numerous mentions of this online, so I won&#8217;t dwell on this feature. I would look for this, if it gets completed (the GSoC student&#8217;s blog is not particularly active, which may or may not be an indication of progress) in Intrepid+1, and possibly Intrepid.</li></ol>In Part 2 I will cover a bunch of (potentially) upcoming features in Nautilus, which is Gnome&#8217;s default file manager. I wanted to keep this section short so that I could group all of the Nautilus-related features together. These will include a much-needed enhancement of the Replace dialog when over-writing files, as well as the implementation of a tabbed Nautilus, and a new multiview (&#8220;columns&#8221;) layout, and a few more random improvements. See you then, and please leave comments if you have any feedback!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/10/-we-don-t-have-much-time-he-said-so-i-ll-just-talk-about-me/">&#8220;We Don&#8217;t Have Much Time,&#8221; He Said, &#8220;So I&#8217;ll Just Talk About Me.&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Hello, and welcome to my blog! My name is <a href="https://launchpad.net/%7Emichael">Michael</a> and I am fairly active in the Ubuntu community. I would like to use the knowledge and experience I have gained working in the community to bring a wider audience in on upcoming features, current debates and issues, and my thoughts on the future of Ubuntu and Linux.<br /><br />My focus in Ubuntu is on the end-user experience: making it as easy, functional, efficient, and polished as possible, especially to novice users. I am also recently focusing on incorporating new concepts and paradigms into Ubuntu, to keep it on the cutting edge (for those that want it to be).<br /><br />A lot of my work in Ubuntu involves triaging incoming bugs. This includes ensuring these bugs contain enough information to figure out what the issue is, and if not, asking for the information that is necessary. It also includes assigning bugs (correctly) to packages, setting statuses (Confirmed/Incomplete/Invalid/Won&#8217;t Fix/Triaged, etc) and importances (all the way from Wishlist to Criticial) on the bugs, and poking and prodding the right people to get them fixed when a solution is apparent.<br /><br />Additionally, I also do some development in <a href="http://wiki.awn-project.org/">avant-window-navigator</a>/awn-extras, as well as my own application, <a href="https://launchpad.net/wxbanker">wxBanker</a>. Feel free to check out my <a href="https://wiki.ubuntu.com/MikeRooney">Ubuntu wiki page</a> and <a href="https://launchpad.net/%7Emichael">Launchpad page</a> for more information.<br /><br />So where is this going? Well, in working with a lot of bugs, blueprints, packages, upstream bug trackers, and developer mailing lists, as well as more direct interaction on IRC, I get to learn about how Ubuntu is structured, how the whole process works, and what is coming in newer releases; a lot of things many people never get to learn about. In doing so, I find a lot of interesting things that people might benefit from learning and enjoy reading about! Conversely, I think many of these same things would benefit from being known about and perhaps pushed for a little more. Basically, I want to use this blog to continue my aforementioned focuses: improving the Ubuntu community and user experience as a whole, but now from multiple angles.<br /><br />So as not to inundate anyone I shall end this post here. However, I have a bunch of ideas already so expect to see something exciting soon!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mrooney-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

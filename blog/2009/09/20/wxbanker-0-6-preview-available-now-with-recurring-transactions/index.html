@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>wxBanker 0.6 preview available, now with recurring transactions! - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="I&#8217;ve just released wxBanker 0.5.9 in the wxbanker-testing PPA, which is a preview release for 0.6. If you aren&#8217;t familiar with wxBanker &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">wxBanker 0.6 Preview Available, Now With Recurring Transactions!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-20T00:00:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I&#8217;ve just released wxBanker 0.5.9 in <a href="https://launchpad.net/~mrooney/+archive/wxbanker-testing">the wxbanker-testing PPA</a>, which is a preview release for 0.6. If you aren&#8217;t familiar with wxBanker already, it is a cross-platform, lightweight personal finance application, and you can find more info at <a href="https://launchpad.net/wxbanker">https://launchpad.net/wxbanker</a>.<br /><br />While there are <a href="https://launchpad.net/wxbanker/+milestone/0.6">many improvements and fixes</a> in 0.6, the main feature is recurring transactions, allowing you to automate repetitive transactions. They are functional in 0.5.9 with one caveat and the purpose of this preview release: there&#8217;s no way (besides sqlitebrowser :) to modify existing recurring transactions. As such I&#8217;d love to get feedback on your impressions of recurring transactions, ideas on a nice configuration UI for them, and of course general feedback. With this I can implement the configuration UI and release 0.6.<br /><br />Here&#8217;s an example of a simple quarterly transaction:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/Srcm3zebZLI/AAAAAAAAAX4/Ui32D2TBg88/s1600-h/wxbanker-recurring-simple.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 72px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/Srcm3zebZLI/AAAAAAAAAX4/Ui32D2TBg88/s400/wxbanker-recurring-simple.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383814619697210546" /></a><br /><br />and here is a more complex one, with specific days chosen, as well as the transaction being a transfer from another account:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/Srcl91BFwWI/AAAAAAAAAXw/ANaBFZ7W9PI/s1600-h/wxbanker-recurring.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 108px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/Srcl91BFwWI/AAAAAAAAAXw/ANaBFZ7W9PI/s400/wxbanker-recurring.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383813623678615906" /></a><br /><br />When you start up wxBanker and there is a recurring transaction due, you will see something like:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SrcqtaCE55I/AAAAAAAAAYI/FsSU097v09M/s1600-h/Screenshot-wxBanker-1.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 39px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SrcqtaCE55I/AAAAAAAAAYI/FsSU097v09M/s400/Screenshot-wxBanker-1.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383818839115229074" /></a><br /><br />I didn&#8217;t reinvent recurrence rules but instead (luckily) found the dateutil module for python which includes rrule, an &#8220;implementation of the recurrence rules documented in the <a href="http://www.ietf.org/rfc/rfc2445.txt">iCalendar RFC</a>&#8221;, so it should behave quite well.<br /><br />As far as the needed configuration UI goes, there are a couple ideas that I&#8217;ve had so far. Below is the current top-left portion of the UI, for reference:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Srco-UL023I/AAAAAAAAAYA/MvdtcqO5lwc/s1600-h/wxbanker-topleft.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 91px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Srco-UL023I/AAAAAAAAAYA/MvdtcqO5lwc/s400/wxbanker-topleft.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383816930580028274" /></a><br /><br />One idea was to have a third &#8220;Recurring Transactions&#8221; tab after the &#8220;Transactions&#8221; and &#8220;Summary&#8221; tabs, which appears if and only if recurring transactions exist. This would provide a list of recurring transactions and allow editing them via the same UI used for creation, as well as changing the account or removing them altogether. A second idea is to add another button next to the Add/Rename/Remove account buttons in the upper-left, for account configuration (this will be necessary for future features anyway), and allow modifying recurring transactions for that account there.<br /><br />Another perhaps complementary way would be to provide a right-click action on existing transactions which were recurred, for editing. I&#8217;d also like to implement functionality similar to Google Calendar where editing a value on an existing transaction caused by a recurring transaction will ask you if you want to apply that change to just this transaction, all existing, or all future.<br /><br />If you have ideas, please feel free to leave comments here or drop by #wxbanker on irc.freenode.net any time this week after 10AM PDT, to have a more interactive chat about them. <br /><br />Please do let me know what you think from either just the screenshots here or actually playing around with the application!</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-20T00:00:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/07/30/launchpad-is-now-an-automatic-magical-translation-factory/" title="Previous Post: Launchpad is now an automatic, magical translation factory!">&laquo; Launchpad is now an automatic, magical translation factory!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/02/02/automating-translation-template-generation-and-check-ins-for-launchpad/" title="Next Post: Automating translation template generation and check-ins for Launchpad">Automating translation template generation and check-ins for Launchpad &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

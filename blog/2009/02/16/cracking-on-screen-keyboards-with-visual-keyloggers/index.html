@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Cracking On-Screen Keyboards with Visual Keyloggers - Mike Rooney</title>
+  <meta name="author" content="Mike Rooney">
+
+  
+  <meta name="description" content="A few financial sites including HSBC and the US Treasury have recently added an extra measure of security to their site. Instead of simply requiring &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mrooney.github.com/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mike Rooney" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mike Rooney</a></h1>
+  
+    <h2>programming and philosophy</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mrooney.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cracking On-Screen Keyboards With Visual Keyloggers</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+A few financial sites including HSBC and the US Treasury have recently added an extra measure of security to their site. Instead of simply requiring a username and password, an on-screen keyboard was added, requiring you to &#8220;type&#8221; in a second password with your mouse:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2HYbsK9I/AAAAAAAAAC8/Y5VClSVqqfs/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 297px; height: 154px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2HYbsK9I/AAAAAAAAAC8/Y5VClSVqqfs/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5303611011627756498" border="0" /></a><br /><br />The logic behind this is that if a user&#8217;s computer becomes compromised with a keylogger, the attacker could only obtain the username and primary password. The secondary password would remain uncomprised as it doesn&#8217;t involve keypresses. This didn&#8217;t seem too useful to me however, so for my &#8220;Image Understanding&#8221; class I decided to see if it was possible to create a &#8220;visual keylogger&#8221; which could capture this secondary password. It wasn&#8217;t too difficult, and essentially demonstrated that the extra password was more inconvenience than security. Let me outline the basic process.<br /><br />In order to do this, you need to be able to capture the contents of the screen at certain intervals. It seems like a fair assumption that if you (as the attacker of a comprimised system) can capture keyboard input, you can also grab screenshots. The goal is to turn a sequence of these screenshots of someone typing with an on-screen keyboard into a single string output equivalent to the password typed.<br /><br />First we want to record the position of the mouse at each shot. This would normally be a trivial function by asking the OS; however, in my case I was writing this for an Image Understanding class and had to use the sequence of images as my sole input. As such, I used a basic templating approach to locate the mouse by a few of its key features. This was surprisingly robust; however, asking the OS for the mouse position is an easier, even more robust, and more likely attack vector in real life.<br /><br />Now we need to figure out when the user clicked a key. Any keyboard used for a password purpose is going to give some form of feedback when a key is clicked, such as an asterisk in a password field, so the user knows if they have successfully clicked a key. The easiest way then to notice this is to subtract the color values of each screenshot from the previous one, giving you a new image with non-zero pixel values for each changed pixel. Among other things like cursor movement and web animations, the aforementioned asterisk feedback is going to be present in this image.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZo2O3LD-RI/AAAAAAAAADM/iIx9fly3O6w/s1600-h/Screenshot-1a.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 165px; height: 138px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZo2O3LD-RI/AAAAAAAAADM/iIx9fly3O6w/s320/Screenshot-1a.png" alt="" id="BLOGGER_PHOTO_ID_5303611140138596626" border="0" /></a><br /><br />For each new image then, subtract and look for this feedback. If it&#8217;s there, that&#8217;s a key press! Combine this with the position of the mouse and you know where the user clicked. Now it gets slightly tricky. You know where they clicked, but if you grab that section of the screen, you&#8217;ll get something like this:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2K5-O39I/AAAAAAAAADE/Z3P8sHR0-x8/s1600-h/Screenshot-1.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 301px; height: 259px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/SZo2K5-O39I/AAAAAAAAADE/Z3P8sHR0-x8/s320/Screenshot-1.png" alt="" id="BLOGGER_PHOTO_ID_5303611072170614738" border="0" /></a><br /><br />because the mouse had to be over the key to click it. This is rather easily worked around, however, by going backwards in your mouse position cache until it is a certain threshold away from the clicked position, and grabbing the key image at that point.<br /><br />After the user enters the complete password, you are going to be left with an array of keyboard images. For any human, this is quite sufficient. For my class however, it was not, and it would not be for any large-scale operation where automation is desired. What we need to do is clean it up by throwing away any pixels under a certain darkness threshold, then cropping the result:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SZo2UM8kjkI/AAAAAAAAADU/j3g9zlXjjDk/s1600-h/Screenshot-2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 300px; height: 277px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SZo2UM8kjkI/AAAAAAAAADU/j3g9zlXjjDk/s320/Screenshot-2.png" alt="" id="BLOGGER_PHOTO_ID_5303611231882743362" border="0" /></a><br /><br />Ta-da! Now we have something that any OCR (optical character recognition) algorithm should be able to chomp through in its sleep cycles. If you are writing for a specific keyboard, you can also just have an array of what each key looks like in binary form and compare to get the answer.<br /><br />And there you have it! With the combination of a few basic computer vision techniques, we can expand a keylogger to understand input from visual keyboards and render this security annoyance useless. A fun note is that the order/position of the keys is irrelevant. The US treasury website uses an on-screen keyboard as well, but shuffles the keys each attempt. As is hopefully obvious from this algorithm, there is no assumption of a keyboard layout; the keys could shuffle every single click and it wouldn&#8217;t matter.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonymous: I am not quite sure how that relates to on-screen keyboards, could you clarify? I have never used an on-screen keyboard to log in to a linux box.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+And if the visual &#8220;text box&#8221; doesn&#8217;t actually change at all?<BR/><BR/>(Ex., when logging into Linux, the password: cursor never moves, so you can&#8217;t deduce A) when keys are pressed by vision and B) how long the password is).</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+ktzar: thanks for your comments but I am not sure how closely you read the post as both of those issues are addressed :) If the letter disappears when you hover or click, that wouldn&#8217;t matter as it goes back in time to find the letter since your cursor obscures it anyway. Scrambling on each click is also mentioned as something this algorithm wouldn&#8217;t care about!</div>
+</div>
+<div class='comment'>
+<div class='author'>ktzar</div>
+<div class='content'>
+Why if the simbol within the button dissapears just when you click on it? Or the simbols get scrabled after each click? Those are implementations I&#8217;ve seen ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>Xav</div>
+<div class='content'>
+A while ago I wrote about a possible approach that would make such attacks harder:<BR/><BR/><A HREF="http://www.peppertop.com/blog/?p=82" REL="nofollow">http://www.peppertop.com/blog/?p=82</A><BR/><BR/>By having each key carry more than one type of data, capturing a single &#8220;password&#8221; would actually only get you one possible password in a larger family of possibilities. <BR/><BR/>It wouldn&#8217;t stand up to repeated captures, but if this technique was also used for the username and/or primary password fields (by also showing a coloured on-screen keyboard), it would take more effort to crack all the parts required. Not supercomputer effort, but perhaps enough to send the attacker off to softer targets.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thanks for sharing! Because they can create money &#8216;out of thin air&#8217; it is not a problem i can borrow a little more money of them :-)<BR/>(http://jessescrossroadscafe.blogspot.com/ for more info)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mike Rooney</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/" title="Previous Post: Lightweight personal finance just got easier with wxBanker in Jaunty!">&laquo; Lightweight personal finance just got easier with wxBanker in Jaunty!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/" title="Next Post: Are feeds the pre-cursor to webhooks?">Are feeds the pre-cursor to webhooks? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/">Why I Switched from Ubuntu One back to Dropbox</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/">wxBanker 0.7: simple personal finance</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mikerooney", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mikerooney" class="twitter-follow-button" data-show-count="false">Follow @mikerooney</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Mike Rooney -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
