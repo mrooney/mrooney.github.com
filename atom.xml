@@ -4,7 +4,7 @@
   <title><![CDATA[Mike Rooney]]></title>
   <link href="http://mrooney.github.com/atom.xml" rel="self"/>
   <link href="http://mrooney.github.com/"/>
-  <updated>2012-06-22T23:40:43-04:00</updated>
+  <updated>2012-06-23T21:11:41-04:00</updated>
   <id>http://mrooney.github.com/</id>
   <author>
     <name><![CDATA[Mike Rooney]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dynamic URLs with Amazon S3's Static Website Hosting]]></title>
+    <link href="http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/"/>
+    <updated>2012-06-23T21:11:00-04:00</updated>
+    <id>http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting</id>
+    <content type="html"><![CDATA[<p>If you want to host a static website, Amazon S3&#8217;s <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html">Website Hosting</a> is a very cheap and affordable way. &#8220;Static&#8221; hosting may seem limited, but with Javascript and HTML5 capabilities, you can accomplish quite a bit without a traditional web server.</p>
+
+<p>If you aren&#8217;t familiar with S3, the basic steps are:</p>
+
+<ol>
+<li>create a Bucket, which acts as a sort of directory of files,</li>
+<li>upload files to your bucket, optionally making them public,</li>
+<li>enable Website Hosting, providing an index and error page,</li>
+<li>Amazon gives you a domain which serves your Bucket, which you can
+then create a CNAME to from any of your domains.</li>
+</ol>
+
+
+<p>Now, for very literally pennies a month, you
+have 99.99% uptime and 99.99999999% durability on your files, fast
+bandwidth, all without a single server or process to worry about.</p>
+
+<p>This can work well for a traditional static site, but what if you&#8217;d like
+to have nice, dynamic URLs? Let&#8217;s create a simple example of
+bgcolor.com. You want users to be able to specify the desired background
+color via the URL. You could use query strings (bgcolor.com/?blue) or hashes (bgcolor.com/#blue) to
+pass data to Javascript on your index page, but this isn&#8217;t likely to be
+understandable or easy to memorize for the average non-technical person.</p>
+
+<p>Enter S3&#8217;s &#8220;error&#8221; page. The page you specify as your error page will be
+served on 404s, and importantly, served at the 404 URL itself. So we can
+set both our index and error pages to the same page, and examine the URL
+with Javascript to perform the correct routing, loading, or action. For
+our bgcolor.com example, we can now allow users to type
+bgcolor.com/blue. Let&#8217;s take a look:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And you&#8217;ve got it! Note that this technique doesn&#8217;t mean you lose the
+ability to have an actual 404 page; you can have your URL logic be aware of an
+invalid URL and update the page appropriately or redirect to a 404.html. Just Google &#8220;javascript url router&#8221; if you don&#8217;t want to write your own, as there are quite a few mature looking ones that already exist.</p>
+
+<p>Enjoy! This is the technique I&#8217;m using to host <a href="http://zazen.rowk.com/">zazen.rowk.com</a>, and it
+costs me $0.01/month (yes, one penny).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DNS: Root/Apex CNAMES in Practice]]></title>
@@ -1024,29 +1074,6 @@ Yes, it is similar to Chapathi although not with durum flour.</div>
 <div class='author'>Anonymous</div>
 <div class='content'>
 http://en.wikipedia.org/wiki/Chapathi</div>
-</div>
-</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Finding new albums by your favorite bands]]></title>
-    <link href="http://mrooney.github.com/blog/2009/02/20/finding-new-albums-by-your-favorite-bands/"/>
-    <updated>2009-02-20T00:00:00-05:00</updated>
-    <id>http://mrooney.github.com/blog/2009/02/20/finding-new-albums-by-your-favorite-bands</id>
-    <content type="html"><![CDATA[<div class='post'>
-The other week I felt a little disconnected from recent music. I was sure that some of my favorite artists had released new albums that I wasn&#8217;t aware of, but I wasn&#8217;t sure how to be notified of it. I use <a href="http://last.fm/user/midtown">last.fm</a> when listening to music most of the time, and have been for about 5 years, so I already have a long and dynamic list of my favorite artists, many of which I haven&#8217;t been keeping up to date with. There are also many places that offer feeds of recent albums, including a private torrent site, Waffles. As a curious programmer I decided to bridge the gap here and write a little proof of concept script that would grab my top last.fm artists and query Waffles to see what was new.<br /><br />About an hour and 100 lines of python later, I had a working proof-of-concept. Right now it only supports Last.fm as a favorites source, and Waffles as a release source, but expanding it by following the same interface should be fairly straightforward. It is up for anyone to branch at <a href="https://launchpad.net/nutunes">https://launchpad.net/nutunes</a>. For any programmer it should be pretty easy to make a favorite source which reads from a text file and use other services like allmusic.com, amazon, or perhaps even iTunes to get a list of recent releases for a given artist. Feel free to branch and create a merge proposal for integrating with other services. As the code is less than 100 lines, I hope it more or less documents itself. To use it just run nutunes.py and it will prompt for your last.fm username, and Waffles credentials.<br /><br />What other ways are people currently staying on top of music of all the bands you are interested in? Heck, maybe Last.fm already has this option, but I sure didn&#8217;t notice it, and learning and experimenting is fun!</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>thisfred</div>
-<div class='content'>
-Cool idea! What I do to stay current, is have an mp3spider[1] crawl a few hundred mp3blogs. This results in a huge bag of mp3 of varying levels of interest to me. The way I wade through them is with a plugin I&#8217;ve made[2] that plays similar[3] songs together (i.e. if I hit a patch of stuff I don&#8217;t like, I can hit delete until something better comes along.) <BR/><BR/>[1] http://code.google.com/p/barbipes/<BR/>[2] http://code.google.com/p/autoqueue/ designed to be cross player, currently works with mpd, rhythmbox, and my favorite, quod libet<BR/>[3] similarity is looked up by track and artist on last.fm, and by acoustic properties. It&#8217;s easy to add new sources of similarity.</div>
-</div>
-<div class='comment'>
-<div class='author'>Ritze</div>
-<div class='content'>
-Nice Idea!<BR/><BR/>For Information: There is already a service, which look to MusicBrainz for new albums and singles: www.muspy.com</div>
 </div>
 </div>
 ]]></content>

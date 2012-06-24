@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DNS: Root/Apex CNAMES in Practice - Mike Rooney</title>
+  <title>Dynamic URLs with Amazon S3's Static Website Hosting - Mike Rooney</title>
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="While there&#8217;s technically a limitation in the DNS specification that
-says domain apexes need to be A records, it is often desirable to be
-able &hellip;">
+  <meta name="description" content="If you want to host a static website, Amazon S3&#8217;s Website Hosting is a very cheap and affordable way. &#8220;Static&#8221; hosting may seem &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ able &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice">
+  <link rel="canonical" href="http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +68,7 @@ able &hellip;">
   
   <header>
     
-      <h1 class="entry-title">DNS: Root/Apex CNAMES in Practice</h1>
+      <h1 class="entry-title">Dynamic URLs With Amazon S3's Static Website Hosting</h1>
     
     
       <p class="meta">
@@ -86,75 +84,55 @@ able &hellip;">
   
 
 
-<time datetime="2012-05-01T19:56:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+<time datetime="2012-06-23T21:11:00-04:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>While there&#8217;s technically a limitation in the DNS specification that
-says domain apexes need to be A records, it is often desirable to be
-able to point it at another domain, and I wanted to break the common
-misconception that this can&#8217;t be accomplished.</p>
+<div class="entry-content"><p>If you want to host a static website, Amazon S3&#8217;s <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html">Website Hosting</a> is a very cheap and affordable way. &#8220;Static&#8221; hosting may seem limited, but with Javascript and HTML5 capabilities, you can accomplish quite a bit without a traditional web server.</p>
 
-<p>The simplest case is that you have a &#8220;naked&#8221; domain such as example.com
-that you want to forward to www.example.com. While you can&#8217;t use a CNAME
-for your apex, you can indeed accomplish this forward in practice. I
-don&#8217;t mean to imply that there&#8217;s a magical way to have a CNAME for
-an apex (though with the last AWS method, there kind of is), simply
-that what you want to achieve is doable without pointing your apex
-directly at application web servers.</p>
+<p>If you aren&#8217;t familiar with S3, the basic steps are:</p>
 
-<h1>The Easy Way</h1>
+<ol>
+<li>create a Bucket, which acts as a sort of directory of files,</li>
+<li>upload files to your bucket, optionally making them public,</li>
+<li>enable Website Hosting, providing an index and error page,</li>
+<li>Amazon gives you a domain which serves your Bucket, which you can
+then create a CNAME to from any of your domains.</li>
+</ol>
 
-<p>If all your want is to have example.com go to www.example.com, there&#8217;s
-a free service called <a href="http://wwwizer.com/naked-domain-redirect">wwwizer</a> that does this for you. Simply set your
-apex A record to 174.129.25.170. That&#8217;s it! It&#8217;s really that simple!</p>
 
-<h1>The Slightly Harder Way</h1>
+<p>Now, for very literally pennies a month, you
+have 99.99% uptime and 99.99999999% durability on your files, fast
+bandwidth, all without a single server or process to worry about.</p>
 
-<p>You can do what wwwizer is doing yourself, and handle more cases than an
-apex going to www, so let&#8217;s look at how that works. If you curl a domain
-using <a href="http://wwwizer.com/naked-domain-redirect">wwwizer</a>, you&#8217;ll get an HTTP 301 to www.thatdomain.com. So all that
-wwwizer is doing is using the host variable you send it when you request
-thatdomain.com, and doing a 301 redirect to www.thatdomain.com.</p>
+<p>This can work well for a traditional static site, but what if you&#8217;d like
+to have nice, dynamic URLs? Let&#8217;s create a simple example of
+bgcolor.com. You want users to be able to specify the desired background
+color via the URL. You could use query strings (bgcolor.com/?blue) or hashes (bgcolor.com/#blue) to
+pass data to Javascript on your index page, but this isn&#8217;t likely to be
+understandable or easy to memorize for the average non-technical person.</p>
 
-<p>Here&#8217;s an example nginx server directive that accomplishes this in a
-generic fashion:</p>
+<p>Enter S3&#8217;s &#8220;error&#8221; page. The page you specify as your error page will be
+served on 404s, and importantly, served at the 404 URL itself. So we can
+set both our index and error pages to the same page, and examine the URL
+with Javascript to perform the correct routing, loading, or action. For
+our bgcolor.com example, we can now allow users to type
+bgcolor.com/blue. Let&#8217;s take a look:</p>
 
-<pre><code>server {
-    listen 80;
-    server_name _;
-    return 301 http://www.$http_host$request_uri;
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>If you want more than a simple apex to www forward, you just need to
-create a map of the domains to the desired CNAME, and you are good to
-go. You can even still use DNS for this, so you have a single source of
-truth, by using <a href="http://webpulp.tv/episodes/learn-how-tropo-built-a-huge-voice-cloud-while-using-dns-for-a-key-value-store">DNS as a key-value store</a>.</p>
 
-<p>All you need to do is point your apex at an IP (or set of IPs) that have
-a server configured to perform the appropriate 301s. At this point you
-might be complaining that having to maintain a static IP is what you
-were trying to avoid, and that&#8217;s fair. But it is important to note that
-the A record(s) you use for your apex don&#8217;t have to run your
-application, so you can simply throw nginx/apache on a service you
-already keep highly available on a static IP (puppetmaster, internal DNS servers, et
-cetera). This allows you to use a perhaps more stable and less ephemeral
-set of IPs than web server IPs. Plus, multiple domains / applications
-can share this server. And remember, if you just need naked ->
-www redirection, just use wwwizer instead of worrying about this
-yourself.</p>
+<p>And you&#8217;ve got it! Note that this technique doesn&#8217;t mean you lose the
+ability to have an actual 404 page; you can have your URL logic be aware of an
+invalid URL and update the page appropriately or redirect to a 404.html. Just Google &#8220;javascript url router&#8221; if you don&#8217;t want to write your own, as there are quite a few mature looking ones that already exist.</p>
 
-<h1>The Amazon Way</h1>
-
-<p>If you are using AWS, <a href="http://aws.amazon.com/route53/faqs/#Zone_apex">they support mapping a zone apex to an Elastic
-Load Balancer</a> (ELB) via
-their DNS provider Route 53. So this means even as your load balancer is
-transparently replaced or scaled up and down, you don&#8217;t have to worry
-about the IPs involved.</p>
+<p>Enjoy! This is the technique I&#8217;m using to host <a href="http://zazen.rowk.com/">zazen.rowk.com</a>, and it
+costs me $0.01/month (yes, one penny).</p>
 </div>
 
 
@@ -177,7 +155,7 @@ about the IPs involved.</p>
   
 
 
-<time datetime="2012-05-01T19:56:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+<time datetime="2012-06-23T21:11:00-04:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2012</time>
       
 
 
@@ -185,7 +163,7 @@ about the IPs involved.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/" data-via="mikerooney" data-counturl="http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/" >Tweet</a>
   
   
   
@@ -194,10 +172,8 @@ about the IPs involved.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/" title="Previous Post: Diving into EC2 and Auto Scaling">&laquo; Diving into EC2 and Auto Scaling</a>
+        <a class="basic-alignment left" href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/" title="Previous Post: DNS: Root/Apex CNAMES in Practice">&laquo; DNS: Root/Apex CNAMES in Practice</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/" title="Next Post: Dynamic URLs with Amazon S3's Static Website Hosting">Dynamic URLs with Amazon S3's Static Website Hosting &raquo;</a>
       
     </p>
   </footer>
@@ -280,8 +256,8 @@ about the IPs involved.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/';
-        var disqus_url = 'http://mrooney.github.com/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/';
+        var disqus_identifier = 'http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/';
+        var disqus_url = 'http://mrooney.github.com/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/';
         var disqus_script = 'embed.js';
       
     (function () {
