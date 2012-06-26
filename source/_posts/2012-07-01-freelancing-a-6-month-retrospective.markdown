@@ -7,13 +7,13 @@ categories:
 published: true
 ---
 
-At the end of 2011 I quit my full-time job to pursue part-time freelancing in order to have more time and flexibility. It has now been 6 full months, so in order to evaluate my progress and make improvements, I'm
-writing this retrospective post. Hopefully it might be useful or interesting to others!
+At the end of 2011 I quit my full-time job to pursue part-time freelancing in order to have more time and flexibility. It has now been 6 full months, so I’m writing this retrospective post
+    in order to evaluate my progress and make improvements. Hopefully it will be useful or interesting to others!
 
 Why?
 ====
 In short, I felt that given a finite lifespan, there were more
-fulfilling and enjoyable ways to spend some of my healthiest weeks than 40+ hours in an
+fulfilling and enjoyable ways to spend some of my healthiest years than 40 hour weeks in an
 office.
 
 More specifically, there were a few activities I wanted to spend more time doing: cooking, climbing, yoga, and Zen practice.
@@ -36,19 +36,20 @@ How?
 The first step was quitting my job, of course. Luckily in my case,
 issues with my job, combined with having a responsible savings and leads on freelance work made this decision pretty easy. Curiously enough, I'm pretty sure reading Fahrenheit 451 put the final nail in the coffin.
 
-Once you're free, I found that the two initial problems you are likely to run into with part-time
-freelancing are money and time.
-That is, budgeting for inconsistent and unpredictable income, and not squandering your
-free time or becoming bored and falling into unnecessary work. There's also the issue of finding
+Once I was freelancing part-time, the two main challenges I faced were money and time:
+that is, budgeting for inconsistent and unpredictable income, and not squandering your
+free time or becoming bored and falling into unnecessary work. There was also the issue of finding
 freelancing jobs and maintaining a pipeline, but since that's more
-specific to whatever you skill is, I won't touch on that here.
+specific to whatever your skill is, I won't touch on that here.
 
-Let's tackle the money and time issues separately.
+I'll tackle the money and time issues separately.
 
 Money
 -----
-My favorite freelance budgeting technique has been to treat your freelancing
-as a business: deposit your checks into a separate account, set aside
+My favorite freelance budgeting technique has been to treat my freelancing
+as a business. Here's how.
+
+Deposit your checks into a separate account, set aside
 taxes, and then pay yourself a fixed amount monthly from this account. This way, if you
 don't work for a period of time or want to take vacation, it is very
 clear how much money is remaining in your freelancing account. For
@@ -80,12 +81,17 @@ Time
 >
 > -- Timothy Ferriss
 
-Because our culture so heavily emphasizes work and particularly having a full-time job for most of your life, unless you consciously and constantly evaluate how _you_ want to spend your time, you'll likely find yourself working more hours, regardless of necessity. Ferriss calls this "work for work's sake", and we want to avoid falling into this trap, instead finding fulfilling activities done for their own sake.
+Because our culture so heavily emphasizes work and particularly having a full-time job for most of your life, unless you consciously and constantly evaluate how _you_ want to spend your time, you'll likely find yourself working more hours, regardless of necessity. Ferriss calls this "work for work's sake," and I wanted to avoid falling into this trap, instead finding fulfilling activities done for their own sake.
 
-The aforementioned budgeting technique helps us out nicely with this, allowing us to clearly see if we actually need to be working, based on the balance of the freelance account. For example, you might say that 3 months of padding is sufficient security for you, and once you complete any job that lands you at a balance over that amount, you'll take off until you hit that threshold again.
+First, I set a limit of 20 hours of work per week. I provided this as
+my maximum availability to any particular client. Recognizing the need for flexibility (clients might overlap, or I might just enjoy working on a particular
+project for longer hours), I felt it was important to count any extra
+hours towards the future, and limit how many hours I could accumulate.
 
-So once you figure out your work cap, you have to use your free time wisely. And as importantly, how not to use your time. A couple years ago I started a permanent information diet; quitting Google Reader alone I gained hours every week,
-plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shallows-Internet-Doing-Brains/dp/0393072223). At first going to Reader/Twitter/Facebook/Tumblr were such mindless distractions for me that I had to block my access to them or I'd end up on them without realizing it, but after a few months those habits faded. I also found the same thing with TV shows and computer games, and made sure to be conscious of when a show felt like a chore to catch up on and stop watching it, or when a game felt grindy and uninstall it. Now I just watch about 2 shows a week, and ended up completely uninstalling Steam and my Windows partition as I was never using them.
+The balance of my freelance account allowed me to clearly see if I actually needed to be working. I decided that 3 months of padding is sufficient security, and I promised myself that once I complete any job that lands me at a balance over that amount, I'll take off until I hit that threshold again.
+
+Next, I had to use my free time wisely. And just as importantly, how not to use it. A couple years ago I started a permanent information diet; quitting Google Reader alone I gained hours every week,
+plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shallows-Internet-Doing-Brains/dp/0393072223). At first going to Reader/Twitter/Facebook/Tumblr were such mindless distractions for me that I had to block my access to them or I'd end up on them without realizing it, but after a few months those habits faded. I also found the same thing with TV shows, and made sure to be conscious of when a show felt like a chore to catch up on and stop watching it. Simiarly with video games, when a game felt grindy, I'd uninstall it. Now I just watch about 2 shows a week, and ended up completely uninstalling Steam and my Windows partition as I was never using them.
 
 Additionally, I made a list of everything I wanted to do, including recurring
 and one-time events. The previously mentioned activities such as cooking,
@@ -100,7 +106,7 @@ I'd long had on my to-do list including:
 * beginning to learn Polish (I live in [Greenpoint, Brooklyn](http://en.wikipedia.org/wiki/Greenpoint,_Brooklyn))
 
 I also took the entire month of June off and spent it visiting friends
-and family, some I haven't seen in years. I ended up in York, Rochester, Austin, San Francisco, as well as upstate NYC for a
+and family, some of whom I hadn't seen in years. I ended up in York, Rochester, Austin, San Francisco, as well as upstate NYC for a
 week of camping with my girlfriend and her parents. I've also been
 able to host family and friends visiting NYC on weekdays that I wouldn't have
 otherwise been able to spend time with.
@@ -109,21 +115,22 @@ Downsides to Freelancing
 ========================
 
 Okay, clearly I'm pretty happy freelancing, but like most systems that offer great flexibility, you have to do a little
-more work yourself that salaried employment handles for you:
+more work yourself that salaried employment would otherwise handle for you:
 
 * finding opportunities and turning them into contracts
 * tracking time, invoicing, and following up on checks
-* paying for your own healthcare and vacation. These benefits turned out to be much more minor than I thought:
+* paying for your own healthcare and vacation. These actually turned out
+  to be less expensive than I thought:
    * healthcare: at 40 hours per week * ~4.3 weeks per month, you can assume you are getting
    a bonus of $1-$3 per hour for healthcare ($172-$516/month).
    * vacation: assuming 5 weeks of vacation/holiday/sick pay out of 52,
      that's about a 10% bonus.
 
-So in other words, a $100K salary which corresponds to roughly $50/hour
+So in other words, a $100K salary, which corresponds to roughly $50 per
+hour working 40 hours a week,
 requires a freelancing rate of $56-58/hour to pay for healthcare and
 time off. I had no problem
-doubling my previous rate as just a starting point, so this was easily
-made up for and is what allowed me to dramatically cut hours without a
+doubling my previous rate as just a starting point, so these benefits were easily paid for and is what allowed me to dramatically cut hours without a
 pay cut.
 
 What's next?
