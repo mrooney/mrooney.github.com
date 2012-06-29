@@ -7,13 +7,12 @@ categories:
 published: false
 ---
 
-At the end of 2011 I quit my full-time job to pursue part-time freelancing in order to have more time and flexibility. It has now been 6 full months, so I’m writing this retrospective post
-    in order to evaluate my progress and make improvements. Hopefully it will be useful or interesting to others!
+At the end of 2011 I quit my full-time job to pursue part-time freelancing in order to have more time and flexibility. It has now been 6 full months, so I'm writing this retrospective post in order to evaluate my progress and make improvements. Hopefully it will be useful or interesting to others!
 
 Why?
 ====
 In short, I felt that given a finite lifespan, there were more
-fulfilling and enjoyable ways to spend some of my healthiest years than 40 hour weeks in an
+fulfilling and enjoyable ways to spend some of my healthiest years than 40+ hour weeks in an
 office.
 
 More specifically, there were a few activities I wanted to spend more time doing: cooking, climbing, yoga, and Zen practice.
@@ -91,9 +90,9 @@ hours towards the future, and limit how many hours I could accumulate.
 The balance of my freelance account allowed me to clearly see if I actually needed to be working. I decided that 3 months of padding is sufficient security, and I promised myself that once I complete any job that lands me at a balance over that amount, I'll take off until I hit that threshold again.
 
 Next, I had to use my free time wisely. And just as importantly, how not to use it. A couple years ago I started a permanent information diet; quitting Google Reader alone I gained hours every week,
-plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shallows-Internet-Doing-Brains/dp/0393072223). At first going to Reader/Twitter/Facebook/Tumblr were such mindless distractions for me that I had to block my access to them or I'd end up on them without realizing it, but after a few months those habits faded. I also found the same thing with TV shows, and made sure to be conscious of when a show felt like a chore to catch up on and stop watching it. Simiarly with video games, when a game felt grindy, I'd uninstall it. Now I just watch about 2 shows a week, and ended up completely uninstalling Steam and my Windows partition as I was never using them.
+plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shallows-Internet-Doing-Brains/dp/0393072223). At first going to Reader/Twitter/Facebook/Tumblr were such mindless distractions for me that I had to block my access to them or I'd end up on them without realizing it, but after a few months those habits faded. I also found the same thing with TV shows, and made sure to be conscious of when a show felt like a chore to catch up on and stop watching it. Similarly with video games, when a game felt grindy, I'd uninstall it. Now I just watch about 2 shows a week, and ended up completely uninstalling Steam and my Windows partition as I was never using them.
 
-Additionally, I made a list of everything I wanted to do, including recurring
+Additionally, I made a list of everything I wanted to accomplish, including recurring
 and one-time events. The previously mentioned activities such as cooking,
 climbing, yoga, reading, and Zen filled in most of the time nicely so
 there was little opportunity for boredom, but
