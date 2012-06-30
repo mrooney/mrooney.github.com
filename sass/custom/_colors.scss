@@ -1,3 +1,41 @@
+// If you need a handy color picker try http://hslpicker.com
+// Or look at octopress/sass/base/solarized.scss for inspiration. The colors in there are excellent.
+// The following are ordered in terms of vague importance.
+
+//Pick your favorite color. If you picked a thoughtful blue, try again. 
+$main-color:  #00648C;
+
+//This controls the background. 
+$page-bg: darken($main-color,7);
+
+//This controls the header. 
+$header-bg: darken($main-color,17);
+$title-color: lighten($header-bg,100);
+$subtitle-color: lighten($title-color,0);
+
+//This controls the navigation bar
+$nav-bg: desaturate(darken($main-color, 10), 60);
+$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, lighten($nav-bg, 3));
+$nav-link-color: darken($main-color, 20);
+$nav-link-color-hover: lighten($main-color, 20);
+$nav-link-color-visited: darken($main-color, 20);
+
+//This controls the sidebar
+$sidebar-bg: desaturate(lighten($main-color, 70), 8);
+$sidebar-color: darken($main-color, 100);
+$sidebar-link-color: saturate($main-color, 100);
+$sidebar-link-color-hover:  darken($main-color, 100);
+
+//How links appear overall
+$link-color: darken($main-color, 10);
+$link-color-hover: darken($main-color, 100);
+$link-color-visited: darken($main-color,10);
+$link-color-active: lighten($link-color-hover,10);
+
+//I normally do not touch this. Most colors I have tried just work with this setting. 
+$footer-bg: #ccc !default;
+$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
+
 // Here you can easily change your sites's color scheme.
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
