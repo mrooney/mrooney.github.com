@@ -119,7 +119,7 @@ more work yourself that salaried employment would otherwise handle for you:
 
 * finding opportunities and turning them into contracts
 * tracking time, invoicing, and following up on checks
-   * [On The Job](http://stuntsoftware.com/onthejob/) has been a wonderful tool for this.
+   * [On The Job](http://stuntsoftware.com/onthejob/) has been a wonderful tool for this, and I've also heard good things about [Freshbooks](http://www.freshbooks.com) and [Harvest](http://www.getharvest.com)
 * paying for your own healthcare and vacation. These actually turned out
   to be less expensive than I thought:
    * healthcare: at 40 hours per week * ~4.3 weeks per month, you can assume you are getting
