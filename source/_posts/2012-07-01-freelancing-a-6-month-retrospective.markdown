@@ -92,7 +92,7 @@ Next, I had to use my free time wisely. And just as importantly, how not to use 
 plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shallows-Internet-Doing-Brains/dp/0393072223). At first going to Reader/Twitter/Facebook/Tumblr were such mindless distractions for me that I had to block my access to them or I'd end up on them without realizing it, but after a few months those habits faded. I also found the same thing with TV shows, and made sure to be conscious of when a show felt like a chore to catch up on and stop watching it. Similarly with video games, when a game felt grindy, I'd uninstall it. Now I just watch about 2 shows a week, and ended up completely uninstalling Steam and my Windows partition as I was never using them.
 
 Additionally, I made a list of everything I wanted to accomplish, including recurring
-and one-time events. The previously mentioned activities such as cooking,
+and one-time events. For recurring events, a site like [Joe's Goals](http://www.joesgoals.com) is especially useful; I keep it as a permanent pinned tab in Chrome and it keeps me honest about how often I'm actually doing the activities I say I care about. The previously mentioned activities such as cooking,
 climbing, yoga, reading, and Zen filled in most of the time nicely so
 there was little opportunity for boredom, but
 I also knocked out a few things
