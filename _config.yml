@@ -93,7 +93,7 @@ disqus_short_name: mrooney-blog
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-33098447-1
 
 # Facebook Like
 facebook_like: false

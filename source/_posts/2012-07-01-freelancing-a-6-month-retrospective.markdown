@@ -4,7 +4,6 @@ title: "Freelancing: A 6-Month Retrospective"
 date: 2012-07-01 23:13
 comments: true
 categories: 
-published: false
 ---
 
 At the end of 2011 I quit my full-time job to pursue part-time freelancing in order to have more time and flexibility. It has now been 6 full months, so I'm writing this retrospective post in order to evaluate my progress and make improvements. Hopefully it will be useful or interesting to others!
