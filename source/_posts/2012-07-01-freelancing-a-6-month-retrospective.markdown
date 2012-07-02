@@ -129,7 +129,7 @@ more work yourself that salaried employment would otherwise handle for you:
 So in other words, a $100K salary, which corresponds to roughly $50 per
 hour working 40 hours a week,
 requires a freelancing rate of $56-58/hour to pay for healthcare and
-time off, if I were still working 40 hours per week. If I wanted to work
+time off. If I wanted to work
 20 hours per week using this example, I'd double that to get a required
 rate of $112-116/hour. I had no problem
 doubling my previous rate as just a starting point, so these benefits were easily paid for and is what allowed me to dramatically cut hours without a
