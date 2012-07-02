@@ -117,17 +117,19 @@ more work yourself that salaried employment would otherwise handle for you:
 
 * finding opportunities and turning them into contracts
 * tracking time, invoicing, and following up on checks
+   * [On The Job](http://stuntsoftware.com/onthejob/) has been a wonderful tool for this.
 * paying for your own healthcare and vacation. These actually turned out
   to be less expensive than I thought:
    * healthcare: at 40 hours per week * ~4.3 weeks per month, you can assume you are getting
-   a bonus of $1-$3 per hour for healthcare ($172-$516/month).
+   a bonus of $1-$3 per hour for healthcare ($172-$516/month). So
+   working 20 hours a week, that's $2-$6/hour you need to make up.
    * vacation: assuming 5 weeks of vacation/holiday/sick pay out of 52,
      that's about a 10% bonus.
 
 So in other words, a $100K salary, which corresponds to roughly $50 per
 hour working 40 hours a week,
-requires a freelancing rate of $56-58/hour to pay for healthcare and
-time off. I had no problem
+requires a freelancing rate of $57-60/hour to pay for healthcare and
+time off, assuming 20 hours per week. I had no problem
 doubling my previous rate as just a starting point, so these benefits were easily paid for and is what allowed me to dramatically cut hours without a
 pay cut.
 
