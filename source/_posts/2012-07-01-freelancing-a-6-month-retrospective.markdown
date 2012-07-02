@@ -128,7 +128,7 @@ more work yourself that salaried employment would otherwise handle for you:
    * vacation: assuming 5 weeks of vacation/holiday/sick pay out of 52,
      that's about a 10% bonus.
 
-So in other words, a $100K salary, which corresponds to roughly $50 per
+So as an example, a $100K salary, which corresponds to roughly $50 per
 hour working 40 hours a week,
 requires a freelancing rate of $56-58/hour to pay for healthcare and
 time off. If I wanted to work
