@@ -105,7 +105,9 @@ I'd long had on my to-do list including:
 
 I also took the entire month of June off and spent it visiting friends
 and family, some of whom I hadn't seen in years. I ended up in York, Rochester, Austin, San Francisco, as well as upstate NYC for a
-week of camping with my girlfriend and her parents. I've also been
+week of camping with my girlfriend and her parents. I stayed with
+friends instead of in hotels, and used Amtrak instead of flying where
+possible to keep costs low. I've also been
 able to host family and friends visiting NYC on weekdays that I wouldn't have
 otherwise been able to spend time with.
 
