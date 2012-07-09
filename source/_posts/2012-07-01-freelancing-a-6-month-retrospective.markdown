@@ -137,6 +137,10 @@ rate of $112-116/hour. I had no problem
 doubling my previous rate as just a starting point, so these benefits were easily paid for and is what allowed me to dramatically cut hours without a
 pay cut.
 
+Healthcare is a big and challenging topic, so if you find this to a
+problematic point for you, there's a whole chapter devoted to it in the
+all-around very thorough book [Working for Yourself](http://www.amazon.com/Working-Yourself-Independent-Contractors-Freelancers/dp/1413313310). The short version is that if you can get on your spouse's plan, that's a great option, and COBRA can also be used if affordable, and can be turned into a personal plan after 18 months. I decided to go with an individual plan, looking extensively at both freelancersunion.org and ehealthinsurance.com before choosing a plan from the latter.
+
 What's next?
 ============
 
@@ -150,3 +154,8 @@ month off after every three working.
 
 I'd love to hear about your experiences in your work life, or any
 questions or thoughts you want to share!
+
+Resources
+=========
+Based on the questions this post has generated, I'd suggest reading __The 4 Hour Workweek__ if you are looking for motivation, inspiration, and practical tips for quitting your job, going remote, or finding other income streams. Once you are working for yourself, the aforementioned __Working for Yourself__ is great and covers laws, taxes, insurance, contracts, and everything else you'd need to know in very great detail!
+
