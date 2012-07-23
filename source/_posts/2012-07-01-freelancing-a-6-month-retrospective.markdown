@@ -119,7 +119,8 @@ more work yourself that salaried employment would otherwise handle for you:
 
 * finding opportunities and turning them into contracts
 * tracking time, invoicing, and following up on checks
-   * [On The Job](http://stuntsoftware.com/onthejob/) has been a wonderful tool for this, and I've also heard good things about [Freshbooks](http://www.freshbooks.com) and [Harvest](http://www.getharvest.com)
+   * [On The Job](http://stuntsoftware.com/onthejob/) has been a wonderful tool for this, and has a free trial.
+   * I've recently switched to [FreshBooks](https://mikerooney.freshbooks.com/refer/www), as it handles invoicing and payment tracking better including automatic recurring invoices and late fees, tracks expenses, has a great overview dashboard, and most importantly can generate a Profit & Loss report which you'll need each quarter for taxes. You can use it for free indefinitely for up to 3 active clients.
 * paying for your own healthcare and vacation. These actually turned out
   to be less expensive than I thought:
    * healthcare: at 40 hours per week * ~4.3 weeks per month, you can assume you are getting
@@ -139,7 +140,7 @@ pay cut.
 
 Healthcare is a big and challenging topic, so if you find this to be a
 problematic point for you, there's a whole chapter devoted to it in the
-all-around very thorough book [Working for Yourself](http://www.amazon.com/Working-Yourself-Independent-Contractors-Freelancers/dp/1413313310). The short version is that if you can get on your spouse's plan, that's a great option, and COBRA can also be used if affordable, and can be turned into a personal plan after 18 months. I decided to go with an individual plan, looking extensively at both freelancersunion.org and ehealthinsurance.com before choosing a plan from the latter.
+all-around very thorough book [Working for Yourself: Law & Taxes for Independent Contractors, Freelancers & Consultants](http://www.amazon.com/gp/product/1413313310/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1413313310&linkCode=as2&tag=metafood-20). The short version is that if you can get on your spouse's plan, that's a great option, and COBRA can also be used if affordable, and can be turned into a personal plan after 18 months. I decided to go with an individual plan, looking extensively at both freelancersunion.org and ehealthinsurance.com before choosing a plan from the latter.
 
 What's next?
 ============
@@ -157,5 +158,5 @@ questions or thoughts you want to share!
 
 Resources
 =========
-Based on the questions this post has generated, I'd suggest reading __The 4 Hour Workweek__ if you are looking for motivation, inspiration, and practical tips for quitting your job, going remote, or finding other income streams. Once you are working for yourself, the aforementioned __Working for Yourself__ is great and covers laws, taxes, insurance, contracts, and everything else you'd need to know in very great detail!
+Based on the questions this post has generated, I'd suggest reading [The 4-Hour Workweek](http://www.amazon.com/gp/product/0307465357/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307465357&linkCode=as2&tag=metafood-20) if you are looking for motivation, inspiration, and practical tips for quitting your job, going remote, or finding other income streams. Once you are working for yourself, the aforementioned [Working for Yourself](http://www.amazon.com/gp/product/1413313310/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1413313310&linkCode=as2&tag=metafood-20) is great and covers laws, taxes, insurance, contracts, and everything else you'd need to know in very great detail!
 
