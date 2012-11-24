@@ -1,0 +1,73 @@
+---
+layout: post
+title: "Chocolate Series: My Favorite Commercial Bars"
+date: 2012-11-24 11:37
+comments: true
+categories: blogpact
+---
+
+TODO: fill in TODOs and get price/oz on everything.
+
+As part of the Blogpact, I thought it would be fun to do a quick series
+on chocolate making. But first, I wanted to cover my favorite existing
+chocolate bars, and when it might make sense to use them instead of
+making your own. This list is pretty biased as I'm a dark chocolate fan, so I'll be sticking primarily to 70% dark or greater bars, as they have a good amount of protein and fiber (and fat, of course), and are unlikely to result in a sugar crash if eaten for a meal.
+
+Instead of attempting to provide a unified ranking, I'll just do
+best-in-made-up-category:
+
+Best Plain / Baking Chocolates
+---
+Plain dark chocolate bars are great to carry around as an at least somewhat healthy snack,
+and they're also great to chop up and use as a higher-quality
+alternative to chocolate chips, or for chocolate-dipped/covered foods. My qualifications for these bars are
+that they should be delicious on their own, but not overpower a recipe
+they are used in. They should also be affordable as you may need a few bars
+for baking, and honestly, you don't want to waste expensive / home-made
+chocolate if it isn't going to play a central role in the recipe, or
+if it will be eaten by people who won't notice the difference.
+
+* Lindt 85% (85%, $0.85/oz...hmm!)
+
+ This is one of my all-time favorite bars, because it smells and tastes
+amazing, has a small list of quality ingredients (including specifying
+what kind of sugar and vanilla was used), and can almost always be found
+for less than $1/oz ($2.50-$3.50 for a 3.5oz bar) in many grocery stores. My go-to for
+emergency calories and baking.
+
+* Runner Up: IKEA 60% (???)
+
+ While this is only a 60% bar and thus falls firmly below my personal "sugar crash" line (about 70%), this bar is a) really really tasty and b) really really cheap. Each ~3oz bar costs $1, or 3-for-$2, making it about 33 cents per ounce. This is great for baking due to its cost, especially for a crowd that doesn't have a taste for something as dark as Lindt's 85%.
+
+Best Spicy Chocolate
+---
+* Gnosis Mayan Heat (70%, $3.60/oz)
+
+ Gnosis makes organic raw (unroasted) chocolates, now sweetened with coconut palm sugar. Their Mayan Heat is not shy with the cayenne, and also has noticeable cinnamon, nutmeg, and vanilla. It is also sold, very appropriately, as hot chocolate mix. This bar also contains hawthorne, which I hadn't heard of before, but has some purported health benefits and is perhaps the mystery flavor lurking in here that I'm not familiar with. Rather on the expensive end, but a good treat.
+
+* Runner-Up: Xocolatl (72%, ???)
+ TODO
+ 
+Best Fruit Chocolate
+---
+* Endangered Species Raspberry (72%, ???)
+
+ Raspberries are my favorite berry (aggregate fruit?), so it's perhaps no surprise that I picked a raspberry bar. However, it is the only /good/ raspberry chocolate I've found, and there are a lot out there. I like this one because it contains actual raspberry chunks, as opposed to a sweetened/artificial raspberry puree that is often encountered. While I also love blueberries, I didn't find the same brand's blueberry bar to be quite as special.
+ 
+* Theo Orange (70%, ???)
+ This is one of my girlfriend's favorite bars, and is great if you like orange and dark chocolate. Its merits also include its organic status, and its reasonable price of $3/bar.
+ 
+Honorable Mentions
+---
+* Chuaco (?) pop rocks bar
+* Vosges dark bacon bar?
+* Raaka bourbon chocolate
+* Antidote lavender salt
+
+There are some categories I wish weren't missing from this list, like "best coconut" and "best nut" bars, but I haven't tried any of either I'd buy again. If you have any favorite chocolates, please do share and open my field of cocoa awareness!
+
+
+
+
+
+
