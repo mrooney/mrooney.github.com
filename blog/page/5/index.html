@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="I wouldn&#8217;t normally have participated in the nearest book meme going around on Planet Ubuntu, except that sentence 5 of page 56 of the nearest &hellip;">
+  <meta name="description" content="Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,83 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2008/11/18/wxbanker-0-4-released/">wxBanker 0.4 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-18T00:00:00-04:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/11/18/wxbanker-0-4-released/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for multiple accounts; think of GnuCash but easier and more lightweight. It is written in Python/wxPython and runs on Linux, OSX, and Windows. Check out my <a href="http://mrooney.blogspot.com/2008/10/wxbanker-03-released.html">previous post on wxBanker</a> for a slightly more in depth functionality overview and screen shots.<br /><br />The main focus of this new version was localization. It now ships with translations for 8 languages (4 of them basically complete, thanks translators!), and also supports displaying the amounts in currencies other than USD including EUR and GBP. It also sports a few of the typical bug fixes / usability improvements you would expect in a new release.<br /><br />Another feature new to 0.4 is a setup.py, which allows Linux users to install it easily by running &#8220;sudo python setup.py install&#8221; in the folder, and wxBanker will install itself including a shortcut in Applications -> Office in Gnome, and store your data in ~/.wxbanker. If you are upgrading from a previous release, I recommend moving your bank.db file to ~/.wxbanker/bank.db for the easiest transition, which will also future-proof you from needing to shuffle it around in the future!<br /><br />I also thought I&#8217;d highlight the launchpad integration I added awhile ago in 0.3, since I saw a recent planet post regarding Inkscape doing something similar. In the Help menu I&#8217;ve added convenient links to view and ask questions, and report bugs:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s1600-h/wxbanker-help.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 244px; height: 162px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s320/wxbanker-help.png" alt="" id="BLOGGER_PHOTO_ID_5270064180934520130" border="0" /></a><br />If you have been looking to start taking control of your finances, give wxBanker a try: <a href="https://launchpad.net/wxbanker/trunk/0.4">https://launchpad.net/wxbanker/trunk/0.4</a> (or &#8216;bzr co lp:wxbanker -r 86&#8217; for the seasoned). If you find problems or have ideas, please let me know via launchpad bugs/blueprints, blog comments, or email; if you know another language, help translate by following the Translations link on Launchpad! And remember, when you use wxBanker to count your pennies, the dollars will follow!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kiss</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi again David! I tried to design wxBanker in such a way that a double-entry system is possible but not necessary. You can use it as such by creating all the appropriate accounts, and then each transaction would be a transfer between the appropriate accounts. However the total wouldn&#8217;t quite work out in an ideal way I don&#8217;t think, so some work might need to be done there. Currently I use a hybrid sort of accounting system where I have Accounts Receivable and Payable and make transfers to and from them as appropriate, with other basic purchases being single entry.<BR/><BR/>If you have any ideas for better integrating double entry, reports or invoices, please let me know! Feel free to throw up a basic spec at https://blueprints.launchpad.net/wxbanker<BR/><BR/>As far as patches go, just visit https://bugs.launchpad.net/wxbanker/+filebug and make a bug for the specific issue, attaching your patch to it. Then I&#8217;ll see it and review it and such. I look forward to seeing what you have!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Well, I finally got around to taking a better look at wxBanker. It&#8217;s missing a few things that I would need:<BR/>1. Double entry<BR/>2. Invoicing<BR/>3. Billing<BR/><BR/>Will definitely get my Mrs. on to it though for our home finances.<BR/><BR/>What&#8217;s the best way of submitting patches?</div>
+</div>
+<div class='comment'>
+<div class='author'>Cristina</div>
+<div class='content'>
+This comment has been removed by a blog administrator.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David, the scope of wxBanker is personal and small business finance, so it may work for you, although it doesn&#8217;t currently have any built in reporting (however the store is a sqlite3 db with the structure documented in model_sqlite.py so custom stuff should be fairly straightforward if you are into that). I&#8217;d love to implement reporting features, but don&#8217;t know exactly what that entails. If you or anyone else wants to outline the basic details in a blueprint at https://blueprints.launchpad.net/wxbanker, I&#8217;ll be happy to implement it!<BR/><BR/>Mean-Machine, let me know what you think and thanks for the translation!</div>
+</div>
+<div class='comment'>
+<div class='author'>Mean-Machine</div>
+<div class='content'>
+I&#8217;m giving it a go. Never got to like GNUCash. Also translating into polish.</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrible. But I&#8217;m using it more for business though, so I&#8217;m not sure wxBanker would be ideal for me&#8230;</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2008/11/11/zen-and-the-art-of-memes/">Zen and the Art of Memes</a></h1>
     
     
@@ -99,7 +176,7 @@
   
 
 
-<time datetime="2008-11-11T00:00:00-05:00" pubdate data-updated="true">Nov 11<span>th</span>, 2008</time>
+<time datetime="2008-11-11T00:00:00-04:00" pubdate data-updated="true">Nov 11<span>th</span>, 2008</time>
         
          | <a href="/blog/2008/11/11/zen-and-the-art-of-memes/#disqus_thread">Comments</a>
         
@@ -151,7 +228,7 @@ But The Very Hungry Caterpillar doesn&#8217;t have that many pages&#8230;</div>
   
 
 
-<time datetime="2008-11-05T00:00:00-05:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
+<time datetime="2008-11-05T00:00:00-04:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
         
          | <a href="/blog/2008/11/05/microphones-and-rosetta-stone-3-in-wine/#disqus_thread">Comments</a>
         
@@ -725,6 +802,10 @@ Hello, and welcome to my blog! My name is <a href="https://launchpad.net/%7Emich
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/">Chocolate Series: My Favorite Commercial Bars</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/01/freelancing-a-6-month-retrospective/">Freelancing: A 6-Month Retrospective</a>
       </li>
     
@@ -738,10 +819,6 @@ Hello, and welcome to my blog! My name is <a href="https://launchpad.net/%7Emich
     
       <li class="post">
         <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
       </li>
     
   </ul>

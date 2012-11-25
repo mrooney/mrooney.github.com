@@ -4,7 +4,7 @@
   <title><![CDATA[Mike Rooney]]></title>
   <link href="http://mrooney.github.com/atom.xml" rel="self"/>
   <link href="http://mrooney.github.com/"/>
-  <updated>2012-08-11T18:13:46-04:00</updated>
+  <updated>2012-11-25T19:46:06-04:00</updated>
   <id>http://mrooney.github.com/</id>
   <author>
     <name><![CDATA[Mike Rooney]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Chocolate Series: My Favorite Commercial Bars]]></title>
+    <link href="http://mrooney.github.com/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/"/>
+    <updated>2012-11-24T11:37:00-04:00</updated>
+    <id>http://mrooney.github.com/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars</id>
+    <content type="html"><![CDATA[<p>As part of the Blogpact, I thought it would be fun to do a short series
+on chocolate making. But first, I wanted to cover my favorite existing
+chocolate bars, and when it might make sense to use them instead of
+making your own. This list is pretty biased as I&#8217;m a dark chocolate fan, so I&#8217;ll be sticking primarily to 70% dark or greater bars, as they have a good amount of protein and fiber (and fat, of course), and are unlikely to result in a sugar crash if eaten for a meal.</p>
+
+<p>Instead of attempting to provide a unified ranking, I&#8217;ll just do
+best-in-made-up-category:</p>
+
+<h2>Best Plain / Baking Chocolates</h2>
+
+<p>Plain dark chocolate bars are great to carry around as an at least somewhat healthy snack,
+and they&#8217;re also great to chop up and use as a higher-quality
+alternative to chocolate chips, or for chocolate-dipped/covered foods. My qualifications for these bars are
+that they should be delicious on their own, but not overpower a recipe
+they are used in. They should also be affordable as you may need a few bars
+for baking, and honestly, you don&#8217;t want to waste expensive / home-made
+chocolate if it isn&#8217;t going to play a central role in the recipe, or
+if it will be eaten by people who won&#8217;t notice the difference.</p>
+
+<ul>
+<li>Lindt 85% (85%, $0.85/oz&#8230;hmm!)</li>
+</ul>
+
+
+<p> This is one of my all-time favorite bars, because it smells and tastes
+amazing, has a small list of quality ingredients (including specifying
+what kind of sugar and vanilla was used), and can almost always be found
+for less than $1/oz ($2.50-$3.50 for a 3.5oz bar) in many grocery stores. My go-to for
+emergency calories and baking.</p>
+
+<ul>
+<li>Runner Up: IKEA Dark (60%, $0.19/oz)</li>
+</ul>
+
+
+<p> While this is only a 60% bar and thus falls firmly below my personal &#8220;sugar crash&#8221; line (about 70%), this bar is a) really really tasty and b) really really cheap. Each 3.5oz bar costs $1, or 3-for-$2. This is great for baking due to its cost, especially for a crowd that doesn&#8217;t have a taste for something as dark as Lindt&#8217;s 85%.</p>
+
+<h2>Best Spicy Chocolate</h2>
+
+<ul>
+<li>Gnosis Mayan Heat (70%, $3.60/oz)</li>
+</ul>
+
+
+<p> Gnosis makes organic raw (unroasted) chocolates, now sweetened with coconut palm sugar. Their Mayan Heat is not shy with the cayenne, and also has noticeable cinnamon, nutmeg, and vanilla. It is also sold, very appropriately, as hot chocolate mix. This bar also contains hawthorne, which I hadn&#8217;t heard of before, but has some purported health benefits and is perhaps the mystery flavor lurking in here that I&#8217;m not familiar with. Rather on the expensive end, but a good treat.</p>
+
+<ul>
+<li>Runner-Up: Dagoba Xocolatl (74%, $1.5/oz)</li>
+</ul>
+
+
+<p> This bar has a fun texture due to added cacao nibs, and the chilies add
+ plenty of spiciness. Plus, it&#8217;s organic!</p>
+
+<h2>Best Fruit Chocolate</h2>
+
+<ul>
+<li>Endangered Species Raspberry (72%, $1/oz)</li>
+</ul>
+
+
+<p> Raspberries are my favorite berry (aggregate fruit?), so it&#8217;s perhaps no surprise that I picked a raspberry bar. However, it is the only /good/ raspberry chocolate I&#8217;ve found, and there are a lot out there. I like this one because it contains actual raspberry chunks, as opposed to a sweetened/artificial raspberry puree that is often encountered. While I also love blueberries, I didn&#8217;t find the same brand&#8217;s blueberry bar to be quite as special.</p>
+
+<ul>
+<li>Theo Orange (70%, $1/oz)
+This is one of my girlfriend&#8217;s favorite bars, and is great if you like orange and dark chocolate. Its merits also include its organic status, and its reasonable price of $3/bar.</li>
+</ul>
+
+
+<h2>Honorable Mentions</h2>
+
+<ul>
+<li><em>Chuao Firecracker</em>: with ingredients including pop rocks, chipotle, and salt, this is obviously something special. (60%, $1.42/oz)</li>
+<li><em>Vosges Dark Chocolate Bacon</em>: this is pretty self-explanatory, and
+delicious. (62%, $2.33/oz)</li>
+<li><em>Raaka Bourbon Cask Aged</em>: an aftertaste like you just took a shot (83%, $3.2/oz)</li>
+<li><em>Antidote Lavender Salt</em>: &#8220;it&#8217;s so tasty&#8221; - Dana (84%, $3/oz)</li>
+</ul>
+
+
+<p>There are some categories I wish weren&#8217;t missing from this list, like &#8220;best coconut&#8221; and &#8220;best nut&#8221; bars, but I haven&#8217;t tried any of either I&#8217;d buy again. If you have any favorite chocolates, please do share and open my field of cocoa awareness!</p>
+
+<p>Coming up, I&#8217;ll go over making chocolate from cocoa powder and cocoa butter, and finally from bean to bar.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Freelancing: A 6-Month Retrospective]]></title>
@@ -312,7 +403,7 @@ about the IPs involved.</p>
   <entry>
     <title type="html"><![CDATA[Diving into EC2 and Auto Scaling]]></title>
     <link href="http://mrooney.github.com/blog/2010/12/21/diving-into-ec2-and-auto-scaling/"/>
-    <updated>2010-12-21T00:00:00-05:00</updated>
+    <updated>2010-12-21T00:00:00-04:00</updated>
     <id>http://mrooney.github.com/blog/2010/12/21/diving-into-ec2-and-auto-scaling</id>
     <content type="html"><![CDATA[<div class='post'>
 I&#8217;m rather new to EC2 (and as a result its CloudWatch / Auto Scaling features), so I figured I&#8217;d post about my current thoughts and see if anyone can tell me if I&#8217;m on the right track! I&#8217;m writing everything up as I go, so hopefully it will make a solid blog post for others in the future for going from zero to EC2 + Auto Scaling.<br /><br />Based on my initial research, it looks like the stack will be comprised of:<br /><ul><li>64-bit Maverick AMIs on micro instances, from <a href="http://uec-images.ubuntu.com/releases/10.10/release/">http://uec-images.ubuntu.com/releases/10.10/release/</a></li><li>Puppet for bootstrapping new instances and maintaining existing ones (via the series at <a href="http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/">http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/</a>)</li><li>Amazon&#8217;s CloudWatch + Auto Scaling for spinning up/down instances of puppet roles as necessary</li></ul><div>Any yays or nays on this stack? One particular curiosity I had is if Mathiaz&#8217;s guides would be simpler in Maverick, since they were written for Lucid and it seems like each release brings improvements for both EC2/UEC and Puppet. I&#8217;ll also have to figure out how to put some of the roles behind a load balancer, but that&#8217;s for later.</div><div><br /></div><div>Thanks for any suggestions! Once I&#8217;ve got it all figured out I&#8217;ll put up a somewhat comprehensive guide, unless one already exists that I&#8217;ve missed.</div></div>
@@ -395,7 +486,7 @@ I have had nothing but trouble with Broadcom cards - even when they work it seem
   <entry>
     <title type="html"><![CDATA[Why I Switched from Ubuntu One back to Dropbox]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/"/>
-    <updated>2010-02-22T00:00:00-05:00</updated>
+    <updated>2010-02-22T00:00:00-04:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox</id>
     <content type="html"><![CDATA[<div class='post'>
 As many of you surely know, Dropbox and Ubuntu One are applications to keep files on your desktop in sync across multiple computers, and backed up in the cloud. After using Dropbox for a year or so on Ubuntu, the Ubuntu One project came out and I thought I&#8217;d move over to it. I assumed it would be easier to set up, being pre-installed, and could integrate better with the file manager and other applications, being made specifically for Ubuntu.<br /><br />After about 6 months of using Ubuntu One, I found it to be too much of a regression compared to Dropbox and switched back. I thought I&#8217;d detail why here for the usefulness of others and to hopefully provide some constructive criticism to the Ubuntu One team which overall is doing good work. So here&#8217;s why I went back to Dropbox:<br /><br /><b>Better Nautilus integration</b><br />The nautilus (file manager) integration in Dropbox feels very mature and polished. Normally I&#8217;d say this is to be expected since Ubuntu One is much younger, but since the nautilus aspect of Dropbox is open-source, there didn&#8217;t seem to be much of an excuse for the Ubuntu One team to not use it as a starting point or at least as inspiration. Whenever I added files to my Ubuntu One folder, no matter how large or how many, they instantly had the checkbox emblem which implies to me they are in sync, even though they couldn&#8217;t possibly be uploaded that quickly. In Dropbox, the files show an animated progress emblem until they are actually uploaded, and show this again when they are being updated. I wasn&#8217;t able to trust the status of files with Ubuntu One, and that wasn&#8217;t a good feeling.<br /><br />Sharing files in Dropbox is also a lot easier via Nautilus, but that deserves it&#8217;s own point.<br /><br /><b>Easier file sharing</b><br />In my typical use cases of file sharing, I want to go from having a file in mind to someone else seeing that file as quickly as possible, be it in an instant message, chatroom (IRC/Jabber), or email to a friend or two. Dropbox makes this a breeze; drag a file into the &#8220;Public&#8221; folder in your Dropbox directory, and right-click on it and select &#8220;Dropbox > Copy Public Link&#8221;. Now you have a publicly accessible link to your file in your clipboard!<br /><br />I never quite figured out how to do this in Ubuntu One; it seems you have to share files with specific people who also are running Ubuntu One (which really compounds the non-cross-platform issue) via the web interface by typing in an email address. This is a cool idea, but seems way over-engineered as a starting point. This was even brought up at the last UDS in an Ubuntu One session but was brushed off; they sadly seemed more interested in engineering complex sharing UIs than getting feedback to ensure they were solving actual problems.<br /><br /><b>Sane notifications</b><br />I think <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/462747">bug 462747</a> is what ultimately drove me to drop Ubuntu One. It notifies you not once but twice for every file you change; once to tell you it is syncing the file and another to tell you it is done. Regarding the first notification, I probably already know that I changed that file; regarding the second, if I&#8217;m really curious about the status of the synchronization, a quick glance at the applet should tell me what I need to know. This was mildly annoying as is, but it does this for hidden files like vim swap files too. Every time I would open or save a file in vim (and I save early and often), I got two notifications about syncing the hidden swap file!<br /><br />Dropbox was much more sane regarding notifications; whenever I would turn on or sit down at a computer, it would show <b>one</b> notification telling me how many files it synced from other machines or, if there was just one changed file, the name of it. Beautiful!<br /><br /><b>Better web UI</b><br />The web user interface for Dropbox felt a lot easier to use, and I often had problems where the Ubuntu One web view would show deleted files or not show files I knew were there that were added days ago. Sometimes I had to collapse and expand a folder a time or two to get it to show the right contents. This led to a similar problem that I mentioned with the nautilus integration; it wasn&#8217;t a UI I could trust to be accurate as was therefore essentially useless. The Dropbox UI was always accurate, and had some nice extras which could prove to be lifesavers like getting past versions of files.<br /><br />I also experienced some other issues including <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/498444">bug 498444</a> which caused Ubuntu One applet to start up with the exclamation icon, giving the impression of not syncing files. If I wanted to edit or view a file that might have changed remotely, I had to manually tell the applet to try syncing again after startup to make sure the file was latest version (or else I could silently end up with .u1conflict file, but that&#8217;s another issue). Additionally, although the transparency is praiseworthy, <a href="http://twitter.com/UbuntuOne/status/9498991639">all</a> <a href="http://twitter.com/UbuntuOne/status/9331800792">these</a> <a href="http://twitter.com/UbuntuOne/status/9292086471">tweets</a> <a href="http://twitter.com/UbuntuOne/status/9020860066">about</a> <a href="http://twitter.com/UbuntuOne/status/8963442390">recent</a> <a href="http://twitter.com/UbuntuOne/status/7755587471">issues</a> or <a href="http://twitter.com/UbuntuOne/status/8870678995">downtime</a> do not inspire confidence.<br /><br /><b>That being said</b><br />Ubuntu One does have a few things going for it, however. It is installed by default which means it is the easiest cloud sync/backup solution to get started with for an Ubuntu user. And thanks to CouchDB and a package manager, Ubuntu can ship applications that make it trivial to sync their data with Ubuntu One out of the box. If I can tell all the applications I care about to sync with Ubuntu One (bookmarks, notes, podcasts, basic OS settings/appearance) from one configuration UI, that&#8217;s going to be pretty compelling.<br /><br />While I currently can&#8217;t in good conscience recommend Ubuntu One to a friend (and plenty of my friends don&#8217;t even use Ubuntu), I do have high hopes for the project; it is young and if they can work out some of the above issues, many of them being personal show-stoppers, while providing application and OS integration, Ubuntu One (and perhaps Ubuntu itself) could become too compelling to not use for many people. For now however, Dropbox is the solution which stays out of my way, allows me to solve my problems, and just works.<br /><br />If you are using Ubuntu One or Dropbox, certainly chime in on what the critical features are for you and why you chose one over the other!</div>
@@ -498,7 +589,7 @@ So you hate freedom now? ;)</div>
   <entry>
     <title type="html"><![CDATA[wxBanker 0.7: simple personal finance]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/"/>
-    <updated>2010-02-07T00:00:00-05:00</updated>
+    <updated>2010-02-07T00:00:00-04:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/07/wxbanker-0-7-simple-personal-finance</id>
     <content type="html"><![CDATA[<div class='post'>
 Your favorite personal finance application, <a href="https://launchpad.net/wxbanker">wxBanker</a>, has turned 0.7!<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s1600-h/wxBanker-0.7a.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s400/wxBanker-0.7a.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435634666672162130" /></a><br /><br />This release comes about 2 months after the previous release, and focuses on usability and user experience issues that I obtained from watching people use wxBanker as well as from Launchpad bugs (thanks <a href="https://bugs.launchpad.net/wxbanker/+bug/496878">Arty</a>!). Let&#8217;s take a look at some of the changes, starting with the account control:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s1600-h/wxbanker-6-7-accountctrl.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 129px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s400/wxbanker-6-7-accountctrl.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435614404389456130" /></a><br /><br />On the right we have the new account chooser in 0.7. The main change is using radio buttons for the accounts instead of links. This is a much better, already understood method for choosing accounts, and will also fit in with themes better. The last item is now &#8220;All accounts&#8221; and is selectable, making it easy to get a view of all your transactions and search in them.<br /><br />The &#8220;Hide zero-balance accounts&#8221; option has moved to the View menu, and now has a keyboard shortcut. I&#8217;ve also removed the total number of accounts from the header, as well as the colons after the account names, to reduce clutter. Finally, everything has been given a bit more padding and the buttons have been slightly rearranged.<br /><br />Additionally, the previous graphing library has been replaced by cairoplot (thanks <a href="https://blueprints.launchpad.net/wxbanker/+spec/replaceable-plot-renderers">Karel</a>!), which looks much more attractive. Let&#8217;s check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s1600-h/wxBanker-0.7b.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s400/wxBanker-0.7b.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435627406528133794" /></a><br /><br />The Summary view allows you to see a graph of your balance over time, and you can view a graph of a specific account or all accounts by using the account chooser on the left (previously the graph had its own account chooser, that was silly!).<br /><br />And in case you missed the 0.6 announcement, that version brought recurring transactions, XDG directory support, and more intuitive behavior regarding deleting/editing transfer transactions.<br /><br />For downloads and the full list of features and bug-fixes, check out the <a href="https://launchpad.net/wxbanker/0.7/0.7">release page</a>. You can also add <a href="https://launchpad.net/~wxbanker-users/+archive/ppa">the PPA</a> for easy installation and upgrades.<br /><br />If you&#8217;d like to stay in the loop join the <a href="https://launchpad.net/~wxbanker-users">wxBanker Users team</a> (and announcement mailing list) on Launchpad, follow <a href="http://twitter.com/wxbanker">wxBanker on Twitter</a>, or hang out in #wxbanker on irc.freenode.net.</div>
@@ -536,7 +627,7 @@ haven&#39;t really figured out how, after I create an account, I can set up the 
   <entry>
     <title type="html"><![CDATA[Automating translation template generation and check-ins for Launchpad]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/02/automating-translation-template-generation-and-check-ins-for-launchpad/"/>
-    <updated>2010-02-02T00:00:00-05:00</updated>
+    <updated>2010-02-02T00:00:00-04:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/02/automating-translation-template-generation-and-check-ins-for-launchpad</id>
     <content type="html"><![CDATA[<div class='post'>
 I <a href="http://mrooney.blogspot.com/2009/07/launchpad-is-now-automatic-magical.html">previously wrote</a> about how excited I was for the automated translation import and export features of Launchpad. Launchpad will automatically notice when you commit a translation template and import it, making it available for translation online. Generous translators will then contribute translations, and Launchpad will commit them back to your project.<br /><br /><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer;width: 149px; height: 200px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/S2fxD3QRaNI/AAAAAAAAAbI/AfTFW4D9U7s/s400/thumbsup.jpg" border="0" alt="" id="BLOGGER_PHOTO_ID_5433576524119894226" /><br />Okay, so this is pretty good! However for this process to work well, the translation template needs to be generated manually by a developer whenever there are changes to strings. Otherwise, translators are working on potentially outdated strings; some are perhaps not in the application anymore, and there are likely some strings which aren&#8217;t in the template yet.<br /><br />After forgetting to generate and commit my template until shortly before a release more than once (and thus having poor translation coverage on newly added strings), I decided to automate this part of the process as well. All it took was a relatively small script to generate the template, and then if there were any changes, commit and push to the branch configured for automatic import in Launchpad. The following script does just that, by searching for any files using gettext calls starting with _(&#8221; or _(&#8216;, and passing them to xgettext.<br /><br /><pre class="brush: bash"><br />#!/bin/bash<br />set -e<br />ack-grep "_\([\"\']" -l | xargs xgettext --output=wxbanker/po/wxbanker.pot<br />ACTUALCHANGES="`bzr diff | grep \"^[\-\+]msg\" | wc -l`"<br />if [[ "$ACTUALCHANGES" != "0" ]]; then<br />  bzr ci -m "automated generation of translation template"<br />  bzr push :parent<br />fi<br /></pre><br /><br />Note that if you aren&#8217;t using Python, you may need to tweak the regular expression supplied to ack-grep. Once the template is generated, the diff is piped through grep to grab any changes to actual messages and make sure there was at least one. Otherwise there would always be changes due to the timestamp in the template, causing useless commits.<br /><br />I then threw this script into a <a href="http://hudson-ci.org/">Hudson</a> job, the <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration server</a> I use for <a href="https://launchpad.net/wxbanker">wxBanker</a>. I configured this particular job to run nightly, pulling down the latest bzr branch beforehand, and emailing me on any failures.<br /><br />It seems to be working quite well and ensures translators are always translating the latest strings and leaves nothing for me to forget, smoothing out the release process.<br /><br />If this sounds interesting to you but you&#8217;re not familiar with Launchpad as a translation system, check out <a href="http://blog.launchpad.net/general/trying-out-launchpad-translations">http://blog.launchpad.net/general/trying-out-launchpad-translations</a> and feel free to ask any questions here. If you do have experience with translations, how do you handle generating translation templates and then integrating the translations?</div>
@@ -1149,7 +1240,7 @@ looks great. What gnome theme are you using, btw?</div>
   <entry>
     <title type="html"><![CDATA[Using the "finally" block in Python to write robust applications]]></title>
     <link href="http://mrooney.github.com/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/"/>
-    <updated>2009-02-25T00:00:00-05:00</updated>
+    <updated>2009-02-25T00:00:00-04:00</updated>
     <id>http://mrooney.github.com/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications</id>
     <content type="html"><![CDATA[<div class='post'>
 This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers) and get the results. If that doesn&#8217;t concern you, this post is probably still relevant; I&#8217;d just like to cover the groundwork of making code that is stable and repeatable even in the face of [un]expected problems. Luckily for us, python has a wonderful &#8220;finally&#8221; block which can be used to properly clean up or &#8220;finish&#8221; regardless of Bad Things. Let&#8217;s look at an example of a common problem this can solve:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">doStuff()</span><br /><span style="font-family:courier new;">releaseLock()</span></blockquote><br /><br />We need exclusive access to a resource, so we get a lock. We do some stuff, and then release the lock. The problem is that if doStuff raises an exception, the lock never gets released, and your application can be in a broken state. You want to release the lock no matter what. So what you should do is:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">try:</span><br /><span style="font-family:courier new;">    </span><span style="font-family:courier new;"></span><span style="font-family:courier new;">&nbsp;&nbsp;doStuff()</span><br /><span style="font-family:courier new;">finally:</span><br /><span style="font-family:courier new;">&nbsp;&nbsp;releaseLock()</span></blockquote><br /><br />Now save a SIGKILL, the lock is going to be released. This is pretty basic, but it is impressive how robust the finally block is. You can &#8220;return&#8221; in the try block or even &#8220;sys.exit()&#8221; and the code in the finally block will still be executed.<br /><br />I recently used this with XMLRPC to safely tell the remote machine to clean up if the local script ran into problems or even got a SIGTERM from a keyboard interrupt. Here&#8217;s a more elaborate example:<br /><br /><blockquote style="font-family: courier new;">proxy = xmlrpclib.ServerProxy(remoteIP)<br />try:<br />&nbsp;&nbsp;result = proxy.RunTests()<br />&nbsp;&nbsp;if result is None:<br />&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br />&nbsp;&nbsp;else:<br />&nbsp;&nbsp;&nbsp;&nbsp;return result<br />except:<br />&nbsp;&nbsp;sys.exit(2)<br />finally:<br />&nbsp;&nbsp;proxy.CloseFirefox()</blockquote><br /><br />The remote machine (&#8220;proxy&#8221;) is running some tests in firefox. While it does this it sets a lock so no one else can run the same tests. If something goes wrong, this lock needs to be reset and firefox needs to be closed so they can run again later. If it gets a result, return it. If it doesn&#8217;t or something goes wrong, we still clean up but now we can exit with an error code. One of the neatest things about this for me was Ctrl+C&#8217;ing the script on my computer and watching the remote machine cleanly quit firefox and release the lock for another process to use.<br /><br />This is great whenever you need to put something in a temporary state, or change the state after an operation no matter what happens. Think of locks, temporary files, memory usage, or open connections where it is important to close them. Conversely however, make sure you DON&#8217;T use an approach like when it isn&#8217;t appropriate.<br /><blockquote><br /><span style="font-family: courier new;">for client in clientsToPing[:]:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;try:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;ping(client)</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;finally:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;clientsToPing.remove(client</span>)</blockquote><br /><br />This is potentially incorrect behavior, because if you failed to ping your client you may want to keep it on the list to try again next time. However, you also may only want to attempt this once and then the above approach would be correct!<br /><br />In my next post I am going to turn more specifically to remote browser testing and explain how exactly to set up both ends of the connection. After that I&#8217;ll finish by making a post on using twisted + SSL to retrieve posted results over HTTPS.</div>
@@ -1169,59 +1260,6 @@ If you like try&#8230;finally, you&#8217;re going to love <A HREF="http://www.py
 <div class='author'>Dennis K.</div>
 <div class='content'>
 Look at python 2.5&#8217;s context managers and the with statement. These are a more elegant way of solving this very problem without littering your code with finally: statements.</div>
-</div>
-</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ensuring that you test what your users use]]></title>
-    <link href="http://mrooney.github.com/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/"/>
-    <updated>2009-02-23T00:00:00-05:00</updated>
-    <id>http://mrooney.github.com/blog/2009/02/23/ensuring-that-you-test-what-your-users-use</id>
-    <content type="html"><![CDATA[<div class='post'>
-Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my checkout, but fail miserably for anyone else (because the application is broken). What was happening?<br /><br />1) I had a new file which is required to run, but I forget to &#8216;vcs add&#8217; it. Because the file existed in my sandbox, everything was well. But no one else was getting this file, so they couldn&#8217;t even run the application. This one is somewhat easy to detect because a &#8216;vcs st&#8217; should show that file as unknown status. In that way ensuring a clean status before running the tests can help avoid this. However this won&#8217;t work well in an automated fashion because there are often unversioned files, and you typically want to run the tests before committing anyway.<br /><br />2) A time or two I thought I had completely removed/renamed a dependency but forgot to clean up an import somewhere along the line. Even though the original .py file was gone, a .pyc file by the old name still existed, which allowed the lingering import to work. Again however, for anyone else getting a fresh checkout or release, this file would not be avaible and the app would be unusable.<br /><br />How can you avoid having problems like this? Well, from a myopic viewpoint you could have your test suite delete any .pyc files before running. Then to address the first issue, you could also test that a &#8216;vcs st&#8217; has no unknown files, and explicitly ignore any unversioned files you expect. But still, other things could creep up. And while having another machine as your &#8220;buildbot&#8221; would avoid the first issue, you are still prone to an attack from the second. To really make sure you are testing with the same stuff that you release, you need to be testing releases. In other words, you need to be putting your version through your shipping process, whatever that is, and then testing the final product.<br /><br />So now that I&#8217;ve realized this is what I should be doing, I&#8217;m not quite sure what the simplest and easiest way to do it in an automated fashion is. For python, perhaps this could be achieved by getting a fresh export/checkout of the code in a temporary directory, adding that directory to sys.path, and importing and running the tests. I am sure this is a common problem; is there a common solution?</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Andy</div>
-<div class='content'>
-I had this problem the other day releasing some code at work. <BR/><BR/>The way I do a release is to run my release script, which reads in file lists scattered around the program, copies them to a new place, compiles them and runs all the tests. It then runs a make clean(*) and builds a tar ball. The file lists are used for generating the makefiles, so all the dependencies are explicitly listed.<BR/><BR/>To release, I untar it into another teams subversion repository, add it and commit. <BR/><BR/>It sounded pretty foolproof to me. So, I untarred it, ran &#8220;svn add&#8221;, then tried compiling it, testing it etc and everything worked. I checked &#8220;svn stat&#8221; to make sure I wasn&#8217;t going to commit anything by accident, and it all looked fine.<BR/><BR/>The next day, I had an email telling me that I broke the build :-). <BR/><BR/>It turned out that when I was creating the file list used for building the release, I accidentally included a backup file (&#8220;somefile.c~&#8221;) in the list. The tarball included the file (since the release script copies all the files listed), so when I untarred it into the svn repository, the file was put in there. But if you do an svn add, it will skip over such files. So when I committed, the backup file was missing, which then made the makefile barf, because all the files from the file list are dependencies.<BR/><BR/>I can&#8217;t quite think of a good way to prevent this from happening again. <BR/><BR/>(*) This is one step where things could go wrong - if the clean target doesn&#8217;t delete everything, then the release will include files that should be generated.</div>
-</div>
-<div class='comment'>
-<div class='author'>jmathes</div>
-<div class='content'>
-by rapid iteration I mean continuous integration</div>
-</div>
-<div class='comment'>
-<div class='author'>jmathes</div>
-<div class='content'>
-We have the first problem on our website as well; forgetting to check in a .php file.<BR/><BR/>We don&#8217;t have an automated solution, but rapid iteration helps make it a non-issue.  Basically, we haven&#8217;t trained ourselves to ignore unversioned files, because we&#8217;re used to never having any.</div>
-</div>
-<div class='comment'>
-<div class='author'>Chad</div>
-<div class='content'>
-We delete .pycs and .pyos as a BuildBot step.</div>
-</div>
-<div class='comment'>
-<div class='author'>Andy Friesen</div>
-<div class='content'>
-I have had great success setting up an acceptance test suite that actually constructs an installer, installs the software, and starts the application.<BR/><BR/>We then test the application by prodding it from outside its process. (eg with Windows messages)</div>
-</div>
-<div class='comment'>
-<div class='author'>James Westby</div>
-<div class='content'>
-Hey Mike,<BR/><BR/>I&#8217;ve one suggestion that may be appropriate: build a package.<BR/><BR/>If you use &#8220;bzr-builddeb&#8221; then this could be as simple as running &#8220;bzr bd&#8221; every so often, installing the resulting deb, and testing the system version.<BR/><BR/>That would check various things, and would catch exactly the case you describe with not running &#8220;bzr add&#8221;<BR/>on the filename.<BR/><BR/>Thanks,<BR/><BR/>James</div>
-</div>
-<div class='comment'>
-<div class='author'>dsas</div>
-<div class='content'>
-patch queue manager should do all you require I think.</div>
-</div>
-<div class='comment'>
-<div class='author'>Jose M</div>
-<div class='content'>
-I think that in the books &#8220;Expert python programming&#8221; and &#8220;Foundations of Agile python development&#8221; cover this topic in depth.</div>
 </div>
 </div>
 ]]></content>

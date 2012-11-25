@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="Yes, I&#8217;m blogging from the toilet, but there&#8217;s no need for your mind to be in the gutter. I just moved in to a new apartment and haven&# &hellip;">
+  <meta name="description" content="If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,103 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/">Setting Up a Fingerprint Reader With ThinkFinger in Ubuntu 8.10</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-13T00:00:00-04:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo. Since the <a href="https://bugs.edge.launchpad.net/ubuntu/+source/thinkfinger/+bug/203973">manpage isn&#8217;t particularly helpful</a>, I&#8217;ll guide you through setting it up with the <a href="https://wiki.ubuntu.com/ThinkFinger">ThinkFinger</a> library, which is compatible with most popular readers installed in Lenovo/Thinkpads, Dells, and Toshibas.<br /><ol><li>Install the necessary libraries: <span style="font-weight: bold; font-style: italic;">sudo apt-get install thinkfinger-tools libpam-thinkfinger</span></li><li>Integrate thinkfinger with PAM (Pluggable Authentication Modules): <span style="font-weight: bold; font-style: italic;">sudo /usr/lib/pam-thinkfinger/pam-thinkfinger-enable</span></li><li>Now acquire your fingerprint: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;acquire</span>. If you get an error here (not a failed swipe, you just need to swipe better), running it with sudo might be necessary. If you still get an error that thinkfinger can&#8217;t interact with your reader, it probably isn&#8217;t supported, sorry! Otherwise, keep swiping your finger until you get two successful swipes.</li><li>Finally, make sure it worked: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and swipe your finger. Try this a few times, and if it doesn&#8217;t have a good success rate, do another acquire (the previous step), perhaps slower and more intentionally.</li></ol><br />Now you can log in by swiping your finger at the password prompt, and more usefully in my opinion, swipe your finger instead of entering the root password at terminal and graphical password prompts. This is one of those little things that, once you get used to it, is hard to ever live without. Check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 78px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5302516250799451362" border="0" /></a><br />By the way, while there may be valid security concerns with fingerprint readers, don&#8217;t listen to the critics who say you can just breathe on it to get a swipe. <a href="http://images.google.com/images?hl=en&amp;q=fingerprint%20scanner">2D fingerprint scanners</a> may work this way, but<a href="http://images.google.com/images?hl=en&amp;safe=off&amp;q=laptop+fingerprint+reader&amp;btnG=Search+Images"> laptop fingerprint readers</a> take a reading in both space and time. Try using <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and finding out for yourself; you can blow and breathe on your fingerprint reader all day without getting it to even recognize a scan, let alone a failed one.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+My Lenovo T61 is Running Ubuntu 10.4 and thanks to your instructions swiping is now working smoothly!  <br /><br />Thanks so much, Jose.</div>
+</div>
+<div class='comment'>
+<div class='author'>Fingerprint readers</div>
+<div class='content'>
+thanks for giving the steps in setting up the fingerprint readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chris</div>
+<div class='content'>
+Clear, concise and it works!  Many thanks.</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Anonmyous: the theme is Dust: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme<BR/><BR/>Ryan: yeah, Dell is doing a pretty slick job of properly supporting Ubuntu. As a result I am on an M1330 right now (though not with Ubuntu pre-installed, this was a refurb).<BR/><BR/>crashsystems, Aigarius: if someone has a copy of my fingerprint, then they basically have a copy of my password. It wouldn&#8217;t surprise me if that works. So does having a copy of your text password, which I could get much easier than a scan of your fingerprint, just by looking over your shoulder.<BR/><BR/>Dread Knight, that will take care of logging in via fingerprint, but won&#8217;t help for those times when you have to type in your password once logged in, such as terminal and graphical sudos including updates. This is really the main feature IMO.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dread Knight</div>
+<div class='content'>
+I just use the thing from BIOS that prompts me to swipe when i start tablet pc and i can also enter my password.<BR/>Works good in combination with auto-logic in my Kubuntu Jaunty :P</div>
+</div>
+<div class='comment'>
+<div class='author'>Aigarius</div>
+<div class='content'>
+Most of those systems are easily fooled with a black and white printout of your fingerprint. Could you try it and see if it works?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I tried on a HP DV6000 and all I got was &#8220;Initializing&#8230;USB device not found&#8221;<BR/><BR/>When I ran &#8220;lsusb&#8221; I saw:<BR/>Bus 005 Device 002: ID 08ff:2580 AuthenTec, Inc. AES2501 Fingerprint Sensor<BR/><BR/><BR/>I guess this &#8220;thinkFinger&#8221; program only works with &#8220;Thomson Microelectronics&#8221;. I hope someone will come up with a unified framework for these kinds of readers.</div>
+</div>
+<div class='comment'>
+<div class='author'>Mattias</div>
+<div class='content'>
+The fedora people have put some work to get fprint (a dbus based fingerprint reader integration) to work well with Gnome. They have made some about-me integration aso. So it might be worth looking at that also.</div>
+</div>
+<div class='comment'>
+<div class='author'>crashsystems</div>
+<div class='content'>
+While I don&#8217;t know about the whole breathing thing, the <A HREF="http://www.schneier.com/crypto-gram-0205.html#5" REL="nofollow">gelatin finger</A> trick should be sufficient to trick the sensor.<BR/><BR/>Of course, an attacker using such techniques is going to be more than just some random person who walks by your laptop and decided to mess with it. This means that they are after data on your laptop, and not having the fingerprint reader would not be a deterrent to them. Against such attacks, only good crypto can keep you safe, such as encrypted LVM or Jaunty&#8217;s upcoming encfs encrypted home feature.</div>
+</div>
+<div class='comment'>
+<div class='author'>ryan</div>
+<div class='content'>
+Dell&#8217;s Ubuntu installations pre-configure this option, at least they did on my M1530.<BR/><BR/>Very slick.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hey that theme looks great, what&#8217;s the name?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2009/02/12/typing-on-the-toilet/">Typing on the Toilet</a></h1>
     
     
@@ -99,7 +196,7 @@
   
 
 
-<time datetime="2009-02-12T00:00:00-05:00" pubdate data-updated="true">Feb 12<span>th</span>, 2009</time>
+<time datetime="2009-02-12T00:00:00-04:00" pubdate data-updated="true">Feb 12<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/12/typing-on-the-toilet/#disqus_thread">Comments</a>
         
@@ -171,7 +268,7 @@ If you&#8217;re talking about thinkfinger, there&#8217;s an open bug on launchpa
   
 
 
-<time datetime="2009-02-11T00:00:00-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+<time datetime="2009-02-11T00:00:00-04:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/11/failing-tests-when-are-they-okay/#disqus_thread">Comments</a>
         
@@ -238,7 +335,7 @@ Hey Rooney!  Since you asked for feedback, here&#8217;s my take:  it should neve
   
 
 
-<time datetime="2009-02-10T00:00:00-05:00" pubdate data-updated="true">Feb 10<span>th</span>, 2009</time>
+<time datetime="2009-02-10T00:00:00-04:00" pubdate data-updated="true">Feb 10<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/10/the-joy-of-trivial-wrappers-in-python/#disqus_thread">Comments</a>
         
@@ -305,7 +402,7 @@ I&#8217;ve made a Future class for myself that take a function, it&#8217;s argum
   
 
 
-<time datetime="2009-02-08T00:00:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2009</time>
+<time datetime="2009-02-08T00:00:00-04:00" pubdate data-updated="true">Feb 8<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/08/awn-dock-and-extras-0-3-2-released-o/#disqus_thread">Comments</a>
         
@@ -377,7 +474,7 @@ Very tempting to use this on my KDE4.2 desktop&#8230;</div>
   
 
 
-<time datetime="2009-02-07T00:00:00-05:00" pubdate data-updated="true">Feb 7<span>th</span>, 2009</time>
+<time datetime="2009-02-07T00:00:00-04:00" pubdate data-updated="true">Feb 7<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/07/installing-new-languages-and-running-applications-in-them/#disqus_thread">Comments</a>
         
@@ -439,7 +536,7 @@ Hi! I just remarked that your theme is very nice, can you tell where can i get i
   
 
 
-<time datetime="2009-02-06T00:00:00-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2009</time>
+<time datetime="2009-02-06T00:00:00-04:00" pubdate data-updated="true">Feb 6<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/06/how-windows-vista-digg-and-ubuntu-landed-me-a-sweet-job/#disqus_thread">Comments</a>
         
@@ -501,7 +598,7 @@ congrat on your new (sweet) job.Nice&#8230;<BR/><BR/>I never thought this combin
   
 
 
-<time datetime="2009-01-29T00:00:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
+<time datetime="2009-01-29T00:00:00-04:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/01/29/gnome-do-0-8-released-awesomeness-ensues/#disqus_thread">Comments</a>
         
@@ -573,7 +670,7 @@ Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the
   
 
 
-<time datetime="2008-12-19T00:00:00-05:00" pubdate data-updated="true">Dec 19<span>th</span>, 2008</time>
+<time datetime="2008-12-19T00:00:00-04:00" pubdate data-updated="true">Dec 19<span>th</span>, 2008</time>
         
          | <a href="/blog/2008/12/19/new-laptop-on-the-way-dell-xps-m1330/#disqus_thread">Comments</a>
         
@@ -635,7 +732,7 @@ Cool find! Thanks a lot!</div>
   
 
 
-<time datetime="2008-12-08T00:00:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2008</time>
+<time datetime="2008-12-08T00:00:00-04:00" pubdate data-updated="true">Dec 8<span>th</span>, 2008</time>
         
          | <a href="/blog/2008/12/08/uds-monday-run-down/#disqus_thread">Comments</a>
         
@@ -666,83 +763,6 @@ OMG!!!amazing goals set for jaunty. if ubuntu jaunty is able to cut the boot tim
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/11/18/wxbanker-0-4-released/">wxBanker 0.4 Released!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-11-18T00:00:00-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
-        
-         | <a href="/blog/2008/11/18/wxbanker-0-4-released/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Today I released a new version of wxBanker, which is a lightweight personal finance manager. It is basically a digital checkbook register for multiple accounts; think of GnuCash but easier and more lightweight. It is written in Python/wxPython and runs on Linux, OSX, and Windows. Check out my <a href="http://mrooney.blogspot.com/2008/10/wxbanker-03-released.html">previous post on wxBanker</a> for a slightly more in depth functionality overview and screen shots.<br /><br />The main focus of this new version was localization. It now ships with translations for 8 languages (4 of them basically complete, thanks translators!), and also supports displaying the amounts in currencies other than USD including EUR and GBP. It also sports a few of the typical bug fixes / usability improvements you would expect in a new release.<br /><br />Another feature new to 0.4 is a setup.py, which allows Linux users to install it easily by running &#8220;sudo python setup.py install&#8221; in the folder, and wxBanker will install itself including a shortcut in Applications -> Office in Gnome, and store your data in ~/.wxbanker. If you are upgrading from a previous release, I recommend moving your bank.db file to ~/.wxbanker/bank.db for the easiest transition, which will also future-proof you from needing to shuffle it around in the future!<br /><br />I also thought I&#8217;d highlight the launchpad integration I added awhile ago in 0.3, since I saw a recent planet post regarding Inkscape doing something similar. In the Help menu I&#8217;ve added convenient links to view and ask questions, and report bugs:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s1600-h/wxbanker-help.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 244px; height: 162px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/SSMHc1gcrUI/AAAAAAAAABU/jjuKFPoTNeg/s320/wxbanker-help.png" alt="" id="BLOGGER_PHOTO_ID_5270064180934520130" border="0" /></a><br />If you have been looking to start taking control of your finances, give wxBanker a try: <a href="https://launchpad.net/wxbanker/trunk/0.4">https://launchpad.net/wxbanker/trunk/0.4</a> (or &#8216;bzr co lp:wxbanker -r 86&#8217; for the seasoned). If you find problems or have ideas, please let me know via launchpad bugs/blueprints, blog comments, or email; if you know another language, help translate by following the Translations link on Launchpad! And remember, when you use wxBanker to count your pennies, the dollars will follow!</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>kiss</div>
-<div class='content'>
-This comment has been removed by a blog administrator.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-Hi again David! I tried to design wxBanker in such a way that a double-entry system is possible but not necessary. You can use it as such by creating all the appropriate accounts, and then each transaction would be a transfer between the appropriate accounts. However the total wouldn&#8217;t quite work out in an ideal way I don&#8217;t think, so some work might need to be done there. Currently I use a hybrid sort of accounting system where I have Accounts Receivable and Payable and make transfers to and from them as appropriate, with other basic purchases being single entry.<BR/><BR/>If you have any ideas for better integrating double entry, reports or invoices, please let me know! Feel free to throw up a basic spec at https://blueprints.launchpad.net/wxbanker<BR/><BR/>As far as patches go, just visit https://bugs.launchpad.net/wxbanker/+filebug and make a bug for the specific issue, attaching your patch to it. Then I&#8217;ll see it and review it and such. I look forward to seeing what you have!</div>
-</div>
-<div class='comment'>
-<div class='author'>David</div>
-<div class='content'>
-Well, I finally got around to taking a better look at wxBanker. It&#8217;s missing a few things that I would need:<BR/>1. Double entry<BR/>2. Invoicing<BR/>3. Billing<BR/><BR/>Will definitely get my Mrs. on to it though for our home finances.<BR/><BR/>What&#8217;s the best way of submitting patches?</div>
-</div>
-<div class='comment'>
-<div class='author'>Cristina</div>
-<div class='content'>
-This comment has been removed by a blog administrator.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-David, the scope of wxBanker is personal and small business finance, so it may work for you, although it doesn&#8217;t currently have any built in reporting (however the store is a sqlite3 db with the structure documented in model_sqlite.py so custom stuff should be fairly straightforward if you are into that). I&#8217;d love to implement reporting features, but don&#8217;t know exactly what that entails. If you or anyone else wants to outline the basic details in a blueprint at https://blueprints.launchpad.net/wxbanker, I&#8217;ll be happy to implement it!<BR/><BR/>Mean-Machine, let me know what you think and thanks for the translation!</div>
-</div>
-<div class='comment'>
-<div class='author'>Mean-Machine</div>
-<div class='content'>
-I&#8217;m giving it a go. Never got to like GNUCash. Also translating into polish.</div>
-</div>
-<div class='comment'>
-<div class='author'>David</div>
-<div class='content'>
-Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrible. But I&#8217;m using it more for business though, so I&#8217;m not sure wxBanker would be ideal for me&#8230;</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -760,6 +780,10 @@ Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrib
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/">Chocolate Series: My Favorite Commercial Bars</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/01/freelancing-a-6-month-retrospective/">Freelancing: A 6-Month Retrospective</a>
       </li>
     
@@ -773,10 +797,6 @@ Looks really nice. I&#8217;m using GNUCash atm, but reporting/printing is terrib
     
       <li class="post">
         <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="Some of my bloodpact blogging friends have written recipes, and I thought I would add one of my favorite and simplest recipes to the mix. Wraps are &hellip;">
+  <meta name="description" content="Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,88 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/">Ensuring That You Test What Your Users Use</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00-04:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+         | <a href="/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my checkout, but fail miserably for anyone else (because the application is broken). What was happening?<br /><br />1) I had a new file which is required to run, but I forget to &#8216;vcs add&#8217; it. Because the file existed in my sandbox, everything was well. But no one else was getting this file, so they couldn&#8217;t even run the application. This one is somewhat easy to detect because a &#8216;vcs st&#8217; should show that file as unknown status. In that way ensuring a clean status before running the tests can help avoid this. However this won&#8217;t work well in an automated fashion because there are often unversioned files, and you typically want to run the tests before committing anyway.<br /><br />2) A time or two I thought I had completely removed/renamed a dependency but forgot to clean up an import somewhere along the line. Even though the original .py file was gone, a .pyc file by the old name still existed, which allowed the lingering import to work. Again however, for anyone else getting a fresh checkout or release, this file would not be avaible and the app would be unusable.<br /><br />How can you avoid having problems like this? Well, from a myopic viewpoint you could have your test suite delete any .pyc files before running. Then to address the first issue, you could also test that a &#8216;vcs st&#8217; has no unknown files, and explicitly ignore any unversioned files you expect. But still, other things could creep up. And while having another machine as your &#8220;buildbot&#8221; would avoid the first issue, you are still prone to an attack from the second. To really make sure you are testing with the same stuff that you release, you need to be testing releases. In other words, you need to be putting your version through your shipping process, whatever that is, and then testing the final product.<br /><br />So now that I&#8217;ve realized this is what I should be doing, I&#8217;m not quite sure what the simplest and easiest way to do it in an automated fashion is. For python, perhaps this could be achieved by getting a fresh export/checkout of the code in a temporary directory, adding that directory to sys.path, and importing and running the tests. I am sure this is a common problem; is there a common solution?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Andy</div>
+<div class='content'>
+I had this problem the other day releasing some code at work. <BR/><BR/>The way I do a release is to run my release script, which reads in file lists scattered around the program, copies them to a new place, compiles them and runs all the tests. It then runs a make clean(*) and builds a tar ball. The file lists are used for generating the makefiles, so all the dependencies are explicitly listed.<BR/><BR/>To release, I untar it into another teams subversion repository, add it and commit. <BR/><BR/>It sounded pretty foolproof to me. So, I untarred it, ran &#8220;svn add&#8221;, then tried compiling it, testing it etc and everything worked. I checked &#8220;svn stat&#8221; to make sure I wasn&#8217;t going to commit anything by accident, and it all looked fine.<BR/><BR/>The next day, I had an email telling me that I broke the build :-). <BR/><BR/>It turned out that when I was creating the file list used for building the release, I accidentally included a backup file (&#8220;somefile.c~&#8221;) in the list. The tarball included the file (since the release script copies all the files listed), so when I untarred it into the svn repository, the file was put in there. But if you do an svn add, it will skip over such files. So when I committed, the backup file was missing, which then made the makefile barf, because all the files from the file list are dependencies.<BR/><BR/>I can&#8217;t quite think of a good way to prevent this from happening again. <BR/><BR/>(*) This is one step where things could go wrong - if the clean target doesn&#8217;t delete everything, then the release will include files that should be generated.</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+by rapid iteration I mean continuous integration</div>
+</div>
+<div class='comment'>
+<div class='author'>jmathes</div>
+<div class='content'>
+We have the first problem on our website as well; forgetting to check in a .php file.<BR/><BR/>We don&#8217;t have an automated solution, but rapid iteration helps make it a non-issue.  Basically, we haven&#8217;t trained ourselves to ignore unversioned files, because we&#8217;re used to never having any.</div>
+</div>
+<div class='comment'>
+<div class='author'>Chad</div>
+<div class='content'>
+We delete .pycs and .pyos as a BuildBot step.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andy Friesen</div>
+<div class='content'>
+I have had great success setting up an acceptance test suite that actually constructs an installer, installs the software, and starts the application.<BR/><BR/>We then test the application by prodding it from outside its process. (eg with Windows messages)</div>
+</div>
+<div class='comment'>
+<div class='author'>James Westby</div>
+<div class='content'>
+Hey Mike,<BR/><BR/>I&#8217;ve one suggestion that may be appropriate: build a package.<BR/><BR/>If you use &#8220;bzr-builddeb&#8221; then this could be as simple as running &#8220;bzr bd&#8221; every so often, installing the resulting deb, and testing the system version.<BR/><BR/>That would check various things, and would catch exactly the case you describe with not running &#8220;bzr add&#8221;<BR/>on the filename.<BR/><BR/>Thanks,<BR/><BR/>James</div>
+</div>
+<div class='comment'>
+<div class='author'>dsas</div>
+<div class='content'>
+patch queue manager should do all you require I think.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jose M</div>
+<div class='content'>
+I think that in the books &#8220;Expert python programming&#8221; and &#8220;Foundations of Agile python development&#8221; cover this topic in depth.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2009/02/21/delicious-cheap-and-easy-whole-wheat-wraps/">Delicious, Cheap, and Easy Whole Wheat Wraps!</a></h1>
     
     
@@ -99,7 +181,7 @@
   
 
 
-<time datetime="2009-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2009</time>
+<time datetime="2009-02-21T00:00:00-04:00" pubdate data-updated="true">Feb 21<span>st</span>, 2009</time>
         
          | <a href="/blog/2009/02/21/delicious-cheap-and-easy-whole-wheat-wraps/#disqus_thread">Comments</a>
         
@@ -156,7 +238,7 @@ http://en.wikipedia.org/wiki/Chapathi</div>
   
 
 
-<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+<time datetime="2009-02-20T00:00:00-04:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/20/finding-new-albums-by-your-favorite-bands/#disqus_thread">Comments</a>
         
@@ -208,7 +290,7 @@ Nice Idea!<BR/><BR/>For Information: There is already a service, which look to M
   
 
 
-<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+<time datetime="2009-02-20T00:00:00-04:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/20/eye-tracking-and-ui-framework-window-manager-integration/#disqus_thread">Comments</a>
         
@@ -270,7 +352,7 @@ I think this would be good for anonymous webcam. Follow eyes, cheekbones, nose, 
   
 
 
-<time datetime="2009-02-19T00:00:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
+<time datetime="2009-02-19T00:00:00-04:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/#disqus_thread">Comments</a>
         
@@ -309,7 +391,7 @@ Yesterday I <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to
   
 
 
-<time datetime="2009-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+<time datetime="2009-02-17T00:00:00-04:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/#disqus_thread">Comments</a>
         
@@ -396,7 +478,7 @@ Michael,<BR/><BR/>The &#8220;webhooks&#8221; concept that you mention sounds a l
   
 
 
-<time datetime="2009-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+<time datetime="2009-02-16T00:00:00-04:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/#disqus_thread">Comments</a>
         
@@ -468,7 +550,7 @@ Thanks for sharing! Because they can create money &#8216;out of thin air&#8217; 
   
 
 
-<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+<time datetime="2009-02-15T00:00:00-04:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/#disqus_thread">Comments</a>
         
@@ -535,7 +617,7 @@ Can you add that to Debian too? Please don&#8217;t leave Debian users out in the
   
 
 
-<time datetime="2009-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
+<time datetime="2009-02-14T00:00:00-04:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/#disqus_thread">Comments</a>
         
@@ -667,7 +749,7 @@ Please contribute this information to the WineHQ AppDB!</div>
   
 
 
-<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
+<time datetime="2009-02-13T00:00:00-04:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/13/when-it-s-good-to-be-bad/#disqus_thread">Comments</a>
         
@@ -684,103 +766,6 @@ Jonah <a href="http://www.egometry.com/egometry/i-feel-so-brokencyde/">wrote a p
 <div class='author'>TheGZeus</div>
 <div class='content'>
 Where do we fall?<BR/>http://myspace.com/satanistsinlove<BR/><BR/>Our first album is at least 10 times as bad as anything on there.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/">Setting Up a Fingerprint Reader With ThinkFinger in Ubuntu 8.10</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-13T00:00:00-05:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
-        
-         | <a href="/blog/2009/02/13/setting-up-a-fingerprint-reader-with-thinkfinger-in-ubuntu-8-10/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-If your laptop has a fingerprint reader installed in it, there&#8217;s a decent chance you can set it up very easily in Ubuntu to login and [gk]sudo. Since the <a href="https://bugs.edge.launchpad.net/ubuntu/+source/thinkfinger/+bug/203973">manpage isn&#8217;t particularly helpful</a>, I&#8217;ll guide you through setting it up with the <a href="https://wiki.ubuntu.com/ThinkFinger">ThinkFinger</a> library, which is compatible with most popular readers installed in Lenovo/Thinkpads, Dells, and Toshibas.<br /><ol><li>Install the necessary libraries: <span style="font-weight: bold; font-style: italic;">sudo apt-get install thinkfinger-tools libpam-thinkfinger</span></li><li>Integrate thinkfinger with PAM (Pluggable Authentication Modules): <span style="font-weight: bold; font-style: italic;">sudo /usr/lib/pam-thinkfinger/pam-thinkfinger-enable</span></li><li>Now acquire your fingerprint: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;acquire</span>. If you get an error here (not a failed swipe, you just need to swipe better), running it with sudo might be necessary. If you still get an error that thinkfinger can&#8217;t interact with your reader, it probably isn&#8217;t supported, sorry! Otherwise, keep swiping your finger until you get two successful swipes.</li><li>Finally, make sure it worked: run <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and swipe your finger. Try this a few times, and if it doesn&#8217;t have a good success rate, do another acquire (the previous step), perhaps slower and more intentionally.</li></ol><br />Now you can log in by swiping your finger at the password prompt, and more usefully in my opinion, swipe your finger instead of entering the root password at terminal and graphical password prompts. This is one of those little things that, once you get used to it, is hard to ever live without. Check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s1600-h/Screenshot.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 78px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZZSb6ijLOI/AAAAAAAAACs/nDHhiU-9q6s/s320/Screenshot.png" alt="" id="BLOGGER_PHOTO_ID_5302516250799451362" border="0" /></a><br />By the way, while there may be valid security concerns with fingerprint readers, don&#8217;t listen to the critics who say you can just breathe on it to get a swipe. <a href="http://images.google.com/images?hl=en&amp;q=fingerprint%20scanner">2D fingerprint scanners</a> may work this way, but<a href="http://images.google.com/images?hl=en&amp;safe=off&amp;q=laptop+fingerprint+reader&amp;btnG=Search+Images"> laptop fingerprint readers</a> take a reading in both space and time. Try using <span style="font-weight: bold; font-style: italic;">tf-tool &#8211;verify</span> and finding out for yourself; you can blow and breathe on your fingerprint reader all day without getting it to even recognize a scan, let alone a failed one.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-My Lenovo T61 is Running Ubuntu 10.4 and thanks to your instructions swiping is now working smoothly!  <br /><br />Thanks so much, Jose.</div>
-</div>
-<div class='comment'>
-<div class='author'>Fingerprint readers</div>
-<div class='content'>
-thanks for giving the steps in setting up the fingerprint readers.</div>
-</div>
-<div class='comment'>
-<div class='author'>Chris</div>
-<div class='content'>
-Clear, concise and it works!  Many thanks.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-Anonmyous: the theme is Dust: https://wiki.ubuntu.com/Artwork/Incoming/DustTheme<BR/><BR/>Ryan: yeah, Dell is doing a pretty slick job of properly supporting Ubuntu. As a result I am on an M1330 right now (though not with Ubuntu pre-installed, this was a refurb).<BR/><BR/>crashsystems, Aigarius: if someone has a copy of my fingerprint, then they basically have a copy of my password. It wouldn&#8217;t surprise me if that works. So does having a copy of your text password, which I could get much easier than a scan of your fingerprint, just by looking over your shoulder.<BR/><BR/>Dread Knight, that will take care of logging in via fingerprint, but won&#8217;t help for those times when you have to type in your password once logged in, such as terminal and graphical sudos including updates. This is really the main feature IMO.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dread Knight</div>
-<div class='content'>
-I just use the thing from BIOS that prompts me to swipe when i start tablet pc and i can also enter my password.<BR/>Works good in combination with auto-logic in my Kubuntu Jaunty :P</div>
-</div>
-<div class='comment'>
-<div class='author'>Aigarius</div>
-<div class='content'>
-Most of those systems are easily fooled with a black and white printout of your fingerprint. Could you try it and see if it works?</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-I tried on a HP DV6000 and all I got was &#8220;Initializing&#8230;USB device not found&#8221;<BR/><BR/>When I ran &#8220;lsusb&#8221; I saw:<BR/>Bus 005 Device 002: ID 08ff:2580 AuthenTec, Inc. AES2501 Fingerprint Sensor<BR/><BR/><BR/>I guess this &#8220;thinkFinger&#8221; program only works with &#8220;Thomson Microelectronics&#8221;. I hope someone will come up with a unified framework for these kinds of readers.</div>
-</div>
-<div class='comment'>
-<div class='author'>Mattias</div>
-<div class='content'>
-The fedora people have put some work to get fprint (a dbus based fingerprint reader integration) to work well with Gnome. They have made some about-me integration aso. So it might be worth looking at that also.</div>
-</div>
-<div class='comment'>
-<div class='author'>crashsystems</div>
-<div class='content'>
-While I don&#8217;t know about the whole breathing thing, the <A HREF="http://www.schneier.com/crypto-gram-0205.html#5" REL="nofollow">gelatin finger</A> trick should be sufficient to trick the sensor.<BR/><BR/>Of course, an attacker using such techniques is going to be more than just some random person who walks by your laptop and decided to mess with it. This means that they are after data on your laptop, and not having the fingerprint reader would not be a deterrent to them. Against such attacks, only good crypto can keep you safe, such as encrypted LVM or Jaunty&#8217;s upcoming encfs encrypted home feature.</div>
-</div>
-<div class='comment'>
-<div class='author'>ryan</div>
-<div class='content'>
-Dell&#8217;s Ubuntu installations pre-configure this option, at least they did on my M1530.<BR/><BR/>Very slick.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Hey that theme looks great, what&#8217;s the name?</div>
 </div>
 </div>
 </div>
@@ -807,6 +792,10 @@ Hey that theme looks great, what&#8217;s the name?</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/">Chocolate Series: My Favorite Commercial Bars</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/01/freelancing-a-6-month-retrospective/">Freelancing: A 6-Month Retrospective</a>
       </li>
     
@@ -820,10 +809,6 @@ Hey that theme looks great, what&#8217;s the name?</div>
     
       <li class="post">
         <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/04/26/is-intel-the-answer-to-broadcom-wireless-problems/">Is Intel the answer to Broadcom wireless problems?</a>
       </li>
     
   </ul>
