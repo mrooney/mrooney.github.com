@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="Recently I&#8217;ve come across two pitfalls when testing one of my python applications. In two different cases the tests will run fine in my &hellip;">
+  <meta name="description" content="This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,63 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/">Using the &#8220;Finally&#8221; Block in Python to Write Robust Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-25T00:00:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers) and get the results. If that doesn&#8217;t concern you, this post is probably still relevant; I&#8217;d just like to cover the groundwork of making code that is stable and repeatable even in the face of [un]expected problems. Luckily for us, python has a wonderful &#8220;finally&#8221; block which can be used to properly clean up or &#8220;finish&#8221; regardless of Bad Things. Let&#8217;s look at an example of a common problem this can solve:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">doStuff()</span><br /><span style="font-family:courier new;">releaseLock()</span></blockquote><br /><br />We need exclusive access to a resource, so we get a lock. We do some stuff, and then release the lock. The problem is that if doStuff raises an exception, the lock never gets released, and your application can be in a broken state. You want to release the lock no matter what. So what you should do is:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">try:</span><br /><span style="font-family:courier new;">    </span><span style="font-family:courier new;"></span><span style="font-family:courier new;">&nbsp;&nbsp;doStuff()</span><br /><span style="font-family:courier new;">finally:</span><br /><span style="font-family:courier new;">&nbsp;&nbsp;releaseLock()</span></blockquote><br /><br />Now save a SIGKILL, the lock is going to be released. This is pretty basic, but it is impressive how robust the finally block is. You can &#8220;return&#8221; in the try block or even &#8220;sys.exit()&#8221; and the code in the finally block will still be executed.<br /><br />I recently used this with XMLRPC to safely tell the remote machine to clean up if the local script ran into problems or even got a SIGTERM from a keyboard interrupt. Here&#8217;s a more elaborate example:<br /><br /><blockquote style="font-family: courier new;">proxy = xmlrpclib.ServerProxy(remoteIP)<br />try:<br />&nbsp;&nbsp;result = proxy.RunTests()<br />&nbsp;&nbsp;if result is None:<br />&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br />&nbsp;&nbsp;else:<br />&nbsp;&nbsp;&nbsp;&nbsp;return result<br />except:<br />&nbsp;&nbsp;sys.exit(2)<br />finally:<br />&nbsp;&nbsp;proxy.CloseFirefox()</blockquote><br /><br />The remote machine (&#8220;proxy&#8221;) is running some tests in firefox. While it does this it sets a lock so no one else can run the same tests. If something goes wrong, this lock needs to be reset and firefox needs to be closed so they can run again later. If it gets a result, return it. If it doesn&#8217;t or something goes wrong, we still clean up but now we can exit with an error code. One of the neatest things about this for me was Ctrl+C&#8217;ing the script on my computer and watching the remote machine cleanly quit firefox and release the lock for another process to use.<br /><br />This is great whenever you need to put something in a temporary state, or change the state after an operation no matter what happens. Think of locks, temporary files, memory usage, or open connections where it is important to close them. Conversely however, make sure you DON&#8217;T use an approach like when it isn&#8217;t appropriate.<br /><blockquote><br /><span style="font-family: courier new;">for client in clientsToPing[:]:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;try:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;ping(client)</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;finally:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;clientsToPing.remove(client</span>)</blockquote><br /><br />This is potentially incorrect behavior, because if you failed to ping your client you may want to keep it on the list to try again next time. However, you also may only want to attempt this once and then the above approach would be correct!<br /><br />In my next post I am going to turn more specifically to remote browser testing and explain how exactly to set up both ends of the connection. After that I&#8217;ll finish by making a post on using twisted + SSL to retrieve posted results over HTTPS.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>imnobukowski</div>
+<div class='content'>
+Unfortunately, there are quite a few exceptions that can happen *between* bytecodes. The most commonly encountered is KeyboardInterrupt but there are others. That means this code:<BR/><BR/>f = open(&#8216;blah.txt&#8217;, &#8216;w&#8217;)<BR/>try:<BR/>  &#8230;<BR/>finally:<BR/>  f.close()<BR/><BR/>doesn&#8217;t always close the file. You could have an exception between open and the start of your try&#8230;finally block! Yay python.</div>
+</div>
+<div class='comment'>
+<div class='author'>Marius Gedminas</div>
+<div class='content'>
+If you like try&#8230;finally, you&#8217;re going to love <A HREF="http://www.python.org/dev/peps/pep-0343/" REL="nofollow">the &#8216;with&#8217; statement</A>.<BR/><BR/>I do.</div>
+</div>
+<div class='comment'>
+<div class='author'>Dennis K.</div>
+<div class='content'>
+Look at python 2.5&#8217;s context managers and the with statement. These are a more elegant way of solving this very problem without littering your code with finally: statements.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/">Ensuring That You Test What Your Users Use</a></h1>
     
     
@@ -99,7 +156,7 @@
   
 
 
-<time datetime="2009-02-23T00:00:00-04:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+<time datetime="2009-02-23T00:00:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
         
          | <a href="/blog/2009/02/23/ensuring-that-you-test-what-your-users-use/#disqus_thread">Comments</a>
         
@@ -181,7 +238,7 @@ I think that in the books &#8220;Expert python programming&#8221; and &#8220;Fou
   
 
 
-<time datetime="2009-02-21T00:00:00-04:00" pubdate data-updated="true">Feb 21<span>st</span>, 2009</time>
+<time datetime="2009-02-21T00:00:00-05:00" pubdate data-updated="true">Feb 21<span>st</span>, 2009</time>
         
          | <a href="/blog/2009/02/21/delicious-cheap-and-easy-whole-wheat-wraps/#disqus_thread">Comments</a>
         
@@ -238,7 +295,7 @@ http://en.wikipedia.org/wiki/Chapathi</div>
   
 
 
-<time datetime="2009-02-20T00:00:00-04:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/20/finding-new-albums-by-your-favorite-bands/#disqus_thread">Comments</a>
         
@@ -290,7 +347,7 @@ Nice Idea!<BR/><BR/>For Information: There is already a service, which look to M
   
 
 
-<time datetime="2009-02-20T00:00:00-04:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
+<time datetime="2009-02-20T00:00:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/20/eye-tracking-and-ui-framework-window-manager-integration/#disqus_thread">Comments</a>
         
@@ -352,7 +409,7 @@ I think this would be good for anonymous webcam. Follow eyes, cheekbones, nose, 
   
 
 
-<time datetime="2009-02-19T00:00:00-04:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
+<time datetime="2009-02-19T00:00:00-05:00" pubdate data-updated="true">Feb 19<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/19/webhooks-and-feeds-as-complementary-technologies-or-how-webhooks-can-enable-a-collective-intelligence/#disqus_thread">Comments</a>
         
@@ -391,7 +448,7 @@ Yesterday I <a href="http://mrooney.blogspot.com/2009/02/are-feeds-pre-cursor-to
   
 
 
-<time datetime="2009-02-17T00:00:00-04:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+<time datetime="2009-02-17T00:00:00-05:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/17/are-feeds-the-pre-cursor-to-webhooks/#disqus_thread">Comments</a>
         
@@ -478,7 +535,7 @@ Michael,<BR/><BR/>The &#8220;webhooks&#8221; concept that you mention sounds a l
   
 
 
-<time datetime="2009-02-16T00:00:00-04:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+<time datetime="2009-02-16T00:00:00-05:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/16/cracking-on-screen-keyboards-with-visual-keyloggers/#disqus_thread">Comments</a>
         
@@ -550,7 +607,7 @@ Thanks for sharing! Because they can create money &#8216;out of thin air&#8217; 
   
 
 
-<time datetime="2009-02-15T00:00:00-04:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/#disqus_thread">Comments</a>
         
@@ -617,7 +674,7 @@ Can you add that to Debian too? Please don&#8217;t leave Debian users out in the
   
 
 
-<time datetime="2009-02-14T00:00:00-04:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
+<time datetime="2009-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
         
          | <a href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/#disqus_thread">Comments</a>
         
@@ -728,53 +785,6 @@ Please contribute this information to the WineHQ AppDB!</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/02/13/when-it-s-good-to-be-bad/">When It&#8217;s Good to Be Bad</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-13T00:00:00-04:00" pubdate data-updated="true">Feb 13<span>th</span>, 2009</time>
-        
-         | <a href="/blog/2009/02/13/when-it-s-good-to-be-bad/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Jonah <a href="http://www.egometry.com/egometry/i-feel-so-brokencyde/">wrote a post</a> about how awful the band <a href="http://www.youtube.com/watch?v=-TH5ibABP4U">Brokencyde</a> is, and I mostly agree with the points mentioned. However I would also like to propose that if you aren&#8217;t particularly talented, it is more profitable to be epically bad than it is to be just moderately bad or even mediocre. I also think it is more entertaining and useful to society as a whole, thus being the utilitarian venture to embark upon if you aren&#8217;t traditionally talented. So let&#8217;s begin my defense.<br /><br />I suspect the magnitude of profitability can perhaps be simplified as the multiplication of two factors: the number of people exposed to your product and the probability that a random person would purchase your product if exposed to it. In this model, a very ubiquitous band that people love is the biggest winner; lots of people are exposed to the product and a good percentage buy it. Mediocre bands do alright but not nearly as well. The percentage of people willing to purchase is on the same order, perhaps half as much or so, but the exposure is WAY less. The market is saturated with mediocre to decent bands and no one has time to find or listen to them all. As a result, these bands aren&#8217;t nearly as ubiquitous, leading to sales and thus profits which are orders of magnitude less. As you get worse and worse, your market is more and more saturated, you are less and less interesting, and profits continue to drop, in a roughly linear to inversely square fashion. But it doesn&#8217;t approach zero; once you cross a certain threshold of awfulness something magical happens:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZX0Fo7N2kI/AAAAAAAAACk/HxfOZlcXvvg/s1600-h/128787257947503645.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 317px; height: 320px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZX0Fo7N2kI/AAAAAAAAACk/HxfOZlcXvvg/s320/128787257947503645.png" alt="" id="BLOGGER_PHOTO_ID_5302412514020940354" border="0" /></a><br /><br />You become interesting again! The market actually becomes LESS saturated as it becomes challenging to be worse than that threshold. You have become so awful that you are fascinating and captivating, entertaining and hilarious! Sure, the chance that a random person buys your product has now dropped by an order of magnitude or two, but your exposure increased by many more. You aren&#8217;t quite playing with the big dogs, but you can sell leaps and bounds more than the average guy. All for being notably worse than most other bands.<br /><br />So clearly it can make sense selfishly and financially to be a Brokencyde or a Williang Hung, but are you harming society in the process? I don&#8217;t think so. Surely a few people will legitimately be offended and wish such bands didn&#8217;t exist, but I think the majority of us are at least entertained by their existence which makes us laugh or smile, have an interesting discussion with friends, or at least have a great gag gift (another unique sales niche these bands get in on). As a result, individual Brokencyde&#8217;s of the world increase the overall happiness of society more than an individual &#8220;average&#8221; band. Sure they&#8217;re bad, but would we (or they) want it any other way?</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>TheGZeus</div>
-<div class='content'>
-Where do we fall?<BR/>http://myspace.com/satanistsinlove<BR/><BR/>Our first album is at least 10 times as bad as anything on there.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -792,6 +802,10 @@ Where do we fall?<BR/>http://myspace.com/satanistsinlove<BR/><BR/>Our first albu
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/12/01/tax-deductions-for-the-self-employed/">Tax Deductions for the Self-Employed</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/">Chocolate Series: My Favorite Commercial Bars</a>
       </li>
     
@@ -805,10 +819,6 @@ Where do we fall?<BR/>http://myspace.com/satanistsinlove<BR/><BR/>Our first albu
     
       <li class="post">
         <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
       </li>
     
   </ul>

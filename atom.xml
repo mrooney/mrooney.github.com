@@ -4,7 +4,7 @@
   <title><![CDATA[Mike Rooney]]></title>
   <link href="http://mrooney.github.com/atom.xml" rel="self"/>
   <link href="http://mrooney.github.com/"/>
-  <updated>2012-11-25T19:46:06-04:00</updated>
+  <updated>2012-12-01T18:37:19-05:00</updated>
   <id>http://mrooney.github.com/</id>
   <author>
     <name><![CDATA[Mike Rooney]]></name>
@@ -14,9 +14,125 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Tax Deductions for the Self-Employed]]></title>
+    <link href="http://mrooney.github.com/blog/2012/12/01/tax-deductions-for-the-self-employed/"/>
+    <updated>2012-12-01T18:21:00-05:00</updated>
+    <id>http://mrooney.github.com/blog/2012/12/01/tax-deductions-for-the-self-employed</id>
+    <content type="html"><![CDATA[<p>Since becoming self-employed at the beginning of 2012, I&#8217;ve been doing a
+fair amount of research into the tax deductions I&#8217;m able to take. While
+taxes aren&#8217;t intrinsically exciting, the money they save generally is;
+see below for how they can add up to a million dollars for
+retirement.
+For those not self-employed, I&#8217;m sorry that this post is totally useless
+to you :)</p>
+
+<p>One caveat before I start: I&#8217;m not an accountant and
+hardly an expert, so don&#8217;t take my word for it, especially since this
+will be my first year filing as self-employed. These deductions should apply to most business structures including Sole
+Proprietorships and S Corporations, though C Corporations get more
+complicated.</p>
+
+<p>I&#8217;m going to do a really shallow overview here, as this is all covered
+in great detail in the book &#8220;Deduct It! Lower Your Small Business Taxes&#8221;. If you are
+interested in learning more or taking any of the following deductions,
+the appropriate chapter in &#8220;Deduct It!&#8221; has everything you need to know.</p>
+
+<h2>Tax Deductions are (Probably) Worth More Than You Think</h2>
+
+<p>Before doing research, I was previously only thinking about tax
+deductions as being worth 20-30% of the deducted amount, as that was the
+percentage of my salaried income that went to taxes before. However, a
+deduction is likely worth 40-50% (the higher end in places with a local
+income tax like SF and NYC) because:</p>
+
+<ul>
+<li>the deduction comes off the top of your income, meaning it saves you
+money at your <strong>marginal</strong> federal, state, and local brackets.</li>
+<li>being self-employed, you no longer have an employer covering half
+your medicare and social security taxes, so that&#8217;s another 6-7% that
+doesn&#8217;t get taken from what you deduct.</li>
+</ul>
+
+
+<p>Also, let&#8217;s not forget the &#8220;time value of money&#8221;: if you are able to
+   use deductions to end up with $5,000 extra dollars in your pocket
+   each year (roughly what I&#8217;m expecting) from age 25 until 65, and invest that at 7% in something like a Roth IRA, you&#8217;ll end up with a cool tax-free million dollars (that&#8217;s $1,000,000) by age 65.</p>
+
+<p>So if that has your attention, I&#8217;ll go over some of the top deductions I
+plan on taking for the 2012 tax year.</p>
+
+<h2>Home Office Deduction</h2>
+
+<p>This is perhaps one of the most powerful, but also most complex and controversial deductions, so
+I&#8217;ll grossly oversimplify it: if you work from home and
+can dedicate a portion of your home solely to a home office, you can
+deduct a percentage of your rent. For example, if you use 25% of your
+apartment for your home office, you can deduct 25% of your rent. This is
+definitely my biggest deduction, living in NYC.</p>
+
+<p>You can also apply this percentage to utilities, renter&#8217;s insurance,
+cleaning services, and
+other things that benefit both the home and home office. For things that
+benefit just the home office (paying someone to clean just the office,
+repairs to just the office, and such, are 100% deductible).</p>
+
+<h2>Health Insurance Premiums</h2>
+
+<p>Health insurance premiums are 100% deductible, though not (in practice) as
+a business expense. This is instead a special type of <em>personal</em> deduction which doesn&#8217;t
+require itemizing, but also isn&#8217;t a deduction for self-employment tax
+purposes. If you file correctly, you should be able to avoid paying any
+federal/state/local income taxes on your premiums.</p>
+
+<p>You can also look at setting up a medical expense reimbursement plan,
+which just requires a document kept on-record, and will allow the
+company to reimburse you for a very wide range of costs you&#8217;ll incur,
+deducting them as expenses.</p>
+
+<h2>Office Supplies &amp; Equipment</h2>
+
+<p>Any office supplies and equipment are generally fully deductible, and
+often
+without requiring depreciation over time thanks to Section 179. This
+means if you purchase a desk, monitor, and laptop solely for your
+home office, you can deduct the full costs of these as a business
+expense. This also applies to smaller things such as stationary,
+postage, et cetera. As consumers used to paying for things post-tax, it
+is quite profound to be able to pay for electronics pre-tax, and
+effectively pay 40-50% less for them.</p>
+
+<p>Don&#8217;t forget to deduct the cost of things like web hosting as well!</p>
+
+<h2>Independent Contractors &amp; Services</h2>
+
+<p>You should also deduct the cost of any sub-contractors
+you might hire, or lawyers and accountants you hire to help you with
+your business, including tax preparation. This also includes the cost
+of any accounting / bookkeeping software, as well as SASS such as
+Freshbooks.com.</p>
+
+<h2>Start-Up Costs</h2>
+
+<p>Generally, costs you incur to bootstrap your business are deductible,
+though it
+gets more complicated if they exceed $5,000. This would include any
+incorporation costs (including the CA ~$800 fee), costs of using
+something like legalzoom.com, and accounting / consulting services used.</p>
+
+<p>Okay, that&#8217;s essentially a whirlwind tour of some the most useful deductions I
+plan on taking! While I don&#8217;t need a vehicle here in NYC, if you have a car or travel to meet clients or perform
+work tasks, you should also definitely look into car and travel
+deductions, as those can be huge as well.</p>
+
+<p>Certainly let me know if I have any misunderstandings,
+or if I&#8217;ve missed anything important.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Chocolate Series: My Favorite Commercial Bars]]></title>
     <link href="http://mrooney.github.com/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/"/>
-    <updated>2012-11-24T11:37:00-04:00</updated>
+    <updated>2012-11-24T11:37:00-05:00</updated>
     <id>http://mrooney.github.com/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars</id>
     <content type="html"><![CDATA[<p>As part of the Blogpact, I thought it would be fun to do a short series
 on chocolate making. But first, I wanted to cover my favorite existing
@@ -403,7 +519,7 @@ about the IPs involved.</p>
   <entry>
     <title type="html"><![CDATA[Diving into EC2 and Auto Scaling]]></title>
     <link href="http://mrooney.github.com/blog/2010/12/21/diving-into-ec2-and-auto-scaling/"/>
-    <updated>2010-12-21T00:00:00-04:00</updated>
+    <updated>2010-12-21T00:00:00-05:00</updated>
     <id>http://mrooney.github.com/blog/2010/12/21/diving-into-ec2-and-auto-scaling</id>
     <content type="html"><![CDATA[<div class='post'>
 I&#8217;m rather new to EC2 (and as a result its CloudWatch / Auto Scaling features), so I figured I&#8217;d post about my current thoughts and see if anyone can tell me if I&#8217;m on the right track! I&#8217;m writing everything up as I go, so hopefully it will make a solid blog post for others in the future for going from zero to EC2 + Auto Scaling.<br /><br />Based on my initial research, it looks like the stack will be comprised of:<br /><ul><li>64-bit Maverick AMIs on micro instances, from <a href="http://uec-images.ubuntu.com/releases/10.10/release/">http://uec-images.ubuntu.com/releases/10.10/release/</a></li><li>Puppet for bootstrapping new instances and maintaining existing ones (via the series at <a href="http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/">http://ubuntumathiaz.wordpress.com/2010/03/24/using-puppet-in-uecec2-puppet-support-in-ubuntu-images/</a>)</li><li>Amazon&#8217;s CloudWatch + Auto Scaling for spinning up/down instances of puppet roles as necessary</li></ul><div>Any yays or nays on this stack? One particular curiosity I had is if Mathiaz&#8217;s guides would be simpler in Maverick, since they were written for Lucid and it seems like each release brings improvements for both EC2/UEC and Puppet. I&#8217;ll also have to figure out how to put some of the roles behind a load balancer, but that&#8217;s for later.</div><div><br /></div><div>Thanks for any suggestions! Once I&#8217;ve got it all figured out I&#8217;ll put up a somewhat comprehensive guide, unless one already exists that I&#8217;ve missed.</div></div>
@@ -486,7 +602,7 @@ I have had nothing but trouble with Broadcom cards - even when they work it seem
   <entry>
     <title type="html"><![CDATA[Why I Switched from Ubuntu One back to Dropbox]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox/"/>
-    <updated>2010-02-22T00:00:00-04:00</updated>
+    <updated>2010-02-22T00:00:00-05:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/22/why-i-switched-from-ubuntu-one-back-to-dropbox</id>
     <content type="html"><![CDATA[<div class='post'>
 As many of you surely know, Dropbox and Ubuntu One are applications to keep files on your desktop in sync across multiple computers, and backed up in the cloud. After using Dropbox for a year or so on Ubuntu, the Ubuntu One project came out and I thought I&#8217;d move over to it. I assumed it would be easier to set up, being pre-installed, and could integrate better with the file manager and other applications, being made specifically for Ubuntu.<br /><br />After about 6 months of using Ubuntu One, I found it to be too much of a regression compared to Dropbox and switched back. I thought I&#8217;d detail why here for the usefulness of others and to hopefully provide some constructive criticism to the Ubuntu One team which overall is doing good work. So here&#8217;s why I went back to Dropbox:<br /><br /><b>Better Nautilus integration</b><br />The nautilus (file manager) integration in Dropbox feels very mature and polished. Normally I&#8217;d say this is to be expected since Ubuntu One is much younger, but since the nautilus aspect of Dropbox is open-source, there didn&#8217;t seem to be much of an excuse for the Ubuntu One team to not use it as a starting point or at least as inspiration. Whenever I added files to my Ubuntu One folder, no matter how large or how many, they instantly had the checkbox emblem which implies to me they are in sync, even though they couldn&#8217;t possibly be uploaded that quickly. In Dropbox, the files show an animated progress emblem until they are actually uploaded, and show this again when they are being updated. I wasn&#8217;t able to trust the status of files with Ubuntu One, and that wasn&#8217;t a good feeling.<br /><br />Sharing files in Dropbox is also a lot easier via Nautilus, but that deserves it&#8217;s own point.<br /><br /><b>Easier file sharing</b><br />In my typical use cases of file sharing, I want to go from having a file in mind to someone else seeing that file as quickly as possible, be it in an instant message, chatroom (IRC/Jabber), or email to a friend or two. Dropbox makes this a breeze; drag a file into the &#8220;Public&#8221; folder in your Dropbox directory, and right-click on it and select &#8220;Dropbox > Copy Public Link&#8221;. Now you have a publicly accessible link to your file in your clipboard!<br /><br />I never quite figured out how to do this in Ubuntu One; it seems you have to share files with specific people who also are running Ubuntu One (which really compounds the non-cross-platform issue) via the web interface by typing in an email address. This is a cool idea, but seems way over-engineered as a starting point. This was even brought up at the last UDS in an Ubuntu One session but was brushed off; they sadly seemed more interested in engineering complex sharing UIs than getting feedback to ensure they were solving actual problems.<br /><br /><b>Sane notifications</b><br />I think <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/462747">bug 462747</a> is what ultimately drove me to drop Ubuntu One. It notifies you not once but twice for every file you change; once to tell you it is syncing the file and another to tell you it is done. Regarding the first notification, I probably already know that I changed that file; regarding the second, if I&#8217;m really curious about the status of the synchronization, a quick glance at the applet should tell me what I need to know. This was mildly annoying as is, but it does this for hidden files like vim swap files too. Every time I would open or save a file in vim (and I save early and often), I got two notifications about syncing the hidden swap file!<br /><br />Dropbox was much more sane regarding notifications; whenever I would turn on or sit down at a computer, it would show <b>one</b> notification telling me how many files it synced from other machines or, if there was just one changed file, the name of it. Beautiful!<br /><br /><b>Better web UI</b><br />The web user interface for Dropbox felt a lot easier to use, and I often had problems where the Ubuntu One web view would show deleted files or not show files I knew were there that were added days ago. Sometimes I had to collapse and expand a folder a time or two to get it to show the right contents. This led to a similar problem that I mentioned with the nautilus integration; it wasn&#8217;t a UI I could trust to be accurate as was therefore essentially useless. The Dropbox UI was always accurate, and had some nice extras which could prove to be lifesavers like getting past versions of files.<br /><br />I also experienced some other issues including <a href="https://bugs.launchpad.net/ubuntuone-client/+bug/498444">bug 498444</a> which caused Ubuntu One applet to start up with the exclamation icon, giving the impression of not syncing files. If I wanted to edit or view a file that might have changed remotely, I had to manually tell the applet to try syncing again after startup to make sure the file was latest version (or else I could silently end up with .u1conflict file, but that&#8217;s another issue). Additionally, although the transparency is praiseworthy, <a href="http://twitter.com/UbuntuOne/status/9498991639">all</a> <a href="http://twitter.com/UbuntuOne/status/9331800792">these</a> <a href="http://twitter.com/UbuntuOne/status/9292086471">tweets</a> <a href="http://twitter.com/UbuntuOne/status/9020860066">about</a> <a href="http://twitter.com/UbuntuOne/status/8963442390">recent</a> <a href="http://twitter.com/UbuntuOne/status/7755587471">issues</a> or <a href="http://twitter.com/UbuntuOne/status/8870678995">downtime</a> do not inspire confidence.<br /><br /><b>That being said</b><br />Ubuntu One does have a few things going for it, however. It is installed by default which means it is the easiest cloud sync/backup solution to get started with for an Ubuntu user. And thanks to CouchDB and a package manager, Ubuntu can ship applications that make it trivial to sync their data with Ubuntu One out of the box. If I can tell all the applications I care about to sync with Ubuntu One (bookmarks, notes, podcasts, basic OS settings/appearance) from one configuration UI, that&#8217;s going to be pretty compelling.<br /><br />While I currently can&#8217;t in good conscience recommend Ubuntu One to a friend (and plenty of my friends don&#8217;t even use Ubuntu), I do have high hopes for the project; it is young and if they can work out some of the above issues, many of them being personal show-stoppers, while providing application and OS integration, Ubuntu One (and perhaps Ubuntu itself) could become too compelling to not use for many people. For now however, Dropbox is the solution which stays out of my way, allows me to solve my problems, and just works.<br /><br />If you are using Ubuntu One or Dropbox, certainly chime in on what the critical features are for you and why you chose one over the other!</div>
@@ -589,7 +705,7 @@ So you hate freedom now? ;)</div>
   <entry>
     <title type="html"><![CDATA[wxBanker 0.7: simple personal finance]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/07/wxbanker-0-7-simple-personal-finance/"/>
-    <updated>2010-02-07T00:00:00-04:00</updated>
+    <updated>2010-02-07T00:00:00-05:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/07/wxbanker-0-7-simple-personal-finance</id>
     <content type="html"><![CDATA[<div class='post'>
 Your favorite personal finance application, <a href="https://launchpad.net/wxbanker">wxBanker</a>, has turned 0.7!<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s1600-h/wxBanker-0.7a.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S29A7hvLBVI/AAAAAAAAAbg/d0PZdNtqyqI/s400/wxBanker-0.7a.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435634666672162130" /></a><br /><br />This release comes about 2 months after the previous release, and focuses on usability and user experience issues that I obtained from watching people use wxBanker as well as from Launchpad bugs (thanks <a href="https://bugs.launchpad.net/wxbanker/+bug/496878">Arty</a>!). Let&#8217;s take a look at some of the changes, starting with the account control:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s1600-h/wxbanker-6-7-accountctrl.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 129px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/S28ugG2hSQI/AAAAAAAAAbQ/iIskUB1WYi0/s400/wxbanker-6-7-accountctrl.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435614404389456130" /></a><br /><br />On the right we have the new account chooser in 0.7. The main change is using radio buttons for the accounts instead of links. This is a much better, already understood method for choosing accounts, and will also fit in with themes better. The last item is now &#8220;All accounts&#8221; and is selectable, making it easy to get a view of all your transactions and search in them.<br /><br />The &#8220;Hide zero-balance accounts&#8221; option has moved to the View menu, and now has a keyboard shortcut. I&#8217;ve also removed the total number of accounts from the header, as well as the colons after the account names, to reduce clutter. Finally, everything has been given a bit more padding and the buttons have been slightly rearranged.<br /><br />Additionally, the previous graphing library has been replaced by cairoplot (thanks <a href="https://blueprints.launchpad.net/wxbanker/+spec/replaceable-plot-renderers">Karel</a>!), which looks much more attractive. Let&#8217;s check it out:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s1600-h/wxBanker-0.7b.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 247px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/S286U7l8uqI/AAAAAAAAAbY/ztBe-P27WY4/s400/wxBanker-0.7b.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5435627406528133794" /></a><br /><br />The Summary view allows you to see a graph of your balance over time, and you can view a graph of a specific account or all accounts by using the account chooser on the left (previously the graph had its own account chooser, that was silly!).<br /><br />And in case you missed the 0.6 announcement, that version brought recurring transactions, XDG directory support, and more intuitive behavior regarding deleting/editing transfer transactions.<br /><br />For downloads and the full list of features and bug-fixes, check out the <a href="https://launchpad.net/wxbanker/0.7/0.7">release page</a>. You can also add <a href="https://launchpad.net/~wxbanker-users/+archive/ppa">the PPA</a> for easy installation and upgrades.<br /><br />If you&#8217;d like to stay in the loop join the <a href="https://launchpad.net/~wxbanker-users">wxBanker Users team</a> (and announcement mailing list) on Launchpad, follow <a href="http://twitter.com/wxbanker">wxBanker on Twitter</a>, or hang out in #wxbanker on irc.freenode.net.</div>
@@ -627,7 +743,7 @@ haven&#39;t really figured out how, after I create an account, I can set up the 
   <entry>
     <title type="html"><![CDATA[Automating translation template generation and check-ins for Launchpad]]></title>
     <link href="http://mrooney.github.com/blog/2010/02/02/automating-translation-template-generation-and-check-ins-for-launchpad/"/>
-    <updated>2010-02-02T00:00:00-04:00</updated>
+    <updated>2010-02-02T00:00:00-05:00</updated>
     <id>http://mrooney.github.com/blog/2010/02/02/automating-translation-template-generation-and-check-ins-for-launchpad</id>
     <content type="html"><![CDATA[<div class='post'>
 I <a href="http://mrooney.blogspot.com/2009/07/launchpad-is-now-automatic-magical.html">previously wrote</a> about how excited I was for the automated translation import and export features of Launchpad. Launchpad will automatically notice when you commit a translation template and import it, making it available for translation online. Generous translators will then contribute translations, and Launchpad will commit them back to your project.<br /><br /><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer;width: 149px; height: 200px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/S2fxD3QRaNI/AAAAAAAAAbI/AfTFW4D9U7s/s400/thumbsup.jpg" border="0" alt="" id="BLOGGER_PHOTO_ID_5433576524119894226" /><br />Okay, so this is pretty good! However for this process to work well, the translation template needs to be generated manually by a developer whenever there are changes to strings. Otherwise, translators are working on potentially outdated strings; some are perhaps not in the application anymore, and there are likely some strings which aren&#8217;t in the template yet.<br /><br />After forgetting to generate and commit my template until shortly before a release more than once (and thus having poor translation coverage on newly added strings), I decided to automate this part of the process as well. All it took was a relatively small script to generate the template, and then if there were any changes, commit and push to the branch configured for automatic import in Launchpad. The following script does just that, by searching for any files using gettext calls starting with _(&#8221; or _(&#8216;, and passing them to xgettext.<br /><br /><pre class="brush: bash"><br />#!/bin/bash<br />set -e<br />ack-grep "_\([\"\']" -l | xargs xgettext --output=wxbanker/po/wxbanker.pot<br />ACTUALCHANGES="`bzr diff | grep \"^[\-\+]msg\" | wc -l`"<br />if [[ "$ACTUALCHANGES" != "0" ]]; then<br />  bzr ci -m "automated generation of translation template"<br />  bzr push :parent<br />fi<br /></pre><br /><br />Note that if you aren&#8217;t using Python, you may need to tweak the regular expression supplied to ack-grep. Once the template is generated, the diff is piped through grep to grab any changes to actual messages and make sure there was at least one. Otherwise there would always be changes due to the timestamp in the template, causing useless commits.<br /><br />I then threw this script into a <a href="http://hudson-ci.org/">Hudson</a> job, the <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration server</a> I use for <a href="https://launchpad.net/wxbanker">wxBanker</a>. I configured this particular job to run nightly, pulling down the latest bzr branch beforehand, and emailing me on any failures.<br /><br />It seems to be working quite well and ensures translators are always translating the latest strings and leaves nothing for me to forget, smoothing out the release process.<br /><br />If this sounds interesting to you but you&#8217;re not familiar with Launchpad as a translation system, check out <a href="http://blog.launchpad.net/general/trying-out-launchpad-translations">http://blog.launchpad.net/general/trying-out-launchpad-translations</a> and feel free to ask any questions here. If you do have experience with translations, how do you handle generating translation templates and then integrating the translations?</div>
@@ -1232,34 +1348,6 @@ Is the name significant and fixed? Banker is sometimes used in the UK (esp SE En
 <div class='author'>Anonymous</div>
 <div class='content'>
 looks great. What gnome theme are you using, btw?</div>
-</div>
-</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using the "finally" block in Python to write robust applications]]></title>
-    <link href="http://mrooney.github.com/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/"/>
-    <updated>2009-02-25T00:00:00-04:00</updated>
-    <id>http://mrooney.github.com/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications</id>
-    <content type="html"><![CDATA[<div class='post'>
-This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers) and get the results. If that doesn&#8217;t concern you, this post is probably still relevant; I&#8217;d just like to cover the groundwork of making code that is stable and repeatable even in the face of [un]expected problems. Luckily for us, python has a wonderful &#8220;finally&#8221; block which can be used to properly clean up or &#8220;finish&#8221; regardless of Bad Things. Let&#8217;s look at an example of a common problem this can solve:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">doStuff()</span><br /><span style="font-family:courier new;">releaseLock()</span></blockquote><br /><br />We need exclusive access to a resource, so we get a lock. We do some stuff, and then release the lock. The problem is that if doStuff raises an exception, the lock never gets released, and your application can be in a broken state. You want to release the lock no matter what. So what you should do is:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">try:</span><br /><span style="font-family:courier new;">    </span><span style="font-family:courier new;"></span><span style="font-family:courier new;">&nbsp;&nbsp;doStuff()</span><br /><span style="font-family:courier new;">finally:</span><br /><span style="font-family:courier new;">&nbsp;&nbsp;releaseLock()</span></blockquote><br /><br />Now save a SIGKILL, the lock is going to be released. This is pretty basic, but it is impressive how robust the finally block is. You can &#8220;return&#8221; in the try block or even &#8220;sys.exit()&#8221; and the code in the finally block will still be executed.<br /><br />I recently used this with XMLRPC to safely tell the remote machine to clean up if the local script ran into problems or even got a SIGTERM from a keyboard interrupt. Here&#8217;s a more elaborate example:<br /><br /><blockquote style="font-family: courier new;">proxy = xmlrpclib.ServerProxy(remoteIP)<br />try:<br />&nbsp;&nbsp;result = proxy.RunTests()<br />&nbsp;&nbsp;if result is None:<br />&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br />&nbsp;&nbsp;else:<br />&nbsp;&nbsp;&nbsp;&nbsp;return result<br />except:<br />&nbsp;&nbsp;sys.exit(2)<br />finally:<br />&nbsp;&nbsp;proxy.CloseFirefox()</blockquote><br /><br />The remote machine (&#8220;proxy&#8221;) is running some tests in firefox. While it does this it sets a lock so no one else can run the same tests. If something goes wrong, this lock needs to be reset and firefox needs to be closed so they can run again later. If it gets a result, return it. If it doesn&#8217;t or something goes wrong, we still clean up but now we can exit with an error code. One of the neatest things about this for me was Ctrl+C&#8217;ing the script on my computer and watching the remote machine cleanly quit firefox and release the lock for another process to use.<br /><br />This is great whenever you need to put something in a temporary state, or change the state after an operation no matter what happens. Think of locks, temporary files, memory usage, or open connections where it is important to close them. Conversely however, make sure you DON&#8217;T use an approach like when it isn&#8217;t appropriate.<br /><blockquote><br /><span style="font-family: courier new;">for client in clientsToPing[:]:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;try:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;ping(client)</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;finally:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;clientsToPing.remove(client</span>)</blockquote><br /><br />This is potentially incorrect behavior, because if you failed to ping your client you may want to keep it on the list to try again next time. However, you also may only want to attempt this once and then the above approach would be correct!<br /><br />In my next post I am going to turn more specifically to remote browser testing and explain how exactly to set up both ends of the connection. After that I&#8217;ll finish by making a post on using twisted + SSL to retrieve posted results over HTTPS.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>imnobukowski</div>
-<div class='content'>
-Unfortunately, there are quite a few exceptions that can happen *between* bytecodes. The most commonly encountered is KeyboardInterrupt but there are others. That means this code:<BR/><BR/>f = open(&#8216;blah.txt&#8217;, &#8216;w&#8217;)<BR/>try:<BR/>  &#8230;<BR/>finally:<BR/>  f.close()<BR/><BR/>doesn&#8217;t always close the file. You could have an exception between open and the start of your try&#8230;finally block! Yay python.</div>
-</div>
-<div class='comment'>
-<div class='author'>Marius Gedminas</div>
-<div class='content'>
-If you like try&#8230;finally, you&#8217;re going to love <A HREF="http://www.python.org/dev/peps/pep-0343/" REL="nofollow">the &#8216;with&#8217; statement</A>.<BR/><BR/>I do.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dennis K.</div>
-<div class='content'>
-Look at python 2.5&#8217;s context managers and the with statement. These are a more elegant way of solving this very problem without littering your code with finally: statements.</div>
 </div>
 </div>
 ]]></content>

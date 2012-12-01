@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="I&#8217;ve been using Launchpad to host my personal finance application wxBanker for a few years now. The thing I was hearing most often was that it &hellip;">
+  <meta name="description" content="I&#8217;ve just released wxBanker 0.5.9 in the wxbanker-testing PPA, which is a preview release for 0.6. If you aren&#8217;t familiar with wxBanker &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions/">wxBanker 0.6 Preview Available, Now With Recurring Transactions!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-20T00:00:00-04:00" pubdate data-updated="true">Sep 20<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/09/20/wxbanker-0-6-preview-available-now-with-recurring-transactions/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I&#8217;ve just released wxBanker 0.5.9 in <a href="https://launchpad.net/~mrooney/+archive/wxbanker-testing">the wxbanker-testing PPA</a>, which is a preview release for 0.6. If you aren&#8217;t familiar with wxBanker already, it is a cross-platform, lightweight personal finance application, and you can find more info at <a href="https://launchpad.net/wxbanker">https://launchpad.net/wxbanker</a>.<br /><br />While there are <a href="https://launchpad.net/wxbanker/+milestone/0.6">many improvements and fixes</a> in 0.6, the main feature is recurring transactions, allowing you to automate repetitive transactions. They are functional in 0.5.9 with one caveat and the purpose of this preview release: there&#8217;s no way (besides sqlitebrowser :) to modify existing recurring transactions. As such I&#8217;d love to get feedback on your impressions of recurring transactions, ideas on a nice configuration UI for them, and of course general feedback. With this I can implement the configuration UI and release 0.6.<br /><br />Here&#8217;s an example of a simple quarterly transaction:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_HU7L5oFDSeA/Srcm3zebZLI/AAAAAAAAAX4/Ui32D2TBg88/s1600-h/wxbanker-recurring-simple.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 72px;" src="http://4.bp.blogspot.com/_HU7L5oFDSeA/Srcm3zebZLI/AAAAAAAAAX4/Ui32D2TBg88/s400/wxbanker-recurring-simple.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383814619697210546" /></a><br /><br />and here is a more complex one, with specific days chosen, as well as the transaction being a transfer from another account:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_HU7L5oFDSeA/Srcl91BFwWI/AAAAAAAAAXw/ANaBFZ7W9PI/s1600-h/wxbanker-recurring.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 108px;" src="http://2.bp.blogspot.com/_HU7L5oFDSeA/Srcl91BFwWI/AAAAAAAAAXw/ANaBFZ7W9PI/s400/wxbanker-recurring.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383813623678615906" /></a><br /><br />When you start up wxBanker and there is a recurring transaction due, you will see something like:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SrcqtaCE55I/AAAAAAAAAYI/FsSU097v09M/s1600-h/Screenshot-wxBanker-1.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 39px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SrcqtaCE55I/AAAAAAAAAYI/FsSU097v09M/s400/Screenshot-wxBanker-1.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383818839115229074" /></a><br /><br />I didn&#8217;t reinvent recurrence rules but instead (luckily) found the dateutil module for python which includes rrule, an &#8220;implementation of the recurrence rules documented in the <a href="http://www.ietf.org/rfc/rfc2445.txt">iCalendar RFC</a>&#8221;, so it should behave quite well.<br /><br />As far as the needed configuration UI goes, there are a couple ideas that I&#8217;ve had so far. Below is the current top-left portion of the UI, for reference:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Srco-UL023I/AAAAAAAAAYA/MvdtcqO5lwc/s1600-h/wxbanker-topleft.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 91px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Srco-UL023I/AAAAAAAAAYA/MvdtcqO5lwc/s400/wxbanker-topleft.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5383816930580028274" /></a><br /><br />One idea was to have a third &#8220;Recurring Transactions&#8221; tab after the &#8220;Transactions&#8221; and &#8220;Summary&#8221; tabs, which appears if and only if recurring transactions exist. This would provide a list of recurring transactions and allow editing them via the same UI used for creation, as well as changing the account or removing them altogether. A second idea is to add another button next to the Add/Rename/Remove account buttons in the upper-left, for account configuration (this will be necessary for future features anyway), and allow modifying recurring transactions for that account there.<br /><br />Another perhaps complementary way would be to provide a right-click action on existing transactions which were recurred, for editing. I&#8217;d also like to implement functionality similar to Google Calendar where editing a value on an existing transaction caused by a recurring transaction will ask you if you want to apply that change to just this transaction, all existing, or all future.<br /><br />If you have ideas, please feel free to leave comments here or drop by #wxbanker on irc.freenode.net any time this week after 10AM PDT, to have a more interactive chat about them. <br /><br />Please do let me know what you think from either just the screenshots here or actually playing around with the application!</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -932,63 +971,6 @@ looks great. What gnome theme are you using, btw?</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/">Using the &#8220;Finally&#8221; Block in Python to Write Robust Applications</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-25T00:00:00-04:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
-        
-         | <a href="/blog/2009/02/25/using-the-finally-block-in-python-to-write-robust-applications/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-This is the first post in my series of three on using XMLRPC to run tests remotely in python (such as javascript and selenium tests in web browsers) and get the results. If that doesn&#8217;t concern you, this post is probably still relevant; I&#8217;d just like to cover the groundwork of making code that is stable and repeatable even in the face of [un]expected problems. Luckily for us, python has a wonderful &#8220;finally&#8221; block which can be used to properly clean up or &#8220;finish&#8221; regardless of Bad Things. Let&#8217;s look at an example of a common problem this can solve:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">doStuff()</span><br /><span style="font-family:courier new;">releaseLock()</span></blockquote><br /><br />We need exclusive access to a resource, so we get a lock. We do some stuff, and then release the lock. The problem is that if doStuff raises an exception, the lock never gets released, and your application can be in a broken state. You want to release the lock no matter what. So what you should do is:<br /><br /><span style="font-family:courier new;"></span><blockquote><span style="font-family:courier new;">getLock()</span><br /><span style="font-family:courier new;">try:</span><br /><span style="font-family:courier new;">    </span><span style="font-family:courier new;"></span><span style="font-family:courier new;">&nbsp;&nbsp;doStuff()</span><br /><span style="font-family:courier new;">finally:</span><br /><span style="font-family:courier new;">&nbsp;&nbsp;releaseLock()</span></blockquote><br /><br />Now save a SIGKILL, the lock is going to be released. This is pretty basic, but it is impressive how robust the finally block is. You can &#8220;return&#8221; in the try block or even &#8220;sys.exit()&#8221; and the code in the finally block will still be executed.<br /><br />I recently used this with XMLRPC to safely tell the remote machine to clean up if the local script ran into problems or even got a SIGTERM from a keyboard interrupt. Here&#8217;s a more elaborate example:<br /><br /><blockquote style="font-family: courier new;">proxy = xmlrpclib.ServerProxy(remoteIP)<br />try:<br />&nbsp;&nbsp;result = proxy.RunTests()<br />&nbsp;&nbsp;if result is None:<br />&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br />&nbsp;&nbsp;else:<br />&nbsp;&nbsp;&nbsp;&nbsp;return result<br />except:<br />&nbsp;&nbsp;sys.exit(2)<br />finally:<br />&nbsp;&nbsp;proxy.CloseFirefox()</blockquote><br /><br />The remote machine (&#8220;proxy&#8221;) is running some tests in firefox. While it does this it sets a lock so no one else can run the same tests. If something goes wrong, this lock needs to be reset and firefox needs to be closed so they can run again later. If it gets a result, return it. If it doesn&#8217;t or something goes wrong, we still clean up but now we can exit with an error code. One of the neatest things about this for me was Ctrl+C&#8217;ing the script on my computer and watching the remote machine cleanly quit firefox and release the lock for another process to use.<br /><br />This is great whenever you need to put something in a temporary state, or change the state after an operation no matter what happens. Think of locks, temporary files, memory usage, or open connections where it is important to close them. Conversely however, make sure you DON&#8217;T use an approach like when it isn&#8217;t appropriate.<br /><blockquote><br /><span style="font-family: courier new;">for client in clientsToPing[:]:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;try:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;ping(client)</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;finally:</span><br /><span style="font-family: courier new;">&nbsp;&nbsp;&nbsp;&nbsp;clientsToPing.remove(client</span>)</blockquote><br /><br />This is potentially incorrect behavior, because if you failed to ping your client you may want to keep it on the list to try again next time. However, you also may only want to attempt this once and then the above approach would be correct!<br /><br />In my next post I am going to turn more specifically to remote browser testing and explain how exactly to set up both ends of the connection. After that I&#8217;ll finish by making a post on using twisted + SSL to retrieve posted results over HTTPS.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>imnobukowski</div>
-<div class='content'>
-Unfortunately, there are quite a few exceptions that can happen *between* bytecodes. The most commonly encountered is KeyboardInterrupt but there are others. That means this code:<BR/><BR/>f = open(&#8216;blah.txt&#8217;, &#8216;w&#8217;)<BR/>try:<BR/>  &#8230;<BR/>finally:<BR/>  f.close()<BR/><BR/>doesn&#8217;t always close the file. You could have an exception between open and the start of your try&#8230;finally block! Yay python.</div>
-</div>
-<div class='comment'>
-<div class='author'>Marius Gedminas</div>
-<div class='content'>
-If you like try&#8230;finally, you&#8217;re going to love <A HREF="http://www.python.org/dev/peps/pep-0343/" REL="nofollow">the &#8216;with&#8217; statement</A>.<BR/><BR/>I do.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dennis K.</div>
-<div class='content'>
-Look at python 2.5&#8217;s context managers and the with statement. These are a more elegant way of solving this very problem without littering your code with finally: statements.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1006,6 +988,10 @@ Look at python 2.5&#8217;s context managers and the with statement. These are a 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/12/01/tax-deductions-for-the-self-employed/">Tax Deductions for the Self-Employed</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/24/chocolate-series-my-favorite-commercial-bars/">Chocolate Series: My Favorite Commercial Bars</a>
       </li>
     
@@ -1019,10 +1005,6 @@ Look at python 2.5&#8217;s context managers and the with statement. These are a 
     
       <li class="post">
         <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/12/21/diving-into-ec2-and-auto-scaling/">Diving into EC2 and Auto Scaling</a>
       </li>
     
   </ul>
