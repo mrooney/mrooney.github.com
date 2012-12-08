@@ -1,24 +1,27 @@
 ---
 layout: post
 title: "Tax Deductions for the Self-Employed"
-date: 2012-11-30 15:33
+date: 2012-12-01 18:21
 comments: true
 categories: 
 ---
 
 Since becoming self-employed at the beginning of 2012, I've been doing a
 fair amount of research into the tax deductions I'm able to take. While
-taxes aren't intrinsically exciting, the money they save generally is.
-However, a caveat before I start: I'm not an accountant and
-hardly an expert, so don't take my word for it, especially since this
-will be my first year filing as self-employed.
+taxes aren't intrinsically exciting, the money they save generally is;
+see below for how they can add up to a million dollars for
+retirement.
+For those not self-employed, I'm sorry that this post is totally useless
+to you :)
 
-These deductions should apply to most business structures including Sole
+One caveat before I start: I'm not an accountant and
+hardly an expert, so don't take my word for it, especially since this
+will be my first year filing as self-employed. These deductions should apply to most business structures including Sole
 Proprietorships and S Corporations, though C Corporations get more
 complicated.
 
 I'm going to do a really shallow overview here, as this is all covered
-in great detail "Deduct It! Lower Your Small Business Taxes". If you are
+in great detail in the book "Deduct It! Lower Your Small Business Taxes". If you are
 interested in learning more or taking any of the following deductions,
 the appropriate chapter in "Deduct It!" has everything you need to know.
 
@@ -38,7 +41,7 @@ income tax like SF and NYC) because:
 
 Also, let's not forget the "time value of money": if you are able to
    use deductions to end up with $5,000 extra dollars in your pocket
-   each year (this is a conversative estimate) from age 25 until 65, and invest that at 7% in something like a Roth IRA, you'll end up with a cool tax-free million dollars ($1,000,000) by age 65.
+   each year (roughly what I'm expecting) from age 25 until 65, and invest that at 7% in something like a Roth IRA, you'll end up with a cool tax-free million dollars (that's $1,000,000) by age 65.
 
 So if that has your attention, I'll go over some of the top deductions I
 plan on taking for the 2012 tax year.
@@ -67,9 +70,9 @@ purposes. If you file correctly, you should be able to avoid paying any
 federal/state/local income taxes on your premiums.
 
 You can also look at setting up a medical expense reimbursement plan,
-which just requires a document kept on-record, while will allow the
+which just requires a document kept on-record, and will allow the
 company to reimburse you for a very wide range of costs you'll incur,
-and deduct these expenses.
+deducting them as expenses.
 
 Office Supplies & Equipment
 ---
@@ -102,3 +105,10 @@ incorporation costs (including the CA ~$800 fee), costs of using
 something like legalzoom.com, and accounting / consulting services used.
 
 
+Okay, that's essentially a whirlwind tour of some the most useful deductions I
+plan on taking! While I don't need a vehicle here in NYC, if you have a car or travel to meet clients or perform
+work tasks, you should also definitely look into car and travel
+deductions, as those can be huge as well.
+
+Certainly let me know if I have any misunderstandings,
+or if I've missed anything important.
