@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="Jonah wrote a post about how awful the band Brokencyde is, and I mostly agree with the points mentioned. However I would also like to propose that &hellip;">
+  <meta name="description" content="Spelunky is an awesomely addictive indie game, which I highly recommend checking out. It is sort of like Mario meets Nethack. As a side-scrolling, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,138 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/">Playing Spelunky in Ubuntu With Wine and Compiz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-14T00:00:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/02/14/playing-spelunky-in-ubuntu-with-wine-and-compiz/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a> is an awesomely addictive indie game, which I highly recommend checking out. It is sort of like Mario meets Nethack. As a side-scrolling, cave-adventuring character, you must venture deeper into the cave, defeating enemies, saving damsels, and collecting money and other fun items. A unique aspect that it takes from roguelike games is that there is really no concept of saving; each &#8220;play&#8221; typically lasts only a few minutes (much less at first), but you can get shortcuts to different zones to skip ahead once you get better. Also like Nethack, it is a surprisingly rich, detailed, and polished game for all its simplicity.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s1600-h/spelunky_screen.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 240px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SZe52uVLhCI/AAAAAAAAAC0/bxlqjYohmfU/s320/spelunky_screen.png" alt="" id="BLOGGER_PHOTO_ID_5302911436052988962" border="0" /></a><br /><br />The unfortunate thing about Spelunky is that only runs in Windows. My initial attempts at running it in Wine proved unsuccessful, but after a while (and playing it on a friend&#8217;s machine which gave me enough to interest to keep trying), I figured out just the right combination of tricks to make it quite playable in Ubuntu. Here&#8217;s what you need to do:<br /><br /><ul><li>download <a href="http://forums.tigsource.com/index.php?topic=4017.0">Spelunky</a>, make sure you are using compiz, and install <a href="apt://wine">wine</a> and <a href="apt://compizconfig-settings-manager">compizconfig-settings-manager</a>.</li><li>set wine to run in an emulated desktop window. To do this, run &#8220;winecfg&#8221;, go to the Graphics tab, and check &#8220;Emulate a virtual desktop&#8221;. The size isn&#8217;t really important; I use 800x600.</li><li>extract Spelunky and create a file (if it doesn&#8217;t exist) called &#8220;settings.cfg&#8221; and put these contents in it:</li></ul><blockquote><br />1<br />1<br />0<br />0<br />1<br />15<br />15</blockquote><br /><br />This is the default settings, tweaked to the only setting that allows it to run in Wine. You can&#8217;t configure it normally since it only works in this way, so I had to have my friend change settings on his Windows box and watch what numbers changed. Thankfully for you I have done the hard work.<br /><br /><ul><li>Run Spelunky! Double-clicking it should probably work, but if you want it to play nicely with other applications using audio at the same time, force it to use pulseaudio by running &#8220;padsp wine spelunky_0_99_5.exe&#8221;. It should show a configuration window, but you can&#8217;t really interact with it. Just click in it and hit enter.</li><li>Now you can play Spelunky, but it is at a 1x zoom level, the only one that plays nicely with Wine. This isn&#8217;t very usable! Run &#8220;ccsm&#8221; (System -> Preferences -> CompizConfig Settings Manager&#8221;) and enable &#8220;Enhanced Zoom Desktop&#8221; from the second group, &#8220;Accessibility&#8221;. Now you can zoom in by holding your Super key (Windows/Apple/Ubuntu key) and scrolling your mouse wheel in or out. Using this technique you can make Spelunky effectively full screen and if you sit it right in the corner, you will forget you are doing anything strange within a few minutes.</li></ul><br />Okay, that&#8217;s it! Some initial setup is involved but once you&#8217;ve gotten it to work the first time, all you need to do in the future is run Spelunky and zoom in. As for help playing Spelunky, navigate over to the tutorial area once in the game, and you&#8217;ll learn everything you need to know! Let me know if it works for you and how much you love Spelunky (it&#8217;s worth it, I promise!) and don&#8217;t forget to check out more fun indie games on <a href="http://db.tigsource.com/">tigdb</a>.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This now works for me with Ubuntu Karmic and my ATI video card using latest proprietary driver. Setting the zoom level to a bigger one worked as well, but for some reason the window is bigger than the picture.<br /><br />I did not try the compiz trick as the size is already rather good and I don&#39;t want to mess it up.</div>
+</div>
+<div class='comment'>
+<div class='author'>John W</div>
+<div class='content'>
+Thank you!!!!</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Relet, make sure to be using a newer version of wine from the PPA I mentioned in comment #7.<br /><br />As far as slowness, I only tend to experience slowness if running another Wine app at the same time, but it is otherwise quite smooth, so unfortunately I have no other advice besides minimizing other tasks using the CPU.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I used this guide and I was able to play the game, but it goes really slow and it takes forever to do anything. is there any way to fix this?</div>
+</div>
+<div class='comment'>
+<div class='author'>relet</div>
+<div class='content'>
+I get either of the following errors using spelunky 1.0 and wine 1.0.1:<br /><br />When using the new settings file:<br />X Error of failed request:  GLXBadDrawable<br />  Major opcode of failed request:  128 (GLX)<br />  Minor opcode of failed request:  11 (X_GLXSwapBuffers)<br />  Serial number of failed request:  3528<br />  Current serial number in output stream:  3530<br /><br />When using the old settings file (a window opens, stays black, and repeats the message on console):<br /><br />fixme:d3d:IWineD3DSwapChainImpl_Present Unhandled present options 0x32fcbc/0x32fccc<br /><br />I&#39;ll try a newer version of wine next.</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+I can&#39;t get the game running by following this guide, I get the following error instead.<br /><br />err:dmloader:IDirectMusicLoaderImpl_<br />IDirectMusicLoader_SetObject : could<br />not attach stream to file</div>
+</div>
+<div class='comment'>
+<div class='author'>cyberix</div>
+<div class='content'>
+This comment has been removed by the author.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Thank you so much for posting this&#8230;now I don&#39;t have to borrow my wife&#39;s laptop to play Spelunky!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh never mind upgraded to wine 1.1.20 and it works fine now. thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+oh whoops i forgot to say what it does :P<br />well the window opens and i get to the configurations screen (which btw you can interact with you just have to click about 100-150 pixels below the actual button). i hit ok and it just closes.</div>
+</div>
+<div class='comment'>
+<div class='author'>Luca</div>
+<div class='content'>
+Doesn&#8217;t work for me. i tried what you said. I have Ubuntu 9.04 on a P4 with nvidia 8400 GS<br />i wonder why&#8230;<br />oh, and i have wine 1.01</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+Hi bryn,<BR/><BR/>I have been using Wine from the PPA: http://launchpad.net/~ubuntu-wine/+archive/ppa<BR/><BR/>Currently this is 1.1.17 which is an improvement over 1.0.1 in Ubuntu by default.</div>
+</div>
+<div class='comment'>
+<div class='author'>curious.jp</div>
+<div class='content'>
+Michael,<BR/> Which build of Wine are you using? I only get music and severe graphical distortion (as well as graphics inverted on the y axis to boot).<BR/><BR/>Cheers,<BR/> Bryn</div>
+</div>
+<div class='comment'>
+<div class='author'>M-U</div>
+<div class='content'>
+To make the size issue better, set the size to fit your monitor, then in appearance change the Desktop to black<BR/><BR/>Also disable &#39;Allow Window Manager to decorate windows&#39; but let it be controlled<BR/><BR/>Now in compiz enable the &#39;Legacy fullscreen support&#39; and run it<BR/><BR/>Widescreen users keep reading&#8230;<BR/>Make the wine virtual desktop have a 4:3(w:h) ratio, do the same steps above, then make a black image(call it ~/black.png), in the decoration plugin, change &#39;all&#39; to &#39;(all) &amp; !(title=Default - Wine desktop)&#39; in the shadows option, in the window rules plugin add a rule for &#39;title=Default - Wine desktop&#39; and keep the y 0, but put (&#39;width of monitor&#39;-&#39;width of virtual desktop&#39;)/2 as the x value<BR/><BR/>now when running the app use the following script<BR/><BR/>#!/bin/bash<BR/>IMG=`gconftool-2 -g /desktop/gnome/background/picture_filename`<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename &#8211;type string $HOME/black.png<BR/>CMD TO START APP<BR/>gconftool-2  -s /desktop/gnome/background/picture_filename &#8211;type string `echo $IMG | sed &#39;s| |\ |g&#39;`</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hehehe it&#8217;s like Fred for ZX Sinclair in the mid-80s!<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred<BR/><BR/>http://www.mobygames.com/game/zx-spectrum/fred/screenshots</div>
+</div>
+<div class='comment'>
+<div class='author'>Murrquan</div>
+<div class='content'>
+Just another reminder to contribute this fix to <A HREF="http://appdb.winehq.org" REL="nofollow">http://appdb.winehq.org</A> ^.^<BR/><BR/>And thanks for the link! Now I&#8217;m browsing through all their Linux games.</div>
+</div>
+<div class='comment'>
+<div class='author'>Juanjo</div>
+<div class='content'>
+You should try Cave Story:<BR/>http://www.miraigamer.net/cavestory/<BR/><BR/>It&#8217;s the best platform game so far.<BR/><BR/>It&#8217;s not FLOSS, but there&#8217;s a Linux port that actually works.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Please contribute this information to the WineHQ AppDB!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -696,68 +828,6 @@ Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/12/19/new-laptop-on-the-way-dell-xps-m1330/">New Laptop on the Way: Dell XPS M1330!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-19T00:00:00-05:00" pubdate data-updated="true">Dec 19<span>th</span>, 2008</time>
-        
-         | <a href="/blog/2008/12/19/new-laptop-on-the-way-dell-xps-m1330/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-NOTE: If you are looking for a good deal on a refurbished Dell XPS M1330 (and maybe 1530), read on!<br /><br />My current and only machine is a 4.5 year old 15.4&#8221; laptop. It&#8217;s held up surprisingly well, but a Pentium M just isn&#8217;t cutting it anymore and I really want a smaller and lighter form factor. I had been eying 13&#8221; Dells for quite awhile (the XPS and Inspiron models), and was looking at paying around $1200 for a new XPS M1330. After discovering Dell Outlet (refurbished, returned, et al) and finding some decent machines for about half the price I was originally looking at, I decided to turn my focus there.<br /><br />I wasn&#8217;t finding anything amazing in the Outlet at first, since so many people are snapping up all the deals very quickly due to Christmas and such. However I discovered a little trick! The Product Red XPS systems are listed separetely from the others with no obvious link. But once you get to a listing of machines for a particular model, you can manually look at Product Reds by changing the model drop-down from say, &#8220;XPS 1330&#8221; to &#8220;XPS 1330 PRODUCT RED&#8221;. Assuming you don&#8217;t mind red (it was actually my preferred color), now you&#8217;ll have a list of machines that a lot of people aren&#8217;t seeing. Sort by price and you can find a few for $759, and a bunch of &#8220;Scratch and Dents&#8221; (lots of good experiences with these online, it seems) for $799. I chose a refurbished one for $759 with a 2.1GHz Core 2 Duo processor (8100), 4 gigs of RAM, Nvidia 8400 128MB graphics card, 6-cell battery, Wireless N and Bluetooth, and integrated 2MP webcam for $759 with free shipping. I was about to bite at this price although I was slightly hesitant as the tax brought it to just over $800, and was really hoping for a coupon to make it sweeter. As I was heavily debating it and rather close to buying it, someone on SlickDeals pointed me to http://www.e-junkie.com/coupon where you can get free one-time use coupons, including 15% off Dell Outlet XPS!<br /><br />I was quickly let down when the coupon didn&#8217;t work online though, as it isn&#8217;t valid with any other promotions, and the free shipping promotion is always there with no way to remove it. However as the coupon expired Dec 24th and the shipping Jan 5th, that meant it actually wasn&#8217;t possible to use it, and figured a call to Dell could rectify this. Sure enough, I was able to get both promotions by ordering over the phone, and got the machine for $645 pre-tax!<br /><br />So in summary:<br /><ol><li>Go to dell.com/outlet, select XPS laptops, then change the model to the PRODUCT RED version from the drop-down.<br /></li><li>Add one to your cart to secure it for 15 minutes. Repeat as necessary throughout every 15 minutes.<br /></li><li>Visit http://www.e-junkie.com/coupon and grab a 15% off Dell Outlet XPS coupon.</li><li>Call Dell Outlet (1-866-492-6721), explain that you have a coupon but can&#8217;t use it because of the shipping promotion, and they should do the order over the phone for you (if you are nice enough :)<br /></li></ol>I am very happy with the purchase, and it comes with a 1-year in home parts and labor warranty. When I was considering new XPS systems for over $1,000, I was going to get a 3 or 4 year warranty for $200-300, but at this price (half of what I was originally considering) I can afford a new laptop in 1-2 years anyway if it breaks down, and have a nicer system for those extra years!<br /><br />I&#8217;ll probably post this to SlickDeals eventually but I thought I&#8217;d give the Ubuntu community a head start. Let me know what you think of this deal in the comments, positive or negative, and if you had any luck doing the same.</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Roshan George</div>
-<div class='content'>
-Just re-read that and it makes it sound like the laptop isn&#8217;t nice. I love using it, it&#8217;s light enough and everything works great with Ubuntu 8.04 64-bit.</div>
-</div>
-<div class='comment'>
-<div class='author'>Roshan George</div>
-<div class='content'>
-Another person with a failed XPS M1330. The 8400M GS apparently has a known heating problem. Dell extended the warranty on the motherboard one year for this.<BR/><BR/>I&#8217;ve already had mine fail once. Consider extending the warranty.</div>
-</div>
-<div class='comment'>
-<div class='author'>Me</div>
-<div class='content'>
-My M1330 died after about 8 months.  I turned it off in the morning, and that afternoon it wouldn&#8217;t power on; totally dead.  Also, the AC adapter&#8217;s light went out when I plugged it into the laptop.  Turns out the &#8220;power rail&#8221; failed, according to a forum thread.  Thankfully I have a 3-year on-site service plan&#8211;I probably wouldn&#8217;t have paid for that, but it came with the special after-Christmas inventory tax-reduction sale.  Now I&#8217;m very glad I have it.<BR/><BR/>After about 45 minutes on the phone to Indonesia (sigh), a service call was scheduled.  It failed on a Thursday, and the guy came on&#8230;Monday or Tuesday to fix it.  He couldn&#8217;t come until the part was shipped to him.  He came to my university campus and repaired it while I was in classes.  AFAIK the motherboard and the black plastic part between the hinges, including the touch-sensitive buttons was replaced.  He also replaced the adapter, but annoyingly, the cables on this one are still&#8230;wavy from the way they were bent and coiled up, compared to the original which had smooth and straight cables.<BR/><BR/>It&#8217;s been fine since then, but I was very disappointed that it totally died so suddenly and so quickly; I haven&#8217;t even had it a year yet.  It happened at a rather bad time, too, as I had a project due the next day.<BR/><BR/>If you can afford to wait, you might catch a good deal around January-early February, and you might consider that extended warranty.  :/</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Cool find! Thanks a lot!</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -775,6 +845,10 @@ Cool find! Thanks a lot!</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/12/13/5-things-i-didnt-know-about-sustainability-in-nyc/">5 Things I Didn&#8217;t Know About Sustainability in NYC</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/01/tax-deductions-for-the-self-employed/">Tax Deductions for the Self-Employed</a>
       </li>
     
@@ -788,10 +862,6 @@ Cool find! Thanks a lot!</div>
     
       <li class="post">
         <a href="/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/">Dynamic URLs with Amazon S3&#8217;s Static Website Hosting</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/01/dns-root-slash-apex-cnames-in-practice/">DNS: Root/Apex CNAMES in Practice</a>
       </li>
     
   </ul>

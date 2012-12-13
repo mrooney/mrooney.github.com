@@ -4,7 +4,7 @@
   <title><![CDATA[Mike Rooney]]></title>
   <link href="http://mrooney.github.com/atom.xml" rel="self"/>
   <link href="http://mrooney.github.com/"/>
-  <updated>2012-12-01T18:37:19-05:00</updated>
+  <updated>2012-12-13T13:17:16-05:00</updated>
   <id>http://mrooney.github.com/</id>
   <author>
     <name><![CDATA[Mike Rooney]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[5 Things I Didn't Know About Sustainability in NYC]]></title>
+    <link href="http://mrooney.github.com/blog/2012/12/13/5-things-i-didnt-know-about-sustainability-in-nyc/"/>
+    <updated>2012-12-13T12:39:00-05:00</updated>
+    <id>http://mrooney.github.com/blog/2012/12/13/5-things-i-didnt-know-about-sustainability-in-nyc</id>
+    <content type="html"><![CDATA[<p>When I initially moved to NYC, I didn&#8217;t really understand how / what to
+recycle, and how to reduce my impact on the gigantic amount of trash NYC
+processes. I just threw everything away.</p>
+
+<p>Here are some tips I learned in the past two years that are not only
+ideally helpful for the environment, but also benefit the local
+community, your apartment, and even your wallet.</p>
+
+<ol>
+<li><p>Many Greenmarkets accept compost materials.</p>
+
+<p>Farmer&#8217;s Markets in NYC, &#8220;Greenmarkets&#8221;, often have a stand that allows
+you to drop off your food scraps. This allows you to save your food
+scraps in the freezer until you make it to a market (I use a plastic carton that was previously a container of spinach). This has a couple great benefits: your apartment smells better without food scraps in the trash and you don&#8217;t need to take it out in a hurry (using less trash bags), you contribute nutrients to local gardens / farms, and it is <a href="http://sustainablog.org/2008/12/compost-vs-landfill-does-it-really-make-a-difference/">less material releasing methane in a landfill</a>.</p></li>
+<li><p>&#8230;and textiles.</p>
+
+<p>Most markets also have textile recycling, which allow
+you to get rid of clothing in any condition. They sort it and donate the
+things in good condition for reuse, and claim to have some means to
+recycle the rest.</p></li>
+<li><p>You don&#8217;t have to use ConEd (sort of)</p>
+
+<p>There are alternative energy providers, often at Greenmarkets but also
+<a href="http://whitefence.com/">online</a>, that provide sustainable energy,
+including a company that is 100% New York State wind powered. Local
+wind! The prices are often very similar, if not cheaper, than ConEd, so
+it can be a no-brainer. It is trivial to switch and you don&#8217;t have to
+change anything, and you still get a bill from ConEd.</p>
+
+<p>  The way they set
+it up (which seems very elegant in some respects, if you can get over
+the abstractness of your usage), is that ConEd still
+monitors your usage, delivers your energy, and bills you at the new rate, but then they are
+required to purchase your kWh usage from the alternative company you
+choose.</p></li>
+<li><p>For plastics, NYC only recycles bottle-shaped #1</p>
+
+<p>If your plastic doesn&#8217;t have a number &#8220;1&#8221; recycling symbol on it AND
+have a mouth less wide than the main component (a bottle shape), it gets
+sorted and thrown out by the city. However, it is still great to recycle
+these as the city sells what it does recycle, making a profit, instead
+of having to pay to remove trash.</p>
+
+<p>  However for metals and glass, I think pretty much anything (hangers
+included) are fair game.</p></li>
+<li><p>Whole Foods and Co-ops allow recycling / reusing of many things the
+city doesn&#8217;t.</p>
+
+<p> If you have non-bottle-shaped #1s, as well as plastic bags, #5 and #6
+plastics, Whole Foods and some food co-ops have bins you can deposit
+these in. I believe Whole Foods also has a book donation bin!</p></li>
+</ol>
+
+
+<p>While managing all of these may seem like a lot of work, it is fairly
+simple once you get into the habit. For example, there&#8217;s a Whole Foods
+adjacent to the Union Square Greenmarket, so you could bring your frozen
+compost container and recyleables in a reusable bag, drop them all off, and
+fill up the bag with fresh goodies (at the market, Whole Foods, or
+Trader Joe&#8217;s), accomplishing composting, recycling, and shopping in one
+trip!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tax Deductions for the Self-Employed]]></title>
@@ -1277,79 +1346,6 @@ Today <a href="http://eng.genius.com/blog/2009/04/13/rfc2142-deliverability/">Fr
     <id>http://mrooney.github.com/blog/2009/04/08/genius-com-is-eagerly-anticipating-php-5-3</id>
     <content type="html"><![CDATA[<div class='post'>
 Over at the Genius Engineering blog we just put up<a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/"> a post regarding our anticipation of PHP 5.3</a> and what we are looking forward to in it. We&#8217;d love to get some feedback and thoughts on it, and hear what other people are interested in regarding PHP 5.3 that we may have missed. If you&#8217;ve been following PHP 5.3, or haven&#8217;t and want to catch up, <a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/">check it out</a>!</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[wxBanker 0.5 RC available for testing and translating!]]></title>
-    <link href="http://mrooney.github.com/blog/2009/04/06/wxbanker-0-5-rc-available-for-testing-and-translating/"/>
-    <updated>2009-04-06T00:00:00-04:00</updated>
-    <id>http://mrooney.github.com/blog/2009/04/06/wxbanker-0-5-rc-available-for-testing-and-translating</id>
-    <content type="html"><![CDATA[<div class='post'>
-Recently I&#8217;ve been hard at work on the next version of wxBanker, a lightweight personal finance application, and would like to get out the 0.5 release candidate for testing and <a href="https://translations.launchpad.net/wxbanker">translations</a>. To check it out, add my <a href="https://launchpad.net/%7Emrooney/+archive/wxbanker-testing">wxbanker-testing PPA</a>. It also runs on Windows and OSX (albeit less tested), so feel free to grab the <a href="https://launchpad.net/wxbanker/0.5/0.5">source tarball</a> (it&#8217;s python, so no compilation necessary) and then check out the included README. The only hard dependency is wxpython, although installing numpy and the simplejson library for python allow for graphing and csv importing respectively.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s1600-h/Screenshot-2.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 108px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr39pxUU0I/AAAAAAAAAJc/qB3skDFi5rc/s320/Screenshot-2.png" alt="" id="BLOGGER_PHOTO_ID_5321838548248449858" border="0" /></a><br />wxBanker 0.5 has been a long time in the making, as it represents a large refactor of the underlying code to make everything much faster, more stable, and easier to extend and implement new functionality. This is especially noticeable in the start up time.<br /><br />There is also a new transaction grid which allows for sorting, a CSV import option in Tools (so you can import transactions from your banks initially)<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s1600-h/csvimport.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 315px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr0YzHl5CI/AAAAAAAAAI8/itA1mNudySc/s320/csvimport.png" alt="" id="BLOGGER_PHOTO_ID_5321834616567751714" border="0" /></a><br />&#8230;and enhanced right-click actions for transactions which now work on multiple selected transactions:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s1600-h/rightclick.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 130px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/Sdr1YGSCBBI/AAAAAAAAAJE/1-1YyM9V6I4/s320/rightclick.png" alt="" id="BLOGGER_PHOTO_ID_5321835704043570194" border="0" /></a><br />See the included changelog for a full list of new things. Launchpad is also fairly well integrated into wxBanker, so to file a bug or do almost anything else, just use the help menu. The Spanish and French translations are complete but I could really use help everywhere else: <a href="https://translations.launchpad.net/wxbanker">https://translations.launchpad.net/wxbanker</a> !<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s1600-h/helpmenu.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 218px; height: 161px;" src="http://1.bp.blogspot.com/_HU7L5oFDSeA/Sdr2AI-8l-I/AAAAAAAAAJU/_-Il8uV5otQ/s320/helpmenu.png" alt="" id="BLOGGER_PHOTO_ID_5321836391963596770" border="0" /></a><br />Check out <a href="https://wiki.ubuntu.com/wxBanker">https://wiki.ubuntu.com/wxBanker</a> for more screenshots, or the wxBanker homepage at<a href="https://launchpad.net/wxbanker"> https://launchpad.net/wxbanker</a> for more information including the users team/mailing list, and the translations team. If you are interested in the less exciting stable version, 0.4.1.0 can be found in the Ubuntu repos as of Jaunty, available in about 18 languages.<br /><br />Enjoy, and let me know of any issues or comments you have, and thanks in advance for translations :)</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-I figured out the problem with the import errors. In the file wxbanker.py, before the import of wx, wx.aui, just add the line: import wxversion; wxversion.ensureMinimal(&quot;2.8&quot;)<br /><br />This way even if wxPython 2.6 is the default on your system, as long as you have 2.8 or better it will use that install for wxBanker.<br /><br />A fix for this has been applied and it should work fine out of the box in the upcoming 0.6 release.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Paul &amp; Cilla, hello !<br /><br />I had the same pb on my Ubuntu Jaunty after installing PyKaraoke because it installed wxpyton 2.6 and I have already 2.8.9.1 so when you have many versions in python, it take the older so it&#39;s why after unistalling wxpython 2.6 (and so PyKaraoke) it&#39;s works fine. So try to find in Synaptic if you have many versions of Wxpython and try out to unistall all of them except 2.8&gt; , but only if not important software you use are depending to them. And normally it have to works instantanly.<br /><br />But i&#39;m not a python expert and if there is a solution or a workaround to have many versions of wxpython (and python himself too) working together without conflict, i&#39;m interrested.<br /><br />So good luck and bye !!<br /><br />PS : to developpers, I&#39;m  forced to say you that multiplatform and easy developpement is not only through WxWidget+Python : Try out QtCreator !! Ok, it&#39;s C++, but it&#39;s so easy, flexible and powerfull, and portable too ! And the software produced is quite more speedy. And you have also an intergrated UI designer which is marvellous. I said that because I discovered it 2 month ago and I have already developed so many project with it so quickly that I can&#39;t stop to talk about it to other developpers because to be really franch, I don&#39;t love python  at all :( &#8230;.  It think it is buggy, slow and not very flexible. And for this reason, i&#39;ve started to transcode many Python programs ins C++ to speed-up them (DJL, Alacarte, Elisa, Gnome-packagekit &#8230;&#8230;). So on these ideas I leave you at your tasks. But very good program ! Thanx.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-Hi Paul and Cilla, thanks for trying it out! That is usually the error that you get if your version of wxPython is too old; wxBanker requires at least 2.8.8.0. Do you know what version you have? You can find out by running python from a command line and then typing &#8220;import wx; wx.version()&#8221;. Also, what OS is this? I would try getting the latest version from www.wxpython.org .</div>
-</div>
-<div class='comment'>
-<div class='author'>Paul &amp; Cilla&#39;s Place</div>
-<div class='content'>
-I ran your apt-get install script and tried to run banker. I got this error:<BR/>./wxbanker.py<BR/>Traceback (most recent call last):<BR/>  File &quot;./wxbanker.py&quot;, line 24, in (it says module, but that isn&#39;t allowed in your blog) &lt;    module   &gt;<BR/>    import wx, wx.aui<BR/>ImportError: No module named aui</div>
-</div>
-<div class='comment'>
-<div class='author'>crashsystems</div>
-<div class='content'>
-One feature I think is rather important is export to CSV. I was bored this evening, so to amuse myself I whipped up a little module to do just that. I pushed <A HREF="https://code.edge.launchpad.net/~crashsystems/wxbanker/csvexport" REL="nofollow">my branch</A> to launchpad, so feel free to use it if you think it will be useful. I don&#8217;t have any experience with wxWidgets yet (I&#8217;ve mostly worked with GTK), so I did not write any GUI stuff for this feature. If you don&#8217;t beat me to it, I may get around to doing that one of these days.<BR/><BR/>Keep up the great work!</div>
-</div>
-<div class='comment'>
-<div class='author'>Cláudio Novais</div>
-<div class='content'>
-Hi Michael,<BR/><BR/>I&#8217;m translating to Portuguese and it&#8217;s almost completed!<BR/><BR/>You are doing a great work, keep going!</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-@crashsystems: I think the scope of the application is appropriate for personal and small business finance, at least for the bookkeeping aspects. If there is anything that you find it is missing, I will be happy to implement it as I would like to support small business use as well. Nice print reporting of accounts should be coming in about a month which I imagine is useful. Try it and let me know what it needs!</div>
-</div>
-<div class='comment'>
-<div class='author'>crashsystems</div>
-<div class='content'>
-This program looks very interesting. Do you think it would be suitable for a small business that has no need for payroll related features?</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-@1: In the first screenshot I am using Dust, now included in Ubuntu as of Jaunty. The other two are Shiki-Colors (Wise).<BR/><BR/>@2: Phil, I am familiar with the term wanker, though didn&#8217;t know banker was synonymous. I don&#8217;t really see it is a problem but I will consider any names someone throws out; do you have a suggestion?<BR/><BR/>@3: Thanks for the feedback, that&#8217;s what I am going for!</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-Dutch translation finished :-)<BR/><BR/>Great program btw, much more clear than gnucash or similar<BR/><BR/>keep up the good work!</div>
-</div>
-<div class='comment'>
-<div class='author'>Phil</div>
-<div class='content'>
-Is the name significant and fixed? Banker is sometimes used in the UK (esp SE England) as a euphamism for wanker (it derives from the old London tradition of rhyming slang) Adding wx in front just makes it worse!</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-looks great. What gnome theme are you using, btw?</div>
-</div>
-</div>
 ]]></content>
   </entry>
   
