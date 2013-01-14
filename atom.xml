@@ -4,7 +4,7 @@
   <title><![CDATA[Mike Rooney]]></title>
   <link href="http://mrooney.github.com/atom.xml" rel="self"/>
   <link href="http://mrooney.github.com/"/>
-  <updated>2012-12-13T13:17:16-05:00</updated>
+  <updated>2013-01-14T14:33:26-05:00</updated>
   <id>http://mrooney.github.com/</id>
   <author>
     <name><![CDATA[Mike Rooney]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Blog Migrated, Please Update Feeds (If You Like)]]></title>
+    <link href="http://mrooney.github.com/blog/2013/01/14/blog-migrated/"/>
+    <updated>2013-01-14T14:21:00-05:00</updated>
+    <id>http://mrooney.github.com/blog/2013/01/14/blog-migrated</id>
+    <content type="html"><![CDATA[<p>Hey everyone! I just wanted to post a quick mention that I&#8217;ve now migrated my blog to <a href="http://mikerooney.rowk.com">http://mikerooney.rowk.com/</a>, so if you are following this blog, please do update your feed so you continue to get new posts (and check out recent posts over there, as there have been a bunch).</p>
+
+<p>I decided to migrate from Octopress to Wordpress (everyone seems to go
+the other way, I know) for a myriad of reasons. I plan to write up why
+in a short post over at that blog, so if you&#8217;d like to find out,
+please subscribe and stay tuned!</p>
+
+<p>In the meantime, if it can help anybody do the same, I migrated my posts
+(sort of, they still link here which is fine as that&#8217;s where the
+comments are) from Octopress to Wordpress via the <a href="http://feedwordpress.radgeek.com/">FeedWordPress</a> plugin, which allows you to import from essentially any type of feed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[5 Things I Didn't Know About Sustainability in NYC]]></title>
@@ -1336,16 +1354,6 @@ This sounds like good idea to me - each distribution&#8217;s package repositorie
     <id>http://mrooney.github.com/blog/2009/04/13/email-deliverability-rfc-2142-everything-you-wanted-to-know-and-never-dared-to-ask</id>
     <content type="html"><![CDATA[<div class='post'>
 Today <a href="http://eng.genius.com/blog/2009/04/13/rfc2142-deliverability/">Franck Martin wrote an interesting post</a> regarding <a href="http://tools.ietf.org/html/rfc2142">RFC 2142</a> (&#8220;Mailbox names for common services, roles and functions&#8221;) and how it relates to email deliverability. If you are running your own email server or own a domain, you may interested in reading it as it sums up what email addresses are expected to be manned at any domain and for what purposes.<br /><br />For example, did you know that &#8220;if an Internet service provider’s domain name is COMPANY.COM, then the ABUSE@COMPANY.COM address must be valid and supported&#8221;? And are you manning your postmaster and hostmaster addresses?</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Genius.com is Eagerly Anticipating PHP 5.3]]></title>
-    <link href="http://mrooney.github.com/blog/2009/04/08/genius-com-is-eagerly-anticipating-php-5-3/"/>
-    <updated>2009-04-08T00:00:00-04:00</updated>
-    <id>http://mrooney.github.com/blog/2009/04/08/genius-com-is-eagerly-anticipating-php-5-3</id>
-    <content type="html"><![CDATA[<div class='post'>
-Over at the Genius Engineering blog we just put up<a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/"> a post regarding our anticipation of PHP 5.3</a> and what we are looking forward to in it. We&#8217;d love to get some feedback and thoughts on it, and hear what other people are interested in regarding PHP 5.3 that we may have missed. If you&#8217;ve been following PHP 5.3, or haven&#8217;t and want to catch up, <a href="http://eng.genius.com/blog/2009/04/08/eagerly-anticipating-php-53/">check it out</a>!</div>
 ]]></content>
   </entry>
   

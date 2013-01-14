@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Rooney">
 
   
-  <meta name="description" content="Spelunky is an awesomely addictive indie game, which I highly recommend checking out. It is sort of like Mario meets Nethack. As a side-scrolling, &hellip;">
+  <meta name="description" content="wxBanker, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren&#8217;t familiar with it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/">Lightweight Personal Finance Just Got Easier With wxBanker in Jaunty!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-15T00:00:00-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/02/15/lightweight-personal-finance-just-got-easier-with-wxbanker-in-jaunty/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="https://launchpad.net/wxbanker">wxBanker</a>, your (hopefully) favorite lightweight personal finance application, has recently been accepted into Jaunty! Aren&#8217;t familiar with it? Check out the <a href="https://wiki.ubuntu.com/wxBanker">screenshots</a>! It took a few months of getting over the debian packaging learning curve, and about as much work getting and responding to the reviews from MOTUs, but I did it. I plan on doing a quick point release this week and releasing wxBanker 0.4.0.3, which will sport updated <a href="https://translations.edge.launchpad.net/wxbanker/trunk/+pots/wxbanker">translations in 15 languages</a> (thanks translators!) as well as a minor bug fix or three. Once I get that out and into Jaunty, I&#8217;ll turn my complete focus (I hope) to the 0.5 series. If you&#8217;d like to translate wxBanker to your own language or improve a few of the lacking existing translations (Bosnian, Dutch, and Portuguese particularly), I&#8217;d love it! Head over to <span><a href="https://launchpad.net/%7Ewxbanker-translators">https://launchpad.net/~wxbanker-translators</a> and join the fun!</span><br /><br />The 0.5 series is a refactor and a bit of a painful one, as I didn&#8217;t have a great handle on how to efficiently and smoothly refactor. I could probably do a much better job managing it now, but that&#8217;s how experience works. All in all it is a much cleaner structure and led to more and better tests, which should allow more agile development and protect against future regressions. Some of the main upcoming features I&#8217;d like to get in are transaction tagging, recurring transactions, reporting, online syncing (via mint.com), and csv imports. I&#8217;d love for at least a few of those to make it into 0.5, and there is good progress on some of them including csv imports thanks to <a href="https://code.launchpad.net/%7Ekolmis/wxbanker/csvimport">an impressive branch from Karel</a>. On the other hand 0.5 has already been ongoing for about 3 months and I might cut a release into a PPA and get feedback while I add new features, sorting out any 0.5 issues and leading to a robust 0.6 release.<br /><br />Overall I have learned a TON from this project, in no small part thanks to Launchpad. wxBanker started out as a terminal application which stored everything in a pickled linked tuple that I used for myself and added features as I needed them. Eventually I added a GUI (in wxPython) and registered the project on Launchpad, to get free hosted version control as well as more formal bug tracking (instead of a text file :). The combination of Launchpad and [wx]Python being cross-platform made it accessible to everyone, and took it from a project used only by myself to a project available in 15 languages with code contributions from multiple people.<br /><br />So in conclusion, thanks everyone, enjoy wxBanker 0.4.0.3 in Jaunty, and look forward to future versions in my PPA. If you&#8217;re not on Jaunty yet, you can <a href="https://launchpad.net/%7Emrooney/+archive/ppa">install 0.4 from my PPA</a>, which I&#8217;ll be updating to 0.4.0.3 as soon as I release it. I&#8217;d love for any of your contributions, suggestions, questions, or criticisms to end up <a href="https://launchpad.net/wxbanker">on Launchpad</a>. I&#8217;d love to make it as usable and intuitive as possible, so anything that is unclear or confusing would be awesome to hear.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+I completely agree - having used a bunch of personal management tools I would love to have the power of wxBanker for my personal finances if only for the easy upload. You can get information about <a href="http://www.interchangefx.co.uk" rel="dofollow" rel="nofollow">Money exchange</a> at here:interchangefx.co.uk</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+David: Glad to hear it! I just updated the PPA so you can grab 0.4.0.4 in Intrepid or Jaunty. If you are patching any bugs, 0.4 is a good place, and I will port them forward. Otherwise for new features, 0.5 is a good place for the work.<BR/><BR/>There is no need to wait though; that code should be released soon and I&#8217;d love more testers so feel free to do a &#8220;bzr branch lp:wxbanker/0.5&#8221; and run from there, filing any bugs on launchpad and adding any cool features!</div>
+</div>
+<div class='comment'>
+<div class='author'>David</div>
+<div class='content'>
+Good to hear you&#8217;ve been working on it. Been keeping an eye on it over the past months, and hadn&#8217;t noticed any new releases. I&#8217;ve been putting off sorting out my personal finances for way too long, so tonight&#8217;s the night :-) Will send some patches your way if I come up with any improvements, but maybe I should wait for 0.5 if it&#8217;s undergoing a major change in codebase?</div>
+</div>
+<div class='comment'>
+<div class='author'>Michael</div>
+<div class='content'>
+It is definitely in my plans to get wxBanker into Debian as well, and Ubuntu prefers it as well. I am not sure of the process involved but I will probably take a look at it after I release 0.4.0.3. I am glad it interests you!<BR/><BR/>It is a fairly simple package, you could probably download the deb and use it fine in Debian, or just download the source and &#8220;python setup.py install&#8221; yourself :)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Can you add that to Debian too? Please don&#8217;t leave Debian users out in the cold yet again Ubuntu!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -756,78 +823,6 @@ congrat on your new (sweet) job.Nice&#8230;<BR/><BR/>I never thought this combin
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/01/29/gnome-do-0-8-released-awesomeness-ensues/">Gnome Do 0.8 Released; Awesomeness Ensues!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-01-29T00:00:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2009</time>
-        
-         | <a href="/blog/2009/01/29/gnome-do-0-8-released-awesomeness-ensues/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Gnome Do 0.8 has just been released! If you don&#8217;t know anything about Do, I HIGHLY recommend that you check it out. It is a magical launcher inspired by Quicksilver that is super powerful, plugin-rich, intuitive, and rather polished.<br /><br />The 0.8 release added a bunch of bling in the form of smooth animations and more attractive interfaces. One of the most interesting aspects about the release, however, is the addition of a Dock interface called Docky:<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIvpnbUBsI/AAAAAAAAABc/097gI4Dl_sU/s1600-h/docky1.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 70px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIvpnbUBsI/AAAAAAAAABc/097gI4Dl_sU/s320/docky1.jpg" alt="" id="BLOGGER_PHOTO_ID_5296848503745808066" border="0" /></a><br /><br />At first glance it appears to be just yet another Linux dock and a random feature for Do to add. However the dock is actually automatically and dynamically populated based on your most launched applications in Do. You can also add and remove launchers by dragging them to and from the dock. This would be cool enough, but it doesn&#8217;t stop there because Docky is a first-class Do interface where you can perform all your actions!<br /><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIv_VxJOVI/AAAAAAAAABk/ud_D6YWY4t8/s1600-h/docky2.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 320px; height: 70px;" src="http://3.bp.blogspot.com/_HU7L5oFDSeA/SYIv_VxJOVI/AAAAAAAAABk/ud_D6YWY4t8/s320/docky2.jpg" alt="" id="BLOGGER_PHOTO_ID_5296848876962658642" border="0" /></a><br /><br />Oh yeah, and it features a silky smooth parabolic zoom. Instead of repeating what the developers have already said better themselves, let me link you to their blog posts. If you want to get Do, check out the first link which is the official release announcement (or skip right to the <a href="https://launchpad.net/%7Edo-core/+archive/ppa">PPA</a> :). For more in-depth information, I highly recommend jassmith&#8217;s post who was the main Docky developer. Happing Do-ing, and don&#8217;t forget to <a href="http://digg.com/linux_unix/Announcing_GNOME_Do_0_8_Rock_out_with_your_dock_out">Digg</a> it!<br /><br />Release announcement: <a href="http://do.davebsd.com/release.shtml">http://do.davebsd.com/release.shtml</a><br />jassmith: <a href="http://jassmith.wordpress.com/2009/01/29/gnomedo080release/">http://jassmith.wordpress.com/2009/01/29/gnomedo080release/</a><br />pengdeng: <a href="http://b.pengdeng.com/2009/01/do-08-rock-out-with-your-dock-out.html">http://b.pengdeng.com/2009/01/do-08-rock-out-with-your-dock-out.html</a></div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>kiss</div>
-<div class='content'>
-This comment has been removed by a blog administrator.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-Janne, Docky doesn&#8217;t have to take up any screen real estate, and I prefer that it doesn&#8217;t. Just right-click on the Do icon in the left of Docky and enable &#8220;Allow Window Overlap&#8221;. This will make Docky behave like most docks and give you that bottom area back.</div>
-</div>
-<div class='comment'>
-<div class='author'>Tomasz &#8216;Zen&#8217; Napierała</div>
-<div class='content'>
-Im using gnome-do since it&#8217;s beggining, but now I cant use themes without using compiz :( I cant use compiz, so do&#8217;s usability is kinda limited for me, especially while default theme is to big and doesn&#8217;t fot to my desktop.</div>
-</div>
-<div class='comment'>
-<div class='author'>Janne Morén</div>
-<div class='content'>
-Thanks; didn&#8217;t know you could resize it.<BR/><BR/>Still not an option though, as I only have room for one panel; with a 1024x768 size screen, two panels already eat too much into my screen estate. So until/if Docky becomes a full replacement I&#8217;ll do without. Gnome DO works perfectly fine without it after all.</div>
-</div>
-<div class='comment'>
-<div class='author'>Michael</div>
-<div class='content'>
-Hi Janne! You can grab the divider between your launchers and trash to size Docky vertically, and to resize it horizontally you can grab either end.<BR/><BR/>When using Docky, I would recommend removing the bottom panel, as it becomes rather unnecessary and is what most docks anticipate. If there are any panel applets you miss, just add them to the top panel!</div>
-</div>
-<div class='comment'>
-<div class='author'>Janne Morén</div>
-<div class='content'>
-Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the Docky interface is a dud for me. It obscures my normal panel, and it is way, way, _waaayyy_ too big, with no way to make is smaller or move it away from the bottom. Did I mention just how humongous that Docky thing is?<BR/><BR/>Also, the Evolution contacts search plugin doesn&#8217;t seem to work; a shame as that could come in really useful.<BR/><BR/>Other than that, though, it really seems to be a pretty useful app, and I intend to keep using it for now.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -845,6 +840,10 @@ Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/14/blog-migrated/">Blog Migrated, Please Update Feeds (If You Like)</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/13/5-things-i-didnt-know-about-sustainability-in-nyc/">5 Things I Didn&#8217;t Know About Sustainability in NYC</a>
       </li>
     
@@ -858,10 +857,6 @@ Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the
     
       <li class="post">
         <a href="/blog/2012/07/01/freelancing-a-6-month-retrospective/">Freelancing: A 6-Month Retrospective</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/23/dynamic-urls-with-amazon-s3s-static-website-hosting/">Dynamic URLs with Amazon S3&#8217;s Static Website Hosting</a>
       </li>
     
   </ul>
@@ -894,7 +889,7 @@ Gnome DO is really nice; you just made me start using it. <BR/><BR/>However, the
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Mike Rooney -
+  Copyright &copy; 2013 - Mike Rooney -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
