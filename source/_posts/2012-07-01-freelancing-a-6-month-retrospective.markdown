@@ -14,15 +14,15 @@ In short, I felt that given a finite lifespan, there were more
 fulfilling and enjoyable ways to spend some of my healthiest years than 40+ hour weeks in an
 office.
 
-More specifically, there were a few activities I wanted to spend more time doing: cooking, climbing, yoga, and Zen practice.
+More specifically, there were a few activities I wanted to spend more time doing: cooking, climbing, yoga, and meditation.
 
 In review, here are the numbers between then and now:
 
 * hours worked/week: 40-50 => 16-20
 * estimated vacation per year: 4 weeks => 12 weeks
 * meals cooked/day: ~0.7 => 2+
-* daily Zen practice (zazen): 15 minutes => 70 minutes, plus ~1 day a
-  week at the Fire Lotus Temple
+* daily meditation: 15 minutes => 70 minutes, plus ~1 day a
+  week at a Zen Buddhist temple
 * weekly climbing / yoga: 0 => 2
 * monthly income: unchanged!
 
@@ -93,7 +93,7 @@ plus [a noticeable ability to concentrate again](http://www.amazon.com/The-Shall
 
 Additionally, I made a list of everything I wanted to accomplish, including recurring
 and one-time events. For recurring events, a site like [Joe's Goals](http://www.joesgoals.com) is especially useful; I keep it as a permanent pinned tab in Chrome and it keeps me honest about how often I'm actually doing the activities I say I care about. The previously mentioned activities such as cooking,
-climbing, yoga, reading, and Zen filled in most of the time nicely so
+climbing, yoga, reading, and meditation filled in most of the time nicely so
 there was little opportunity for boredom, but
 I also knocked out a few things
 I'd long had on my to-do list including:
