@@ -160,3 +160,5 @@ Resources
 =========
 Based on the questions this post has generated, I'd suggest reading [The 4-Hour Workweek](http://www.amazon.com/gp/product/0307465357/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307465357&linkCode=as2&tag=metafood-20) if you are looking for motivation, inspiration, and practical tips for quitting your job, going remote, or finding other income streams. Once you are working for yourself, the aforementioned [Working for Yourself](http://www.amazon.com/gp/product/1413313310/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1413313310&linkCode=as2&tag=metafood-20) is great and covers laws, taxes, insurance, contracts, and everything else you'd need to know in very great detail!
 
+Want more? Check out my [freelance resources page](http://mikerooney.rowk.com/freelance-resources/) for future retrospectives and other resources I've found helpful.
+
