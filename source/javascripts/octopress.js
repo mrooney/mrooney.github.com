@@ -144,6 +144,7 @@ $.domReady(function() {
     scales = [0.25, 1.6];
     doc[addEvent](type, fix, true);
   }
+  if (window.location.pathname === '/') { window.location.href = '/about/'; }
 }(document));
 
 /*!	SWFObject v2.2 modified by Brandon Mathis to contain only what is necessary to dynamically embed flash objects
